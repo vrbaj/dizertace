@@ -3,9 +3,9 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: PHD.aux
 I found no \bibdata command---while reading file PHD.aux
 I found no \bibstyle command---while reading file PHD.aux
-You've used 6 entries,
+You've used 7 entries,
             0 wiz_defined-function locations,
-            89 strings with 531 characters,
+            90 strings with 537 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0

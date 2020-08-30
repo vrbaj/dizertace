@@ -1,17 +1,42 @@
 \chapter{Číslicové adaptivní filtry a algoritmy}
 Tato kapitola je věnována diskrétním adaptivním filtrům, které byly v průběhu práce na tématu dizertační práce použity (viz podkapitola \ref{chap:af} a algoritmům, které byli k jejich adaptaci použity (viz podkapitola \ref{chap:aa}). Z pohledu klasifikace filtrů dle impulsní charakteristiky se jedná o filtry s konečnou impulsní charakteristikou (viz podkapitola) i o filtry s nekonečnou impulsní charakteristikou (viz podkapitola). Z pohledu lineární závislosti adaptabilních parametrů potom na filtry lineární a nelinární v parametrech.
 \par 
-Obecně problém filtrace spočívá ve zpracování signálu filtrem tak, že ze signálu získáme nějakou užitečnou informaci. [Haykin]. 
+Obecně problém filtrace spočívá ve zpracování signálu filtrem tak, že ze signálu získáme nějakou užitečnou informaci\cite{haykin}.
 
-Pro úplnost uveďme, že signálem rozumíme fyzikální veličinu, která se mění v čase, prostoru nebo v jakékoliv jiné nezávislé proměnné (obecně proměnných) \cite{proakis}.
-\par 
-Signály můžeme rozdělit na vícekanálové a vícedimenzionální. Vícekanálovým signálem je například EEG. Některé systémy pro měření EEG využívají až 256 kanálů \cite{eeg}. Takový signál můžeme v časovém okamžiku $k$ reprezentovat 256ti dimenzionálním vektorem
+Pro úplnost uveďme, že signálem rozumíme fyzikální veličinu, která se mění v čase, prostoru nebo v jakékoliv jiné nezávislé proměnné (obecně proměnných) \cite{proakis}. V rámci dizertace jsou analyzovány pouze signály, které se mění v čase.
+\par
+Jedno ze základních dělení signálů je rozdělení na signály spojité a diskrétní, přičemž signál může být spojitý, resp. diskrétní v čase nebo amplitudě. Uvažujme signál spojitý v čase i amplitudě $s(t)$. Pro takový signál platí, že hodnota jeho amplitudy $s(t)\in R$ a hodnota nezávislé proměnné $t$ je z nějakého intervalu $(t_1;t_2)$, kde $t_1 \in R$ a $t_2 \in R$. Signál spojitý v amplitudě a diskrétní v čase vznikne vzorkováním původního signálu $s(t)$ pomocí vzorkovací funkce ve tvaru
+\begin{equation}
+v(t)=\sum_{k=-\infty}^{\infty}\delta(t-k\Delta t)
+\end{equation}
+kde $\Delta t$ je vzorkovací perioda (uvažujeme konstantní vzorkovací periodu) a $\delta$ je, z pohledu teorie distribucí, lineární funkcionál na prostoru testovacích funkcí $\varphi$ (všech hladkých funkcí na $R$ s kompaktním supportem, které mají požadovaný počet derivací) definovaný jako
+\begin{equation}
+\langle \delta,\varphi\rangle=\varphi(0)
+\end{equation}
+pro každou testovací funkci $\varphi$ \cite{dirac}. Pro navzorkovaný signál tedy platí
+\begin{equation}
+s(k)=s(t)\cdot v(t)
+\end{equation}
+a výsledkem je posloupnost vzorků $s(k)$. Signál spojitý v čase a diskrétní v amplitudě získáme aplikací kvantizační funkce $Q(s)$, která převede hodnotu signálu  na číslo z nějaké množiny přípustných hodnot, (typicky to bývá celé číslo, případně číslo s plovoucí desetinnou čárkou). Existuje celá řada kvantizačních algoritmů (více viz \cite{kvantizace}), takže pro úplnost uvedeme pouze základní uniformní kvantizátor s velikostí kvantizačního kroku definovanou jako
+\begin{equation}
+q=\frac{s_{max}-s_{min}}{L}
+\end{equation}
+kde $L$ určuje počet intervalů o délce $q$. Potom kvantizovanou hodnotu můžeme určit jako
+\begin{equation}
+Q(s)=\Bigl \lfloor s-\frac{s_{min}}{q}\Bigr \rfloor q+\frac{q}{2}+s_{min}
+\end{equation}
+Signál, který je diskrétní v čase i amplitudě bývá označován jako digitální signál a právě těmito signály se předložená dizertační práce zabývá.
+
+\par
+Signály dále můžeme rozdělit na skalární a vektorové. Vektorových (někdy též označovaným jako vícekanálový) signálem je například EEG. Některé systémy pro měření EEG využívají až 256 kanálů \cite{eeg}. Takový signál můžeme v časovém okamžiku $k$ reprezentovat 256ti dimenzionálním vektorem
 \begin{equation}
     \textbf{s}(k)=[s_1(k),\dots,s_{256}(k)]^T
 \end{equation}
-kde $i$-tá složka $s_i$ odpovídá $i$-tému kanálu. Z pohledu počtu nezávislých proměnných, jejichž funkcí lze signál vyjádřit lze rozlišovat mezi signály jednodimenzionálními a vícedimenzionálními. Jednodimenzionálním signálem je například již uvedený signál, který reprezentuje časový záznam jednoho ka 
+kde $i$-tá složka $s_i(k)$ odpovídá signálu $i$-tého kanálu. Skalární signál (někdy též označovaný jako jednokanálový) je pak např. právě $i$-tá složka signálu $\textbf{s}(k)$.
+\par 
+Z pohledu počtu nezávislých proměnných, jejichž funkcí lze signál vyjádřit lze rozlišovat mezi signály jednorozměrnými a vícerozměrnými. Jednorozměrným signálem je například záznam jednoho kanálu EEG, kde hodnota signálu $s_i(k)$ je závislá pouze na čase. Vícerozměrným signálem může např. digitální obraz, jehož intenzita je funkcí souřadnic $I(x,y)$.
 
-Filtr můžeme použít v  následujících základních úloháh zpracování signálů:
+Filtr můžeme použít v  následujících základních úlohách zpracování signálů:
 \begin{itemize}
     \item filtrace
     \item vyhlazování
