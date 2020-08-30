@@ -1,0 +1,114 @@
+\documentclass[11pt,twoside,openright]{report}
+\usepackage[a4paper,width=155mm, inner=25mm, top=30mm,bottom=40mm, marginparsep=0mm]{geometry}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[czech]{babel} 
+\usepackage{graphicx}
+\usepackage{emptypage} % maže číslování na prázdných stranách
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{formatting,amsfonts,amsmath,amssymb}
+\usepackage{booktabs,mathtools}
+\usepackage{lipsum,url}
+\usepackage[unicode]{hyperref}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{float}
+\usepackage{mwe}
+\usepackage{appendix}
+\usepackage{pdfpages}
+\usepackage{etoolbox}
+\usepackage[nottoc]{tocbibind}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usetikzlibrary{shapes, arrows.meta}
+\usetikzlibrary{backgrounds,calc}
+
+\BeforeBeginEnvironment{appendices}{\gdef\thechapter{\ }}
+\AtBeginEnvironment{appendices}{\renewcommand\thesection{\Alph{section}}}
+
+% \cmidrule have problem with Czech
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+%\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{subfig}
+\usepackage{fancybox}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{%
+%  \markboth{\MakeUppercase{\thechapter\ \quad  #1}}{}% 
+%}
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\MakeUppercase{#1}}{}% 
+}
+\fancyfoot{}{}{}
+\fancyhead[LO,LE]{}
+\fancyhead[RO]{\leftmark}
+\fancyhead[RE]{}
+\fancyfoot[RO]{\vspace*{0.8\baselineskip}\thepage}
+\fancyfoot[LE]{\vspace*{0.8\baselineskip}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{%
+\fancyhead[RO]{}
+\fancyhead[LO,LE]{}
+\fancyfoot[RO]{\vspace*{0.8\baselineskip}\thepage}
+\fancyfoot[LE]{\vspace*{0.8\baselineskip}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+\linespread{1.25}
+\begin{document}
+
+\input{VNITRNOSTI/main_info}
+
+% TAK AT TO JDE OD RUKY
+\input{VNITRNOSTI/uvod}
+
+\input{VNITRNOSTI/nd_metody}
+\input{VNITRNOSTI/adaptivni_filtry}
+\input{VNITRNOSTI/gpd}
+\input{VNITRNOSTI/ese}
+\input{VNITRNOSTI/vysledky}
+\input{VNITRNOSTI/zaver}
+
+
+\renewcommand{\bibname}{Publikace autora}
+\begin{thebibliography}{A}
+
+
+\end{thebibliography}
+
+
+\renewcommand{\bibname}{Literatura}
+\begin{thebibliography}{L} 
+\bibitem{fermentace}MAREŠ, Jan, et al. Process state classification of fed-batch fermentation based on process variables analysis. Biochemical Engineering Journal, 2016, 112: 178-185.
+\bibitem{rls_mit}ROWELL, D. 2.161 Signal Processing: Continuous and Discrete, Fall 2008. 2008.
+\bibitem{rls_kalman}MANDIC, Danilo P.; KANNA, Sithan; CONSTANTINIDES, Anthony G. On the intrinsic relationship between the least mean square and Kalman filters [Lecture Notes]. IEEE Signal Processing Magazine, 2015, 32.6: 117-122.
+\bibitem{proakis}PROAKIS, John G. a Dimitris G. MANOLAKIS. Digital signal processing: principles, algorithms, and applications. 3rd ed. Upper Saddle River, N.J.: Prentice Hall, 1996. ISBN 0133737624.
+\bibitem{eeg}OOSTENVELD, Robert; PRAAMSTRA, Peter. The five percent electrode system for high-resolution EEG and ERP measurements. Clinical neurophysiology, 2001, 112.4: 713-719.
+\end{thebibliography}
+\clearpage
+\chapter*{Příloha}
+\markboth{Příloha}{}
+\addcontentsline{toc}{chapter}{Příloha}
+\begin{appendices}
+
+\end{appendices}
+
+
+
+\end{document}

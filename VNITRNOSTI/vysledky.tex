@@ -1,0 +1,105 @@
+\chapter{Výsledky experimentů}
+V této kapitole jsou shrnuty výsledky, kterých bylo v rámci práce na tématu dizertace dosaženo. Jmenovitě jsou to výsledky navrženého algoritmu Extreme Seeking Entropy (viz kapitola \ref{chap: ESE_vysledky}) a potom použití algoritmu Learning Entropy pro adaptivní fuzzy filtr při detekci změn stavu bioprocesu (viz kapitola \ref{chap:LE_fuzzy}).
+\section{Výsledky detekce novosti algoritmu Extreme Seeking Entropy}\label{chap: ESE_vysledky}
+\#TODO
+\subsection{Případová studie: chatociká časová řada Mackey-Glass a detekce pertubace}
+\#TODO
+\subsection{Případová studie: detekce skokové změny parametrů generátoru signálu}
+\#TODO
+\subsection{Případová studie: detekce náhlé absence šumu}
+\#TODO
+\subsection{Případová studie: detekce změny trendu}
+\#TODO
+\subsection{Případová studie: detekce epilepsie v myším EEG}
+\#TODO
+\subsection{Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}
+\#TODO
+\subsection{Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}
+\#TODO
+\subsection{Vyhodnocení výpočetní náročnosti metod odhadu parametrů Paretova rozdělení}
+\section{Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu} \label{chap:LE_fuzzy}
+\#TODO
+\subsection{Popis bioprocesu a specifikace problému}
+Podle \cite{fermentace} je pro fermentační procesy, které probíhají v dávkovém režimu je podstatné, aby probíhalo správně dávkované živení substrátem. Pro tyto procesy je specifické, že se při nadměrných koncentracích stává substrát pro mikroorganismy toxickým a může dojít k tzv. přeživení a tím i zahubení těchto mikroorganismů. Naopak, v důsledku nedostatečného zábovení živinami může dojít k odumření kultivovaného organismu. Z tohoto pohledu se je tedy důležité v závislosti na koncentraci substrátu a stavu populace mikroorganismů měnit i strategii pro řízení procesu kultivace. Historicky byl stav bioprocesu klasifikován expertem, přičemž vyhodnocení bylo poměrně časově náročné a nebylo neobvyklé, že různí experti docházeli k rozdílným závěrům. Protože výnos fermentačního procesu je zásadním způsobem ovlivněn správnou klasifikací stavu ve kterém se právě nacházi, bylo by vhodné klasifikaci automatizovat a pokud možno zvýšit její přesnost. Tomuto problému je právě věnována publikace \cite{fermentace}, která řeší problém automatické klasifikace stavů bioprocesu kultivace bakterie \textit{Pseudomonas putida KT2442}. V této publikaci je navržen komplexní algoritmus pro online klasifikaci stavů bioprocesu. Autoři zde rozlišují celkem tři stavy bioprocesu kultivace \textit{Pseudomonas putida KT2442}, konkrétně:
+\begin{enumerate}
+    \item normální živení
+    \item přeživení
+    \item nedoživení
+\end{enumerate}
+Navržený algoritmus vyhodnocuje přísun vstupujících živin (Fm), respektive substrátu, a změny a trendu rozpuštěného kyslíku (DO), který je produkován bakteriemi \textit{Pseudomonas putida} a pomocí hřebenové regrese (v literatuře se vyskytuje také pod názvem Tichonova regularizace) je určován vývoj populace bakterií respektive stav bioprocesu. Vzhledem k tomu, že modely vývoje populace pro jednotlivé stavy jsou různé, mohlo by v průběhu experimentu dojít i k podstatným změnám v adaptivním modelu v okamžicích změn stavů kultivace. Tyto změny se mohli projevit neobvykle velkými přírůstky adaptivních parametrů. 
+\par
+Protože algoritmus Learning Entropy využívá přírůstku adaptivních parametrů, mohl by být vhodným nástrojem pro detekci změn stavů bioprocesu. Předpokládáme, že tedy existuje korelace mezi změnami stavu bioprocesu a nárůstem Learning Entropy. Přestože může být proces kultivace bakterií \textit{Pseudonomas Putidas} modelován různými a různě složitými modely, pro využití algoritmu Learning Entropy se jeví výhodné použít jednoduché prediktory nebo sledovače. Dosud publikované články využívali pro algoritmus LE pouze FIR filtry, případně Volterrovy filtry, které mají adaptivní parametry v lineární závislosti. V tomto experimentu je použit adaptivní fuzzy filtr, jehož struktura je specifikována v kapitole \ref{chap:fuzzyf} a k jehož adaptaci byl použit algoritmus, který je uveden v kapitole \ref{chap:gd}.
+\par
+Použitý adaptivní fuzzy filtr má 9 pravidel ($M=9$), jehož $l$-té pravidlo je ve tvaru
+\begin{equation}
+    IF\;do(k-1)\; is\; A_1^l\;AND\;do(k-6)\;is\;A_2^l\;AND\;do(k-19)\;is\;A_3^l\;THEN\;do(k)\;is\;B^l
+\end{equation}
+kde $A_i^l$ je množina ve vstupním prostoru $U \subset R^3$ a $B^l$ je fuzzy množina ve výstupním prostoru $V \subset R$. V uvedeném pravidle jsou $do(k-1)$, $do(k-6)$, $do(k-19)$ a $do(k)$ lingvistické proměnné, které vyjadřují koncentraci rozpuštěného kyslíku $do$ v v diskrétních časových okamžicích $k$, $k-1$, $k-6$ respektive $k-19$, kde $k$ je diskrétní časový index. Vzhledem k tomu, že uvedený adaptivní fuzzy filtr používá Gaussovské funkce příslušnosti (viz kapitola \ref{chap:fuzzyf} je zobrazení popisující jeho výstup ve tvaru
+\begin{equation}
+    \hat{y}(\textbf{x}(k))=\frac{\sum_{j=1}^9 \overline{b}^j\Big[\prod_{i=1}^3 exp\Big(-\Big(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Big)\Big)\Big]}{\sum_{j=1}^9 \Big[\prod_{i=1}^3 exp\Big(-\Big(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Big)\Big)\Big]}
+\end{equation}
+kde vektor $\textbf{x}(k)$ je
+\begin{equation}
+    \textbf{x}(k)=[do(k-1),do(k-6),do(k-19)].
+\end{equation}\
+Protože hodnota koncetnrace rozpuštěného kyslíku je uváděna v procentech, platí pro všechna $x_i\in \langle 0;100\rangle$. K adaptování výše uvedeného filtru byl použit algoritmus gradient descent (viz kapitola \ref{chap:gd}. Maximální počet epoch byl stanoven na $q_{max}=100$ a požadovaná chyba predikce mezi výstupem adaptivního filtru a naměřenými daty na $\epsilon=0,001$. Rychlost učení byla během experimentů nastavena na $\mu=1$.
+\par
+Pro vyhodnocení novosti byla použita přímá verze algoritmu LE, takže
+\begin{equation}\label{eq:le_putida}
+    E(k)=max\{0, \sum_{j=1}^9 z(\abs{\Delta \overline{b^j})}-\beta\}
+\end{equation}
+kde funkce $z$ je dána rovnicí (XY) a $\beta$ je citlivostní parametr. Pro vyhodnocení novosti jsou tedy použity změny polohy středů množin ve výstupním prostoru, nikoliv změny parametrů fuzzy množin ve vstupním prostoru.
+
+\subsection{Experiment a zhodnocení}
+Experiment s použitím algoritmu LE a adaptivního fuzzy filtru byl uskutečněn na datech z kultivace bakterie \textit{Pseudonomas Putida}, který byl uskutečněn na Ústavu počítačové a řídicí techniky VŠCHT Praha. Celkem byly zpracovávány hodnoty ze dvou kultivací. Přestože bylo během experimentu měřena sada různých veličin (např. teplota, pH, atd.), osvědčil se pro použití LE signál rozpustěného kyslíku $do$ $[\%]$. Během experimentu bylo použito vzorkování $T=1$ $min$, což je vzhledem k rychlosti celého procesu dostatečně rychlé vzorkování. Počáteční nastavení parametrů adaptivního fuzzy filtru bylo provedeno tak, jak je popsáné v kapitole \ref{chap:gd}. Podstatný vliv na výsledek detekce změn stavu bioprocesu měla volba volba délky okna pro vyhodnocení změn adaptabilních parametrů filtru $M_{ND}$. Na základě experimentů s různými délkami byla nakonec zvolena délka okna $M_{ND}=20$.
+\par
+Na následujících obrázcích je znázorněn průběh signálu $do$ během první kultivace (viz obrázek \ref{fig:artep_1}), chyba predikce (viz obrázek \ref{fig:artep_3}) a odpovídající hodnoty $LE$ společně se stavy bioprocesu (viz obrázek \ref{fig:artep_4}). Význam stavů bioprocesu znázorněných na obrázku \ref{fig:artep_3} respektive obrázku \ref{fig:artep_6} jsou: 1 - nedoživení, 2 - živení, 3 - přeživení. Aby byli detekovány všechny změny stavu bioprocesů, byla stanovena hodnota parametru $\beta=2,58$ (viz rovnice \ref{eq:le_putida}).
+\par
+Data z druhé kultivace byla použita k ověření správného nastavení parametru $\beta$.  Obrázek \ref{fig:artep_2} zobrazuje průběh signálu $do$ během druhého experimentu. Chyba predikce adaptivního fuzzy filtru je zobrazena na obrázku \ref{fig:artep_5}.  Obrázek \ref{fig:artep_6} zobrazuje stavy bioprocesu během kultivace a odpovídající hodnoty $LE$. S tímto nastavením parametru $\beta$ se podařilo detekovat pouze tři změny bioprocesu. Nicméně pro jiné hodnoty délky okna $M_{ND}$ a hodnoty parametru $\beta$ se tyto změny detekovat podařilo. Je tedy zřejmé, že pro praktické použití je správná volba obou parametrů zásadní. Vzhledem k malému množství dat a časové náročnosti kultivace nebylo možné použít nějakou validační metodu. 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{IMG/artep/artep17_1.png}
+    \caption{Průběh signálu $do$ během první kultivace}
+    \label{fig:artep_1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{IMG/artep/artep17_3.png}
+    \caption{Chyba predikce $e$ během první kultivace}
+    \label{fig:artep_3}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{IMG/artep/artep17_4.png}
+    \caption{Stav bioprocesu a hodnota $LE$ první kultivace}
+    \label{fig:artep_5}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{IMG/artep/artep17_2.png}
+    \caption{Průběh signálu $do$ během druhé kultivace}
+    \label{fig:artep_2}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{IMG/artep/artep17_5.png}
+    \caption{Chyba predikce $e$ během druhé kultivace}
+    \label{fig:artep_4}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{IMG/artep/artep17_6.png}
+    \caption{Stav bioprocesu a hodnota $LE$ během druhé kultivace}
+    \label{fig:artep_6}
+\end{figure}
+
+
+
+
+ 

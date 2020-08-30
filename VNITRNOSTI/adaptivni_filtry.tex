@@ -1,0 +1,640 @@
+\chapter{Číslicové adaptivní filtry a algoritmy}
+Tato kapitola je věnována diskrétním adaptivním filtrům, které byly v průběhu práce na tématu dizertační práce použity (viz podkapitola \ref{chap:af} a algoritmům, které byli k jejich adaptaci použity (viz podkapitola \ref{chap:aa}). Z pohledu klasifikace filtrů dle impulsní charakteristiky se jedná o filtry s konečnou impulsní charakteristikou (viz podkapitola) i o filtry s nekonečnou impulsní charakteristikou (viz podkapitola). Z pohledu lineární závislosti adaptabilních parametrů potom na filtry lineární a nelinární v parametrech.
+\par 
+Obecně problém filtrace spočívá ve zpracování signálu filtrem tak, že ze signálu získáme nějakou užitečnou informaci. [Haykin]. 
+
+Pro úplnost uveďme, že signálem rozumíme fyzikální veličinu, která se mění v čase, prostoru nebo v jakékoliv jiné nezávislé proměnné (obecně proměnných) \cite{proakis}.
+\par 
+Signály můžeme rozdělit na vícekanálové a vícedimenzionální. Vícekanálovým signálem je například EEG. Některé systémy pro měření EEG využívají až 256 kanálů \cite{eeg}. Takový signál můžeme v časovém okamžiku $k$ reprezentovat 256ti dimenzionálním vektorem
+\begin{equation}
+    \textbf{s}(k)=[s_1(k),\dots,s_{256}(k)]^T
+\end{equation}
+kde $i$-tá složka $s_i$ odpovídá $i$-tému kanálu. Z pohledu počtu nezávislých proměnných, jejichž funkcí lze signál vyjádřit lze rozlišovat mezi signály jednodimenzionálními a vícedimenzionálními. Jednodimenzionálním signálem je například již uvedený signál, který reprezentuje časový záznam jednoho ka 
+
+Filtr můžeme použít v  následujících základních úloháh zpracování signálů:
+\begin{itemize}
+    \item filtrace
+    \item vyhlazování
+    \item predikce
+\end{itemize}
+
+\tikzset{%
+  block/.style    = {draw, thick, rectangle, minimum height = 3em,
+    minimum width = 3em},
+  sum/.style      = {draw, circle, node distance = 2cm}, % Adder
+  input/.style    = {coordinate}, % Input
+  output/.style   = {coordinate} % Output
+}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\begin{figure}[!h]
+    \centering
+    \label{img:adaptivni_filtrace}
+
+\begin{tikzpicture}[node distance=2.3cm,auto,>=latex]
+\shorthandoff{-}
+    \node [input, name=input] (input) {x};
+    \node [coordinate, name=x_node, right of=input,circle,fill,inner sep=2pt] (x_node) {};
+    \node [coordinate, name=ppp, below of=x_node,circle,fill,inner sep=2pt] (ppp) {};
+    \node [coordinate, name=x_node2, below of=x_node] (x_node2) {};
+    \node [block, right of=x_node, align=center] (neznamy) {Neznamý\\systém};
+    \node [block, below of=neznamy, align=center, fill=white] (af) {Adaptivní \\ filtr};
+    \node [block, below of=af, align=center] (aa) {Adaptivní\\algoritmus};
+    \node [sum, right of=neznamy] (sum1) {};
+    \node [sum, right of=sum1] (sum2) {};
+    \node [coordinate, right of=sum2, circle,fill,inner sep=2pt] (e_node2) {};
+    \node [output, right of=e_node2] (output) {}; 
+    \node [above of=sum1] (noise) {};
+    
+    \coordinate (aux) at ([xshift=20pt,yshift=30]af.center);
+    \coordinate (helpy) at ([yshift=45]aa.center);
+    \draw [-] (input) -- node [pos=0.5,above] {$x[k]$} (x_node);
+    \draw[-{Latex[scale=1.5]}] (x_node) -- (neznamy);
+    \draw[-{Latex[scale=1.5]}, shorten <= -2pt] (x_node) |- (af);
+    \draw[-{Latex[scale=1.5]}, shorten <= -2pt] (x_node2) |- (aa);
+    \draw[-{Latex[scale=1.5]}] (neznamy) -- (sum1);
+    \draw[-{Latex[scale=1.5]}] (sum1) -- node [pos=0.5,above] {$d[k]$} (sum2);
+    \draw[-{Latex[scale=1.5]}] (sum2) -- node [pos=0.75,above] {$e[k]$}(output);
+    \draw[-{Latex[scale=1.5]}] (af) -| node[pos=0.95, left] {{\tiny $-$}} node [pos=0.8,left] {$\hat{y}[k]$}  (sum2);
+    \draw[-{Latex[scale=1.5]}, shorten <= -2pt] (e_node2) |- (aa);
+    \draw[-{Latex[scale=1.5]}] (noise) -- node [pos=0.5, left] {$n[k]$} node[pos=0.95, left] {{\tiny $+$}} (sum1);
+    
+    \begin{pgfonlayer}{background}
+        \draw [-] (aa) -- (helpy);
+        \draw [-{Latex[scale=1.5]}] (helpy) -- (aux);
+    \end{pgfonlayer}
+\end{tikzpicture}
+    \caption{Schéma adaptivní filtrace}
+\end{figure}
+
+V rámci této práce byli všechny filtry využity k predikci, jejíž chyba $e$ byla využita k adaptaci parametrů daného filtru (více viz podkapitola \ref{chap:aa}).
+
+\section{Adaptivní filtry}\label{chap:af}
+V této podkapitole jsou stručně popsané adaptivní filtry, které byly v rámci práce použity. FIR (finite impulse response) adaptivní filtry jsou popsány v podkapitole \ref{chap:fir}, Volterrovy filtry v podkapitole \ref{chap:volterra} a adaptivní fuzzy filtry v podkapitole \ref{chap:fuzzyf}.
+
+\subsection{Lineární FIR filtry}\label{chap:fir}
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[
+    triangle/.style = {regular polygon, regular polygon sides=3,draw,fill=white, text width=1em, inner sep=0.9mm, outer sep=0mm, shape border rotate=180 },
+  ]
+       \matrix (m1) [row sep=6mm, column sep=2.9mm]
+	{
+		%--------------------------------------------------------------------
+		\node[input] (m00) {$x[n]$};                                        &
+		\node[shape=circle, fill=black,scale=0.5]   (m01) {};               &
+	    \node[block]                                (m02) {$z^{-1}$};       &  \node[coordinate]                           (m03) {};               &
+		\node[shape=circle, fill=black,scale=0.5]   (m04) {};               & 
+		\node[block]                                (m05) {$z^{-1}$};       &
+		\node[coordinate]                           (m06) {};               &
+		\node[shape=circle, fill=black,scale=0.5]   (m07) {};               &
+        \node[coordinate]                           (m08) {};               &
+        \node[coordinate]                           (m09) {};               &
+        \node[coordinate]                           (m010) {};              &
+		\node[coordinate]                           (m011) {};              &
+		\node[coordinate]                           (m012) {};              &
+		\node[block]                                (m013) {$z^{-1}$};       &
+		\node[coordinate]                           (m014) {};              &
+		\\
+		%--------------------------------------------------------------------
+		\node[coordinate]                   (m10) {};                       &
+		\node[triangle]                     (m11) {$w_0$};                  &
+    	\node[coordinate]                   (m12) {};                       &
+    	\node[coordinate]                   (m13) {};                       &
+    	\node[triangle]                     (m14) {$w_1$};                  &
+    	\node[coordinate]                   (m15) {};                       &
+    	\node[coordinate]                   (m16) {};                       &
+    	\node[triangle]                     (m17) {$w_2$};                  &
+    	\node[coordinate]                   (m18) {};                       &
+    	\node[coordinate]                   (m19) {};                       &
+    	\node[coordinate]                   (m120) {};              &
+    	\node[coordinate]                   (m121) {};              &
+    	\node[coordinate]                   (m122) {};              &
+    	\node[coordinate]                   (m123) {};              &
+    	\node[triangle]                     (m124) {$w_{N}$};                  &
+    	\\
+		%--------------------------------------------------------------------
+		\\
+		%--------------------------------------------------------------------
+		\node[coordinate]                   (m20) {};           &
+        \node[coordinate]                   (m21) {};           &
+        \node[coordinate]                   (m22) {};           &
+        \node[coordinate]                   (m23) {};           &
+        \node[sum]                          (m24) {$\sum$};     &
+        \node[coordinate]                   (m25) {};           &
+        \node[coordinate]                   (m26) {};           &
+        \node[sum]                          (m27) {$\sum$};     &
+        \node[coordinate]                   (m28) {};                       &
+        \node[coordinate]                   (m29) {};                       &
+        \node[coordinate]                           (m210) {};              &
+		\node[coordinate]                           (m211) {};              &
+		\node[coordinate]                           (m212) {};              &
+		\node[coordinate]                           (m213) {};              &
+		\node[sum]                          (m214) {$\sum$};     &
+		\node[coordinate] (m215) {$y[n]$};    \\
+		%--------------------------------------------------------------------
+	};
+        \draw (m00) -- node [pos=-1.0,right] {$x[k]$} (m01);
+        \draw[-{Latex[scale=1.5]}] (m01) -- (m02);
+        \draw (m02) -- (m03);
+        \draw (m03) -- (m04);
+        \draw[-{Latex[scale=1.5]}] (m04) -- (m05);
+        \draw [-] (m05) -- (m06);
+        \draw [-] (m06) -- (m07);
+        \draw [-] (m07) -- (m08);
+        \draw [-{Latex[scale=1.5]}] (m01) -- (m11);
+        \draw [-{Latex[scale=1.5]}] (m14) -- (m24);
+        \draw [-{Latex[scale=1.5]}] (m04) -- (m14);
+        \draw [-{Latex[scale=1.5]}] (m07) -- (m17);
+        \draw (m11) -- (m21);
+        \draw (m17) -- (m27);
+        \draw [-{Latex[scale=1.5]}] (m21) -- (m24);
+        \draw [-{Latex[scale=1.5]}] (m24) -- (m27);
+        \draw [-] (m27) -- (m28);
+        
+        \path (m09) -- node[auto=false]{\ldots} (m010);
+        \draw [-{Latex[scale=1.5]}] (m011) -- (m013);
+        \draw (m013) -- (m014);
+        \draw [-{Latex[scale=1.5]}] (m014) -- (m124);
+        \path (m29) -- node[auto=false]{\ldots} (m210);
+        \path (m19) -- node[auto=false]{\ldots} (m120);
+        \draw [-{Latex[scale=1.5]}] (m211) -- (m214);
+        \draw [-{Latex[scale=1.5]}] (m124) -- (m214);
+        \draw [-{Latex[scale=1.5]}] (m214) -- node [pos=1.0,right] {$\hat y[k]$}(m215);
+    \end{tikzpicture}
+    \caption{Blokový diagram FIR filtru}
+
+\end{figure}
+Výstup FIR (finite-impulse-response) filtru $\hat y \in \mathbb{R}$  v diskrétním čase  $k \in Z$  je popsán rovnicí
+\begin{equation}\label{eq:FIR1}
+    \hat{y}[k]=\sum_{i=0}^{N}w_i \cdot x[k-i] 
+\end{equation}
+kde $w_i \in \mathbb{R} $ hodnota $i$-tého koeficienty, $x[k-i] $ je hodnota vstupu $x \in \mathbb{R} $ posunutá o $i$ hodnot v čase, hodnota $N$ je řád filtru. Pokud jsou koeficienty FIR filtru v čase adaptovány, přejde rovnice (\ref{eq:FIR1}) do tvaru
+\begin{equation}
+    \hat{y}[k]=\sum_{i=0}^{N}w_i[k] \cdot x[k-i] 
+\end{equation}
+kde člen $w_i[k]$ reprezentuje hodnoty koeficientů filtru v diskrétním čase $k$.
+Někdy se pro popis výstupu FIR filtru využívá operátoru konvoluce, potom pro výstup FIR filtru platí
+\begin{equation}
+    \hat{y}[k]= h[k] * x[k]=x[k] * h[k]
+\end{equation}
+ Hodnoty $h[k]$ v reprezentují impulzní odezvu filtru. Impulsní odezva filtru je definovaná jako
+ \begin{equation}
+     h[k]=\sum_{i=0}^N w_i \cdot \delta[k-i]=
+     \begin{cases}
+     w_i & 0 \leq k \leq N \\
+     0 & k < 0 \lor k > N 
+     \end{cases}
+ \end{equation}
+ Konečnost impulzní odezvy je dána konečným počtem $N+1$ koeficientů filtru. Pokud koeficienty filtru splňují podmínku $\forall i: w_i < \infty$, potom je FIR filtr stabilní. 
+ \par
+ Uvedný filtr (viz rovnice (\ref{eq:FIR1})) lze zapsat ve tvaru
+ \begin{equation}
+     \hat{y}(k)= \textbf{w}(k)\cdot\textbf{x}(k)
+ \end{equation}
+kde $\textbf{w}(k)$ je vektor vah
+\begin{equation}
+    \textbf{w}(k)=[w_1,\dots, w_N]
+\end{equation}
+a $\textbf{x}(k)$ je vstupní vektor
+\begin{equation}
+    \textbf{x}^T(k)=[x(k),x(k-1),\dots,x(k-N)]
+\end{equation}.
+
+
+\subsection{Volterrovy filtry}\label{chap:volterra}
+Jeden z filtrů, který se použivá k modelování nelineárních systémů je nelineární Voltérrův filtr (někdy uváděný pod označením Higher Order Neural Unit - HONU). Výstup $\hat{y}[k]$ těchto filtrů, využívajících zkrácených Voltérových řad, je popsán rovnicí 
+\begin{multline}
+    \hat{y}[k]=w_0+\sum_{i=0}^{N-1}w_1(i)x(k-i) +  \sum_{i_1=0}^{N-1}\sum_{i_2=i_1}^{N-1}w_2(i_1,i_2)x(k-i_1)x(k-i_2)+] \cdots \\\cdots  \sum_{i_1=0}^{N-1} \cdots \sum_{i_p=i_{p-1}}^{N-1}w_p{i_1,\dots,i_p}x(k-i_1)\cdots x(k-i_p)
+\end{multline}
+kde $w_0$ je konstanta, $\{w_j(i_1,\dots,i_j), 1 \leq j \leq p\}$ je množina koeficientů Volterrovo jader $j$-tého řádu a $x(k)$ je vstupní signál. Filtr pracuje s pamětí $N$ vzorků, parametr $p$ určuje řád filtru. Analogický zápis využívající vektorové násobení
+\begin{equation}
+    \hat{y}[k]= \textbf{w} \cdot \textbf{colx}
+\end{equation}
+kde $\textbf{w}$ je uspořádaný vektor koeficientů Volterrovo jader a $\textbf{colx}$ uspořádaný vektor ve tvaru
+\begin{multline}
+    \textbf{colx}=[1,x[0],\dots,x[N-1],x[1] \cdot x[2], \dots, x[1]\cdot x[N-1],x[2]^2,x[2]\cdot x[3], \dots,\\ x[2] \cdot x[N-1],\dots, \dots,x[N-2]\cdot x[N-1], x[N-1]^2,\dots, \dots, \dots, \dots, x[N-1]^p]^T 
+\end{multline}
+
+Určitým faktorem limitujícím použití Volterrovo filtrů je vysoký počet jejich parametrů, přičemž každé zvýšení počtu vzorků v paměti, nebo řádu filtru, výrazně zvýši počet jeho parametrů. Pro počet parametrů $m$ Volterrova filtru s délkou paměti $N$ a řádu $p$ je dán jako
+\begin{equation}
+    m(p,N)=\frac{(N+p)!}{N!p!}
+\end{equation}
+kde $N!$ je faktoriál $N$ a $p!$ je faktoriál $p$. Např. pro $N=3$ a $p=3$ má filtr 20 parametrů, pro $N=4$ a $p=3$ má 35 parametrů, pro  $N=4$ a $p=4$ již 70 parametrů. Pro zpracování signálů v reálném čase je tedy využití  Volterrových filtrů s velkou pamětí a vysokým řádem, vzhledem k vysokému počtu parametrů, komplikované. Volterrův filtr druhého řádu bývá někdy označován Quadratic neural unit (QNU) a třetího řádu Cubic neural unit (CNU) [viz Ivo nebo IGI]. Volterrův filtr prvního řádu je variantou standartního FIR filtru (viz kap.) v případě, že $w_0=0$. V případě, že $w_0\neq 0$, je tento filtr typu IIR, tedy má nekonečnou impulsní charakteristiku.
+
+\subsection{Polynomiální neuronové jednotky}\label{chap:honu}
+Jedním z typů nelineární filtrů, které jsou ale lineární v adaptivních parametrech jsou polynomiální neuronové jednotky, někdy též nazývané HONU (Higher Order Neural Units). Výstup HONU $p$-tého řádu je difinován jako
+\begin{equation}
+    \hat{y}(k)=\sum_{i_1=0}^n \sum_{i_2=i_1}^n\dots \sum_{i_p=i_{p-1}}^n w_{i_1,i_2,\dots,i_p}x_{i_1}\cdot x_{i_2} \cdots x_{i_p}
+\end{equation}
+přičemž člen $x_{0,\dots,0}=1$ je označován jako bias, $w_{{i_1,i_2,\dots,i_p}x_{i_1}}$ jsou váhy a $x_{i_j}$ je $j$-tý vstup. Uvedený filtr lze reprezentovat pomocí násobení vektorů, obdobně jako Volterrovy filtry,jako
+\begin{equation}
+    \hat{y}(k)=\textbf{w} \cdot \textbf{colx}
+\end{equation}
+kde $w$ je uspořádaný vektor adaptivních parametrů
+\begin{equation}
+    \textbf{w}=[w_{0,\dots,0},\dots, w_{n,\dots,n}]
+\end{equation}
+a $\textbf{colx}$ je odpovídajícím způsobem uspořádaný vektor vstupů ve tvaru
+\begin{equation}
+    \textbf{colx}= [1,x_{0,\dots,1},\dots,x_{n,\dots,n}]^T
+\end{equation}
+přičemž pokud vektor vstupů obsahuje časově spožděné vzorky vstupního signálu, jsou HONU identické s Volterrovými filtry. Pokud je vstupem $n+1$-dimenzionální vektor různých vstupů, tak je HONU kombinačním filtrem. HONU prvního řádu bývá označována jako lineární neuronová jednotka (LNU). Pokud jsou vstupem do LNU časově posunuté hodnoty vstupního signálu, je identická s klasickým FIR filtrem (viz kapitola \ref{chap:fir}), protože její výstup je definován jako
+\begin{equation}
+    \hat{y}(k)=\sum_{i=0}^n w_i \cdot x(k-i)
+\end{equation}
+Pokud je vstupem $n+1$-dimenzionální vektor $n+1$ různých vstupů, potom je LNU klasickým lineárním kombinačním filtrem (viz obr. \ref{img:lnu}). Použijeme-li terminologii neuronových sítí, potom je lineárním neuronem, kde $\textbf{w}$ je vektor synaptických vah, $\textbf{x}$ je vstupní vektor a přenosová funkce tohoto neuronu realizuje lineární kombinaci. 
+\begin{equation}
+    \hat{y}(k)=\sum_{i=0}^n w_i \cdot x_i(k)
+\end{equation}
+Často používanými HONU jsou jednotky druhého (quadratic neural unit - QNU) a třetího řádu (cubic neural unit - CNU). Podobně jako pro Volterrovy filtry, i úskalím použití HONU vyššího řádu s velkou pamětí je velký počet parametrů. 
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}
+\matrix (m1) [row sep=6mm, column sep=15mm]
+	{
+		\node[coordinate]                           (m00) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m01) {$w_0$};     &
+	    \node[coordinate]                           (m02) {};   &
+	    \node[coordinate]                           (m03) {};   \\
+	    
+	    \node[coordinate]                           (m10) {};   &
+	    \node[coordinate]                           (m11) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m12) {$\sum$};    & 
+	    \node[coordinate]                           (m13) {};   & \\
+	    
+		\node[coordinate]                           (m20) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m21) {$w_n$};     &
+	    \node[coordinate]                           (m22) {};   &
+	    \node[coordinate]                           (m23) {};   \\
+
+	  \\
+		%--------------------------------------------------------------------
+	};
+
+        \draw [-{Latex[scale=1.5]}] (m00) -- node [pos=0,left] {$x_0(k)$} (m01);
+
+        \draw [-{Latex[scale=1.5]}] (m20) -- node [pos=0,left] {$x_n(k)$} (m21);
+        \path (m00) -- node [pos=0.5,left]{\ldots} (m20);
+        \path (m01) -- node [pos=0.5,midway]{\ldots} (m21);
+        \draw [-{Latex[scale=1.5]}] (m01) --  (m12);
+        \draw [-{Latex[scale=1.5]}] (m21) --  (m12);
+        \draw [-{Latex[scale=1.5]}] (m12) --   node [pos=1,right] {$\hat{y}(k)$} (m13);
+ 
+    \end{tikzpicture}
+    \caption{LNU jako lineární kombinační filtr}
+    \label{img:lnu}
+\end{figure}
+
+
+\subsection{Fuzzy filtry}\label{chap:fuzzyf}
+Jedním z rozšířených typů nelineárních adaptivních filtrů jsou filtry založené na fuzzy logice. (Fuzzy adaptive filters, with application to nonlinear channel equalization) V rámci práce byl použit fuzzy adaptivní filtr, tvořený Mamdaniho fuzzy systémem se součinovým inferenčním mechanismem a defuzzifikací využívající metody těžiště typických hodnot. Báze pravidel tohoto fuzzy filtru je tvořena $M$ pravidly, kdy $l$-té pravidlo je ve tvaru
+\begin{equation}
+    Ru^l: \; IF\; x_1\; is\;A_1^l \;and \;x_2 \;is\; A_2^l\; and\; \dots x_n \; is \;A_n^l \; THEN \; \hat{y} \; is \; B^l  
+\end{equation}
+kde $A_i^l$ je $i$-tá množina ve vstupním prostoru $U \subset R^n$, $B^l$ je fuzzy množina ve výstupním prostoru $V \subset R$ a $x_i \in U$ a $\hat{y} \in V$ jsou lingvistické proměnné. Fuzzy množiny ve výstupním prostoru jsou singletony, obsahují tedy jediný prvek $x^*$ z univerza $X$ a pro jejich funkce příslušnosti (charakteristické funkce) platí, že
+\begin{equation}
+    \mu_{B}(x^*) = 1
+\end{equation}
+takže jádro této množiny je identické s jejím nosičem a obsahují pouze jeden stejný prvek.
+\begin{equation}
+    ker(B)=supp(B)=\{1/x^*\}
+\end{equation}
+Studovaný fuzzy systém využívá součinové konjukce a Larsenovy implikace. Tím se převede vyhodnocení implikace na několik součinů tak, že pro $j$-té pravidlo platí
+\begin{multline}
+    [\mu_{A_1^j}(x_1) \; AND \; \mu_{A_2^j}(x_2) \; AND \dots AND \; \mu_{A_n^j}(x_n)] \implies \mu_{B^j}(\hat{y}) =  \\ = \mu_{A_1^j}(x_1) \cdot \mu_{A_2^j}(x_2) \dots \mu_{A_n^j}(x_n) \cdot \mu_{B^j}(\hat{y})
+\end{multline}
+kde $\mu_{A_i^j}(x_i)$ je funkce příslušnosti k $i$-té množině $j$-tého pravidla ve vstupním prostoru a $\mu_{B^j}$ je funkce příslušnosti ke množině ve výstupním prostoru. 
+
+Defuzzifikace převádí fuzzy do její reprezentace pomocí jediného čísla z množiny ostrých hodnot. Metodou těžiště typických hodnot se výstup fuzzy systému určí podle rovnice
+\begin{equation}
+    y^*=\frac{\sum_{j=1}^M\overline{b}^j z_j}{\sum_{j=1}^M z_j}
+\end{equation}
+kde $\overline{b}^j$ je střed $j$-té fuzzy množiny reprezentující příslušné pravidlo a $z_j$ je její váha ve smyslu hodnoty funkce příslušnosti tohoto pravidla.
+\par
+Výstup uvedeného fuzzy systému je potom ve tvaru
+\begin{equation}
+    \hat{y}(\textbf{x})=\frac{\sum_{j=1}^M \overline{b}^j\big[\prod_{i=1}^n\mu_i^j(x_i)\big]}{\sum_{j=1}^M\big[\prod_{i=1}^n\mu_i^j(x_i)\big]}
+\end{equation}
+přičemž $\textbf{x}$ je vektor vstupů o délce $n$
+\begin{equation}
+    \textbf{x}=[x_1,\dots,x_n]
+\end{equation}
+a $\overline{b}^j$ je střed výstupní množiny $B^j$, což je fuzzy množina  $j$-tého pravidla. 
+
+Funkce filtru lze znázornit třívrstvou dopřednou sítí (viz \autoref{img:fuzzy_network}). 
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}
+\matrix (m1) [row sep=6mm, column sep=2.9mm]
+	{
+		\node[coordinate]                           (m00) {};   &
+	    \node[coordinate]                           (m01) {};   &
+	    \node[coordinate]                           (m02) {};   &
+	    \node[coordinate]                           (m03) {};   &
+	    \node[coordinate]                           (m04) {};   &
+	    \node[coordinate]                           (m05) {};   &
+	    \node[coordinate]                           (m06) {};   &
+	    \node[coordinate]                           (m07) {};   & \\
+	    
+	    \node[coordinate]                           (m10) {};   &
+	    \node[coordinate]                           (m11) {};   &
+	    \node[coordinate]                           (m12) {};   &
+	    \node[coordinate]                           (m13) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m14) {$a/b$};   &
+	    \node[coordinate]                           (m15) {};   &
+	    \node[coordinate]                           (m16) {};   &
+	    \node[coordinate]                           (m17) {};   & \\	  
+	    
+	    \node[coordinate]                           (m20) {};   &
+	    \node[coordinate]                           (m21) {};   &
+	    \node[coordinate]                           (m22) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m23) {$\sum$};   &
+	    \node[coordinate]                           (m24) {};   &
+	    \node[coordinate]                           (m25) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m26) {$\sum$};   &
+	    \node[coordinate]                           (m27) {}; & \\
+
+	    \node[coordinate]                           (m30) {};   &
+	    \node[coordinate]                           (m31) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m32) {$\overline{y}^1$};   &
+	    \node[coordinate]                           (m33) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m34) {$\overline{y}^M$};   &
+	    \node[coordinate]                           (m35) {};   &
+	    \node[coordinate]                           (m36) {};   &
+	    \node[coordinate]                           (m37) {};    & \\
+	    
+	    \node[coordinate]                           (m40) {};   &
+	    \node[coordinate]                           (m41) {};   &
+	    \node[coordinate]                           (m42) {};   &
+	    \node[coordinate]                           (m43) {};   &
+	    \node[coordinate]                           (m44) {};   &
+	    \node[coordinate]                           (m45) {};   &
+	    \node[coordinate]                           (m46) {};   &
+	    \node[coordinate]                           (m47) {};   & \\
+	    
+	    \node[coordinate]                           (m50) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m51) {$\prod$};   &
+	    \node[coordinate]                           (m52) {};   &
+	    \node[coordinate]                           (m53) {};   &
+	    \node[coordinate]                           (m54) {};   &
+	    \node[coordinate]                           (m55) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m56) {$\prod$};   &
+	    \node[coordinate]                           (m57) {};   & \\
+	    
+		\node[circle,draw=black, minimum size=30pt] (m60) {$\mu_1^1(x_1)$};   &
+	    \node[coordinate]                           (m61) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m62) {$\mu_n^1(x_n)$};   &
+	    \node[coordinate]                           (m63) {};   &
+	    \node[coordinate]                           (m64) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m65) {$\mu_1^M(x_1)$};   &
+	    \node[coordinate]                           (m66) {};   &
+	    \node[circle,draw=black, minimum size=30pt] (m67) {$\mu_n^M(x_n)$};   & \\
+	   
+		\node[coordinate]                           (m70) {};   &
+	    \node[input]                                (m71) {$x_1$};   &
+	    \node[coordinate]                           (m72) {};   &
+	    \node[coordinate]                           (m73) {};   &
+	    \node[coordinate]                           (m74) {};   &
+	    \node[coordinate]                           (m75) {};   &
+	    \node[input]                           (m76) {$x_n$};   &
+	    \node[coordinate]                           (m77) {};   & \\
+		%--------------------------------------------------------------------
+	};
+
+        \draw [-{Latex[scale=1.5]}] (m14) -- node [pos=0.8,left] {$\hat{y}$} (m04);
+        \draw [-{Latex[scale=1.5]}] (m23) -- node [pos=0.6,left] {$a$} (m14);
+        \draw [-{Latex[scale=1.5]}] (m26) -- node [pos=0.8,right] {$b$} (m14);
+        \path (m32) -- node[auto=false]{\ldots} (m34);
+        \draw [-{Latex[scale=1.5]}] (m32) -- (m23); 
+        \draw [-{Latex[scale=1.5]}] (m34) -- (m23); 
+        \path (m34) -- node[auto=false]{\ldots} (m37);
+        \draw [-{Latex[scale=1.5]}] (m41) -- (m32);
+        \draw [-{Latex[scale=1.5]}] (m51) -- node [pos=0.5,left] {$z_1$} (m41);
+        \draw [-{Latex[scale=1.5]}] (m56) -- node [pos=0.5,right] {$z_M$} (m46);
+        \draw [-{Latex[scale=1.5]}] (m46) -- (m34);
+        \draw [-{Latex[scale=1.5]}] (m46) -- (m26);
+        \draw [-{Latex[scale=1.5]}] (m60) -- (m51);
+        \draw [-{Latex[scale=1.5]}] (m62) -- (m51);
+        \path (m51) -- node[auto=false]{\ldots} (m56);
+        \draw [-{Latex[scale=1.5]}] (m65) -- (m56);
+        \draw [-{Latex[scale=1.5]}] (m67) -- (m56);
+        \path (m60) -- node[auto=false]{\ldots} (m62);
+        \path (m65) -- node[auto=false]{\ldots} (m67);
+        \draw (m41) -- (m45);
+        \draw [-{Latex[scale=1.5]}] (m45) -- (m26);
+        \draw [-{Latex[scale=1.5]}] (m71) -- node [pos=0.0,left] {$x_1$} (m60);
+        \draw [-{Latex[scale=1.5]}] (m71) -- (m65);
+        \draw [-{Latex[scale=1.5]}] (m76) -- node [pos=0.0,right] {$x_n$}  (m62);
+        \draw [-{Latex[scale=1.5]}] (m76) -- (m67);
+       
+    \end{tikzpicture}
+    \caption{Fuzzy filtr jako dopředná síť}
+    \label{img:fuzzy_network}
+\end{figure}
+
+V první vrstvě jsou určeny váhy jednotlivých pravidel, tedy jsou vypočteny hodnoty $z_j$, kde $j=1,\dots, M$. V druhé vrstvě jsou váhy jednak pronásobeny hodnotami středů a sečteny (výpočet $a$), druhak jsou váhy jednotlivých pravidel sečteny ($b$). Ve třetí vrstvě se pak vypočte výstup fuzzy systému jako $\hat{y}=\frac{a}{b}$ (více viz podkapitola \ref{chap:gd}). 
+\par Nespornou výhodou uvedeného fuzzy adaptivního filtru je, že tvoří tzv. univerzální aproximátor. Při vhodně zvolené bázi pravidel a typu funkcí příslušnosti množin ve vstupním prostoru tak dokážet aproximovat libovolnou funkci s libovolně velkou přesností (více viz. \cite{latexcompanion})
+
+
+\section{Adaptivní algoritmy}\label{chap:aa}
+V této podkapitole jsou popsány adaptivní algoritmy, které byly v rámci dizertační práce vyzkoušeny. Jedná se o LMS a NLMS (viz podkap. \ref{chap:nlms}), Generalized Normalized Gradient Descent (GNGD, viz podkap. \ref{chap:gngd}) a algoritmus Gradient descent ve verzi pro adaptivní fuzzy filtry s Gausovskými funkcemi příslušnosti ve vstupním prostoru (viz podkap. \ref{chap:gd}).
+\subsection{Algoritmy LMS a NLMS} \label{chap:nlms}
+ Při použití LMS algoritmu  optimální hodnoty adaptivních parametrů filtru $\textbf{w}(k+1)$ minimalizují střední kvadratickou chybu predikce $J(k)$ definovanou jako
+ \begin{equation}
+     J(k)=E[\abs{e(k)}^2]
+ \end{equation}
+ kde $E[\cdot]$ značí střední (očekávanou) hodnotu, a $e(k)$ je chyba predikce, definovaná jako rozdíl výstupu adaptivního filtru a skutečné hodnoty
+ \begin{equation}
+     e(k)=d(k)-\hat{y}(k).
+ \end{equation}
+ Hodnoty adaptivních parametrů filtru jsou nalezeny gradientním algoritmem. S každými nově získanými daty jsou potom váhy filtru upraveny podle rovnice
+\begin{equation}
+    \textbf{w}(k+1)=\textbf{w}(k)+\Delta\textbf{w}(k)
+\end{equation}
+přičemž pro LMS algoritmus je přírůstek vah definován jako
+\begin{equation}
+    \Delta\textbf{w}(k)=-\frac{\mu}{2} \nabla_{\textbf{w}} E[\abs{e(k)}^2]=\mu E[\textbf{x}(k)e(k)]
+\end{equation}
+kde  $\mu$ je rychlost učení (velikost kroku) ovlivňující rychlost konvergence algoritmu a $\nabla$ je operátor nabla
+\begin{equation}
+    \nabla =\Bigg(\frac{\partial}{\partial w_1},\dots,\frac{\partial}{\partial w_n}\Bigg).
+\end{equation}
+Protože jsou parametry filtru přepočítány s každými nově získanými daty (online), je možné nahradit očekávanou hodnotu $E[\textbf{x}(k)e(k)]$ hodnotou okamžitou. Výpočet nových hodnot parametrů adaptivního filtru tak přejde do tvaru
+\begin{equation}
+    \textbf{w}(k+1)=\textbf{w}(k)+\mu\textbf{x}(k)e(k)
+\end{equation}
+přičemž pro konvergenci a stabilitu algoritmu musí být splněna podmínka pro velikost rychlosti učení
+\begin{equation}
+    0 < \mu < \frac{2}{\lambda_{max}}
+\end{equation}
+kde $\lambda_{max}$ je největší vlastní číslo autokorelační matice 
+\begin{equation}
+    R_{xx}=E[\textbf{x}(k)\textbf{x}^T(k)].
+\end{equation}
+Pokud není podmínka splňěna, pak je algoritmus nestabilní a hodnoty $\textbf{w}(k)$ divergují. Pokud je naopak velikost rychlosti učení $\mu$ příliž malá, váhy konvergují pomalu.
+\par 
+Algoritmus NLMS řeší problém klasického LMS algoritmu, který v případě nevhodně škálovaného vstupu $\textbf{x}(k)$ ztrácí stabilitu. Tento problém je vyřešen normalizací vstupu. Velikost přírůstku vah je tedy
+\begin{equation}\label{eq:nlms_pure}
+    \Delta \textbf{w}(k)=\mu\frac{e(k)\textbf{x}(k)}{\textbf{x}^T(k)\textbf{x}(k)}.
+\end{equation}
+Podmínka pro velikost rychlosti učení zajišťující stabilitu algoritmu je v případě, že vstupní signál $x(k)$ není korelovaný s aditivním šumem
+\begin{equation}
+0 < \mu < 2.
+\end{equation}
+Velikost optimální rychlosti učení je ovlivněná vlastnostmi aditivního šumu $n(k)$ a v případě, že tento šum není korelovaný se vstupním signálem $\textbf{x}$ je dána jako
+\begin{equation}
+    \mu_{optimal}=\frac{E[\abs{d(k)-\hat{y}(k)}^2]}{E[\abs{e(k)}^2]}
+\end{equation}
+Problém nastane v případě, že vektor $\textbf{x}(k)$ je nulový. Z tohoto důvodu, se přidává do jmenovatele v rovnici \ref{eq:nlms_pure} malá pozitivní konstanta $\epsilon > 0$, která řeší problém s potenciálním dělením nulou. Změna adaptivních vah filtru je v tomto případě dána jako
+\begin{equation}\label{eq:nlms_adapt}
+    \Delta \textbf{w}(k)=\mu\frac{e(k)\textbf{x}(k)}{\textbf{x}^T(k)\textbf{x}(k)+\epsilon}
+\end{equation}
+a podmínka pro velikost rychlosti učení přejde do tvaru
+\begin{equation}
+    0 < \mu < 2 + \frac{\epsilon}{\textbf{x}^T(k)\textbf{x}(k)}.
+\end{equation}
+\subsection{Algoritmus RLS}
+Při použití rekurzivní metody nejmenších čtverců (RLS - recursive least squares) je odhad parametrů filtru získán na základě minimalizace kriteriální funkce ve tvaru
+\begin{equation}\label{eq:J_rls}
+    J(k)=\sum_{j=j_1}^k \lambda^{k-j} e(j)^2
+\end{equation}
+která je exponenciálně váženým součtem chyb výstupu posledních $k-j_i$ vzorků, přičemž parametr $\lambda \in (0;1\rangle$ je tzv. faktor exponenciálního zapomínání. Chyba výstupu je pak definována jako
+\begin{equation}
+    e(j)=d(j)-\hat{y}(j)
+\end{equation}
+kde
+\begin{equation}
+    \hat{y}(j)=\textbf{w}^T(k)\textbf{x}(j)
+\end{equation}
+přičemž $\textbf{w}^T(k)$ je vektor adaptivních parametrů filtru
+\begin{equation}
+    \textbf{w}^T(k)=[w_0(k),w_1(k),\dots,w_n(k)]
+\end{equation}
+a $\textbf{x}(k)$ je vstupní vektor v diskrétním časovém okamžiku $k$ obsahující posledních $n+1$ vzorků a definovaný jako
+\begin{equation}
+    \textbf{x}(j)=[x(j), x(j-1), \dots, x(j-n)]^T
+\end{equation}
+kde parametr $n$ se označuje jako řád filtru. Z uvedené kriteriální funkce \ref{eq:J_rls} je tedy zřejmé, že historicky starší chyby výstupu mají exponenciálně klesající význam a vzorky, které jsou starší než $k-j_i$ vzorků, nejsou pro odhad parametrů filtru použity.  Pro hodnoty adaptivních parametrů, které minimalizují výše uvedenou kriteriální funkci (\ref{eq:J_rls}) v diskrétním časovém okamžiku $k$ pak platí
+\begin{equation}\label{eq:rls_update}
+    \textbf{w}(k)=\textbf{w}(k-1)+\textbf{P}(k)\textbf{x}(k)[d(k)-\textbf{x}^T(k)\textbf{w}(k-1)]
+\end{equation}
+kde matice $\textbf{P}(k)$ je 
+\begin{equation}
+\textbf{P}(k)=\frac{1}{\lambda}\Bigg[\textbf{P}(k-1)- \frac{\textbf{P}(k-1)\textbf{x}(k)\textbf{x}^T(k)\textbf{P}(k-1)}{\lambda+\textbf{x}^T(k)\textbf{P}(k-1)\textbf{x}(k)}\Bigg].
+\end{equation}
+
+Člen $\textbf{x}^T(k)\textbf{w}(k-1)$ v rovnici (\ref{eq:rls_update}) reprezentuje apriorní chybu filru, která je vypočtena ještě před korekcí adaptivních vah. Kritérium, která je minimalizováno (viz rovnice (\ref{eq:J_rls})) ale obsahuje aposteriorní chyby filtru, která je vypočtena po korekci adaptivních vah (zde se nabízí určitá podobnost s Kalmanovým filtrem, více viz \cite{rls_kalman}). 
+Dále poznamenejme, že $\textbf{P}(k)$ je inverzní maticí k vážené výběrové kovarianční matici $\textbf{R}_x(k)$ definované jako
+\begin{equation}
+    \textbf{R}_{x}(k)=\lambda^k\textbf{R}_x(0)+ \sum_{j=1}^k \lambda^{k-j}\textbf{x}(j)\textbf{x}^T(j)=\lambda \textbf{R}_{x}(k-1)+\textbf{x}(k)\textbf{x}^T(k)
+\end{equation}
+přičemž $\textbf{R}_x(0)$ je počáteční hodnota. V praxi se počáteční hodnota matice $\textbf{P}(0)=\textbf{R}_x^{-1}(0)$ volí jako
+\begin{equation}
+    \textbf{P}(0)=\delta \cdot \textbf{I}
+\end{equation}
+kde $\delta$ je dostatečně velká pozitivní konstanta a $\textbf{I}$ je jednotková matice (v některé literatuře nazývaná jako matice identity). Pro signály s vysokým poměrem výkon-šum se volí malé hodnoty $\delta$, pro signály s malým poměrem výkon-šum pak velké hodnoty $\delta$. Pokud je k dispozici apriorní informace o $\sigma_x^2$ tedy varianci vstupního signálu $x(k)$, volí se hodnota konstanty podle \cite{rls_mit} jako
+\begin{equation}
+    \delta>100\sigma_x^2.
+\end{equation}
+Počáteční hodnota adaptivních parametrů se obvykle volí jako
+\begin{equation}
+    \textbf{w}(0)= 0.
+\end{equation}
+
+\subsection{Algoritmus Generalized Normalized Gradient Descent}\label{chap:gngd}
+Algoritmus Generalized Normalized Gradient Descent (GNGD) řeší problém případné pomalé konvergence algoritmu NLMS zavedením dalšího kompenzačního členu, který ovlivňuje velikost kroku při gradientní adaptaci. Nejprve uvažujme kvadratickou kriteriální funkce ve tvaru
+\begin{equation}
+    J(k)=\frac{1}{2}e^2(k)
+\end{equation}
+a adaptaci parametrů ve tvaru (\ref{eq:nlms_adapt}). Malou pozitivní konstantu $\epsilon$ nahradíme dalším adaptivním členem
+\begin{equation}
+    \epsilon(k+1)=\epsilon(k)-\rho \nabla_{e(k-1)}J(k)
+\end{equation}
+přičemž
+\begin{multline}
+    \frac{\partial J(k)}{\partial \epsilon(k-1)}=\frac{\partial J(k)}{\partial e(k)}\frac{\partial e(k)}{\partial y(k)}\frac{\partial y(k)}{\partial \textbf{x}(k)}\frac{\partial \textbf{w}(k)}{\partial \eta(k-1)}\frac{\partial \eta(k-1)}{\partial \epsilon(k-1)}= \\
+    =\frac{e(k)e(k-1)\textbf{x}^T(k)\textbf{x}(k-1)}{(\textbf{x}^T(k)\textbf{x}(k)+\epsilon(k-1))^2}.
+\end{multline}
+Adaptace parametrů je tedy dána jako
+\begin{equation}
+    \textbf{w}(k+1)=\textbf{w}(k)+\eta(k)e(k)\textbf{x}(k)
+\end{equation}
+kde
+\begin{equation}
+    \eta(k)=\frac{\mu}{\textbf{x}^T(k)\textbf{x}(k)+\epsilon(k)}
+\end{equation}
+\begin{equation}
+    \epsilon(k)=\epsilon(k-1)-\rho\mu\frac{e(k)e(k-1)\textbf{x}^T(k)\textbf{x}(k-1)}{(\textbf{x}^T(k)\textbf{x}(k)+\epsilon(k-1))^2}
+\end{equation}
+přičemž parametr $\rho$ je parametr adaptace velikosti kroku při spuštění algoritmu. Algoritmus GNGD je vhodný pro zpracování nelineární a nestacionárních signálů.
+
+\subsection{Gradient descent pro fuzzy filtry}\label{chap:gd}
+Při použití metody gradient descent pro adaptivní fuzzy filtry je potřeba nejdříve specifikovat strukturu filtru, tedy počet pravidel, množiny ve vstupním a výstupním prostoru, typ inferenční metody, fuzzifikace a defuzzifikace. Uvažujme fuzzy systém specifikovaný v podkapitole \ref{chap:fuzzyf}, v jehož vstupním prostoru $U\subset R^n$ jsou Gaussovské funkce příslušnosti ve tvaru
+\begin{equation}
+    \mu_{A^j_i}(x_i)= exp\Bigg[-\Bigg(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Bigg)^2\Bigg]
+\end{equation}
+kde $\overline{x}_i^j$ je středem $i$-té vstupní množiny $j$-tého pravidla a $\sigma_i^j$ je parametr, určující tvar, respektive šířku, této fuzzy množiny. Zobrazení, realizováné výše specifikovaným fuzzy systémem je dáno rovnicí
+\begin{equation}
+    \hat{y}(x)=\frac{\sum_{j=1}^M \overline{b}^j\Big[\prod_{i=1}^n exp\Big(-\Big(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Big)\Big)\Big]}{\sum_{j=1}^M \Big[\prod_{i=1}^n exp\Big(-\Big(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Big)\Big)\Big]}
+\end{equation}
+přičemž parametr $M$ určující počet množin je vzhledem k adaptaci parametrem fixním a parametry $\overline{b}^j$, $\sigma_i^j$ a $\overline{x}_i^j$ jsou parametry, které se adaptují. Dále uvažujme množinu $N$ dvojic vstup-výstup, kde $N$ odpovídá počtu vzorků experimentu. 
+\begin{equation}
+    \{\textbf{x}^d(k), d(k) \}, \; k=1,2,\dots,N
+\end{equation}
+Při použití algoritmu gradient descent pro fuzzy filtr v kontextu detekce novosti se vždy s nově naměřenými daty tento filtr adaptuje. Adaptace probíhá s každými daty na základě minimalizace kritériální funkce
+\begin{equation}
+    J(k)=\frac{1}{2}[\hat{y}(\textbf{x}(k))-d(k)]^2
+\end{equation}
+která je zvolená tak, aby měla právě jeden globální extrém, přičemž parametry jsou adaptovány dokud není dosaženo dostatečně malé chyby, nebo dokud není překročen předem stanovený maximální počet iterací $q_{max}$. Volba Gaussovských funkcí příslušnosti ve vstupním prostoru je výhodná z hlediska výpočtu derivace podle adaptabilních parametrů, neboť tato derivace existuje v každém bodě.
+
+\begin{equation}\label{eq:str_b}
+    \overline{b}^j(q+1)=\overline{b}^j(q)-\mu\frac{\partial e}{\partial \overline{b}^j}\Big|_q=\overline{b}^j(q)-\mu\frac{\hat{y}-d(k)}{b(q)}z^j(q)
+\end{equation}
+\begin{multline}\label{eq:str_x}
+    \overline{x}_i^j(q+1)=\overline{x}_i^j(q)-\mu\frac{\partial e}{\partial \overline{x}_i^j}\Big|_q=\\ =\overline{x}_i^j(q)-\mu\frac{\hat{y}-d(k)}{b(q)}[\overline{b}^j(q)-\hat{y}]z^j(q)\frac{2[x_i(k)-\overline{x}_i^j(q)]}{\sigma_i^{j2}(q)}
+\end{multline}
+\begin{multline}\label{eq:str_sigma}
+        \sigma_i^j(q+1)=\sigma_i^j(q)-\mu\frac{\partial e}{\partial \sigma_i^j}\Big|_q=\\= \sigma_i^j(q)-\mu\frac{\hat{y}-d(k)}{b(q)}[\overline{b}^j(q)-\hat{y}]z^j(q)\frac{2[x_i(k)-\overline{x}_i^j(q)]^2}{\sigma_i^{j3}(q)}
+\end{multline}
+S každými nově získanými daty (v diskrétním časovém okamžiku $k$) jsou tedy v $q$-té iteraci hodnoty parametru $\overline{b}^j$ vypočítány podle rovnice (\ref{eq:str_b}), parametru $\overline{x}_i^j$ podle rovnice (\ref{eq:str_x}) a parametru $\sigma_i^j$ podle rovnice (\ref{eq:str_sigma}). Parametr $\mu$ je fixní a určuje velikost kroku. 
+Algoritmus lze shrnout následujícími 5-ti kroky:
+\begin{enumerate}[\bfseries 1.]
+        \item \textbf{Krok} Určení počtu pravidel a počáteční nastavení parametrů $\overline{b}^j(0)$, $\overline{x}_i^j(0)$, $\sigma_i^j(0)$ a velikosti kroku $\mu$.
+        \item \textbf{Krok} Pro $k$tou dvojici (\textbf{x}(k), d(k)) v $q$-té iteraci jsou vypočteny hodnoty výstupních vrstev fuzzy systému (viz obr \ref{img:fuzzy_network}) podle rovnic (\ref{eq:z}), (\ref{eq:b}), (\ref{eq:a}) a (\ref{eq:yhat}).
+        \item \textbf{Krok} Výpočet nových hodnot parametrů $\overline{b}^j(q+1)$, $\overline{x}_i^j(q+1)$, $\sigma_i^j(q+1)$ dle rovnic (\ref{eq:str_b}), (\ref{eq:str_x}), (\ref{eq:str_sigma}).
+        \item \textbf{Krok} $q=q+1$ a opakování kroků 2. a 3. pro , dokud není dosaženo maximálního množství iterací $q_{max}$ nebo požadované přesnosti $\epsilon$.
+        \item \textbf{Krok} Návrat do kroku 2. pro hodnotu $k=k+1$, tedy s novou dvojicí dat $(\textbf{x}, d)$.
+    \end{enumerate}
+Rovnice popisující výstup jednotlivých vrstev fuzzy systému (viz obr. \ref{img:fuzzy_network}) následují.
+
+\begin{equation}\label{eq:z}
+    z^j=\prod_{i=1}^n exp \bigg[-\bigg(\frac{x_i(k)-\overline{x}_i^j(q)}{\sigma_i^j(q)}\bigg)\bigg]
+\end{equation}
+\begin{equation}\label{eq:b}
+    b=\sum_{j=1}^M z^j
+\end{equation}
+\begin{equation}\label{eq:a}
+    a=\sum_{j=1}^M \overline{b}^j(q) z^j
+\end{equation}
+\begin{equation}\label{eq:yhat}
+    \hat{y}=\frac{a}{b}
+\end{equation}
+Pro správnou funkci algoritmu je důležitá prvotní volba hodnot parametrů $\overline{b}^j(0)$, $\overline{x}_i^j(0)$, $\sigma_i^j(0)$. Náhodné hodnoty parametrů nejsou v případě použití tohoto algoritmu vhodné. Jedna z možných metod, jak vybrat hodnoty parametrů je využití prvních $M$ dvojic vstup-výstup. Uvažujme množinu $M$ dvojic vstup-výstup
+\begin{equation}
+    \{\textbf{x}(j), d(j) \}, \; j=1,2,\dots,M
+\end{equation}
+kterou využijeme k počátečnímu nastavení parametrů následujícím způsobem.
+\begin{equation}
+    \overline{b}^j(0)=d(j)
+\end{equation}
+\begin{equation}
+    \overline{x}_i^j(0)=x_i(j)
+\end{equation}
+\begin{equation}
+    \sigma_i^j(0)=\frac{[max(x_i^l:l=1,2,\dots,M)]-min(x_i^l:l=1,2,\dots,M)}{M}
+\end{equation}
+Pro správnou funkci algoritmu je důležitá i volba velikosti kroku $\mu$, která se obvykle provádí experimentálně. 
