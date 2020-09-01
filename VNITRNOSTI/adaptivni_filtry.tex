@@ -5,7 +5,7 @@ Obecně problém filtrace spočívá ve zpracování signálu filtrem tak, že z
 
 Pro úplnost uveďme, že signálem rozumíme fyzikální veličinu, která se mění v čase, prostoru nebo v jakékoliv jiné nezávislé proměnné (obecně proměnných) \cite{proakis}. V rámci dizertace jsou analyzovány pouze signály, které se mění v čase.
 \par
-Jedno ze základních dělení signálů je rozdělení na signály spojité a diskrétní, přičemž signál může být spojitý, resp. diskrétní v čase nebo amplitudě. Uvažujme signál spojitý v čase i amplitudě $s(t)$. Pro takový signál platí, že hodnota jeho amplitudy $s(t)\in R$ a hodnota nezávislé proměnné $t$ je z nějakého intervalu $(t_1;t_2)$, kde $t_1 \in R$ a $t_2 \in R$. Signál spojitý v amplitudě a diskrétní v čase vznikne vzorkováním původního signálu $s(t)$ pomocí vzorkovací funkce ve tvaru
+Jedno ze základních dělení signálů je rozdělení na signály spojité a diskrétní, přičemž signál může být spojitý, resp. diskrétní v čase nebo amplitudě. Uvažujme signál spojitý v čase i amplitudě $s(t)$. Pro takový signál platí, že hodnota jeho amplitudy $s(t)\in R$ a hodnota nezávislé proměnné $t$ je z nějakého intervalu $(t_1;t_2)$, kde $t_1 \in R$ a $t_2 \in R$ (předkládaná dizertační práce se nezabývá komplexními signály). Signál spojitý v amplitudě a diskrétní v čase vznikne vzorkováním původního signálu $s(t)$ pomocí vzorkovací funkce ve tvaru
 \begin{equation}
 v(t)=\sum_{k=-\infty}^{\infty}\delta(t-k\Delta t)
 \end{equation}
@@ -35,7 +35,9 @@ Signály dále můžeme rozdělit na skalární a vektorové. Vektorových (něk
 kde $i$-tá složka $s_i(k)$ odpovídá signálu $i$-tého kanálu. Skalární signál (někdy též označovaný jako jednokanálový) je pak např. právě $i$-tá složka signálu $\textbf{s}(k)$.
 \par 
 Z pohledu počtu nezávislých proměnných, jejichž funkcí lze signál vyjádřit lze rozlišovat mezi signály jednorozměrnými a vícerozměrnými. Jednorozměrným signálem je například záznam jednoho kanálu EEG, kde hodnota signálu $s_i(k)$ je závislá pouze na čase. Vícerozměrným signálem může např. digitální obraz, jehož intenzita je funkcí souřadnic $I(x,y)$.
-
+\par
+Další dělení signálu je na signály deterministické a náhodné. Pokud můžeme popsat signál pomocí explicitního matematického zápisu, tabulky nebo pravidlem tak, že pro každý časový okamžik získáme jednoznačnou hodnotu, jedná se o signál deterministický. V opačném případě jsou signály, jejichž hodnota lze určit pouze s nějakou pravděpodobností označovány jako náhodné (stochastické). Typickým příkladem náhodného signálu je např. bílý šum. Ze stochastických signálu jsou z pohledu této práce je zajímavé ještě dělení na ergodické a stacionární signály. Pro stacionární signály je jejich pravděpodobnostní popis nezávislý na počátku časové osy. Ergodické signály jsou pak signály jejichž statistické vlastnosti lze určit z libovolné, dostatečně velké, množiny dat a tyto vlastnosti se v čase nemění.
+\par
 Filtr můžeme použít v  následujících základních úlohách zpracování signálů:
 \begin{itemize}
     \item filtrace

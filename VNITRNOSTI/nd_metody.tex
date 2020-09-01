@@ -1,2 +1,23 @@
 \chapter{Přehled metod detekce novosti}
-\#TODO
+Tato kapitola je věnována přehledu různých přístupů k detekci novosti, které se v posledních letech používají. Více pozornosti je věnováno algoritmům Learning Entropy (viz kap.\ref{chap:LE}) a Error and Learning Based Novelty detection (viz kap. \ref{chap:elbnd}) které jsou v kapitole (XYZ) použity pro porovnání úspěšnosti detekce novosti.
+\section{Algoritmus Learning Entropy}\label{chap:LE}
+Algoritmus Learning Entropy (LE) je algoritmem, který využívá jednoduchých 
+
+\begin{equation}
+LE(k)=\sum_{i=1}^n z(\abs{\Delta w_i(k)})
+\end{equation}
+kde funkce $z$ je označovaná jako speciální $z$-score a definovaná jako
+\begin{equation}
+z(\abs{\Delta w_i(k)}) = \frac{\abs{\Delta w_i(k)}-\overline{\abs{\Delta\textbf{w}_i^M(k-1)}}}{\sigma(\abs{\Delta \textbf{w}_i^M(k-1)})}
+\end{equation}
+kde
+\begin{equation}
+\overline{\abs{\Delta \textbf{w}_i^M(k-1)}}=\frac{\sum_{j=1}^M w_i(k-j-m)}{M}
+\end{equation} 
+přičemž parametr $M$ je délka plovoucího okna, z kterého je spočítán průměr přírůstků $i$-té váhy a parametr $m$ je volitelný parametr pro data které vykazují periodicitu.
+\begin{equation}
+\sigma
+\end{equation}
+
+\section{Algoritmus Error and Learning Based Novelty Detection}\label{chap:elbnd}
+asdf
