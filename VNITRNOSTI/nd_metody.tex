@@ -1,12 +1,30 @@
 \chapter{Přehled metod detekce novosti}
 Tato kapitola je věnována přehledu různých přístupů k detekci novosti, které se v posledních letech používají. Více pozornosti je věnováno algoritmům Learning Entropy (viz kap.\ref{chap:LE}) a Error and Learning Based Novelty detection (viz kap. \ref{chap:elbnd}) které jsou v kapitole (XYZ) použity pro porovnání úspěšnosti detekce novosti.
 \section{Algoritmus Learning Entropy}\label{chap:LE}
-Algoritmus Learning Entropy (LE) je algoritmem, který využívá jednoduchých 
-
+Algoritmus Learning Entropy (LE) je algoritmem, který využívá adaptivních filtrů (obvykle LNU a HONU) k detekci novosti v datech \cite{ivoLE1,ivoLE2}. Autoři ukazují, že ne vždy, je novost v datech korelována s chybou predikce, a k detekci novosti navrhují využívat přírůstky vah adaptivních filtrů $\Delta\textbf{w}$, které jsou získány použitím gradientní metody a adaptací s každými novými daty. V první publikaci \cite{ivoLE1} je popsán multifraktální přístup, který využívá uspořádané množiny různých hodnot prahů
 \begin{equation}
-LE(k)=\sum_{i=1}^n z(\abs{\Delta w_i(k)})
+\boldsymbol{\alpha}=\{ \alpha_1,\alpha_1,\dots,\alpha_{n_{\alpha}} \}, \alpha_1>\alpha_2>\dots>\alpha_{n_{\alpha}}
 \end{equation}
-kde funkce $z$ je označovaná jako speciální $z$-score a definovaná jako
+přičemž $\forall i \in \{1,2,\dots,n_{\alpha} \}:\alpha_i\in R$. Míra novosti "Approximate Individual Sample Learning Entropy" je potom definovaná jako
+\begin{equation}\label{eq:aisle}
+E_A(k)=\frac{1}{n\cdot n_{\alpha}}\sum_{i=1}^{n}\sum_j^{n_{\alpha}} f(\abs{\Delta w_i(k)}, \alpha_j)
+\end{equation}
+kde funkce $f$ je
+\begin{equation}
+f(\Delta w_i, \alpha_j)=\begin{cases}
+1 \; if \; \abs{\Delta w_i(k)}>\alpha_{j} \cdot \overline{\abs{\Delta w_i^M(k)}}\\
+0 \; if \; \abs{\Delta w_i(k)}\leq \alpha_j \cdot \overline{\abs{\Delta w_i^M(k)}}
+
+
+\end{cases}
+\end{equation}
+kde $n$ je počet adaptivních parametrů filtru, $n_{\alpha}$ je počet citlivostních prahů (respektive počet prvků množiny $\boldsymbol{\alpha}$) a $\overline{\abs{\Delta w_i^M(k)}}$ průměrná hodnota přírůstku $i$-té adaptivní výhy v plovoucím okně délky $M$. Člen $1/(n\cdot n_{\alpha})$ normalizuje hodnotu AISLE takže  $E_A \in \langle 0,1\rangle$. Toto hodnotu lze interpretovat tak že pokud se blíží 0, váhy se téměř nemění a z pohledu adaptace filtru se příliš neliší od minulých dat. Naopak vysoké hodnoty $E_A$ znamenají, že dochází k velkým změnám velkého množství adaptivních vah a data se nějakým způsobem liší od předchozích. 
+\par
+V publikaci \cite{ivoLE2} pak autoři navrhují tzv. přímý algoritmus pro výpočet LE. Ta je vypočítána jako
+\begin{equation}\label{eq:le_direct}
+LE(k)=\sum_{i=1}^n \max \{0,z(\abs{\Delta w_i(k)})-\beta \};
+\end{equation}
+kde funkce $z$ je označovaná jako speciální $z$-score a je definovaná jako
 \begin{equation}
 z(\abs{\Delta w_i(k)}) = \frac{\abs{\Delta w_i(k)}-\overline{\abs{\Delta\textbf{w}_i^M(k-1)}}}{\sigma(\abs{\Delta \textbf{w}_i^M(k-1)})}
 \end{equation}
@@ -14,10 +32,23 @@ kde
 \begin{equation}
 \overline{\abs{\Delta \textbf{w}_i^M(k-1)}}=\frac{\sum_{j=1}^M w_i(k-j-m)}{M}
 \end{equation} 
-přičemž parametr $M$ je délka plovoucího okna, z kterého je spočítán průměr přírůstků $i$-té váhy a parametr $m$ je volitelný parametr pro data které vykazují periodicitu.
+je průměr hodnot přírůstku adaptivních vah, přičemž parametr $M$ je délka plovoucího okna, z kterého je spočítán průměr přírůstků $i$-té váhy a parametr $m$ je volitelný parametr pro data které vykazují periodicitu a $\sigma(\sigma(\abs{\Delta \textbf{w}_i^M(k-1)})$ je směrodatná odchylka těchto $M$ přírůstků. Pro takto definovanou LE pak platí, že $E(k)\in \langle0,+\infty)$. Tento přístup umožňuje detekovat změny adaptivních parametrů, které jsou větší než jejich průměr zvětšený o $\beta$ násobek jejich směrodatné odchylky a zároveň obchází nutnost výpočtu přes několik citlivostních prahů jako v případě \ref{eq:aisle}. Pokud bychom chtěli detekovat i neobvykle malé změny adaptivních parametrů, navrhují autoři vztah pro výpočet LE \ref{eq:le_direct} modifikovat na tvar
 \begin{equation}
-\sigma
+E(k)=\sum_{i=1}^{n_w}z(\abs{\Delta w_i(k)}); E \in R
+\end{equation}
+který v případě negativních hodnot $z(\abs{\Delta w_i(k)})$ nemusí poskytovat jasnou hranici mezi obvyklými a neobvyklými změnami adaptivních parametrů.
+\section{Algoritmus Error and Learning Based Novelty Detection}\label{chap:elbnd}
+Algoritmus Error and Learning Based Novelty Detection (ELBND) \cite{elbnd1,elbnd2} je dalším z algoritmů detekce novosti, které využívají adaptivních filtrů, jejichž parametry jsou adaptovány vždy s novými daty. Každý naměřený vzorek dat je popsán vektorem hodnot, na základě přírůstku adaptivních vah a chyby filtru, definovaným jako
+\begin{equation}
+	elbnd(k)=\Delta\textbf{w}\cdot e(k)
+\end{equation}
+který popisuje novost v daném vzorku dat. Skalární hodnotu popisující novost ve vzorku dat pak autoři navrhují získat buď jako maximum z absolutních hodnot vektoru $elbnd(k)$, takže skalární míra novosti $ELBND(k)$ je definovaná jako
+\begin{equation}\label{eq:elbnd1}
+ELBND(k) = \max_{1\leq i \leq n_w} \abs{\Delta w_i(k) \cdot e(k)}.
+\end{equation}
+Další možností je určit míru novosti jako součet absolutních hodnot jednotlivých přírůstků násobených chybou filtru, tedy
+\begin{equation}\label{eq:elbnd2}
+	ELBND(k)=\sum_{i=1}^{n_w}\abs{\Delta w_i(k)\cdot e(k)}
 \end{equation}
 
-\section{Algoritmus Error and Learning Based Novelty Detection}\label{chap:elbnd}
-asdf
+Uvedený algoritmus, využívající vztah \ref{eq:elbnd1}, byl úspěšně použit k adaptivní klasifikaci EEG pacientů s demencí \cite{elbnd3}.

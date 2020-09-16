@@ -16,7 +16,97 @@ V této kapitole jsou shrnuty výsledky, kterých bylo v rámci práce na témat
 \#TODO
 \subsection{Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}
 \#TODO
-\subsection{Vyhodnocení výpočetní náročnosti metod odhadu parametrů Paretova rozdělení}
+\section{Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}
+Výsledky v této podkapitole byli publikovány v (můj shit).
+\subsection{Motivace}
+Detekce novosti v reálném čase je úloha, která nalézá své uplatnění nejen v oblasti detekci a diagnostiky v průmyslových aplikacích \cite{fault}, ale také např. v detekci narušení počítačových sítí \cite{data_streams} nebo v zabezpečovacích systémech \cite{surveilance}. Další oblastí uplatnění je např. mobilní robotika, která je specifická tím, že robot má k dispozici pouze limitovaný výpočetní výkon \cite{robotics_marslan,robotics}. Pro metody detekce novosti v reálném čase je tedy důležité, aby vynikali dostatečně nízkou výpočetní náročností. Z tohoto důvodu byli otestovány tři různé metody výpočtu parametrů GPD (viz kapitola \ref{chap:gpd}, protože tento výpočet je z hlediska použití algoritmu ESE potenciálně limitující z hlediska využitelnosti v aplikacích detekce v reálném čase. Jmenovitě byli otestovány tyto metody: metoda maximální věrohodnosti (ML), metoda momentů (MOM) a metoda kvazi-maximální věrohodnosti (QML) (více viz kapitola \ref{chap:gpd}). Výpočetní čas potřebný k určení parametrů GPD pomocí těchto metod byl vyhodnocen při experimentu, ve kterém dojde ke skokové změně parametrů generátoru signálu.
+\subsection{Specifikace experimentu}
+Vzhledem k povaze experimentu, který slouží k vyhodnocení výpočetní náročnosti různých metod určení parametrů GPD, a nikoliv k detekci novosti v nějakém komplexním procesu, byl zvolen jednoduchý lineární kombinační filtr (LNU), jehož výstup v diskrétním časovém okamžiku $k$ je definován jako
+\begin{equation}
+\hat{y}(k)=w_1\cdot x_1(k)+w_2\cdot x_2(k)+w_3\cdot x_3(k)
+\end{equation}
+a tento filtr je adaptován algoritmem NLMS (viz kapitola \ref{chap:nlms}), přičemž rychlost učení $\mu$ byla nastavena jako $\mu=0.8$.
+\par 
+Pro výstup generátoru signálu platí vztah
+\begin{equation}
+y(k)=x_1(k)+x_2(k)+x_3(k)+v(k)
+\end{equation}
+pro všechny $1 \leq k \leq 200$. Člen $v(k)$ reprezentuje aditivní gaussovský šum s nulovou střední hodnotou a směrodatnou odchylkou $\sigma_{noise}=0.1$. V diskrétním časovém okamžiku $k=201$ dojde ke změně generátoru signálu a jeho výstup přejde do tvaru
+\begin{equation}
+y(k)=0.7\cdot x_1(k)+1.2\cdot x_1(k)+1.1 \cdot x_1(k) + v(k)
+\end{equation}
+pro $201 \leq k \leq 400$. Hodnota všech vstupů generátoru signálu je v každém časovém okamžiku $k$ vybrána ze standartního rozdělení normálního rozdělení, takže $i$-tý vstup $x_i\sim \mathcal{N}(0,1)$. Změna parametrů signálu byla vybrána tak, aby nedošlo ke změně střední hodnoty signálu $y(k)$.
+\par
+Experimenty byly provedeny na PC s procesorem Intel(R) Core(TM) i5-7400 se 4mi jádry s taktovací frekvencí 3001 MHz a operační pamětí o velikosti 32 GB. Operační systém byl Windows 10 Pro, 64-bitová verze 10.0.18362. Kód byl napsán v Python 3.6.1 a byly použity knihovny Numpy 1.17.0 a Scipy 1.4.1.
+
+\begin{figure}[h!]
+	\label{fig:par_output}
+	\centering
+	\includegraphics[scale=0.71]{IMG/appel_par/par_output.eps}
+	\caption{Výstup adaptivního filtru během experimentu. Skoková změna parametrů generátoru signálu je zvýrazněná svislou vodorovnou čarou v diskrétním časovém okamžiku $k=200$.}
+\end{figure}
+
+\subsection{Výsledky a diskuze}
+
+
+\begin{figure}[h!]
+	\label{fig:par_ese}
+	\centering
+	\includegraphics[scale=0.71]{IMG/appel_par/par_ese.eps}
+	\caption{Hodnota ESE během experimentu. Globální maximum odpovídá změně parametrů generátoru signálu, resp. úspěšné detekci novosti.}
+\end{figure}
+
+\begin{figure}[h!]
+	\label{fig:par_mu}
+	\centering
+	\includegraphics[scale=0.71]{IMG/appel_par/par_mu.eps}
+	\caption{Hodnota parametru $\mu$ GPD pro všechny tři adaptivní váhy $w_1$, $w_2$, $w_3$ během experimentu detekce změn parametrů generátoru signálu. Svislá čára v diskrétním časovém okamžiku $k=200$ znázorňuje skokovou změnu parametrů generátoru signálu.}
+\end{figure}
+
+\begin{figure}[h!]
+	\label{fig:par_gamma}
+	\centering
+	\includegraphics[scale=0.71]{IMG/appel_par/par_gamma.eps}
+	\caption{Hodnota parametru $\gamma$ GPD pro všechny tři adaptivní váhy $w_1$, $w_2$, $w_3$ během experimentu detekce změn parametrů generátoru signálu. Svislá čára v diskrétním časovém okamžiku $k=200$ znázorňuje skokovou změnu parametrů generátoru signálu.}
+\end{figure}
+
+\begin{figure}[h!]
+	\label{fig:par_sigma}
+	\centering
+	\includegraphics[scale=0.71]{IMG/appel_par/par_mu.eps}
+	\caption{Hodnota parametru $\sigma$ GPD pro všechny tři adaptivní váhy $w_1$, $w_2$, $w_3$ během experimentu detekce změn parametrů generátoru signálu. Svislá čára v diskrétním časovém okamžiku $k=200$ znázorňuje skokovou změnu parametrů generátoru signálu.}
+\end{figure}
+Průměrný čas výpočtu $\overline{t}$ parametrů všech tří GPD (počet GPD odpovídá počtu adaptivních parametrů filtru) a odpovídající směrodatné odchylky $\sigma_t$ jsou uvedeny v následující tabulce \ref{tab:par_results}.
+\begin{table}[h]
+
+\centering
+\caption{Tabulka průměrných časů výpočtu pro jednotlivé adaptivní váhy a odpovídajících směrodatných odchylek vybraných metod výpočtu parametrů GPD}
+\begin{tabular}{|l|l||l|l|}
+\hline
+ & Metoda & $\overline{t}$ {[}ms{]} & $\sigma_t$ {[}ms{]} \\ \hline \hline
+\multirow{3}{*}{$w_1$} & ML & $26.198$ & $3.396$ \\ \cline{2-4} 
+ & QML & $0.354$ & $0.478$ \\ \cline{2-4} 
+ & MOM & $\textbf{0.076}$ & $0.264$ \\ \hline
+\multirow{3}{*}{$w_2$} & ML & $26.718$ & $2.302$ \\ \cline{2-4} 
+ & QML & $0.337$ & $0.471$ \\ \cline{2-4} 
+ & MOM & $\textbf{0.064}$ & $0.244$ \\ \hline
+\multirow{3}{*}{$w_3$} & ML & $24.982$ & $1.964$ \\ \cline{2-4} 
+ & QML & $0.395$ & $0.489$ \\ \cline{2-4} 
+ & MOM & $\textbf{0.060}$ & $0.238$ \\ \hline
+
+\end{tabular}
+ \label{tab:par_results}
+\end{table}
+
+Z uvedených výsledků je patrné, že nejrychlejší metoda je MOM. Podstatnou nevýhodou této metody pro využití v aplikacích, které vyhodnocují data v reálném čase je její omezení na hodnoty parametrů GPD (viz kapitola \ref{chap:gpd}). Pokud parametry uvedené omezení nesplňují, vypočtené hodnoty nepřesné (resp. nesmyslné) a tedy nepoužitelné pro algoritmus ESE, který začne produkovat nepřesné výsledky. Z pohledu úlohy detekce novosti je diskutabilní, zda-li můžeme garantovat, že sledovaný proces po celou dobu bude splňovat uvedené omezení.
+\par
+Metoda, jejíž výpočetní čas byl nejvyšší je ML, což je vzhledem k iterativnímu nalezení parametrů GPD očekávatelné. Jednou z nevýhod použití této metody je nemožnost určit minimální a maximální počet iterací. Jednou z možností jak zrychlit nalezení parametrů je využití apriorní informace o hodnotách těchto parametrů. V rámci experimentu však byla využita pouze apriorní informace o parametru $\mu$, který odpovídá nejmenší hodnotě přírůstku vah v okně.
+
+
+
+
+
+
 \section{Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu} \label{chap:LE_fuzzy}
 \#TODO
 \subsection{Popis bioprocesu a specifikace problému}
