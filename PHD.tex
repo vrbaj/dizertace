@@ -24,7 +24,7 @@
 \usepackage{enumerate}
 \usetikzlibrary{shapes, arrows.meta}
 \usetikzlibrary{backgrounds,calc}
-
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \BeforeBeginEnvironment{appendices}{\gdef\thechapter{\ }}
 \AtBeginEnvironment{appendices}{\renewcommand\thesection{\Alph{section}}}
 
@@ -88,13 +88,14 @@
 
 \renewcommand{\bibname}{Publikace autora}
 \begin{thebibliography}{A}
-
+\bibitem{ese_mdpi}VRBA, Jan; MAREŠ, Jan. Introduction to Extreme Seeking Entropy. Entropy, 2020, 22.1: 93.
 
 \end{thebibliography}
 
 
 \renewcommand{\bibname}{Literatura}
-\begin{thebibliography}{L} 
+\begin{thebibliography}{L}
+
 \bibitem{fermentace}MAREŠ, Jan, et al. Process state classification of fed-batch fermentation based on process variables analysis. Biochemical Engineering Journal, 2016, 112: 178-185.
 \bibitem{rls_mit}ROWELL, D. 2.161 Signal Processing: Continuous and Discrete, Fall 2008. 2008.
 \bibitem{rls_kalman}MANDIC, Danilo P.; KANNA, Sithan; CONSTANTINIDES, Anthony G. On the intrinsic relationship between the least mean square and Kalman filters [Lecture Notes]. IEEE Signal Processing Magazine, 2015, 32.6: 117-122.
@@ -116,7 +117,9 @@ RAMEZANI, Ramin; ANGELOV, Plamen; ZHOU, Xiaowei. A fast approach to novelty dete
 MARSLAND, Stephen; NEHMZOW, Ulrich; SHAPIRO, Jonathan. On-line novelty detection for autonomous mobile robots. Robotics and Autonomous Systems, 2005, 51.2-3: 191-206.
 \bibitem{robotics}
 NEHMZOW, Ulrich, et al. Novelty detection as an intrinsic motivation for cumulative learning robots. In: Intrinsically Motivated Learning in Natural and Artificial Systems. Springer, Berlin, Heidelberg, 2013. p. 185-207.
-
+\bibitem{scarrot2012review}SCARROTT, Carl; MACDONALD, Anna. A review of extreme value threshold es-timation and uncertainty quantification. REVSTAT–Statistical Journal, 2012, 10.1: 33-60.
+\bibitem{mackey}MACKEY, Michael C.; GLASS, Leon. Oscillation and chaos in physiological control systems. Science, 1977, 197.4300: 287-289.
+\bibitem{dead}SPANGENBERG, Mariana, et al. Detection of variance changes and mean value jumps in measurement noise for multipath mitigation in urban navigation. Navigation, 2010, 57.1: 35-52.
 \end{thebibliography}
 
 

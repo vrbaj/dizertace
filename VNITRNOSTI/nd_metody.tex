@@ -33,7 +33,7 @@ kde
 \overline{\abs{\Delta \textbf{w}_i^M(k-1)}}=\frac{\sum_{j=1}^M w_i(k-j-m)}{M}
 \end{equation} 
 je průměr hodnot přírůstku adaptivních vah, přičemž parametr $M$ je délka plovoucího okna, z kterého je spočítán průměr přírůstků $i$-té váhy a parametr $m$ je volitelný parametr pro data které vykazují periodicitu a $\sigma(\sigma(\abs{\Delta \textbf{w}_i^M(k-1)})$ je směrodatná odchylka těchto $M$ přírůstků. Pro takto definovanou LE pak platí, že $E(k)\in \langle0,+\infty)$. Tento přístup umožňuje detekovat změny adaptivních parametrů, které jsou větší než jejich průměr zvětšený o $\beta$ násobek jejich směrodatné odchylky a zároveň obchází nutnost výpočtu přes několik citlivostních prahů jako v případě \ref{eq:aisle}. Pokud bychom chtěli detekovat i neobvykle malé změny adaptivních parametrů, navrhují autoři vztah pro výpočet LE \ref{eq:le_direct} modifikovat na tvar
-\begin{equation}
+\begin{equation}\label{eq:le_direct_padasip}
 E(k)=\sum_{i=1}^{n_w}z(\abs{\Delta w_i(k)}); E \in R
 \end{equation}
 který v případě negativních hodnot $z(\abs{\Delta w_i(k)})$ nemusí poskytovat jasnou hranici mezi obvyklými a neobvyklými změnami adaptivních parametrů.
