@@ -23,18 +23,18 @@
 \contentsline {subsection}{\numberline {5.1.2}Případová studie: detekce změny rozptylu šumu v náhodném datovém toku}{46}{subsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.1.3}Případová studie: detekce skokové změny parametrů generátoru signálu}{48}{subsection.5.1.3}%
 \contentsline {subsection}{\numberline {5.1.4}Případová studie: detekce náhlé absence šumu}{48}{subsection.5.1.4}%
-\contentsline {subsection}{\numberline {5.1.5}Případová studie: detekce změny trendu}{50}{subsection.5.1.5}%
-\contentsline {subsection}{\numberline {5.1.6}Případová studie: detekce epilepsie v myším EEG}{50}{subsection.5.1.6}%
-\contentsline {subsection}{\numberline {5.1.7}Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}{51}{subsection.5.1.7}%
-\contentsline {section}{\numberline {5.2}Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}{51}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}{51}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Motivace}{51}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Specifikace experimentu}{51}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Výsledky a diskuze}{52}{subsection.5.3.3}%
-\contentsline {section}{\numberline {5.4}Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu}{56}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Popis bioprocesu a specifikace problému}{56}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Experiment a zhodnocení}{58}{subsection.5.4.2}%
-\contentsline {chapter}{\numberline {6}Závěr}{63}{chapter.6}%
-\contentsline {chapter}{Publikace autora}{65}{chapter*.29}%
-\contentsline {chapter}{Literatura}{67}{chapter*.30}%
-\contentsline {chapter}{Příloha}{69}{chapter*.31}%
+\contentsline {subsection}{\numberline {5.1.5}Případová studie: detekce změny trendu}{51}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Případová studie: detekce epilepsie v myším EEG}{51}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}{53}{subsection.5.1.7}%
+\contentsline {section}{\numberline {5.2}Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}{53}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}{53}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Motivace}{54}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Specifikace experimentu}{55}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Výsledky a diskuze}{58}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu}{59}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Popis bioprocesu a specifikace problému}{59}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Experiment a zhodnocení}{61}{subsection.5.4.2}%
+\contentsline {chapter}{\numberline {6}Závěr}{67}{chapter.6}%
+\contentsline {chapter}{Publikace autora}{69}{chapter*.32}%
+\contentsline {chapter}{Literatura}{71}{chapter*.33}%
+\contentsline {chapter}{Příloha}{73}{chapter*.34}%
