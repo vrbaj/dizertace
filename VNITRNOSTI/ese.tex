@@ -1,19 +1,61 @@
 \chapter{Algoritmus Extreme Seeking Entropy}
-V této kapitole je představen algoritmus pro detekci novosti nazvaný Extreme Seeking Entropy (ESE), který tvoří hlavní výsledek předkládané dizertační práce. Návržený algoritmus, vychází z předpokladu, že novost v datech se projeví neobvykle velkými přírůstky vah adaptivního filtru, který danou řadu dat modeluje. Cílem je tedy vyhodnotit neobvykle velké přírůstky vah adaptivního systém. Je tedy nejprve nutné určit nějaký práh $z$, podle kterého můžeme přírůstky adaptivních vah filtru rozdělit do dvou množin. Množinu, která bude obsahovat obsahovat přírůstky menší než je zvolený práh $z$ označíme $L$. Přírůstek který je větší nebo roven hodnotě prahu $z$ označíme $H$. Pozn. Volba hodnoty prahu přímo souvisí s volbou metody POT (viz kapitola \ref{chap:gpd}). Uvažujme, že obě množiny existují pro každou adaptivní váhu, potom pro $i$-tou adaptivní váhu zvolíme práh $z_i$ tak, že velikosti přírůstku této váhy náleží do jedné ze dvou množin, tak, že:
+V této kapitole je představen algoritmus pro detekci novosti nazvaný Extreme Seeking Entropy (ESE), který tvoří hlavní teoretický výsledek předkládané dizertační práce. Navržený algoritmus, vychází z předpokladu, že novost v datech se projeví neobvykle velkými přírůstky vah adaptivního filtru, který danou řadu dat modeluje.
+\par Nejprve uvažujme myšlenkový experiment, ve kterém máme dokonale nastavený adaptivní filtr, jehož chyba predikce $e$ je nulová pro všechny vstupní hodnoty. Potom přírůstky adaptivních vah tohoto filtru budou nulové. V případě, že dojde k nějaké změně v generátoru dat pro tento filtr, začne se filtr opět adaptovat což vyústí v nenulové změny adaptivních vah, které budou reflektovat novost způsobenou změnou vlastností daného generátoru.
+\par
+V publikacích \cite{ivoLE1,ivoLE2}, kde autoři představují algoritmus Learning Entropy, je zmíněna obecná míra snahy adaptivního filtru o adaptaci, $L$, která slouží k vyhodnocení neobvykle velkých přírůstků adaptivních vah a je definovaná jako
+\begin{equation}
+L(k)=A(f(\Delta \textbf{w})))
+\end{equation}
+kde $A$ je obecně nějaká agregační funkce a funkce $f$ je funkce která nějakým způsobem kvantifikuje odchylku v adaptaci adaptivních parametrů filtru.
+
+\par
+Nejprve uvažujme, že hodnota funkce $f$, která slouží k vyhodnocení neobvykle velkých přírůstků by měla mít neobvykle velkou (nebo neobvykle malou) hodnotu v okamžiku, kdy přírůstky adaptivních vah filtru $\Delta \textbf{w}$ jsou neobvykle velké. Dalším požadavkem je, aby tato funkce zohledňovala i nějakou historii těchto přírůstků. Přirozeně se tedy nabízí nějaká  vhodná distribuční funkce $f_{cdf}$. S ohledem na požadavek, že neobvykle velké přírůstky vah by měli být reflektovány neobvykle velkou hodnotou míry snahy o adaptaci, nabízí se jako vhodná funkce $A$, kterou uvažujeme ve tvaru
+\begin{equation} \label{eq:ND_score}
+A(f(\Delta \abs{\textbf{w}}(k)) = -\log \prod_{i=1}^n(1 - f_{{cdf}_i}(\lvert \Delta  w_i(k)\rvert)).
+\end{equation}
+Uvedená agregační funkce $A$ má pro neobvykle velké přírůstky vah neobvykle velkou kladnou hodnotu, pokud jsou hodnoty $f_{cdf}$ blízké 1. Člen $1-f_{cdf}$ je vlastně komplementární distribuční funkcí (funkce přežití, spolehlivostní funkce). Výhodou uvedeného přístupu je absence potřeby nastavovat několik prahů pro detekci.
+\par 
+Jak již bylo uvedeno, cílem je tedy vyhodnotit neobvykle velké přírůstky vah adaptivního systém. Nejprve je nutné určit nějaký práh $z$, podle kterého můžeme přírůstky adaptivních vah filtru rozdělit do dvou množin. Množinu, která bude obsahovat obsahovat přírůstky menší než je zvolený práh $z$ označíme $L$. Přírůstek který je větší nebo roven hodnotě prahu $z$ označíme $H$. Pozn. Volba hodnoty prahu přímo souvisí s volbou metody POT (viz kapitola \ref{chap:gpd}). Uvažujme, že obě množiny existují pro každou adaptivní váhu, potom pro $i$-tou adaptivní váhu zvolíme práh $z_i$ tak, že velikosti přírůstku této váhy náleží do jedné ze dvou množin, tak, že:
 \begin{equation}
 \forall \abs{\Delta w_i} < z_i \in L_i
 \end{equation}
 \begin{equation}
 \forall \abs{\Delta w_i} \geq z_i \in H_i
 \end{equation}
-Vzhledem k výše zmíněnému předpokladu o velikosti změn vah adaptivního filtru a novosti v datech, uvažujme, že přírůstky náležející množině $L_i$ pravděpodobně neobsahují informaci o novosti během adaptace a proto nebudou vyhodnocovány. Množina $H_i$ by měla obsahovat přírůstky
+Vzhledem k výše zmíněnému předpokladu o velikosti změn vah adaptivního filtru a novosti v datech, uvažujme, že přírůstky náležející množině $L_i$ pravděpodobně neobsahují informaci o novosti během adaptace a proto nebudou vyhodnocovány. Množina $H_i$ by měla obsahovat přírůstky adaptivních vah filtru, u kterých lze očekávat, že mohou nést nějakou informaci o novosti v datech.
+\par
+Nyní můžeme zavést novou míru, kterou nazvěme Extreme Seeking Entropy (ESE), definovanou jako
 
-\par Uvažujme, že máme dokonale nastavený adaptivní filtr, jehož chyba predikce $e$ je nulová pro všechny vstupní hodnoty. Potom přírůstky vah tohoto filtru budou nulové. V případě, že dojde k nějaké změně v generátoru dat pro tento filtr, začne se filtr opět adaptovat což vyústí v nenulové změny adaptivních vah, které budou reflektovat novost způsobenou změnou vlastností daného generátoru.
-
-\begin{equation}
-ESE(\abs{\Delta \textbf{w}(k)})=-\log \prod_{i=1}^n(1-f_{cdf_i}(\abs{\Delta w_i(k)}))
+\begin{equation}\label{eq:ese}
+ESE(\abs{\Delta \textbf{w}(k)})=-\log \prod_{i=1}^{n_w}(1-f_{cdf_i}(\abs{\Delta w_i(k)}))
 \end{equation}
 kde
 \begin{equation}
-f_{cdf_i}(\abs{\Delta w_i(k)})=
+  f_{cdf_i}(|\Delta w_i(k)|)=\begin{cases}
+    0,\, |\Delta w_i(k)| \in L_i \\
+    F_{(\xi_i,\mu_i,\sigma_i)}(|\Delta w_i(k)|),\, |\Delta w_i(k)| \in H_i.
+  \end{cases}
 \end{equation}
+a funkce $F_{(\xi_i,\mu_i,\sigma_i)}$ je distribuční funkce zobecněného Paretova rozdělení (GPD), představeného v předchozí kapitole \ref{chap:gpd}. Přírůstky adaptivních vah, které jsou menší než hodnota prahu získaného metodou POT nezmění hodnotu $ESE$. Přírůstky vah, které mají velice malou pravděpodobnost a spíše nesou nějakou informaci o novosti v datech způsobí velký nárůst hodnoty $ESE$. Zásadním aspektem navrhovaného algoritmu je, že mohou být vyhodnocovány buď všechny získané přírůstky vah, a nebo lze vyhodnocovat pouze nejnovějších $n_s$ vzorků a na ně aplikovat metodu POT. Novost potom můžeme vnímat v kontextu těchto $n_s$ vzorků. 
+\par
+Navrhovaný algoritmus pro detekci novosti v datech je popsán následujícím pseudokódem.
+
+\begin{algorithm}[H]
+\caption{Extreme Seeking Entropy}
+\begin{algorithmic}[1]\onehalfspacing
+\STATE  nastavení $n_s$ a výběr metody POT
+\STATE počáteční nastavení parametrů $\xi_i$, $\mu_i$, $\sigma_i$ GPD pro každý adaptivní parametr
+\FOR{vzorek $d(k)$}
+\STATE výpočet změny adaptivních parametrů filtru $\Delta \textbf{w}(k)$
+\STATE aplikace metody POT
+\IF{$|\Delta w_i|(k) \in H_i$}
+\STATE výpočet parametrů $\xi_i$, $\mu_i$, $\sigma_i$ pro příslušné GPD
+\ENDIF
+\STATE výpočet hodnoty $ESE$ podle rovnice (\ref{eq:ESE})
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+Výhodou navrhovaného algoritmu je, že jediným volitelným parametrem je parametr $n_s$, který ale v případě potřeby můžeme vynechat a zpracovávat všechny historicky dostupné přírůstky adaptivních parametrů. Dále je nutné zvolit vhodnou metodu POT.
+\par
+Určitou limitací uvedeného algoritmu je, že pro získání první hodnoty $ESE$ potřebujeme nějakou apriorní informaci o parametrech GPD rozdělení. Konkrétněji, pro každou $i$-tou adaptivní váhu musíme mít k dispozici odhad parametrů $\xi_i$, $\mu_i$, $\sigma_i$. Vzhledem k tomu, že adaptivní filtr má $n_w$ různých adaptivních vah, potřebujeme získat odhad $3\cdot n_w$ parametrů aby začal algoritmus ESE poskytovat první hodnoty. Pokud není k dispozici žádná apriorní informace o hodnotách těchto parametrů, potřebujeme provést získat alespoň $n_s$ vzorků, na jejichž základě můžeme získat první hodnotu $ESE$. Dalším úskalím je proměnlivost parametrů nebo typu rozdělení pravděpodobnosti přírůstků adaptivních vah v čase.

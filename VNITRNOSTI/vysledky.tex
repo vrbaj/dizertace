@@ -200,7 +200,7 @@ Ve druhém případě byly hodnoty vstupů $x_1(k)$ a $x_2(k)$ generovány z nor
 \end{figure}
 
 
-\subsection{Vyhodnocení úspěšnosti detekce skokové změny trendu}
+\subsection{Vyhodnocení úspěšnosti detekce skokové změny trendu}\label{chap:trendchange_evaluation}
 Pro vyhodnocení úspěšnosti změny trendu uvažujme výstup generátoru signálu $y(k)$ se dvěma vstupy $x_1(k)$ a $x_2(k)$ jehož výstup je definován jako
 \begin{equation}\label{eq:trnd_stats}
     y(k) = x_1(k) + x_2(k) + 0.01 \cdot k + v(k)
@@ -231,8 +231,147 @@ Vyhodnocení úspěšnosti detekce změny trendu bylo vyhodnoceno pro hodnoty vs
     \label{fig:trend_stats}
 \end{figure}
 
+
 \section{Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}
-\#TODO
+Protože úspěšná detekce novosti pomocí algoritmu ESE je závislá na volbě hodnoty, od které budeme považovat hodnotu ESE za "novost", byl proveden experiment detekce změny trendu a vyhodnocena ROC (Receiver Operating Characteristics) křivka \cite{roc_orig}. ROC křivka poskytuje vhodný způsob jak vizualizovat schopnost binárního klasifikátoru klasifikovat správně data na základě proměnlivé velikosti prahu, který klasifikaci určuje (v případě algoritmu ESE je to hodnota ESE) a zároveň umožňuje objektivně jednotlivé klasifikátory porovnávat \cite{roc_bible} (více viz následující podkapitola \ref{chap:roc_specs}). Pro porovnání algoritmu ESE byly opět zvoleny algoritmy LE, ELBND a klasifikátor, který klasifikuje vzorky náhodně.
+\subsection{Popis experimentu}
+Stejně jako v případě vyhodnocení přesnosti detekce změny trendu (viz podkapitola \ref{chap:trendchange_evaluation}) i v tomto experimentu uvažujeme dva vstupy $x_1(k)$ a $x_2(k)$ výstup generátoru signálu $y(k)$ ve tvaru 
+\begin{equation}
+    \label{eq:trend}
+    d(k)=x_1(k)+x_2(x)+0.01\cdot k + v(k)
+\end{equation}
+\begin{equation*}
+0\leq k < 200
+\end{equation*}
+kde člen $v(k)$ reprezentuje gaussovský aditivní šum s nulovou střední hodnotou a směrodatnou odchylkou $\sigma_n$. V diskrétním časovém okamžiku $k=200$ přejde výstup generátoru signálu do tvaru
+\begin{equation}
+y(k)=x_1(k)+x_2(x)+(0.01 + a)\cdot k + v(k)
+\end{equation}
+\begin{equation*}
+200 \leq k \leq 399
+\end{equation*}
+přičemž hodnota parametru $a$ je vygenerována z rovnoměrného rozdělení $U(-0.02,0.02)$ a pro všechna $200 \leq k \leq 399$ je během daného experimentu konstantní. Hodnoty vstupů $x_1(k)$ a $x_2(k)$ jsou generovány z rovnoměrného rozdělení $U(-1,1)$. 
+\par 
+Jako adaptivní filtr byl zvolen QNU, jehož struktura odpovídá struktuře generátoru signálu. Výstup adaptivního filtru je ve tvaru
+\begin{equation}
+\hat{y}(k)=w_1\cdot x_1(k)+w_2\cdot x_2(k) + w_3 \cdot x_1(k) \cdot x_2(k)
+\end{equation}
+a parametry toho adaptivního filtru byly adaptovány algoritmem GNGD. Rychlost učení během experimentů byla nastavený na $\mu=0.5$.
+\par 
+Apriorní hodnota parametrů GPD pro algoritmus ESE je získána pomocí 1200 vzorků, získaných z výstupu generátoru signálu, který je dán rovnicí \ref{eq:trend}. Během experimentů byla délka okna $n_s=1200$. Metoda POT byla zvolena podle \ref{eq:l1}. Pro výpočet ELBND byl použit vztah \ref{eq:elbnd2}. Výsledky algoritmu LE byly získány pro okno délky $n_s=1200$ pomocí vztahu \ref{eq:le_direct_padasip}. Pro každou hodnotu $\sigma$ bylo provedeno 10000 experimentů na jejichž základě byla zkonstruována ROC křivka. Hodnoty směrodatných odchylek $\sigma$ byly vybrány takto:
+\begin{equation}
+\sigma=\{0.1,0.2,0.5,1.0,2.0,2.5 \}
+\end{equation}
+a pro každou hodnotu $sigma$ byla pro všech 10000 experimentů určená průměrná hodnota $SNR$, která byla pro každý experiment vypočtena podle rovnice $\ref{eq:snr}$. 
+
+\subsection{Konstrukce ROC křivky}\label{chap:roc_specs}
+Pro konstrukci ROC křivky je důležité, aby množina výsledků byla vyvážená. Tedy aby obsahovala stejný počet pozitivních i negativních vzorků. Pro získání vyvážené množiny výsledků byl nejdřív každý experiment převzorkován podle následujícího předpisu
+\begin{equation}
+    ND_r(i) = max\{ND(i \cdot 10), ND(i \cdot 10 + 1), ND(i \cdot 10 + 2), \dots, ND(i \cdot 10 + 9)\}
+\end{equation}
+\begin{equation*}
+i = 0,1,\dots,39
+\end{equation*}
+kde $ND$ reprezentuje hodnotu detektoru novosti (resp. hodnoty algoritmu ESE, ELBND, LE). Z každé převzorkované datové řady jsou vybrány dva vzorky jsou vygenerovány dvě jednoprvkové množiny. Množina $P$ obsahuje pozitivní vzorek, takový, že $P=\{ND_r(20)\}$ (protože v diskrétním časovém okamžiku $k=200$ došlo ke změně trendu).  Množina $N$ obsahuje obsahuje zbylých 39 negativních vzorků, takže $N=\{ND(0), \dots ND(19), ND(21), \dots ND(39) \}$. Při konstrukci ROC křivky jsou pro každý experiment vybrány dva vzorky. Jeden vzorek z množiny $P$ a jeden náhodně vybraný vzorek z množiny $N$. Pro vyhodnocení ROC je klíčové zjistit, jestli jsou pozitivní vzorky (prvky množiny $P$) pro daný práh správně klasifikovány jako pozitivní (True Positive) a zda-li jsou negativní vzorky klasifikovány jako falešně pozitivní (False Positive). Pro danou velikost prahu se určí úspěšnost detekce skutečně pozitivních (True Positive Rate) jako 
+\begin{equation}
+TPR=\frac{TP}{P}=\frac{TP}{10000}
+\end{equation}
+kde $TP$ je počet správně pozitivně klasifikovaných vzorků a $P$ je celkový počet skutečně pozitivních vzorků. Dále je potřeba určit poměr falešně pozitivních (False Positive Rate) vzorků pro daný práh jako
+\begin{equation}
+FPR=\frac{FP}{N}=\frac{FP}{10000}
+\end{equation}
+kde $FP$ je počet vzorků klasifikovaných jako falešně pozitivní a $N$ je celkový počet skutečně negativních vzorků. ROC pak zobrazuje závislost úspěšnost detekce skutečně pozitivních vzorků ($TPR$) v závislosti na poměru falešně pozitivních vzorků ($FPR$).
+\par 
+Hodnota $TPR$ bývá nazývána také jako sensitivita. Komplementární hodnotou k $FPR$ je potom specifita (True Negative Rate $TNR$), která určuje, kolik opravdu negativních vzorku ($TN$) je klasifikováno jako negativní. Komplementární ve smyslu
+\begin{equation}
+TNR=\frac{TN}{N}=1-FPR.
+\end{equation} 
+Komplementární k sensitivitě je hodnota míry falešně negativních ($FNR$), která určuje poměr falešně negativních k ($FN$) k celkovému počtu pozitivních, tedy
+\begin{equation}
+FNR=\frac{FN}{P}=1-TPR.
+\end{equation}
+\par 
+Pro každou ROC křivku je možné určit plochu pod touto křivkou (Area Under ROC), která vypovídá o schopnosti klasifikátoru rozlišovat mezi jednotlivými třídami. Čím větší plocha pod křivkou, tím víc klasifikátor správně klasifikuje pozitivní případy jako pozitivní a negativní případy jako negativní. Plocha AUROC ideálního klasifikátoru bude 1, zatímco plocha nejhoršího možného klasifikátoru bude rovna 0 (tento klasifikátor, ale bude dokonalým klasifikátorem, pokud zaměníme označení negativní třídy za pozitivní). Plocha AUROC náhodného klasifikátoru bude 0.5, neboť tento klasifikátor nedokáže vůbec rozlišovat mezi pozitivními a negativními případy.
+\subsection{Výsledky experimentu}
+Výsledné ROC křivky pro různé hodnoty $SNR$ jsou zobrazeny v obrázcích \ref{fig:roc_01}-\ref{fig:roc_25}. Modrá čára zobrazuje výsledky algoritmu ESE, zelená tečkovaná čára zobrazuje výsledky algoritmu LE, červená přerušovaná čára výsledky algoritmu ELBND a černá čerchovaná čára zobrazuje výsledky náhodného klasifikátoru. 
+\par 
+Pro každou ROC křivku byla vypočtena AUROC pomocí lichoběžníkové metody, jako
+\begin{equation}
+AUROC \approx \sum_{j=1}^{n_t} \frac{TPR(FPR(j))+TPR(FPR(j+1))}{2} \cdot(FPR(j+1)-FPR(j))
+\end{equation}
+kde $n_t$ reprezentuje počet vyhodnocovaných prahů zmenšený o 1. Výsledné plochy pod křivkami ROC jsou pro jednotlivé metody a směrodatné odchylky šumu uvedené v následující tabulce \ref{tab:auroc}. Tučně je zvýrazněna nejvetší hodnota AUROC. Podle uvedených hodnot při průměrném $SNR=35.8$ nejlepe rozlišuje mezi pozitivními a negativními případy algoritmus LE. Pro nižší hodnoty $SNR$ je nejlépe separujícím algoritmem ESE.
+\begin{table}[h!]
+
+\caption{$AUROC$ pro detekci změny trendu}
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\multicolumn{2}{|l|}{} & \multicolumn{3}{c|}{\textbf{AUROC}} \\ \hline
+$\sigma_n$ & \textit{SNR [dB]} & \textit{ESE} & \textit{LE} & \textit{ELBND} \\ \hline
+0.1 & 35.8 & 0.9954 & \textbf{0.9952} & 0.8234\\ \hline
+0.2 & 30.0 & \textbf{0.9920} & 0.9912 & 0.8299 \\ \hline
+0.5 & 21.7 & \textbf{0.9816} & 0.9777 & 0.8288 \\ \hline
+1.0 & 16.2 & \textbf{0.9576} & 0.9496 & 0.8263 \\ \hline
+2.0 & 10.8 & \textbf{0.9286} & 0.9214 & 0.8397 \\ \hline
+2.5 & 9.2 & \textbf{0.9134} & 0.9056 & 0.8446 \\ \hline
+\end{tabular}
+\label{tab:auroc}
+\end{table}
+V další tabulce \ref{tab:dr} je uvedená úspěšnost klasifikace, kde za úspěšnou klasifikaci je považován případ, kdy maximální hodnota ESE, ELBND nebo LE během experimentu je v intervalu $200\leq k\leq210$, tedy do deseti vzorků po změně trendu.
+\begin{table}[h!]
+\caption{Úspěšnost detekce změny trendu}
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\multicolumn{2}{|l|}{} & \multicolumn{3}{c|}{\textbf{Detection rate}} \\ \hline
+$\sigma_n$ & \textit{SNR [dB]} & \textit{ESE} & \textit{LE} & \textit{ELBND} \\ \hline
+0.1 & 35.8 & 98.88 & \textbf{98.92} & 60.00 \\ \hline
+0.2 & 30.0 & \textbf{98.14} & 98.03 & 59.61 \\ \hline
+0.5 & 21.7 & \textbf{95.18} & 95.08 & 59.65 \\ \hline
+1.0 & 16.2 & \textbf{90.42} & 89.96 & 57.67 \\ \hline
+2.0 & 10.8 & \textbf{81.27} & 78.51 & 57.69 \\ \hline
+2.5 & 9.2 & \textbf{75.86} & 71.56 & 57.16 \\ \hline
+\end{tabular}
+\label{tab:dr}
+\end{table}
+Tučně jsou zvýrazněny hodnoty nejvyšší úspěšnosti detekce. Z výsledků je patrné, že pro průměrné $SNR=35.8$ má nejvyšší úspěšnost algoritmus LE. Pro nižší hodnoty $SNR$ je algoritmem s nejvyšší úspěšností detekce algoritmus ESE.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.7]{IMG/appel_roc/roc_01.eps}
+    \caption{ROC křivky v případě detekce změny trendu signálu obsahujícího aditivní gaussovský šum se směrodatnou odchylkou $\sigma=0.1$. Průměrná hodnota $SNR$ experimentů byla $SNR=35.80$ $dB$. Černá čerchovaná čára (RANDOM) reprezentuje náhodný klasifikátor.}
+    \label{fig:roc_01}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.7]{IMG/appel_roc/roc_02.eps}
+    \caption{ROC křivky v případě detekce změny trendu signálu obsahujícího aditivní gaussovský šum se směrodatnou odchylkou $\sigma=.2$. Průměrná hodnota $SNR$ experimentů byla $SNR=30.00$ $dB$. Černá čerchovaná čára (RANDOM) reprezentuje náhodný klasifikátor.}
+    \label{fig:roc_02}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.73]{IMG/appel_roc/roc_05.eps}
+    \caption{ROC křivky v případě detekce změny trendu signálu obsahujícího aditivní gaussovský šum se směrodatnou odchylkou $\sigma=0.5$. Průměrná hodnota $SNR$ experimentů byla $SNR=21.70$ $dB$. Černá čerchovaná čára (RANDOM) reprezentuje náhodný klasifikátor.}
+    \label{fig:roc_05}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.73]{IMG/appel_roc/roc_1.eps}
+    \caption{ROC křivky v případě detekce změny trendu signálu obsahujícího aditivní gaussovský šum se směrodatnou odchylkou $\sigma=1.0$. Průměrná hodnota $SNR$ experimentů byla $SNR=16.20$ $dB$. Černá čerchovaná čára (RANDOM) reprezentuje náhodný klasifikátor.}
+    \label{fig:roc_1}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.73]{IMG/appel_roc/roc_2.eps}
+    \caption{ROC křivky v případě detekce změny trendu signálu obsahujícího aditivní gaussovský šum se směrodatnou odchylkou $\sigma=2.0$. Průměrná hodnota $SNR$ experimentů byla $SNR=10.88$ $dB$. Černá čerchovaná čára (RANDOM) reprezentuje náhodný klasifikátor.}
+    \label{fig:roc_2}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.73]{IMG/appel_roc/roc_25.eps}
+    \caption{ROC křivky v případě detekce změny trendu signálu obsahujícího aditivní gaussovský šum se směrodatnou odchylkou $\sigma=2.5$. Průměrná hodnota $SNR$ experimentů byla $SNR=9.20$ $dB$. Černá čerchovaná čára (RANDOM) reprezentuje náhodný klasifikátor.}
+    \label{fig:roc_25}
+\end{figure}
+
 \section{Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}
 Výsledky v této podkapitole byli publikovány v (můj shit). Cílem bylo určit výpočetní čas výpočtu parametrů GPD v typické aplikaci pro použití algoritmu ESE, který byl, v tomto případě, testován ne experimentu detekce skokové změny parametrů generátoru signálu.
 \subsection{Motivace}

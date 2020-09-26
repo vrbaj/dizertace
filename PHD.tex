@@ -22,6 +22,8 @@
 \usepackage[nottoc]{tocbibind}
 \usepackage{tikz}
 \usepackage{enumerate}
+\usepackage{algorithmic}
+\usepackage{algorithm}
 \usetikzlibrary{shapes, arrows.meta}
 \usetikzlibrary{backgrounds,calc}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
@@ -44,7 +46,9 @@
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
-
+\makeatletter
+\renewcommand{\ALG@name}{Algoritmus}
+\makeatother
 \pagestyle{fancy}
 %\renewcommand{\chaptermark}[1]{%
 %  \markboth{\MakeUppercase{\thechapter\ \quad  #1}}{}% 
@@ -122,6 +126,10 @@ NEHMZOW, Ulrich, et al. Novelty detection as an intrinsic motivation for cumulat
 \bibitem{dead}SPANGENBERG, Mariana, et al. Detection of variance changes and mean value jumps in measurement noise for multipath mitigation in urban navigation. Navigation, 2010, 57.1: 35-52.
 \bibitem{diagnosis}MAURYA, Mano Ram; RENGASWAMY, Raghunathan; VENKATASUBRAMANIAN, Venkat. Fault diagnosis using dynamic trend analysis: A review and recent developments. Engineering Applications of artificial intelligence, 2007, 20.2: 133-146.
 \bibitem{stepchange}L'ECUYER, Pierre. History of uniform random number generation. In: 2017 Winter Simulation Conference (WSC). IEEE, 2017. p. 202-230.
+\bibitem{roc_orig}EGAN, J.P. Signal Detection Theory and ROC-analysis. Academic Press, 1975. Academic Press series in cognition and perception. ISBN 978-0-12-232850-3. 
+\bibitem{roc_bible}FAWCETT, Tom. An introduction to ROC analysis. Pattern recognition letters, 2006, 27.8: 861-874.
+
+
 \end{thebibliography}
 
 
