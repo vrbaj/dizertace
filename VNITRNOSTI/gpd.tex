@@ -32,6 +32,11 @@
     \label{fig:gpd_pdfs}
 \end{figure}
 
+
+
+
+
+
 \section{Metoda Peak-over-Threshold}
 Zásadním problémem při hledání parametrů GPD je volba vhodné hodnoty prahu $z$. Metody, které řeší uvedený problém jsou nazývány Peak-Over-Threshold (POT). V případě, že je hodnota prahu $z$ příliš vysoká, mají parametry GPD velkou varianci, protože je existuje pouze příliš málo dat, které zvolenou prahovou hodnotu překročí. Pokud je hodnota prahu $z$ naopak příliš nízká, není aproximace ocasu generujícího rozdělení spolehlivá.  Z tohoto pohledu, je tedy vhodná volba hodnoty prahu $z$ pro kvalitu fitu GPD zásadní. Existuje celá řada metod pro výběr hodnoty prahu (více viz \cite{scarrott2012review}). Některé z metod POT jsou však sami o sobě výpočetně náročné, případně poskytují výsledky, jež musí být vyhodnoceny expertem. Z těchto důvodů nejsou příliž vhodné pro algoritmus detekce novosti, který by vyhodnocoval data v reálném čase. Proto se zdá vhodné využít některé z metod "Rule of Thumb".
 
@@ -49,4 +54,82 @@ Zásadním problémem při hledání parametrů GPD je volba vhodné hodnoty pra
 Note, that we use the highest adaptive weight increments to estimate the GPD parameters. The \textcolor{red}{Peaks-over-threshold (POT)} method is crucial to decide, whether the $|\Delta w_k(k)|$ belongs to set $H_i$ or $L_i$. In section \ref{experiments} there are results with different techniques of threshold choice.
 
 \section{Metody odhadu parametrů zobecněného Paretova rozdělení}
-\#TODO
+Odhad parametrů zobecněného Paretova rozdělení není triviální problém, proto existuje celá řada metod, které tento problém řeší. V následující textu je věnována pozornost metodě momentů (MOM) \cite{mom_orig}, metodě maximální věrohodnosti (ML) \cite{DuMouchel} a metodě kvazi-maximální věrohodnosti (QML) \cite{Luceno}. Z nověji publikovaných metod uveďmě alespon metodu věrohodných momentů \cite{zhang1}, metodu vážených nelineárních čterců momentů \cite{zhao1,park}. Přehled dalších metod nabízí např. publikace \cite{gpd_est}.
+\subsection{Metoda maximální věrohodnosti}
+Metoda maximální věrohodnosti (maximum likelihood) je jednou ze zásadních statistických metod (pro zajímavost: byla použitá i Johannem Carlem Friedrichem Gaussem nebo Pierre-Simon Laplacem, více viz \cite{history}). Slouží k odhadu parametrů různých rozdělení pravděpodobnosti \cite{stat_bible}. Pro odhad parametrů je použita tzv. věrohodnostní funkce definovaná jako
+\begin{equation}\label{eq:ml_arg}
+\mathcal{L}(\theta|X_1,\dots,X_n)=\prod_{i=1}^n f(X_i|\theta)
+\end{equation}
+kde $\theta\in \Omega$ je vektor odhadu parametrů, $\Omega$ je množina parametrů rozdělení a $X_1$,...,$X_n$ je soubor nezávislých náhodných veličin se stejným rozdělením a neznámou hustotou pravděpodobnosti. Pro maximálně věrohodný odhad $\hat{\theta}$ pak platí
+\begin{equation}
+\hat{\theta}=arg \max_{\theta \in \Omega} \mathcal{L}(\theta|X_1,X_2,\dots,X_n).
+\end{equation}
+Tento vektor parametrů rozdělení tedy maximalizuje věrohodnostní funkci. V praxi se často pracuje s logaritmem věrohodnostní funkce, takže problém je formulován jako
+\begin{equation}
+\log \mathcal{L}(\theta|X_1,\dots,X_n)=\sum_{i=1}^n \log f(X_i|\theta)
+\end{equation}
+
+\par Věrohodnostní funkce pro zobecněné Paretovo rozdělení byla  zformulovaná DuMouchelem \cite{DuMouchel} ve tvaru
+\begin{equation}\label{eq:ml}
+\log\mathcal{L}(\sigma, \gamma|x_{1},\dots,x_{n})= -n \log \sigma +  \frac{1-\gamma}{\gamma}\sum_{i=1}^n\log\Big(1 - \frac{\gamma}{\sigma}(x_{i}-\mu)\Big)
+\end{equation}
+přičemž podle \cite{SmithML} je pro $-0.5 < \xi < 0$, při zachování určitých podmínek, maximálně věrohodný odhad asymptoticky normální a asymptoticky vydatný. Problém může pro hodnoty $\xi < -0.5$ kdy maximálně věrohodný odhad nemusí existovat \cite{grim}. Optimalizační problém \ref{eq:ml_arg}  pro GPD s věrohodností funkcí ve tvaru \ref{eq:ml} obvykle řeší nějakou numerickou metodou.
+\subsection{Metoda momentů}
+Při použití MOM \cite{mom_orig} je k odhadu parametrů GPD využito prvního a druhého momentu. 
+Abychom poukázali na problém, který je s použitím MOM spojen, uvažujme nyní dvou parametrové GPD, pro které je $\mu=0$, $\xi \geq 0$ a $x \geq 0$. 
+Pro první moment potom dostaneme přímo podle definice
+\begin{equation*}
+\int_{0}^{\infty}x\frac{1}{\sigma}\Bigg(1+\frac{\xi x}{\sigma}\Bigg)^{\Big(-1-\frac{1}{\xi}\Big)}dx=\sigma^{\frac{1}{\xi}}\int_{0}^{\infty}x(\xi x + \sigma)^{-\frac{1}{\xi}-1}dx=\sigma^{\frac{1}{\xi}}\Bigg[-\frac{x}{(\xi x + \sigma)^{\frac{1}{\xi}}}\Bigg]_0^{\infty}-
+\end{equation*}
+\begin{equation*}
+-\sigma^{\frac{1}{\xi}}\int_{0}^{\infty}-\frac{x}{(\xi x + \sigma)^{\frac{1}{\xi}}} dx=\sigma^{\frac{1}{\xi}}\Bigg[-\frac{x}{(\xi x + \sigma)^{\frac{1}{\xi}}}\Bigg]_0^{\infty} + \sigma^{\frac{1}{\xi}}\Bigg[\frac{(\xi x + \sigma)^{1-\frac{1}{\xi}}}{\xi(1-\frac{1}{\xi})}\Bigg]_0^{\infty}=
+\end{equation*}
+\begin{equation}
+=\Bigg[\frac{\sigma^{\frac{1}{\xi}}(x+\sigma)}{(\xi-1)(\xi x+\sigma)^{\frac{1}{\xi}}}\Bigg]_0^{\infty}=\frac{\sigma}{1-\xi}
+\end{equation}
+přičemž z předposledního výrazu je patrné, že konečnou hodnotu získáme pouze pro hodnoty $\xi < 1$. 
+
+\par
+Obecný $r$-tý moment GPD existuje pokud je splněna podmínka $\xi < 1/r$.
+První čtyři momenty GPD (průměr, rozptyl, koeficienty šikmosti a špičatosti), jsou definovány jako
+\begin{equation}\label{eq:mom1}
+E(X)=\mu+\frac{\sigma}{1-\xi}
+\end{equation}
+\begin{equation}\label{eq:mom2}
+Var(X)=\frac{\sigma^2}{(1-2\xi)(1-\xi)^2}
+\end{equation}
+\begin{equation}\label{eq:mom3}
+Skew(X)=\frac{2(1+\xi)\sqrt{1-2\xi}}{1-3\xi}
+\end{equation}
+\begin{equation}
+Kurt(X)=\frac{2(1-2\xi)(2\xi^2+\xi+3)}{(1-3\xi)(1-4\xi)}-3
+\end{equation}
+s přihlédnutím k omezení, že $\xi < 1/r$. Řešením soustavy rovnic \ref{eq:mom1} a \ref{eq:mom2} dostaneme odhady parametrů GPD jako
+\begin{equation}
+\sigma=\frac{1}{2}E(X)\Bigg(\frac{E(X)^2}{Var(X)}+1\Bigg)
+\end{equation}
+\begin{equation}
+\xi=-\frac{1}{2}\Bigg(\frac{E(X)^2}{Var(X)-1}\Bigg)
+\end{equation}
+kde $E(X)$ je střední hodnota vzorku dat a $Var(X)$ je rozptyl tohoto vzorku dat. Metoda MOM je použitelná pouze pro hodnoty parametru $\xi < 0.5$. Pro $\xi \geq 0.5$ není splněná podmínka pro existenci druhého momentu. 
+
+\subsection{Kvazi-ML metoda}
+Kvazi-ML metoda \ref{Luceno} odhadu parametrů GPD kombinuje metodu maximální věrohodnosti pro $\xi > -0.75$ a modifikovanou metodu maximální věrohodnosti pro $\xi \leq -0.75$. Protože neznáme přesnou hodnotu parametru $\xi$ je rozhodnutí, kterou z metod použít provedeno na empirickém základě. Nejprve uvažujme posloupnost hodnot $(x_1,\dots, x_n)$. Metodu kvazi-ML lze popsat v následujících třech krocích.
+\begin{enumerate}
+\item Výpočet
+\begin{equation}
+\xi=\frac{-1}{n-1}\sum_{i=1}^{n-1} \ln \Big(1-\frac{x_1}{\max{x_1,\dots,x_n}}\Big)
+\end{equation}
+a
+\begin{equation}
+Z=1-\frac{\sum_{i=1}^n x_i}{2 n\overline{x}^2}
+\end{equation}
+kde $\overline{x}$ je střední hodnota posloupnosti hodnot $(x_1,\dots, x_n)$.
+\item Pokud je $\xi<0.75$ a  $Z < 0.2$ použij metodu maximální věrohodnosti. 
+\item Jinak určíme odhad parametru $\sigma$ jako
+\begin{equation}
+\sigma=\xi \cdot \max{(x_1,\dots,x_n)}
+\end{equation}
+
+\end{enumerate}
+Z hlediska výpočetní náročnosti a možností hodnot, kterých může parametr $\xi$ nabývat, je uvedená hodnota dobrým kompromisem mezi metodou maximální věrohodnosti a metodou momentů.

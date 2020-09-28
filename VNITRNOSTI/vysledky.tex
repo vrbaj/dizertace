@@ -54,7 +54,7 @@ tak,  že jeho struktura odpovídá struktuře generátoru signálu. Adaptivní 
 \begin{figure}[ht!] 
     \centering
     \includegraphics[scale=0.60]{IMG/mdpi/noise_change.eps}
-    \caption{Na grafu (a) jsou zobrazeny data z generátoru (modrá) a výstup z adaptivního filtru (zelená). Na grafu (b) je vynesena chyba filtru $e(k)$. Graf (c) zobrazuje velikosti přírůstků adaptivních parametrů filtru. Na grafu (d) jsou zobrazeny hodnoty ESE. V diskrétní časový okamžik $k=500$ je patrný značný nárůst v ESE, který reflektuje změnu směrodatné odchylky aditivního šumu. Na dalších grafech (e) a (f) jsou zobrazeny výsledné hodnoty algoritmů ELBND a LE.}
+    \caption{Detekce změny rozpylu šumu. Na grafu (a) jsou zobrazeny data z generátoru (modrá) a výstup z adaptivního filtru (zelená). Na grafu (b) je vynesena chyba filtru $e(k)$. Graf (c) zobrazuje velikosti přírůstků adaptivních parametrů filtru. Na grafu (d) jsou zobrazeny hodnoty ESE. V diskrétní časový okamžik $k=500$ je patrný značný nárůst v ESE, který reflektuje změnu směrodatné odchylky aditivního šumu. Na dalších grafech (e) a (f) jsou zobrazeny výsledné hodnoty algoritmů ELBND a LE.}
     \label{fig:noise_changed}
 \end{figure}
 
@@ -71,13 +71,13 @@ Jako adaptivní filtr byl v tomto případě zvolen QNU, jehož struktura odpov�
 \begin{equation}
 \hat{y}(k)=w_1\cdot x_1(k)+w_2\cdot x_2(k)+w_3\cdot x_1(k)\cdot x_2(k)
 \end{equation}
-přičemž adaptivní parametry uvedeného filtru jsou adaptovány algoritmem GNGD. Rychlost učení během experimentu byla nastavena na $\mu=1$. POT metoda byla zvolena podle rovnice \ref{eq:l1} a parametr délky okna byl $n_s=500$. Apriorní hodnota parametrů GPD a dat pro LE byla získána použitím 500 vzorků dat (vygenerovaných podle rovnice \ref{eq:stepchange_dataset}). Výsledky experimentu jsou znázorněny na obrázku \ref{fig:trend_change}. Z obrázku je patrné, že pomocí algoritmu ESE se podařilo detekovat skokovou změnu parametrů, čemuž odpovídá výrazné globální maximum v ESE. Globální maximum v LE neodpovídá skokové změně parametrů generátoru a detekce pomocí algoritmu ELBND je opožděná.
+přičemž adaptivní parametry uvedeného filtru jsou adaptovány algoritmem GNGD. Rychlost učení během experimentu byla nastavena na $\mu=1$. POT metoda byla zvolena podle rovnice \ref{eq:l1} a parametr délky okna byl $n_s=500$. Apriorní hodnota parametrů GPD a dat pro LE byla získána použitím 500 vzorků dat (vygenerovaných podle rovnice \ref{eq:stepchange_dataset}). Výsledky experimentu jsou znázorněny na obrázku \ref{fig:step_change}. Z obrázku je patrné, že pomocí algoritmu ESE se podařilo detekovat skokovou změnu parametrů, čemuž odpovídá výrazné globální maximum v ESE. Globální maximum v LE neodpovídá skokové změně parametrů generátoru a detekce pomocí algoritmu ELBND je opožděná.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.64]{IMG/mdpi/trendchange.eps}
-    \caption{Trend change detection. The graph (a) shows the data series (blue) and the  output of the predictor (green). The black arrow is indicating the trend change. The graph (b) shows the value of predictors error. The graph (c) shows  absolute values of adaptable parameters increments. The graph (d) shows the $ESE$ novelty score. At discrete time index $k=500$ there is step change in trend which corresponds with peak in $ESE$. \textcolor{red}{Graph (e) and (f) contains results of ELBND and LE methods and peaks corresponding to trend change.}}
-    \label{fig:trend_change}
+    \includegraphics[scale=0.6]{IMG/mdpi/stepchange.eps}
+    \caption{Detekce skokové změny generátoru signálu.Na grafu (a) je zobrazena původní časová řada (modrá). Graf (b) zobrazuje chybu filtru $e$. Na grafu (c) jsou zobrazeny velikosti přírůstků adaptivních vah filtru. Na grafu (d) jsou pak výsledky algoritmu ESE, přičemž k skokové změně parametrů generátoru signálu došlo v diskrétní časový okamžik $k=500$. Je tedy vidět globální maximum v ESE odpovídající úspěšné detekci. Na grafech (e) a (f) jsou pak výsledky metod ELBND a LE. Detekci algoritmem ELBND lze považovat za úspěšnou. Detekce algoritmem LE byla neúspěšná. Globální maximum LE je v diskrétním časovém okamžiku $k=338$, který neodpovídá skokové změně parametrů generátoru signálu.}
+    \label{fig:step_change}
 \end{figure}
 
 \subsection{Případová studie: detekce náhlé absence šumu}
@@ -101,12 +101,12 @@ takže jeho struktura odpovídá generátoru signálu. Parametry toho filtru jso
 
 \begin{figure}[ht!] 
     \centering
-    \includegraphics[scale=0.65]{IMG/mdpi/noise_ext.eps} 
+    \includegraphics[scale=0.6]{IMG/mdpi/noise_ext.eps} 
     \caption{Detekce vymizení šumu ze signálu. Na grafu (a) je zobrazena původní časová řada (modrá). Graf (b) zobrazuje chybu filtru $e$. Na grafu (c) jsou zobrazeny velikosti přírůstků adaptivních vah filtru. Na grafu (d) jsou pak výsledky modifikovaného algoritmu ESE, přičemž k odstranění šumu ze signálu došlo v diskrétní časový okamžik $k=500$. Je tedy vidět globální maximum v ESE odpovídající úspěšné detekci. Na grafech (e) a (f) jsou pak výsledky metod ELBND a LE.}
     \label{fig:noise_ext}
 \end{figure}
 
-\subsection{Případová studie: detekce změny trendu}\label{chap:stepchange}
+\subsection{Případová studie: detekce změny trendu}\label{chap:trendchange}
 Cílem tohoto experimentu je demonstrovat použití algoritmu ESE při detekci změny trendu, což je úloha, která se často vyskytuje v oblasti detekce poruch a diagnostice \cite{diagnosis}. Uvažujme opět dva vstupy $x_1(k) \sim U(0,1)$ a $x_2(k)\sim U(0,1)$ a výstup generátoru dat $y(k)$ takový, že
 \begin{equation}
     y(k)=x_1(k)+x_2(k)+0.01\cdot k + v(k)
@@ -128,14 +128,28 @@ takže odpovídající vektor vstupů je
 Struktura LNU byla vybrána tak, aby co nejlépe odpovídala struktuře generátoru signálu. Parametry adaptivního filtru byly v tomto experimentu adaptovány algoritmem GNGD. Rychlost učení byla nastavena na $\mu=1$, délka okna byla $n_s=500$ a POT metoda byla zvolena podle \ref{eq:l1}. Na obrázku \ref{fig:trend_change} jsou zobrazeny výsledky experimentu. Globální maximum ESE odpovídá okamžiku změny trendu. Algoritmy LE a ELBND úspěšně změnu trendu také detekovali. Pro výpočet LE byl použit vztah \ref{eq:le_direct_padasip} a délka okna byla nastavena na $M=300$. Výpočet ELBND byl proveden podle rovnice \ref{eq:elbnd2}.
 
 \begin{figure}[ht!]
-    \label{fig:trend_change}
-    \centering
-    \includegraphics[scale=0.64]{IMG/mdpi/trendchange.eps}
-    \caption{Detekce změny trendu. Na grafu (a) jsou zobrazena data z generátoru signálu (modré). Černá šipka znázorňuje okamžik ve kterém došlo ke změně trendu. Na grafu (b) je zobrazena chyba adaptivního filtru $e$. Na grafu (c) jsou znázorněny velikosti přírůstků adaptivních vah filtru. Grafy (d), (e) a (f) znázorňují výsledky detekce novosti pomocí algoritmů ESE, ELBND a LE. Všechny tři algoritmy vykazují úspěšnou detekci změny trendu, která koresponduje s jejich maximální hodnoty během experimentu.}
 
+    \centering
+    \includegraphics[scale=0.60]{IMG/mdpi/trendchange.eps}
+    \caption{Detekce změny trendu při použití algoritmu GNGD. Na grafu (a) jsou zobrazena data z generátoru signálu (modré). Černá šipka znázorňuje okamžik ve kterém došlo ke změně trendu. Na grafu (b) je zobrazena chyba adaptivního filtru $e$. Na grafu (c) jsou znázorněny velikosti přírůstků adaptivních vah filtru. Grafy (d), (e) a (f) znázorňují výsledky detekce novosti pomocí algoritmů ESE, ELBND a LE. Všechny tři algoritmy vykazují úspěšnou detekci změny trendu, která koresponduje s jejich maximální hodnoty během experimentu.}
+\label{fig:trend_change}
+\end{figure}
+\par
+Vzhledem k tomu, že pro algoritmus ESE není důležité, jaký konkrétní adaptivní algoritmus je použit, jsou na následujících obrázcích ještě zobrazeny výsledky detekce změny trendu s použitím algoritmů RLS (viz obrázek \ref{fig:trend_change_rls}) a LMS (viz obrázek \ref{fig:trend_change_lms}). Pro algoritmus RLS bylo prvodní nastavení parametru $\delta=10$, pro algoritmus LMS byla nastavena rychlost učení $\mu=0.1$.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.60]{IMG/mdpi/trendchange_rls.eps}
+\caption{Detekce změny trendu při použití algoritmu RLS. Na grafu (a) jsou zobrazena data z generátoru signálu (modré). Černá šipka znázorňuje okamžik ve kterém došlo ke změně trendu. Na grafu (b) je zobrazena chyba adaptivního filtru $e$. Na grafu (c) jsou znázorněny velikosti přírůstků adaptivních vah filtru. Grafy (d), (e) a (f) znázorňují výsledky detekce novosti pomocí algoritmů ESE, ELBND a LE. Všechny tři algoritmy vykazují úspěšnou detekci změny trendu, která koresponduje s jejich maximální hodnoty během experimentu.}
+\label{fig:trend_change_rls}
 \end{figure}
 
-
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.60]{IMG/mdpi/trendchange_lms.eps}
+    \caption{Detekce změny trendu při použití algoritmu LMS. Na grafu (a) jsou zobrazena data z generátoru signálu (modré). Černá šipka znázorňuje okamžik ve kterém došlo ke změně trendu. Na grafu (b) je zobrazena chyba adaptivního filtru $e$. Na grafu (c) jsou znázorněny velikosti přírůstků adaptivních vah filtru. Grafy (d), (e) a (f) znázorňují výsledky detekce novosti pomocí algoritmů ESE, ELBND a LE. Všechny tři algoritmy vykazují úspěšnou detekci změny trendu, která koresponduje s jejich maximální hodnoty během experimentu.}
+\label{fig:trend_change_lms}
+\end{figure}
 \subsection{Případová studie: detekce epilepsie v myším EEG}
 Poslední případová studie je věnována detekci epileptického záchvatu v signálu EEG myši pomocí algoritmu EEG. Standartizovaná data ze tří vybraných kanálů EEG, ve kterých byl expertem stanoven začátek epileptického záchvatu přibližně v čase $k \approx 1700$, jsou zobrazeny na obrázku \ref{fig:eeg_seizure}. Standartizace byla provedena podle předpisu
 \begin{equation}
@@ -151,13 +165,13 @@ takže filtr má 10 adaptivních parametrů. Filtr byl adaptován algoritmem NLM
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.6]{IMG/mdpi/mouse_eeg.eps}
+    \includegraphics[scale=0.58]{IMG/mdpi/mouse_eeg.eps}
     \caption{Vybrané kanály myšího EEG na kterých je patrný epileptický záchvat. Data byly standartizovány. Začátek záchvatu je přibližně v $k\approx 1700$, což znázorňuje černá šipka.}
     \label{fig:eeg_seizure}
 \end{figure}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.6]{IMG/mdpi/mouse_novelty.eps}
+    \includegraphics[scale=0.58]{IMG/mdpi/mouse_novelty.eps}
     \caption{Hodnota ESE pro vybrané kanály se záznamem myšího EEG ve kterých je patrný epileptický záchvat. V kanále C3 je v ESE výrazný nárůst po začátku záchvatu (přibližně v $k \approx 1700$), v porovnání s ostatními kanály. Černá šipka znázorňuje přibližný začátek epileptického záchvatu.}
     \label{fig:mouse_novelty}
 \end{figure}
