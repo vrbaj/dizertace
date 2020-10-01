@@ -1,5 +1,46 @@
 \chapter{Přehled metod detekce novosti}
 Tato kapitola je věnována přehledu různých přístupů k detekci novosti, které se v posledních letech používají. Více pozornosti je věnováno algoritmům Learning Entropy (viz kap.\ref{chap:LE}) a Error and Learning Based Novelty detection (viz kap. \ref{chap:elbnd}) které jsou v kapitole (XYZ) použity pro porovnání úspěšnosti detekce novosti.
+\par
+Vzhledem k dlouhé historii oblasti detekce novosti vznikla celá řada přehledových publikací, které metody detekce novosti rozdělují do různých skupin. Miljkovič v \cite{miljkovic} rozděluje metody detekce novosti na metody založené na klasifikaci (pravidlové systémy, neuronové sítě a SVM), nejbližší sousedy (vzdálenost, hustota), klastrovací metody, statistické (parametrické a neparametrické) a ostatní (teorie informace, spektrální dekompozice, vizualizace).
+\par 
+Zimek a Filzmozer \cite{zimek} rozdělují metody ND opět na celou řadu kategorií. Na metody s učitelem a bez učitele, na metody založené na skóre nebo příslušnosti ke množině přičemž metody založené na skóre přiřazují datům nějaké číselné ohodnocení podle kterého se rozhoduje, zda jde o data nové či nikoliv. Metody založené na příslušnosti zařazují data rovnou do jedné ze dvou množin označené "normální" a "outlier". Další rozdělení je na metody parametrické a neparametrické. Mezi parametrické metody autoři řadí metody založené na konkrétních pravděpodobnostních rozložení (např. gaussovké). Neparametrické metody jsou metody, které nepracují s parametry pravděpodobnostních rozdělení. 
+\par 
+Jednu z nejobsáhlejších přehledových publikací napsali Markou a Singh \cite{markou1,markou2}. První díl jejich přehledu je věnován statistickým metodám ND a druhý díl je věnován metodám založených na neuronových sítích. V první části zabývající se statistickými metodami autoři přichazejí s dělením na metody parametrické (pravděpodobností, gaussian mixture modely, skryté markovské modely a testování hypotéz), a neparametrické (kNN, Parzenovo okno, porovnávání řetězců a klastrovací metody). Metody založené na neuronových sítích pak dělí ne přístupy využívající vícevrstvý perceptron, metodu podpůrných vektorů, teorii adaptivní rezonance, sítě typu RBF (radial basis function), autoasociátory, Hopfieldovy sítě, oscilující sítě, samoorganizujícíc se mapy, neuronové stromy, sítě s neasociativním učením a ostatní přístupy.
+\par
+Nejnovější extenzivní publikací je velice rozsáhlá přehledová publikace čítající přes 300 referencí byla vytvořena Pimentelem, D. a L. Cliftonovými a Tarassenkem \cite{pimentel}. Autoři zde dělí metody ND na pravděpodobnostní (parametrické a neparametrické), metody založené na vzdálenosti (nejbližší soused, klastrovací metody), metody založené na rekonstrukci (neuronové sítě, metody založené na podprostorech), metody vycházející z teorie informace a doménové metody (SVM).
+
+\section{Metoda podpůrných vektorů}
+Metody detekce novosti pomocí SVM vycházejí ze dvou různých přístupů. První přístup vychází předpokladu, že obvyklá data se vyskytují v oblastech s vysokou hustotou rozdělení. Data která se považují za nová potom leží v oblastech s nízkou hustotou.
+\par 
+Druhý přístup vyžaduje předem oklasifikovaná data .
+\section{Metoda set-membership}
+Metoda set-membership \cite{diniz0,set_member} je metoda použitá nejen ke zrychlení adaptace filtru ale i pro ND. Tato metoda pracuje s chybou predikce a adaptivním filtrem. Základní myšlenka je, že pokud je chyba predikce filtru $e$ větší než nějaká prahová hodnota $\gamma$, dojde k adaptaci tohoto filtru. Podmínka pro adaptaci filtru je tedy ve tvaru 
+\begin{equation}
+\abs{e(k)} > \gamma.
+\end{equation} V okamžiku, kdy dochází k adaptaci filtru lze hovořit o  novosti v datech. V originálním článku \cite{set_member} autoři metodu využívají ke zrychlení konvergence NLMS algoritmu a přicházejí s novým způsobem adaptace vah filtru, algoritmem SM-NLMS. 
+\par 
+Diniz a Yazdanpanah v \cite{diniz1} používají metodu set-membership a navrhují nový algoritmus ST-SM-NLMS, který využívají k ořezávání datasetů. Autoři zde rozdělují data do dvou množin. V první množině jsou data přinášející nějakou informaci a ve druhé data které novou informaci nenesou. Základní myšlenka je, že pokud jsou pro adaptivní filtr data nová, bude chyba predikce v určitých mezích.  Tyto meze jsou dány dvěma prahovými hodnotami a pokud se chyba predikce filtru $e$ nachází v těchto mezích, přinášejí data z pohledu celého datasetu nějakou užitečnou informaci. Naopak data, pro která je chyba predikce adaptivního filtru malá tuto informaci nepřinášejí a stejně tak data, pro které je chyba predikce příliš velká jsou outlier a tedy nepřinášejí žádnou užitečnou informaci. Oproti klasickému SM-NLMS algoritmu, který pracuje s jedním prahem tedy autoři navrhují prahy dva. Podmínka pro adaptaci filtru je potom ve tvaru
+\begin{equation}
+\overline{\gamma}_1 \leq \abs{e(k)} \leq \overline{\gamma}_2
+\end{equation}
+Výsledná metoda slouží ke snížení výpočetního času pro adaptaci filtru a zároveň data klasifikuje do dvou výše zmíněných množin.
+\par
+Algoritmy založené na metodě set-membership nalezly široké uplatnění v řadě  oblastí. Jmenujme alespoň oblast mobilní robotiky, kde se používají např. při fúzi dat z vícero senzorů \cite{set_member_robot}, při lokalizaci a řízení podvodních robotů \cite{set_member_robot_voda} nebo při detekci poruch \cite{set_member_robot_chyba}. 
+\section{Markovovy modely}
+
+\section{Autoenkodéry}
+
+\section{Neuronové sítě}
+\subsection{Samoogranizující se mapy}
+
+\subsection{Konvoluční neuronové sítě}
+
+
+\section{Testování statistických hypotéz}
+
+\section{Metody založené na teorii extrémních hodnot}
+
+
 \section{Algoritmus Learning Entropy}\label{chap:LE}
 Algoritmus Learning Entropy (LE) je algoritmem, který využívá adaptivních filtrů (obvykle LNU a HONU) k detekci novosti v datech \cite{ivoLE1,ivoLE2}. Autoři ukazují, že ne vždy, je novost v datech korelována s chybou predikce, a k detekci novosti navrhují využívat přírůstky vah adaptivních filtrů $\Delta\textbf{w}$, které jsou získány použitím gradientní metody a adaptací s každými novými daty. V první publikaci \cite{ivoLE1} je popsán multifraktální přístup, který využívá uspořádané množiny různých hodnot prahů
 \begin{equation}
@@ -52,3 +93,5 @@ Další možností je určit míru novosti jako součet absolutních hodnot jedn
 \end{equation}
 
 Uvedený algoritmus, využívající vztah \ref{eq:elbnd1}, byl úspěšně použit k adaptivní klasifikaci EEG pacientů s demencí \cite{elbnd3}.
+
+\section{Aplikace metod detekce novosti}
