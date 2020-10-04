@@ -1,5 +1,5 @@
 \chapter{Přehled metod detekce novosti}
-Tato kapitola je věnována přehledu různých přístupů k detekci novosti, které se v posledních letech používají. Více pozornosti je věnováno algoritmům Learning Entropy (viz kap.\ref{chap:LE}) a Error and Learning Based Novelty detection (viz kap. \ref{chap:elbnd}) které jsou v kapitole (XYZ) použity pro porovnání úspěšnosti detekce novosti.
+Tato kapitola je věnována přehledu různých vybraných přístupů k detekci novosti, které se v posledních letech používají. Více pozornosti je věnováno algoritmům Learning Entropy (viz kap.\ref{chap:LE}) a Error and Learning Based Novelty detection (viz kap. \ref{chap:elbnd}) které jsou v kapitole (XYZ) použity pro porovnání úspěšnosti detekce novosti.
 \par
 Vzhledem k dlouhé historii oblasti detekce novosti vznikla celá řada přehledových publikací, které metody detekce novosti rozdělují do různých skupin. Miljkovič v \cite{miljkovic} rozděluje metody detekce novosti na metody založené na klasifikaci (pravidlové systémy, neuronové sítě a SVM), nejbližší sousedy (vzdálenost, hustota), klastrovací metody, statistické (parametrické a neparametrické) a ostatní (teorie informace, spektrální dekompozice, vizualizace).
 \par 
@@ -8,12 +8,57 @@ Zimek a Filzmozer \cite{zimek} rozdělují metody ND opět na celou řadu katego
 Jednu z nejobsáhlejších přehledových publikací napsali Markou a Singh \cite{markou1,markou2}. První díl jejich přehledu je věnován statistickým metodám ND a druhý díl je věnován metodám založených na neuronových sítích. V první části zabývající se statistickými metodami autoři přichazejí s dělením na metody parametrické (pravděpodobností, gaussian mixture modely, skryté markovské modely a testování hypotéz), a neparametrické (kNN, Parzenovo okno, porovnávání řetězců a klastrovací metody). Metody založené na neuronových sítích pak dělí ne přístupy využívající vícevrstvý perceptron, metodu podpůrných vektorů, teorii adaptivní rezonance, sítě typu RBF (radial basis function), autoasociátory, Hopfieldovy sítě, oscilující sítě, samoorganizujícíc se mapy, neuronové stromy, sítě s neasociativním učením a ostatní přístupy.
 \par
 Nejnovější extenzivní publikací je velice rozsáhlá přehledová publikace čítající přes 300 referencí byla vytvořena Pimentelem, D. a L. Cliftonovými a Tarassenkem \cite{pimentel}. Autoři zde dělí metody ND na pravděpodobnostní (parametrické a neparametrické), metody založené na vzdálenosti (nejbližší soused, klastrovací metody), metody založené na rekonstrukci (neuronové sítě, metody založené na podprostorech), metody vycházející z teorie informace a doménové metody (SVM).
+\section{Vybrané statistické metody}
 
-\section{Metoda podpůrných vektorů}
-Metody detekce novosti pomocí SVM vycházejí ze dvou různých přístupů. První přístup vychází předpokladu, že obvyklá data se vyskytují v oblastech s vysokou hustotou rozdělení. Data která se považují za nová potom leží v oblastech s nízkou hustotou.
+\subsection{Metody založené na teorii extrémních hodnot}
+\#TODO
+\subsection{Metody využívající Gaussovy smíšení modely}
+Gaussovské smíšené modely (GMM - Gaussian Mixture Models) jsou modely, které se používají pro aproximaci rozdělení pomocí lineární kombinace normálních  rozdělení \cite{gmm1}. Podle \cite{gmm2} lze téměř jakoukoliv spojitou funkci hustoty pravděpodobnosti aproximovat s libovolnou přesností pomocí dostatečného počtu gaussovských komponent s vhodně zvolenými středními hodnotami, kovariencemi a váhovacími koeficienty (více např. v \cite{gmm3,gmm4}). Tyto modely jsou vhodné i pro vícerozměrná data, je-li k dispozici dostatečně velké množství dat pro odhad jejich parametrů. Rozložení pravděpodobnosti klasického GMM je definováno jako
+\begin{equation}
+f(\textbf{x})=\sum_{i=1}^M K_i\mathcal{N}_i(\textbf{x})
+\end{equation}
+přičemž určité úskalí skýtá potřeba apriorní informace o vektoru středních hodnot, kovarianční matici a příslušném váhovacím koeficientu $K_i$ dané $i$-té gaussovské komponenty. 
+\par V oblasti ND se pak obvykle určí hodnota hustoty pravděpodobnosti GMM daného vzorku dat a podle definovaného prahu se určí zda se jedná o data nová či nikoliv.  V \cite{gmm2} používají autoři GMM k monitoringu převodovky. Zpracovávaným signálem jsou naměřené vibrace převodovky. Tento signál je segmentován a na základě segmentů signálů bez poruchy jsou odhadnuty parametry GMM. Při monitoringu je potom pro každý segment je spočítána hodnota negativní logaritmické věrohodnostní funkce (NLL) \cite{gmm5}. Autoři ukazují, že vysoké hodnoty NLL korespondují s poškozením konkrétních zubů převodovky. V \cite{gmm6} používají autoři VB-GMM (Variational Bayesian Gaussian Mixture Model) k detekci poruch plynových turbín. Oproti klasickému GMM, kde je počet gaussovských komponent zvolen apriori, využívá VB-GMM variační Bayesovské metodody k určení optimálního množství komponent \cite{gmm7}. Autoři ukazují, že pomocí zvolené metody jsou s vysokou mírou spolehlivosti rozpoznat různé závady, které korespondují s novostí v měřených datech. Uplatnění GMM je i v oblasti finančnictví, konkrétně v detekci insider tradingu. V příspěvku \cite{gmm8} používají autoři standartní GMM pro modelování poptávky na Tokijské burze a na odhalených případech insider tradingu demonstrujou výhody publikovaného přístupu. Úskalím používání složitých GMM je velký počet jejich parametrů. Čím více parametrů zvolený model má, tím více dat je potřeba k jejich odhadu a ověření daného modelu. Pro nalezení parametrů GMM je často používána EM metoda (Expectation-maximization) \cite{gmm9}, případně její výpočetně méně náročná modifikace \cite{gmm10}. Další aplikace GMM a smíšených metod lze nalézt v aktuální přehledové publikaci \cite{gmm11}.
+
+\subsection{Markovovy skryté modely}
+\# TODO
+
+\section{Neuronové sítě}
+V této podkapitole je uveden menší souhrn přístupů  využívajících různé typy neuronových sítí. Jmenovitě se jedná motodu podpůrných vektorů, samoorganizující se mapy, konvoluční neuronové sítě a autoenkodéry, které se v posledních letech začali v oblasti ND uplatňovat velice často.
+\subsection{Metoda podpůrných vektorů}
+Metody detekce novosti pomocí SVM vycházejí ze dvou různých přístupů. První přístup vychází předpokladu, že obvyklá data se vyskytují v oblastech s vysokou hustotou rozdělení. Data která se považují za nová potom leží v oblastech s nízkou hustotou. \#TODO
 \par 
 Druhý přístup vyžaduje předem oklasifikovaná data .
-\section{Metoda set-membership}
+\subsection{Samoogranizující se mapy}
+ \#TODO
+\subsection{Konvoluční neuronové sítě}
+ \#TODO
+\subsection{Autoenkodéry}
+Autoenkodéry jsou speciálním typem neuronových sítí. Jejich specifikem je, že vstupní i výstupní vrstva obsahují stejný počet neuronů. Počty neuronů ve skrytých vrstvách jsou však menší. Při učení těchto sítí je cílem získat na výstupu enkodéru identický vektor dat jako je na vstupu. Každý autoenkodér můžeme reprezentovat pomocí dvou sítí. Kódovací síť realizuje zobrazení z prostoru vzorů do prostoru featur. Vzhledem k rozdílné dimenzi těchto prostorů je možné uvedenou operaci označit jako kódování. Uvažujme vstupní vektor $x \in R^n$. Reprezentace tohoto vektoru ve skryté vrstvě $z(x)\in R^m$ je obecně určená funkcí 
+\begin{equation}
+z(x)=f_1(W_1 x+b_1) 
+\end{equation}
+kde $f_1$ je nelineární aktivační funkce, $W_1 \in R^{n\times m}$ je matice vah a $b_1 \in R^m$ je vektor příslušných biasů. Tato zakódovaná reprezentace vzoru $x$ je zobrazena do prostoru rekonstruovaných vzorů $\hat{x}\in R^n$, přičemž toto zobrazení je realizováno výstupní vrstvou autoenkodéru, tedy
+\begin{equation}
+\hat{x}=f_2(W_2z(x)+b_2)
+\end{equation}
+kde $f_2$ je vhodná funkce, $W_2\in R^{m \times n}$ je matice vah a $b_2$ je vektor příslušných biasů \cite{auto1}. Při učení autoenkodérů se obvykle minimalizuje tzv. chyba rekonstrukce, definovaná jako
+\begin{equation}
+\mathcal{L}(x,\hat{x})= \lvert\lvert x - \hat{x}\rvert \rvert^2
+\end{equation}
+pomocí metody zpětného šíření (backpropagation).
+\par 
+V \cite{auto2} používají autoři autoenkodér pro detekci novosti tak, že nejprve autoenkodér naučí a poté mu předkládají různé vzory. Podle chyby rekonstrukce pak usuzují, zda lze předložený vzor klasifikovat jako nový nebo nikoliv. Rozhodovacím kritériem je tedy velikost chyby rekonstrukce $\mathcal{L}$. Pokud je chyba rekonstrukce větší než zvolená prahová hodnota, pak je vzor klasifikován jako nový. Stejné kritérium pro detekci novosti v audio datech používají i autoři v \cite{auto3}. Požívají ale modifikovanou strukturu autoenkodéru, jehož skrytá vrstva obsahuje více neuronů než vstupní a výstupní vrstva (denoising autoecoder). Tento typ autoenkodérů bývá využit k odstranění šumu v časových řadách.
+V \cite {auto1} navrhují autoři pro detekci novosti využít odhad hustoty skryté vrstvy. Pokud vstup autoenkodéru má nízkou hustotu ve skryté vrstvě, je tento vstup klasifikován jako nový. Pro modelování hustoty skryté vrstvy autoři navrhují používat jádrový odhad. Oblastí, ve které nacházejí autoenkodéry uplatnění je i oblast hlubokého učení. V \cite{auto4} je použito série autoenkodérů, kde vstupem do každého enkodéru je výstup předcházejícího. Je tedy nutné pracovat se řadou chyb rekonstrukce. Práh pro určení zda-li se jedná o data nová, označme $\beta$, pak autoři navrhují ve tvaru
+\begin{equation}
+\beta = \alpha \times median(\mathcal{L}_1,\dots \mathcal{L}_n)
+\end{equation}
+kde $n$ je počet použitích autoenkodérů a $\alpha$ je volitelný koeficient.  Tento práh je porovnáván s celkovou chybou rekonstrukce sítě autoenkodérů.
+Ve článku \cite{auto5} je navržen nový typ autoenkodéru DGP-EV (Deep Gaussian Process autoencoder), jehož kódovací a dekódovací část využívá gaussovských procesů. Předností uvedené sítě je možnost využití v oblastech, kde se pracuje s daty kategorickými i numerickými. Autoenkodéry nalézají uplatnění i v oblastech zpracování obrazu. Pro kategorizaci objektů v obraze a detekci neznámých objektů používají autoři v \cite{auto6} autoenkodér s dvěmi dekodovacími sítěmi, pro jehož učení využívají algoritmus GZSL (Generalized Zero Shot Learning). Pro detekci nového objektu pak navrhují využívat k nově zavedenou funkci, která využívá chyby rekonstrukce obou dekódovacích vrstev. Řada přístupů k ND s využitím autoenkodérů využívá různé modifikované struktury, ať již to jsou např. rekurentní autoenkodéry \cite{auto7,auto8}, variační autoenkodéry \cite{auto9} nebo tzv. self-adversarial variační autoenkodéry \cite{auto10}.
+
+
+\section{Další vybrané metody využívající adaptivní filtry}
+\subsection{Metoda set-membership}
 Metoda set-membership \cite{diniz0,set_member} je metoda použitá nejen ke zrychlení adaptace filtru ale i pro ND. Tato metoda pracuje s chybou predikce a adaptivním filtrem. Základní myšlenka je, že pokud je chyba predikce filtru $e$ větší než nějaká prahová hodnota $\gamma$, dojde k adaptaci tohoto filtru. Podmínka pro adaptaci filtru je tedy ve tvaru 
 \begin{equation}
 \abs{e(k)} > \gamma.
@@ -26,22 +71,7 @@ Diniz a Yazdanpanah v \cite{diniz1} používají metodu set-membership a navrhuj
 Výsledná metoda slouží ke snížení výpočetního času pro adaptaci filtru a zároveň data klasifikuje do dvou výše zmíněných množin.
 \par
 Algoritmy založené na metodě set-membership nalezly široké uplatnění v řadě  oblastí. Jmenujme alespoň oblast mobilní robotiky, kde se používají např. při fúzi dat z vícero senzorů \cite{set_member_robot}, při lokalizaci a řízení podvodních robotů \cite{set_member_robot_voda} nebo při detekci poruch \cite{set_member_robot_chyba}. 
-\section{Markovovy modely}
-
-\section{Autoenkodéry}
-
-\section{Neuronové sítě}
-\subsection{Samoogranizující se mapy}
-
-\subsection{Konvoluční neuronové sítě}
-
-
-\section{Testování statistických hypotéz}
-
-\section{Metody založené na teorii extrémních hodnot}
-
-
-\section{Algoritmus Learning Entropy}\label{chap:LE}
+\subsection{Algoritmus Learning Entropy}\label{chap:LE}
 Algoritmus Learning Entropy (LE) je algoritmem, který využívá adaptivních filtrů (obvykle LNU a HONU) k detekci novosti v datech \cite{ivoLE1,ivoLE2}. Autoři ukazují, že ne vždy, je novost v datech korelována s chybou predikce, a k detekci novosti navrhují využívat přírůstky vah adaptivních filtrů $\Delta\textbf{w}$, které jsou získány použitím gradientní metody a adaptací s každými novými daty. V první publikaci \cite{ivoLE1} je popsán multifraktální přístup, který využívá uspořádané množiny různých hodnot prahů
 \begin{equation}
 \boldsymbol{\alpha}=\{ \alpha_1,\alpha_1,\dots,\alpha_{n_{\alpha}} \}, \alpha_1>\alpha_2>\dots>\alpha_{n_{\alpha}}
@@ -78,7 +108,7 @@ je průměr hodnot přírůstku adaptivních vah, přičemž parametr $M$ je dé
 E(k)=\sum_{i=1}^{n_w}z(\abs{\Delta w_i(k)}); E \in R
 \end{equation}
 který v případě negativních hodnot $z(\abs{\Delta w_i(k)})$ nemusí poskytovat jasnou hranici mezi obvyklými a neobvyklými změnami adaptivních parametrů.
-\section{Algoritmus Error and Learning Based Novelty Detection}\label{chap:elbnd}
+\subsection{Algoritmus Error and Learning Based Novelty Detection}\label{chap:elbnd}
 Algoritmus Error and Learning Based Novelty Detection (ELBND) \cite{elbnd1,elbnd2} je dalším z algoritmů detekce novosti, které využívají adaptivních filtrů, jejichž parametry jsou adaptovány vždy s novými daty. Každý naměřený vzorek dat je popsán vektorem hodnot, na základě přírůstku adaptivních vah a chyby filtru, definovaným jako
 \begin{equation}
 	elbnd(k)=\Delta\textbf{w}\cdot e(k)
@@ -94,4 +124,3 @@ Další možností je určit míru novosti jako součet absolutních hodnot jedn
 
 Uvedený algoritmus, využívající vztah \ref{eq:elbnd1}, byl úspěšně použit k adaptivní klasifikaci EEG pacientů s demencí \cite{elbnd3}.
 
-\section{Aplikace metod detekce novosti}
