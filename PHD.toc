@@ -25,10 +25,10 @@
 \contentsline {subsection}{\numberline {2.2.3}Algoritmus Generalized Normalized Gradient Descent}{40}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Gradient descent pro fuzzy filtry}{41}{subsection.2.2.4}%
 \contentsline {chapter}{\numberline {3}Zobecněné Paretovo rozdělení}{45}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Metoda Peak-over-Threshold}{45}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Metody odhadu parametrů zobecněného Paretova rozdělení}{46}{section.3.2}%
+\contentsline {section}{\numberline {3.1}Metoda Peak-over-Threshold}{46}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Metody odhadu parametrů zobecněného Paretova rozdělení}{47}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Metoda maximální věrohodnosti}{47}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Metoda momentů}{47}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.2}Metoda momentů}{48}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Kvazi-ML metoda}{49}{subsection.3.2.3}%
 \contentsline {chapter}{\numberline {4}Algoritmus Extreme Seeking Entropy}{51}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Výsledky experimentů}{55}{chapter.5}%
@@ -55,4 +55,4 @@
 \contentsline {chapter}{\numberline {6}Závěr}{89}{chapter.6}%
 \contentsline {chapter}{Publikace autora}{91}{chapter*.46}%
 \contentsline {chapter}{Literatura}{93}{chapter*.47}%
-\contentsline {chapter}{Příloha}{99}{chapter*.48}%
+\contentsline {chapter}{Příloha}{101}{chapter*.48}%

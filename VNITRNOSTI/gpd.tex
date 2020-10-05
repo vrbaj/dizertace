@@ -1,14 +1,15 @@
 \chapter{Zobecněné Paretovo rozdělení}\label{chap:gpd}
-\#TODO
-
+Přestože je normální rozdělení historicky často používané rozdělení v oblasti detekce novosti (zde bychom měli zmínit Grubbsův test \cite{grubbs} který se stal základním kamenem celé řady metod detekce novosti, resp. odlehlých vzorků), nemusí být vždy vhodné. Někdy může být střední hodnota a symetrický rozptyl zavádějící, ve smyslu výpovědní hodnoty o rozdělení sledovaných dat \cite{gpd4}. Zvláště, když je předmětem zájmu právě ocas rozdělení, z něhož data pocházejí. 
+\par 
+Uveďme zde Pickland - Balkema - de Haanovu větu \cite{gpd5,gpd6} (někdy označována jako druhá věta teorie extrémních hodnot) podle které, pro řadu $X_1$, $X_2$, $\dots$ nezávislých náhodných veličin se stejným rozdělením $F$ pro které je $F_u$ rozdělení jejich excesů přes mez $u$ (tedy hodnot které překračují $u$) platí
 \begin{equation}
-    F_u(x)=P(X-u \leq x,X>u)=\frac{F(u+x)-F(x)}{1-F(x)}
+    F_u (x) \rightarrow GPD(\xi, \mu ,\sigma) (x), \text{ as } u \rightarrow \infty
 \end{equation}
-
+kde $GPD$ je zobecněné Paretovo rozdělení a $F_u$ je distribuční funkce hodnot překračujících práh $u$ definovaná jako
 \begin{equation}
-    F_u(x)=P(X-u \leq x,X>u)=\frac{F(u+x)-F(x)}{1-F(x)}
+    F_u(x)=P(X-u \leq x,X>u)=\frac{F(u+x)-F(u)}{1-F(u)}
 \end{equation}
-
+pro $0 \leq x \leq x_F-u$,kde $x_F$ je pravý koncový bod distribuční funkce $F$. Funkce hustoty pravděpodobnosti GPD je potom definovaná jako
 
 \begin{equation}
   f_{(\xi,\mu,\sigma)}(x)=\begin{cases}
@@ -16,7 +17,7 @@
     \exp \Big(-\frac{x-\mu}{\sigma}\Big) & \text{for $\xi = 0$}.
   \end{cases}
 \end{equation}
-
+kde obecně $\mu \in (-\infty,+\infty )$ je parametrem lokace, $\sigma \in (0, \infty)$ je parametrem měřítka a $\xi \in (-\infty, \infty)$ je parametr tvaru. Odpovídající distribuční funkce je potom ve tvaru
 
 \begin{equation}
   F_{(\xi,\mu,\sigma)}(x)=\begin{cases}
@@ -24,6 +25,9 @@
     1 - \exp{\Big(-\frac{x-\mu}{\sigma} \Big)} & \text{for $\xi = 0$}.
   \end{cases}
 \end{equation}
+Důležitým faktem je, že nosič zobecněného Paretova rozdělení je omezený a to tak, že $x \geq \mu$ pro $\xi \geq 0$, a $\mu \leq x \leq \mu - \sigma/\xi$ pro $\xi < 0$ přičemž $\mu \in R$, $\sigma > 0$, a $\xi \in R$.
+\par
+Obrázek \ref{fig:gpd_pdfs} zobrazuje hustoty pravděpodobnosti GPD s různými parametry $\xi$, které mají demonstrovat možnosti použití GPD pro modelování různých typů ocasů. Pro $\xi=1$ je GPD ekvalentní s rovnoměrným rozdělením, pro hodnotu $\xi=0$ je exponenciálním rozdělením, pro $\xi=-0.5$ je trojúhelníkovým rozdělením, pro $-0.5 < \xi < 0$ je rozdělením s lehkým ocasem (např. normální rozdělení, Gumbelovo rozdělení), pro $\xi > 0$ je rozdělením s těžkým ocasem (např. Paretovo rozdělení, logaritmicko-normální rozdělení, Studentovo rozdělení) a pro $\xi < -1$ je rozdělením s kompaktním nosičem (např. beta rozdělení). Vzhledem k tomu, že v aplikacích s reálnými daty se vyskytuje celá řada rozdělení, je GPD, díky své výše demonstrované univerzalitě, vhodným rozdělením pro modelování ocasů jiných rozdělení \cite{gpd1,gpd2,gpd3}.
 
 \begin{figure}
     \centering
