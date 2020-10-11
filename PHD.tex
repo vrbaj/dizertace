@@ -22,8 +22,10 @@
 \usepackage[nottoc]{tocbibind}
 \usepackage{tikz}
 \usepackage{enumerate}
+%\usepackage{enumitem}
 \usepackage{algorithmic}
 \usepackage{algorithm}
+\usepackage{csquotes}
 \usetikzlibrary{shapes, arrows.meta}
 \usetikzlibrary{backgrounds,calc}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
@@ -85,6 +87,7 @@
 \input{VNITRNOSTI/nd_metody}
 \input{VNITRNOSTI/adaptivni_filtry}
 \input{VNITRNOSTI/gpd}
+\input{VNITRNOSTI/cile}
 \input{VNITRNOSTI/ese}
 \input{VNITRNOSTI/vysledky}
 \input{VNITRNOSTI/zaver}
@@ -222,14 +225,25 @@ NEHMZOW, Ulrich, et al. Novelty detection as an intrinsic motivation for cumulat
 \bibitem{somS}YIN, Hujun. Nonlinear dimensionality reduction and data visualization: a review. International Journal of Automation and Computing, 2007, 4.3: 294-303.
 \bibitem{somS2}AGUAYO, Leonardo; BARRETO, Guilherme A. Novelty detection in time series using self-organizing neural networks: a comprehensive evaluation. Neural Processing Letters, 2018, 47.2: 717-744.
 \bibitem{som0}KOHONEN, Teuvo. The self-organizing map. Proceedings of the IEEE, 1990, 78.9: 1464-1480.
+\bibitem{dynamic_neural}TAYLOR, John G. Neural ‘bubble’dynamics in two dimensions: foundations. Biological cybernetics, 1999, 80.6: 393-409.
 
 \bibitem{som1}BERNARD, Yann; HUEBER, Nicolas; GIRAU, Bernard. Novelty detection with self-organizing maps for autonomous extraction of salient tracking features. In: International Workshop on Self-Organizing Maps. Springer, Cham, 2019. p. 100-109.
+
+\bibitem{sal}CHI, Dongxiang. Self-organizing map-based color image segmentation with k-means clustering and saliency map. International Scholarly Research Notices, 2011, 2011.
+
 \bibitem{som2}RATRE, Avinash; PANKAJAKSHAN, Vinod. Tucker visual search-based hybrid tracking model and fractional Kohonen self-organizing map for anomaly localization and detection in surveillance videos. The Imaging Science Journal, 2018, 66.4: 195-210.
+
+
 \bibitem{som3}OLSZEWSKI, Dominik. Fraud detection using self-organizing map visualizing the user profiles. Knowledge-Based Systems, 2014, 70: 324-334.
-\bibitem{som4}ABAEI, Golnoush; SELAMAT, Ali; FUJITA, Hamido. An empirical study based on semi-supervised hybrid self-organizing map for software fault prediction. Knowledge-Based Systems, 2015, 74: 28-39.
-\bibitem{som5}KIT, Dmitry; KONG, Yu; FU, Yun. LASOM: Location Aware Self-Organizing Map for discovering similar and unique visual features of geographical locations. In: 2014 International Joint Conference on Neural Networks (IJCNN). IEEE, 2014. p. 263-270.
+
+\bibitem{som4}RIGAMONTI, Marco, et al. Identification of the degradation state for condition-based maintenance of insulated gate bipolar transistors: A self-organizing map approach. Microelectronics Reliability, 2016, 60: 48-61.
+\bibitem{som5}MATIĆ, Frano; KALINIĆ, Hrvoje; VILIBIĆ, Ivica. Interpreting Self-Organizing Map errors in the classification of ocean patterns. Computers \& geosciences, 2018, 119: 9-17.
+
 \bibitem{som6}LI, Menglu; KASHEF, Rasha; IBRAHIM, Ahmed. Multi-Level Clustering-Based Outlier’s Detection (MCOD) Using Self-Organizing Maps. Big Data and Cognitive Computing, 2020, 4.4: 24.
-\bibitem{som7}KADAM, Kaveri Umesh; PATIL, Sanjay B. IDENTIFY OUTLIERS USING LOCAL MINIMA DENSITY IN KOHONEN SELF ORGANIZATION FEATURE MAP. Journal of Critical Reviews, 2020, 7.11: 2123-2127.
+\bibitem{klastry}GAN, Guojun; MA, Chaoqun; WU, Jianhong. Data clustering: theory, algorithms, and applications. Society for Industrial and Applied Mathematics, 2007.
+\bibitem{som7}NAM, Tran Manh, et al. Self-organizing map-based approaches in DDoS flooding detection using SDN. In: 2018 International Conference on Information Networking (ICOIN). IEEE, 2018. p. 249-254.
+\bibitem{som8}ELMOUGY, Samir, et al. A parameter based growing ensemble of self-organizing maps for outlier detection in healthcare. Cluster Computing, 2019, 22.1: 2437-2460.
+
 
 
 \bibitem{cnn1}SIMONYAN, Karen; ZISSERMAN, Andrew. Very deep convolutional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556, 2014.
@@ -243,7 +257,21 @@ NEHMZOW, Ulrich, et al. Novelty detection as an intrinsic motivation for cumulat
 \bibitem{cnn8}OZA, Poojan; PATEL, Vishal M. One-class convolutional neural network. IEEE Signal Processing Letters, 2018, 26.2: 277-281.
 \bibitem{cnn9}SCHULTHEISS, Alexander, et al. Finding the unknown: Novelty detection with extreme value signatures of deep neural activations. In: German Conference on Pattern Recognition. Springer, Cham, 2017. p. 226-238.
 
-
+\bibitem{hmm1}MACDONALD, Iain L.; ZUCCHINI, Walter. Hidden Markov and other models for discrete-valued time series. CRC Press, 1997.
+\bibitem{hmm2}BHAR, Ramaprasad; HAMORI, Shigeyuki. Hidden Markov models: applications to financial economics. Springer Science \& Business Media, 2004.
+\bibitem{hmm3}FINK, Gernot A. Markov models for pattern recognition: from theory to applications. Springer Science \& Business Media, 2014.
+\bibitem{hmm4}GALES, Mark; YOUNG, Steve. The application of hidden Markov models in speech recognition. Now Publishers Inc, 2008.
+\bibitem{hmm5}KOSKI, Timo. Hidden Markov models for bioinformatics. Springer Science \& Business Media, 2001.
+\bibitem{hmm6}WARRENDER, Christina; FORREST, Stephanie; PEARLMUTTER, Barak. Detecting intrusions using system calls: Alternative data models. In: Proceedings of the 1999 IEEE symposium on security and privacy (Cat. No. 99CB36344). IEEE, 1999. p. 133-145.
+\bibitem{hmm7}ZOHREVAND, Zahra, et al. Hidden Markov based anomaly detection for water supply systems. In: 2016 IEEE International Conference on Big Data (Big Data). IEEE, 2016. p. 1551-1560.
+\bibitem{hmm8}YU, Jianbo. Adaptive hidden Markov model-based online learning framework for bearing faulty detection and performance degradation monitoring. Mechanical Systems and Signal Processing, 2017, 83: 149-162.
+\bibitem{hmm9}SCHMIDT, Stephan; HEYNS, Philippus Stephanus; DE VILLIERS, Johan Pieter. A novelty detection diagnostic methodology for gearboxes operating under fluctuating operating conditions using probabilistic techniques. Mechanical Systems and Signal Processing, 2018, 100: 152-166.
+\bibitem{pca}ABDI, Hervé; WILLIAMS, Lynne J. Principal component analysis. Wiley interdisciplinary reviews: computational statistics, 2010, 2.4: 433-459.
+\bibitem{hmm10}LI, Jinbo; PEDRYCZ, Witold; JAMAL, Iqbal. Multivariate time series anomaly detection: A framework of Hidden Markov Models. Applied Soft Computing, 2017, 60: 229-240.
+\bibitem{hmm11}TOLOUE, Kamran Fartash; JAHAN, Majid Vafaei. Anomalous behavior detection of marine vessels based on Hidden Markov Model. In: 2018 6th Iranian Joint Congress on Fuzzy and Intelligent Systems (CFIS). IEEE, 2018. p. 10-12.
+\bibitem{hmm12}ZHAO, Jingling, et al. Software Abnormal Behavior Detection Based on Hidden Markov Model. In: International Conference on Innovative Mobile and Internet Services in Ubiquitous Computing. Springer, Cham, 2017. p. 929-940.
+\bibitem{hmm13}LI, Peng, et al. Application of hidden Markov model in SQL injection detection. In: 2017 IEEE 41st Annual Computer Software and Applications Conference (COMPSAC). IEEE, 2017. p. 578-583.
+\bibitem{hmm14}ROBINSON, William N.; ARIA, Andrea. Sequential fraud detection for prepaid cards using hidden Markov model divergence. Expert Systems with Applications, 2018, 91: 235-251.
 
 \end{thebibliography}
 
