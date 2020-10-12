@@ -15,14 +15,14 @@ A(f(\Delta \abs{\textbf{w}}(k)) = -\log \prod_{i=1}^n(1 - f_{{cdf}_i}(\lvert \De
 \end{equation}
 Uvedená agregační funkce $A$ má pro neobvykle velké přírůstky vah neobvykle velkou kladnou hodnotu, pokud jsou hodnoty $f_{cdf}$ blízké 1. Člen $1-f_{cdf}$ je vlastně komplementární distribuční funkcí (funkce přežití, spolehlivostní funkce). Výhodou uvedeného přístupu je absence potřeby nastavovat několik prahů pro detekci.
 \par 
-Jak již bylo uvedeno, cílem je tedy vyhodnotit neobvykle velké přírůstky vah adaptivního systém. Nejprve je nutné určit nějaký práh $z$, podle kterého můžeme přírůstky adaptivních vah filtru rozdělit do dvou množin. Množinu, která bude obsahovat obsahovat přírůstky menší než je zvolený práh $z$ označíme $L$. Přírůstek který je větší nebo roven hodnotě prahu $z$ označíme $H$. Pozn. Volba hodnoty prahu přímo souvisí s volbou metody POT (viz kapitola \ref{chap:gpd}). Uvažujme, že obě množiny existují pro každou adaptivní váhu, potom pro $i$-tou adaptivní váhu zvolíme práh $z_i$ tak, že velikosti přírůstku této váhy náleží do jedné ze dvou množin, tak, že:
+Jak již bylo uvedeno, cílem je tedy vyhodnotit neobvykle velké přírůstky vah adaptivního systém. Nejprve je nutné určit nějaký práh\footnote{Pozn. Volba hodnoty prahu přímo souvisí s volbou metody POT (viz kapitola \ref{chap:gpd}).} $z$ , podle kterého můžeme přírůstky adaptivních vah filtru rozdělit do dvou množin. Množinu, která bude obsahovat přírůstky menší než je zvolený práh $z$ označíme $L$. Přírůstek, který je větší nebo roven hodnotě prahu $z$ označíme $H$.  Uvažujme, že obě množiny existují pro každou adaptivní váhu, potom pro $i$-tou adaptivní váhu zvolíme práh $z_i$ tak, že velikosti přírůstku této váhy náleží do jedné ze dvou množin, tak, že:
 \begin{equation}
 \forall \abs{\Delta w_i} < z_i \in L_i
 \end{equation}
 \begin{equation}
 \forall \abs{\Delta w_i} \geq z_i \in H_i
 \end{equation}
-Vzhledem k výše zmíněnému předpokladu o velikosti změn vah adaptivního filtru a novosti v datech, uvažujme, že přírůstky náležející množině $L_i$ pravděpodobně neobsahují informaci o novosti během adaptace a proto nebudou vyhodnocovány. Množina $H_i$ by měla obsahovat přírůstky adaptivních vah filtru, u kterých lze očekávat, že mohou nést nějakou informaci o novosti v datech.
+Vzhledem k výše zmíněnému předpokladu o velikosti změn vah adaptivního filtru a novosti v datech, uvažujme, že přírůstky náležející množině $L_i$ pravděpodobně neobsahují informaci o novosti během adaptace, a proto nebudou vyhodnocovány. Množina $H_i$ by měla obsahovat přírůstky adaptivních vah filtru, u kterých lze očekávat, že mohou nést nějakou informaci o novosti v datech.
 \par
 Nyní můžeme zavést novou míru, kterou nazvěme Extreme Seeking Entropy (ESE), definovanou jako
 
@@ -36,7 +36,7 @@ kde
     F_{(\xi_i,\mu_i,\sigma_i)}(|\Delta w_i(k)|),\, |\Delta w_i(k)| \in H_i.
   \end{cases}
 \end{equation}
-a funkce $F_{(\xi_i,\mu_i,\sigma_i)}$ je distribuční funkce zobecněného Paretova rozdělení (GPD), představeného v předchozí kapitole \ref{chap:gpd}. Přírůstky adaptivních vah, které jsou menší než hodnota prahu získaného metodou POT nezmění hodnotu $ESE$. Přírůstky vah, které mají velice malou pravděpodobnost a spíše nesou nějakou informaci o novosti v datech způsobí velký nárůst hodnoty $ESE$. Zásadním aspektem navrhovaného algoritmu je, že mohou být vyhodnocovány buď všechny získané přírůstky vah, a nebo lze vyhodnocovat pouze nejnovějších $n_s$ vzorků a na ně aplikovat metodu POT. Novost potom můžeme vnímat v kontextu těchto $n_s$ vzorků. 
+a funkce $F_{(\xi_i,\mu_i,\sigma_i)}$ je distribuční funkce zobecněného Paretova rozdělení (GPD), představeného v předchozí kapitole \ref{chap:gpd}. Přírůstky adaptivních vah, které jsou menší než hodnota prahu získaného metodou POT, nezmění hodnotu $ESE$. Přírůstky vah, které mají velice malou pravděpodobnost a spíše nesou nějakou informaci o novosti v datech, způsobí velký nárůst hodnoty $ESE$. Zásadním aspektem navrhovaného algoritmu je, že mohou být vyhodnocovány buď všechny získané přírůstky vah, anebo lze vyhodnocovat pouze nejnovějších $n_s$ vzorků a na ně aplikovat metodu POT. Novost potom můžeme vnímat v kontextu těchto $n_s$ vzorků. 
 \par
 Navrhovaný algoritmus pro detekci novosti v datech je popsán následujícím pseudokódem.
 
@@ -51,11 +51,11 @@ Navrhovaný algoritmus pro detekci novosti v datech je popsán následujícím p
 \IF{$|\Delta w_i|(k) \in H_i$}
 \STATE výpočet parametrů $\xi_i$, $\mu_i$, $\sigma_i$ pro příslušné GPD
 \ENDIF
-\STATE výpočet hodnoty $ESE$ podle rovnice (\ref{eq:ESE})
+\STATE výpočet hodnoty $ESE$ podle rovnice \ref{eq:ese}
 \ENDFOR
 \end{algorithmic}
 \end{algorithm}
 
 Výhodou navrhovaného algoritmu je, že jediným volitelným parametrem je parametr $n_s$, který ale v případě potřeby můžeme vynechat a zpracovávat všechny historicky dostupné přírůstky adaptivních parametrů. Dále je nutné zvolit vhodnou metodu POT.
 \par
-Určitou limitací uvedeného algoritmu je, že pro získání první hodnoty $ESE$ potřebujeme nějakou apriorní informaci o parametrech GPD rozdělení. Konkrétněji, pro každou $i$-tou adaptivní váhu musíme mít k dispozici odhad parametrů $\xi_i$, $\mu_i$, $\sigma_i$. Vzhledem k tomu, že adaptivní filtr má $n_w$ různých adaptivních vah, potřebujeme získat odhad $3\cdot n_w$ parametrů aby začal algoritmus ESE poskytovat první hodnoty. Pokud není k dispozici žádná apriorní informace o hodnotách těchto parametrů, potřebujeme provést získat alespoň $n_s$ vzorků, na jejichž základě můžeme získat první hodnotu $ESE$. Dalším úskalím je proměnlivost parametrů nebo typu rozdělení pravděpodobnosti přírůstků adaptivních vah v čase.
+Určitou limitací uvedeného algoritmu je, že pro získání první hodnoty $ESE$ potřebujeme nějakou apriorní informaci o parametrech GPD rozdělení. Konkrétněji, pro každou $i$-tou adaptivní váhu musíme mít k dispozici odhad parametrů $\xi_i$, $\mu_i$, $\sigma_i$. Vzhledem k tomu, že adaptivní filtr má $n_w$ různých adaptivních vah, potřebujeme získat odhad $3\cdot n_w$ parametrů aby začal algoritmus ESE poskytovat první hodnoty. Pokud není k dispozici žádná apriorní informace o hodnotách těchto parametrů, potřebujeme získat alespoň $n_s$ vzorků, na jejichž základě můžeme získat první hodnotu $ESE$. Dalším úskalím je proměnlivost parametrů nebo typu rozdělení pravděpodobnosti přírůstků adaptivních vah v čase.

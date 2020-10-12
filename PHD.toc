@@ -1,31 +1,31 @@
 \babel@toc {czech}{}
 \contentsline {chapter}{\numberline {1}Úvod}{21}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Cíle dizertační práce}{21}{section.1.1}%
-\contentsline {chapter}{\numberline {2}Přehled metod detekce novosti}{23}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Vybrané statistické metody}{24}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Metody založené na teorii extrémních hodnot}{24}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Metody využívající Gaussovy smíšení modely}{25}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Markovovy skryté modely}{26}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Vybrané metody využívající strojové učení a neuronové sítě}{27}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Metoda podpůrných vektorů}{27}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Samoogranizační mapy}{29}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Konvoluční neuronové sítě}{30}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Autoenkodéry}{31}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Další vybrané metody využívající adaptivní filtry}{32}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Metoda set-membership}{32}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Algoritmus Learning Entropy}{33}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Algoritmus Error and Learning Based Novelty Detection}{34}{subsection.2.3.3}%
-\contentsline {chapter}{\numberline {3}Číslicové adaptivní filtry a algoritmy}{37}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Adaptivní filtry}{39}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Lineární FIR filtry}{39}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Volterrovy filtry}{41}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Polynomiální neuronové jednotky}{42}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Fuzzy filtry}{43}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2}Adaptivní algoritmy}{44}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Algoritmy LMS a NLMS}{45}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Algoritmus RLS}{47}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Algoritmus Generalized Normalized Gradient Descent}{48}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Gradient descent pro fuzzy filtry}{49}{subsection.3.2.4}%
+\contentsline {chapter}{\numberline {2}Číslicové adaptivní filtry a algoritmy}{23}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Adaptivní filtry}{25}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Lineární FIR filtry}{25}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Volterrovy filtry}{27}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Polynomiální neuronové jednotky}{28}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Fuzzy filtry}{29}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Adaptivní algoritmy}{30}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Algoritmy LMS a NLMS}{31}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Algoritmus RLS}{33}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Algoritmus Generalized Normalized Gradient Descent}{34}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Gradient descent pro fuzzy filtry}{35}{subsection.2.2.4}%
+\contentsline {chapter}{\numberline {3}Přehled metod detekce novosti}{39}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Vybrané statistické metody}{40}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Metody využívající Gaussovy smíšení modely}{40}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Metody založené na teorii extrémních hodnot}{41}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Markovovy skryté modely}{42}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Vybrané metody využívající strojové učení a neuronové sítě}{43}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Metoda podpůrných vektorů}{43}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Samoogranizační mapy}{45}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Konvoluční neuronové sítě}{46}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Autoenkodéry}{47}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Další vybrané metody využívající adaptivní filtry}{48}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Metoda set-membership}{48}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Algoritmus Learning Entropy}{49}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Algoritmus Error and Learning Based Novelty Detection}{50}{subsection.3.3.3}%
 \contentsline {chapter}{\numberline {4}Zobecněné Paretovo rozdělení}{53}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Metoda Peak-over-Threshold}{54}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Metody odhadu parametrů zobecněného Paretova rozdělení}{55}{section.4.2}%
@@ -55,6 +55,7 @@
 \contentsline {subsection}{\numberline {6.4.1}Popis bioprocesu a specifikace problému}{90}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Experiment a zhodnocení}{92}{subsection.6.4.2}%
 \contentsline {chapter}{\numberline {7}Závěr}{97}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Možné směry budoucího výzkumu}{98}{section.7.1}%
 \contentsline {chapter}{Publikace autora}{99}{chapter*.45}%
 \contentsline {chapter}{Literatura}{101}{chapter*.46}%
 \contentsline {chapter}{Příloha}{113}{chapter*.47}%

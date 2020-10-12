@@ -3,13 +3,13 @@ Přestože je normální rozdělení historicky často používané rozdělení 
 \par 
 Uveďme zde Pickland - Balkema - de Haanovu větu \cite{gpd5,gpd6} (někdy označována jako druhá věta teorie extrémních hodnot) podle které, pro řadu $X_1$, $X_2$, $\dots$ nezávislých náhodných veličin se stejným rozdělením $F$ pro které je $F_u$ rozdělení jejich excesů přes mez $u$ (tedy hodnot které překračují $u$) platí
 \begin{equation}
-    F_u (x) \rightarrow GPD(\xi, \mu ,\sigma) (x), \text{ as } u \rightarrow \infty
+    F_u (x) \rightarrow GPD(\xi, \mu ,\sigma) (x), \text{ pro } u \rightarrow \infty
 \end{equation}
 kde $GPD$ je zobecněné Paretovo rozdělení a $F_u$ je distribuční funkce hodnot překračujících práh $u$ definovaná jako
 \begin{equation}
     F_u(x)=P(X-u \leq x,X>u)=\frac{F(u+x)-F(u)}{1-F(u)}
 \end{equation}
-pro $0 \leq x \leq x_F-u$,kde $x_F$ je pravý koncový bod distribuční funkce $F$. Funkce hustoty pravděpodobnosti GPD je potom definovaná jako
+pro $0 \leq x \leq x_F-u$, kde $x_F$ je pravý koncový bod distribuční funkce $F$. Funkce hustoty pravděpodobnosti GPD je potom definovaná jako
 
 \begin{equation}
   f_{(\xi,\mu,\sigma)}(x)=\begin{cases}
@@ -36,13 +36,10 @@ Obrázek \ref{fig:gpd_pdfs} zobrazuje hustoty pravděpodobnosti GPD s různými 
     \label{fig:gpd_pdfs}
 \end{figure}
 
-
-
-
-
-
 \section{Metoda Peak-over-Threshold}
-Zásadním problémem při hledání parametrů GPD je volba vhodné hodnoty prahu $z$. Metody, které řeší uvedený problém jsou nazývány Peak-Over-Threshold (POT). V případě, že je hodnota prahu $z$ příliš vysoká, mají parametry GPD velkou varianci, protože je existuje pouze příliš málo dat, které zvolenou prahovou hodnotu překročí. Pokud je hodnota prahu $z$ naopak příliš nízká, není aproximace ocasu generujícího rozdělení spolehlivá.  Z tohoto pohledu, je tedy vhodná volba hodnoty prahu $z$ pro kvalitu fitu GPD zásadní. Existuje celá řada metod pro výběr hodnoty prahu (více viz \cite{scarrott2012review}). Některé z metod POT jsou však sami o sobě výpočetně náročné, případně poskytují výsledky, jež musí být vyhodnoceny expertem. Z těchto důvodů nejsou příliž vhodné pro algoritmus detekce novosti, který by vyhodnocoval data v reálném čase. Proto se zdá vhodné využít některé z metod "Rule of Thumb". Z těchto metod se osvědčily tři různé metody. Nechť $l$ je počet vzorků, které jsou použity k odhadu parametrů GPD a $n_s$ je celkový počet vzorků, které jsou k dispozici. Potom podle \cite{DuMouchel,ferreira2003optimising,loretan1994testing} můžeme určit počet vzorků potřebných k odhadu parametrů GPD jako:
+Zásadním problémem při hledání parametrů GPD je volba vhodné hodnoty prahu $z$. Metody, které řeší uvedený problém, jsou nazývány Peak-Over-Threshold (POT). V případě, že je hodnota prahu $z$ příliš vysoká, jsou parametry GPD velmi proměnlivé, protože existuje příliš málo dat, které zvolenou prahovou hodnotu překročí. Pokud je hodnota prahu $z$ naopak příliš nízká, není aproximace ocasu generujícího rozdělení spolehlivá.  Z tohoto pohledu, je tedy vhodná volba hodnoty prahu $z$ pro kvalitu fitu GPD zásadní. Existuje celá řada metod pro výběr hodnoty prahu (více viz \cite{scarrott2012review}). Některé z metod POT jsou však výpočetně náročné, případně poskytují výsledky, jež musí být vyhodnoceny expertem. Z těchto důvodů nejsou příliš vhodné pro algoritmus detekce novosti, který by vyhodnocoval data v reálném čase. Proto se zdá vhodné využít některé z metod \textquote{Rule of Thumb}. Z těchto metod se osvědčily tři různé metody.
+\par 
+Nechť $l$ je počet vzorků, které jsou použity k odhadu parametrů GPD a $n_s$ je celkový počet vzorků, které jsou k dispozici. Potom podle \cite{DuMouchel,ferreira2003optimising,loretan1994testing} můžeme určit počet vzorků potřebných k odhadu parametrů GPD jako:
 \begin{equation} \label{eq:l1}
     l_1=\ceil[\big]{0.1 \cdot n_s}
 \end{equation}
@@ -79,7 +76,7 @@ Tento vektor parametrů rozdělení tedy maximalizuje věrohodnostní funkci. V 
 \end{equation}
 přičemž podle \cite{SmithML} je pro $-0.5 < \xi < 0$, při zachování určitých podmínek, maximálně věrohodný odhad asymptoticky normální a asymptoticky vydatný. Problém může pro hodnoty $\xi < -0.5$ kdy maximálně věrohodný odhad nemusí existovat \cite{grim}. Optimalizační problém \ref{eq:ml_arg}  pro GPD s věrohodností funkcí ve tvaru \ref{eq:ml} obvykle řeší nějakou numerickou metodou.
 \subsection{Metoda momentů}
-Při použití MOM \cite{mom_orig} je k odhadu parametrů GPD využito prvního a druhého momentu. 
+Při použití metody momentů (MOM)  je k odhadu parametrů GPD využito prvního a druhého momentu \cite{mom_orig}. 
 Abychom poukázali na problém, který je s použitím MOM spojen, uvažujme nyní dvou parametrové GPD, pro které je $\mu=0$, $\xi > 0$ a $x \geq 0$. 
 Pro první moment potom dostaneme přímo podle definice
 \begin{equation*}
@@ -124,7 +121,7 @@ s přihlédnutím k omezení, že $\xi < 1/r$. Řešením soustavy rovnic \ref{e
 kde $E(X)$ je střední hodnota vzorku dat a $Var(X)$ je rozptyl tohoto vzorku dat. Metoda MOM je použitelná pouze pro hodnoty parametru $\xi < 0.5$. Pro $\xi \geq 0.5$ není splněná podmínka pro existenci druhého momentu. 
 
 \subsection{Kvazi-ML metoda}
-Kvazi-ML metoda \ref{Luceno} odhadu parametrů GPD kombinuje metodu maximální věrohodnosti pro $\xi > -0.75$ a modifikovanou metodu maximální věrohodnosti pro $\xi \leq -0.75$. Protože neznáme přesnou hodnotu parametru $\xi$ je rozhodnutí, kterou z metod použít provedeno na empirickém základě. Nejprve uvažujme posloupnost hodnot $(x_1,\dots, x_n)$. Metodu kvazi-ML lze popsat v následujících třech krocích.
+Kvazi-ML metoda  odhadu parametrů GPD kombinuje metodu maximální věrohodnosti pro $\xi > -0.75$ a modifikovanou metodu maximální věrohodnosti pro $\xi \leq -0.75$ \cite{Luceno}. Protože neznáme přesnou hodnotu parametru $\xi$ je rozhodnutí, kterou z metod použít provedeno na empirickém základě. Nejprve uvažujme posloupnost hodnot $(x_1,\dots, x_n)$. Metodu kvazi-ML lze popsat v následujících třech krocích.
 \begin{enumerate}
 \item Výpočet
 \begin{equation}
