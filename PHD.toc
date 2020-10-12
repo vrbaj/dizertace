@@ -1,59 +1,60 @@
 \babel@toc {czech}{}
-\contentsline {chapter}{\numberline {1}Přehled metod detekce novosti}{23}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Vybrané statistické metody}{24}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Metody založené na teorii extrémních hodnot}{24}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Metody využívající Gaussovy smíšení modely}{25}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Markovovy skryté modely}{26}{subsection.1.1.3}%
-\contentsline {section}{\numberline {1.2}Vybrané metody využívající strojové učení a neuronové sítě}{27}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Metoda podpůrných vektorů}{27}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Samoogranizační mapy}{29}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Konvoluční neuronové sítě}{30}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Autoenkodéry}{31}{subsection.1.2.4}%
-\contentsline {section}{\numberline {1.3}Další vybrané metody využívající adaptivní filtry}{32}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Metoda set-membership}{32}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Algoritmus Learning Entropy}{33}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}Algoritmus Error and Learning Based Novelty Detection}{34}{subsection.1.3.3}%
-\contentsline {chapter}{\numberline {2}Číslicové adaptivní filtry a algoritmy}{37}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Adaptivní filtry}{39}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Lineární FIR filtry}{39}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Volterrovy filtry}{41}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Polynomiální neuronové jednotky}{42}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}Fuzzy filtry}{43}{subsection.2.1.4}%
-\contentsline {section}{\numberline {2.2}Adaptivní algoritmy}{44}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Algoritmy LMS a NLMS}{45}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Algoritmus RLS}{47}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Algoritmus Generalized Normalized Gradient Descent}{48}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Gradient descent pro fuzzy filtry}{49}{subsection.2.2.4}%
-\contentsline {chapter}{\numberline {3}Zobecněné Paretovo rozdělení}{53}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Metoda Peak-over-Threshold}{54}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Metody odhadu parametrů zobecněného Paretova rozdělení}{55}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Metoda maximální věrohodnosti}{55}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Metoda momentů}{56}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Kvazi-ML metoda}{57}{subsection.3.2.3}%
-\contentsline {chapter}{\numberline {4}Cíle dizertační práce}{59}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Algoritmus Extreme Seeking Entropy}{61}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Výsledky experimentů}{65}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Případové studie detekce novosti algoritmu Extreme Seeking Entropy}{65}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Případová studie: chaotická časová řada Mackey-Glass a detekce pertubace}{65}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Případová studie: detekce změny rozptylu šumu v náhodném datovém toku}{66}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Případová studie: detekce skokové změny parametrů generátoru signálu}{68}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Případová studie: detekce náhlé absence šumu}{71}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Případová studie: detekce změny trendu}{71}{subsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.1.6}Případová studie: detekce epilepsie v myším EEG}{74}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}{76}{subsection.6.1.7}%
-\contentsline {subsection}{\numberline {6.1.8}Vyhodnocení úspěšnosti detekce skokové změny trendu}{79}{subsection.6.1.8}%
-\contentsline {section}{\numberline {6.2}Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}{81}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Popis experimentu}{81}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Konstrukce ROC křivky}{82}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Výsledky experimentu}{83}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}{87}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Motivace}{87}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Specifikace experimentu}{88}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Výsledky a diskuze}{88}{subsection.6.3.3}%
-\contentsline {section}{\numberline {6.4}Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu}{92}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Popis bioprocesu a specifikace problému}{92}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Experiment a zhodnocení}{94}{subsection.6.4.2}%
-\contentsline {chapter}{\numberline {7}Závěr}{99}{chapter.7}%
-\contentsline {chapter}{Publikace autora}{101}{chapter*.46}%
-\contentsline {chapter}{Literatura}{103}{chapter*.47}%
-\contentsline {chapter}{Příloha}{115}{chapter*.48}%
+\contentsline {chapter}{\numberline {1}Úvod}{21}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Cíle dizertační práce}{21}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Přehled metod detekce novosti}{23}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Vybrané statistické metody}{24}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Metody založené na teorii extrémních hodnot}{24}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Metody využívající Gaussovy smíšení modely}{25}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Markovovy skryté modely}{26}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Vybrané metody využívající strojové učení a neuronové sítě}{27}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Metoda podpůrných vektorů}{27}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Samoogranizační mapy}{29}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Konvoluční neuronové sítě}{30}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Autoenkodéry}{31}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Další vybrané metody využívající adaptivní filtry}{32}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Metoda set-membership}{32}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Algoritmus Learning Entropy}{33}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Algoritmus Error and Learning Based Novelty Detection}{34}{subsection.2.3.3}%
+\contentsline {chapter}{\numberline {3}Číslicové adaptivní filtry a algoritmy}{37}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Adaptivní filtry}{39}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Lineární FIR filtry}{39}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Volterrovy filtry}{41}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Polynomiální neuronové jednotky}{42}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Fuzzy filtry}{43}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Adaptivní algoritmy}{44}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Algoritmy LMS a NLMS}{45}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Algoritmus RLS}{47}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Algoritmus Generalized Normalized Gradient Descent}{48}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Gradient descent pro fuzzy filtry}{49}{subsection.3.2.4}%
+\contentsline {chapter}{\numberline {4}Zobecněné Paretovo rozdělení}{53}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Metoda Peak-over-Threshold}{54}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Metody odhadu parametrů zobecněného Paretova rozdělení}{55}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Metoda maximální věrohodnosti}{55}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Metoda momentů}{56}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Kvazi-ML metoda}{57}{subsection.4.2.3}%
+\contentsline {chapter}{\numberline {5}Algoritmus Extreme Seeking Entropy}{59}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Výsledky experimentů}{63}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Případové studie detekce novosti algoritmu Extreme Seeking Entropy}{63}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Případová studie: chaotická časová řada Mackey-Glass a detekce pertubace}{63}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Případová studie: detekce změny rozptylu šumu v náhodném datovém toku}{64}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Případová studie: detekce skokové změny parametrů generátoru signálu}{66}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Případová studie: detekce náhlé absence šumu}{69}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Případová studie: detekce změny trendu}{69}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}Případová studie: detekce epilepsie v myším EEG}{72}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.7}Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}{74}{subsection.6.1.7}%
+\contentsline {subsection}{\numberline {6.1.8}Vyhodnocení úspěšnosti detekce skokové změny trendu}{77}{subsection.6.1.8}%
+\contentsline {section}{\numberline {6.2}Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}{79}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Popis experimentu}{79}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Konstrukce ROC křivky}{80}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Výsledky experimentu}{81}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}{85}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Motivace}{85}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Specifikace experimentu}{86}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Výsledky a diskuze}{86}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.4}Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu}{90}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Popis bioprocesu a specifikace problému}{90}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Experiment a zhodnocení}{92}{subsection.6.4.2}%
+\contentsline {chapter}{\numberline {7}Závěr}{97}{chapter.7}%
+\contentsline {chapter}{Publikace autora}{99}{chapter*.45}%
+\contentsline {chapter}{Literatura}{101}{chapter*.46}%
+\contentsline {chapter}{Příloha}{113}{chapter*.47}%

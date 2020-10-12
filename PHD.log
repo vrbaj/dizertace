@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.8.30)  12 OCT 2020 00:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.8.30)  12 OCT 2020 19:12
 entering extended mode
 **./PHD.tex
 (PHD.tex
@@ -1057,7 +1057,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
  (VNITRNOSTI/main_info.tex
-<IMG/TOP/logoVSCHT_zakl_CB.png, id=238, 218.9781pt x 42.6393pt>
+<IMG/TOP/logoVSCHT_zakl_CB.png, id=242, 218.9781pt x 42.6393pt>
 File: IMG/TOP/logoVSCHT_zakl_CB.png Graphic file (type png)
 <use IMG/TOP/logoVSCHT_zakl_CB.png>
 Package pdftex.def Info: IMG/TOP/logoVSCHT_zakl_CB.png  used on input line 6.
@@ -1086,7 +1086,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 {C:/Users/vrbik/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./IMG/TOP/logoV
 SCHT_zakl_CB.png>] [2]
-<IMG/TOP/logoUCT_basic_CB.png, id=258, 225.9642pt x 42.6393pt>
+<IMG/TOP/logoUCT_basic_CB.png, id=262, 225.9642pt x 42.6393pt>
 File: IMG/TOP/logoUCT_basic_CB.png Graphic file (type png)
 <use IMG/TOP/logoUCT_basic_CB.png>
 Package pdftex.def Info: IMG/TOP/logoUCT_basic_CB.png  used on input line 47.
@@ -1103,7 +1103,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 pdfTeX warning: pdflatex (file ./IMG/TOP/QR.pdf): PDF inclusion: found PDF vers
 ion <1.7>, but at most version <1.5> allowed
-<IMG/TOP/QR.pdf, id=259, 597.51233pt x 845.0471pt>
+<IMG/TOP/QR.pdf, id=263, 597.51233pt x 845.0471pt>
 File: IMG/TOP/QR.pdf Graphic file (type pdf)
 <use IMG/TOP/QR.pdf>
 Package pdftex.def Info: IMG/TOP/QR.pdf  used on input line 88.
@@ -1124,7 +1124,7 @@ ion <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex (file ./IMG/TOP/QR.pdf): PDF inclusion: found PDF vers
 ion <1.7>, but at most version <1.5> allowed
-<IMG/TOP/QR.pdf, id=262, page=1, 597.51233pt x 845.0471pt>
+<IMG/TOP/QR.pdf, id=266, page=1, 597.51233pt x 845.0471pt>
 File: IMG/TOP/QR.pdf Graphic file (type pdf)
 <use IMG/TOP/QR.pdf, page 1>
 Package pdftex.def Info: IMG/TOP/QR.pdf , page1 used on input line 88.
@@ -1180,7 +1180,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--154
 ] (PHD.toc [13
 
 ]
-Overfull \hbox (2.16058pt too wide) in paragraph at lines 49--49
+Overfull \hbox (2.16058pt too wide) in paragraph at lines 50--50
  [][] [][]\T1/cmr/m/n/10.95 Vyhodnocení vý-po-£etní ná-ro£-nosti me-tod od-hadu
  pa-ra-me-tr· zo-bec-n¥-ného Pare- 
  []
@@ -1199,15 +1199,16 @@ Overfull \hbox (2.16058pt too wide) in paragraph at lines 49--49
 
 ] [20
 
-])
-(VNITRNOSTI/nd_metody.tex [21] [22
-
 ]
 Kapitola 1.
+[21]) (VNITRNOSTI/nd_metody.tex [22]
+Kapitola 2.
 
 Underfull \vbox (badness 1371) has occurred while \output is active []
 
- [23]
+ [23
+
+]
 [24]
 
 Package Fancyhdr Warning: \headheight is too small (13.59999pt): 
@@ -1228,7 +1229,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [31] [32] [33] [34]) (VNITRNOSTI/adaptivni_filtry.tex [35] [36
 
 ]
-Kapitola 2.
+Kapitola 3.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1297,7 +1298,7 @@ Underfull \vbox (badness 4779) has occurred while \output is active []
 [50]) (VNITRNOSTI/gpd.tex [51] [52
 
 ]
-Kapitola 3.
+Kapitola 4.
 [53]
 Package epstopdf Info: Source file: <IMG/MDPI/pdfs.eps>
 (epstopdf)                    date: 2020-09-20 11:53:17
@@ -1313,7 +1314,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/MDPI/pdfs-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/MDPI/pdfs-eps-converted-to.pdf, id=948, 650.43pt x 361.35pt>
+<IMG/MDPI/pdfs-eps-converted-to.pdf, id=958, 650.43pt x 361.35pt>
 File: IMG/MDPI/pdfs-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/MDPI/pdfs-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/MDPI/pdfs-eps-converted-to.pdf  used on input line
@@ -1336,33 +1337,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Warning: Reference `Luceno' on page 57 undefined on input line 127.
 
-[57]) (VNITRNOSTI/cile.tex [58]
-Kapitola 4.
-) (VNITRNOSTI/ese.tex [59
-
-] [60
-
-]
+[57]) (VNITRNOSTI/ese.tex [58]
 Kapitola 5.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [59
+
+]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 44.
 
 
-LaTeX Warning: Reference `eq:ESE' on page 62 undefined on input line 54.
+LaTeX Warning: Reference `eq:ESE' on page 60 undefined on input line 54.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62])
-(VNITRNOSTI/vysledky.tex [63] [64
+ [60])
+(VNITRNOSTI/vysledky.tex [61] [62
 
 ]
 Kapitola 6.
-[65]
+[63]
 Package epstopdf Info: Source file: <IMG/mdpi/mackeydetails_diz.eps>
 (epstopdf)                    date: 2020-09-21 17:13:35
 (epstopdf)                    size: 66124 bytes
@@ -1378,7 +1375,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mackeydetails_diz-eps-converted-to.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf, id=1128, 722.7pt x 542.025pt>
+<IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf, id=1126, 722.7pt x 542.025pt>
 
 File: IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf>
@@ -1400,7 +1397,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mackey_results-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mackey_results-eps-converted-to.pdf, id=1129, 722.7pt x 542.025pt>
+<IMG/mdpi/mackey_results-eps-converted-to.pdf, id=1127, 722.7pt x 542.025pt>
 File: IMG/mdpi/mackey_results-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mackey_results-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/mackey_results-eps-converted-to.pdf  used on 
@@ -1421,7 +1418,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mackey_results_nd-eps-converted-to.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mackey_results_nd-eps-converted-to.pdf, id=1130, 722.7pt x 542.025pt>
+<IMG/mdpi/mackey_results_nd-eps-converted-to.pdf, id=1128, 722.7pt x 542.025pt>
 
 File: IMG/mdpi/mackey_results_nd-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mackey_results_nd-eps-converted-to.pdf>
@@ -1431,7 +1428,7 @@ on input line 34.
 
 Underfull \vbox (badness 1077) has occurred while \output is active []
 
- [66 <./IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf>] [67 <./IMG/mdpi/macke
+ [64 <./IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf>] [65 <./IMG/mdpi/macke
 y_results-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/noise_change.eps>
 (epstopdf)                    date: 2020-09-21 22:07:23
@@ -1448,7 +1445,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/noise_change-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/noise_change-eps-converted-to.pdf, id=1221, 722.7pt x 542.025pt>
+<IMG/mdpi/noise_change-eps-converted-to.pdf, id=1218, 722.7pt x 542.025pt>
 File: IMG/mdpi/noise_change-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/noise_change-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/noise_change-eps-converted-to.pdf  used on in
@@ -1457,10 +1454,10 @@ put line 56.
 
 Underfull \vbox (badness 6995) has occurred while \output is active []
 
- [68 <./IMG/mdpi/mackey_results_nd-eps-converted-to.pdf>]
+ [66 <./IMG/mdpi/mackey_results_nd-eps-converted-to.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [69 <./IMG/mdpi/noise_change-eps-converted-to.pdf>]
+ [67 <./IMG/mdpi/noise_change-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/stepchange.eps>
 (epstopdf)                    date: 2020-09-27 23:05:56
 (epstopdf)                    size: 236026 bytes
@@ -1475,7 +1472,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/stepchange-eps-converted-to.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/stepchange-eps-converted-to.pdf, id=1304, 722.7pt x 542.025pt>
+<IMG/mdpi/stepchange-eps-converted-to.pdf, id=1302, 722.7pt x 542.025pt>
 File: IMG/mdpi/stepchange-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/stepchange-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/stepchange-eps-converted-to.pdf  used on inpu
@@ -1484,7 +1481,7 @@ t line 78.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [70 <./IMG/mdpi/stepchange-eps-converted-to.pdf>]
+ [68 <./IMG/mdpi/stepchange-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/noise_ext.eps>
 (epstopdf)                    date: 2020-09-21 22:45:33
 (epstopdf)                    size: 212118 bytes
@@ -1499,16 +1496,16 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/noise_ext-eps-converted-to.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/noise_ext-eps-converted-to.pdf, id=1353, 722.7pt x 542.025pt>
+<IMG/mdpi/noise_ext-eps-converted-to.pdf, id=1351, 722.7pt x 542.025pt>
 File: IMG/mdpi/noise_ext-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/noise_ext-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/noise_ext-eps-converted-to.pdf  used on input
  line 104.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
-[71]
+[69]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [72 <./IMG/mdpi/noise_ext-eps-converted-to.pdf>]
+ [70 <./IMG/mdpi/noise_ext-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/trendchange.eps>
 (epstopdf)                    date: 2020-09-22 13:14:17
 (epstopdf)                    size: 228895 bytes
@@ -1524,7 +1521,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/trendchange-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/trendchange-eps-converted-to.pdf, id=1416, 722.7pt x 542.025pt>
+<IMG/mdpi/trendchange-eps-converted-to.pdf, id=1414, 722.7pt x 542.025pt>
 File: IMG/mdpi/trendchange-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/trendchange-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/trendchange-eps-converted-to.pdf  used on inp
@@ -1545,7 +1542,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/trendchange_rls-eps-converted-to.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/trendchange_rls-eps-converted-to.pdf, id=1419, 722.7pt x 542.025pt>
+<IMG/mdpi/trendchange_rls-eps-converted-to.pdf, id=1417, 722.7pt x 542.025pt>
 File: IMG/mdpi/trendchange_rls-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/trendchange_rls-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/trendchange_rls-eps-converted-to.pdf  used on
@@ -1566,16 +1563,16 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/trendchange_lms-eps-converted-to.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/trendchange_lms-eps-converted-to.pdf, id=1420, 722.7pt x 542.025pt>
+<IMG/mdpi/trendchange_lms-eps-converted-to.pdf, id=1418, 722.7pt x 542.025pt>
 File: IMG/mdpi/trendchange_lms-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/trendchange_lms-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/trendchange_lms-eps-converted-to.pdf  used on
  input line 149.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
-[73 <./IMG/mdpi/trendchange-eps-converted-to.pdf>]
+[71 <./IMG/mdpi/trendchange-eps-converted-to.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [74 <./IMG/mdpi/trendchange_rls-eps-converted-to.pdf>]
+ [72 <./IMG/mdpi/trendchange_rls-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/mouse_eeg.eps>
 (epstopdf)                    date: 2020-09-22 19:38:13
 (epstopdf)                    size: 595169 bytes
@@ -1590,7 +1587,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mouse_eeg-eps-converted-to.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mouse_eeg-eps-converted-to.pdf, id=1518, 760.8425pt x 570.13pt>
+<IMG/mdpi/mouse_eeg-eps-converted-to.pdf, id=1515, 760.8425pt x 570.13pt>
 File: IMG/mdpi/mouse_eeg-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mouse_eeg-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/mouse_eeg-eps-converted-to.pdf  used on input
@@ -1611,7 +1608,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mouse_novelty-eps-converted-to.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mouse_novelty-eps-converted-to.pdf, id=1519, 760.8425pt x 570.13pt>
+<IMG/mdpi/mouse_novelty-eps-converted-to.pdf, id=1516, 760.8425pt x 570.13pt>
 File: IMG/mdpi/mouse_novelty-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mouse_novelty-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/mouse_novelty-eps-converted-to.pdf  used on i
@@ -1620,8 +1617,8 @@ nput line 174.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [75 <./IMG/mdpi/trendchange_lms-eps-converted-to.pdf>] [76 <./IMG/mdpi/mouse_e
-eg-eps-converted-to.pdf>] [77 <./IMG/mdpi/mouse_novelty-eps-converted-to.pdf>]
+ [73 <./IMG/mdpi/trendchange_lms-eps-converted-to.pdf>] [74 <./IMG/mdpi/mouse_e
+eg-eps-converted-to.pdf>] [75 <./IMG/mdpi/mouse_novelty-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/stepuni_stats.eps>
 (epstopdf)                    date: 2020-09-24 20:05:39
 (epstopdf)                    size: 26968 bytes
@@ -1637,7 +1634,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/stepuni_stats-eps-converted-to.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/stepuni_stats-eps-converted-to.pdf, id=1591, 469.755pt x 352.31625pt>
+<IMG/mdpi/stepuni_stats-eps-converted-to.pdf, id=1589, 469.755pt x 352.31625pt>
 
 File: IMG/mdpi/stepuni_stats-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/stepuni_stats-eps-converted-to.pdf>
@@ -1659,7 +1656,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/stepnorm_stats-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/stepnorm_stats-eps-converted-to.pdf, id=1593, 469.755pt x 352.31625pt
+<IMG/mdpi/stepnorm_stats-eps-converted-to.pdf, id=1591, 469.755pt x 352.31625pt
 >
 File: IMG/mdpi/stepnorm_stats-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/stepnorm_stats-eps-converted-to.pdf>
@@ -1669,7 +1666,7 @@ input line 211.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[78 <./IMG/mdpi/stepuni_stats-eps-converted-to.pdf>]
+[76 <./IMG/mdpi/stepuni_stats-eps-converted-to.pdf>]
 Overfull \hbox (25.66302pt too wide) in paragraph at lines 225--227
 \T1/cmr/m/n/10.95 p°i£emº pa-ra-metr $\OML/cmm/m/it/10.95 a$ \T1/cmr/m/n/10.95 
 je vy-ge-ne-ro-ván v kaº-dém ex-pe-ri-mentu z rov-no-m¥r-ného roz-d¥-lení $\OML
@@ -1681,7 +1678,7 @@ OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 02\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.
 
 Underfull \vbox (badness 2951) has occurred while \output is active []
 
- [79 <./IMG/mdpi/stepnorm_stats-eps-converted-to.pdf>]
+ [77 <./IMG/mdpi/stepnorm_stats-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/trendchange_stats.eps>
 (epstopdf)                    date: 2020-09-24 22:52:11
 (epstopdf)                    size: 33227 bytes
@@ -1697,14 +1694,14 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/trendchange_stats-eps-converted-to.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/trendchange_stats-eps-converted-to.pdf, id=1681, 469.755pt x 352.3162
+<IMG/mdpi/trendchange_stats-eps-converted-to.pdf, id=1678, 469.755pt x 352.3162
 5pt>
 File: IMG/mdpi/trendchange_stats-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/trendchange_stats-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/trendchange_stats-eps-converted-to.pdf  used 
 on input line 243.
 (pdftex.def)             Requested size: 295.94722pt x 221.9604pt.
-[80 <./IMG/mdpi/trendchange_stats-eps-converted-to.pdf>] [81] [82]
+[78 <./IMG/mdpi/trendchange_stats-eps-converted-to.pdf>] [79] [80]
 Package epstopdf Info: Source file: <IMG/appel_roc/roc_01.eps>
 (epstopdf)                    date: 2020-09-25 23:13:41
 (epstopdf)                    size: 59724 bytes
@@ -1720,7 +1717,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_01-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_01-eps-converted-to.pdf, id=1765, 462.72874pt x 346.29375pt>
+<IMG/appel_roc/roc_01-eps-converted-to.pdf, id=1763, 462.72874pt x 346.29375pt>
 
 File: IMG/appel_roc/roc_01-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_01-eps-converted-to.pdf>
@@ -1742,7 +1739,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_02-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_02-eps-converted-to.pdf, id=1766, 462.72874pt x 346.29375pt>
+<IMG/appel_roc/roc_02-eps-converted-to.pdf, id=1764, 462.72874pt x 346.29375pt>
 
 File: IMG/appel_roc/roc_02-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_02-eps-converted-to.pdf>
@@ -1764,7 +1761,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_05-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_05-eps-converted-to.pdf, id=1767, 462.72874pt x 346.29375pt>
+<IMG/appel_roc/roc_05-eps-converted-to.pdf, id=1765, 462.72874pt x 346.29375pt>
 
 File: IMG/appel_roc/roc_05-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_05-eps-converted-to.pdf>
@@ -1785,7 +1782,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_1-eps-converted-to.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_1-eps-converted-to.pdf, id=1768, 462.72874pt x 347.2975pt>
+<IMG/appel_roc/roc_1-eps-converted-to.pdf, id=1766, 462.72874pt x 347.2975pt>
 File: IMG/appel_roc/roc_1-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_1-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_roc/roc_1-eps-converted-to.pdf  used on inpu
@@ -1805,7 +1802,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_2-eps-converted-to.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_2-eps-converted-to.pdf, id=1769, 462.72874pt x 346.29375pt>
+<IMG/appel_roc/roc_2-eps-converted-to.pdf, id=1767, 462.72874pt x 346.29375pt>
 File: IMG/appel_roc/roc_2-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_2-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_roc/roc_2-eps-converted-to.pdf  used on inpu
@@ -1826,7 +1823,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_25-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_25-eps-converted-to.pdf, id=1770, 462.72874pt x 346.29375pt>
+<IMG/appel_roc/roc_25-eps-converted-to.pdf, id=1768, 462.72874pt x 346.29375pt>
 
 File: IMG/appel_roc/roc_25-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_25-eps-converted-to.pdf>
@@ -1839,20 +1836,20 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[83]
+[81]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [84 <./IMG/appel_roc/roc_01-eps-converted-to.pdf>]
+ [82 <./IMG/appel_roc/roc_01-eps-converted-to.pdf>]
 
-LaTeX Warning: Text page 85 contains only floats.
+LaTeX Warning: Text page 83 contains only floats.
 
-[85 <./IMG/appel_roc/roc_02-eps-converted-to.pdf> <./IMG/appel_roc/roc_05-eps-c
+[83 <./IMG/appel_roc/roc_02-eps-converted-to.pdf> <./IMG/appel_roc/roc_05-eps-c
 onverted-to.pdf>]
 
-LaTeX Warning: Text page 86 contains only floats.
+LaTeX Warning: Text page 84 contains only floats.
 
-[86 <./IMG/appel_roc/roc_1-eps-converted-to.pdf> <./IMG/appel_roc/roc_2-eps-con
-verted-to.pdf>] [87 <./IMG/appel_roc/roc_25-eps-converted-to.pdf>]
+[84 <./IMG/appel_roc/roc_1-eps-converted-to.pdf> <./IMG/appel_roc/roc_2-eps-con
+verted-to.pdf>] [85 <./IMG/appel_roc/roc_25-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/appel_par/par_output.eps>
 (epstopdf)                    date: 2020-09-16 22:18:05
 (epstopdf)                    size: 24262 bytes
@@ -1868,7 +1865,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_output-eps-converted-to.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_output-eps-converted-to.pdf, id=1976, 462.72874pt x 346.2937
+<IMG/appel_par/par_output-eps-converted-to.pdf, id=1974, 462.72874pt x 346.2937
 5pt>
 File: IMG/appel_par/par_output-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_output-eps-converted-to.pdf>
@@ -1893,7 +1890,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_ese-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_ese-eps-converted-to.pdf, id=1977, 462.72874pt x 346.29375pt
+<IMG/appel_par/par_ese-eps-converted-to.pdf, id=1975, 462.72874pt x 346.29375pt
 >
 File: IMG/appel_par/par_ese-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_ese-eps-converted-to.pdf>
@@ -1918,7 +1915,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_mu-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_mu-eps-converted-to.pdf, id=1978, 462.72874pt x 346.29375pt>
+<IMG/appel_par/par_mu-eps-converted-to.pdf, id=1976, 462.72874pt x 346.29375pt>
 
 File: IMG/appel_par/par_mu-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_mu-eps-converted-to.pdf>
@@ -1943,7 +1940,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_gamma-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_gamma-eps-converted-to.pdf, id=1979, 462.72874pt x 346.29375
+<IMG/appel_par/par_gamma-eps-converted-to.pdf, id=1977, 462.72874pt x 346.29375
 pt>
 File: IMG/appel_par/par_gamma-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_gamma-eps-converted-to.pdf>
@@ -1968,7 +1965,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_sigma-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_sigma-eps-converted-to.pdf, id=1980, 462.72874pt x 346.29375
+<IMG/appel_par/par_sigma-eps-converted-to.pdf, id=1978, 462.72874pt x 346.29375
 pt>
 File: IMG/appel_par/par_sigma-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_sigma-eps-converted-to.pdf>
@@ -1978,101 +1975,107 @@ input line 449.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[88]
+[86]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[89 <./IMG/appel_par/par_output-eps-converted-to.pdf> <./IMG/appel_par/par_ese-
+[87 <./IMG/appel_par/par_output-eps-converted-to.pdf> <./IMG/appel_par/par_ese-
 eps-converted-to.pdf>]
 
-LaTeX Warning: Text page 90 contains only floats.
+LaTeX Warning: Text page 88 contains only floats.
 
 
 Underfull \vbox (badness 1354) has occurred while \output is active []
 
- [90 <./IMG/appel_par/par_mu-eps-converted-to.pdf> <./IMG/appel_par/par_gamma-e
-ps-converted-to.pdf>] [91 <./IMG/appel_par/par_sigma-eps-converted-to.pdf>]
+ [88 <./IMG/appel_par/par_mu-eps-converted-to.pdf> <./IMG/appel_par/par_gamma-e
+ps-converted-to.pdf>] [89 <./IMG/appel_par/par_sigma-eps-converted-to.pdf>]
 Overfull \hbox (9.5284pt too wide) in paragraph at lines 486--486
 []\T1/cmr/bx/n/14.4 P°ípadová stu-die po-u-ºití al-go-ritmu Lear-ning En-t-ropy
  a adap-
  []
 
-[92]
+[90]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [93]
-<IMG/artep/artep17_1.png, id=2164, 422.32782pt x 316.18124pt>
+ [91]
+<IMG/artep/artep17_1.png, id=2162, 422.32782pt x 316.18124pt>
 File: IMG/artep/artep17_1.png Graphic file (type png)
 <use IMG/artep/artep17_1.png>
 Package pdftex.def Info: IMG/artep/artep17_1.png  used on input line 528.
 (pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
-<IMG/artep/artep17_3.png, id=2165, 422.32782pt x 316.18124pt>
+<IMG/artep/artep17_3.png, id=2163, 422.32782pt x 316.18124pt>
 File: IMG/artep/artep17_3.png Graphic file (type png)
 <use IMG/artep/artep17_3.png>
 Package pdftex.def Info: IMG/artep/artep17_3.png  used on input line 535.
 (pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
-<IMG/artep/artep17_4.png, id=2166, 422.32782pt x 316.18124pt>
+<IMG/artep/artep17_4.png, id=2164, 422.32782pt x 316.18124pt>
 File: IMG/artep/artep17_4.png Graphic file (type png)
 <use IMG/artep/artep17_4.png>
 Package pdftex.def Info: IMG/artep/artep17_4.png  used on input line 542.
 (pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
-<IMG/artep/artep17_2.png, id=2167, 416.30531pt x 308.65312pt>
+<IMG/artep/artep17_2.png, id=2165, 416.30531pt x 308.65312pt>
 File: IMG/artep/artep17_2.png Graphic file (type png)
 <use IMG/artep/artep17_2.png>
 Package pdftex.def Info: IMG/artep/artep17_2.png  used on input line 549.
 (pdftex.def)             Requested size: 333.0447pt x 246.92282pt.
-<IMG/artep/artep17_5.png, id=2168, 422.32782pt x 316.18124pt>
+<IMG/artep/artep17_5.png, id=2166, 422.32782pt x 316.18124pt>
 File: IMG/artep/artep17_5.png Graphic file (type png)
 <use IMG/artep/artep17_5.png>
 Package pdftex.def Info: IMG/artep/artep17_5.png  used on input line 556.
 (pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
-<IMG/artep/artep17_6.png, id=2169, 422.32782pt x 311.66437pt>
+<IMG/artep/artep17_6.png, id=2167, 422.32782pt x 311.66437pt>
 File: IMG/artep/artep17_6.png Graphic file (type png)
 <use IMG/artep/artep17_6.png>
 Package pdftex.def Info: IMG/artep/artep17_6.png  used on input line 563.
 (pdftex.def)             Requested size: 337.8627pt x 249.33183pt.
 )
-(VNITRNOSTI/zaver.tex [94] [95 <./IMG/artep/artep17_1.png> <./IMG/artep/artep17
-_3.png>] [96 <./IMG/artep/artep17_4.png> <./IMG/artep/artep17_2.png>] [97 <./IM
-G/artep/artep17_5.png> <./IMG/artep/artep17_6.png>] [98
+(VNITRNOSTI/zaver.tex [92] [93 <./IMG/artep/artep17_1.png> <./IMG/artep/artep17
+_3.png>] [94 <./IMG/artep/artep17_4.png> <./IMG/artep/artep17_2.png>] [95 <./IM
+G/artep/artep17_5.png> <./IMG/artep/artep17_6.png>] [96
 
 ]
 Kapitola 7.
 
 Underfull \vbox (badness 2376) has occurred while \output is active []
 
- [99])
-[100] [101
+ [97])
+[98] [99
 
-] [102] [103
+] [100] [101
 
-] [104] [105] [106] [107] [108] [109] [110] [111]
-[112] [113] [114]
+] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111]
+Underfull \hbox (badness 1946) in paragraph at lines 276--277
+\T1/cmr/m/n/10.95 and-Application-Modernization. IBM [on-line]. 11 No-vem-ber 1
+999. [cit. 11.8.2020].
+ []
+
+[112]
 
 Package natbib Warning: There were undefined citations.
 
-[115
+[113
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 290.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 290.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 291.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 291.
  (PHD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 290.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 291.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 291.
 Package rerunfilecheck Info: File `PHD.out' has not changed.
-(rerunfilecheck)             Checksum: DCA9B0D23D243374ECCB04CF71D9A9D0;14194.
+(rerunfilecheck)             Checksum: D1DBF95D3C897A591F280B28D4B79189;14272.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 290.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 291.
  ) 
 Here is how much of TeX's memory you used:
- 31654 strings out of 480790
- 577096 string characters out of 2907055
- 970276 words of memory out of 3000000
- 46451 multiletter control sequences out of 15000+200000
+ 31653 strings out of 480790
+ 577057 string characters out of 2907055
+ 970301 words of memory out of 3000000
+ 46454 multiletter control sequences out of 15000+200000
  551464 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,18n,67p,3600b,1069s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2100,9 +2103,9 @@ ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb>
-Output written on PHD.pdf (115 pages, 1754982 bytes).
+Output written on PHD.pdf (113 pages, 1754729 bytes).
 PDF statistics:
- 3006 PDF objects out of 3580 (max. 8388607)
- 569 named destinations out of 1000 (max. 500000)
- 667 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3001 PDF objects out of 3580 (max. 8388607)
+ 568 named destinations out of 1000 (max. 500000)
+ 675 words of extra memory for PDF output out of 10000 (max. 10000000)
 
