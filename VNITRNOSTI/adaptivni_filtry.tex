@@ -1,7 +1,7 @@
 \chapter{Číslicové adaptivní filtry a algoritmy}\label{chap:af_reserse}
-Tato kapitola je věnována diskrétním adaptivním filtrům, které byly v průběhu práce na tématu dizertační práce použity (viz podkapitola \ref{chap:af}) a algoritmům, které byly k jejich adaptaci použity (viz podkapitola \ref{chap:aa}). Z pohledu klasifikace filtrů dle impulsní charakteristiky se jedná o filtry s konečnou impulsní charakteristikou i o filtry s nekonečnou impulsní charakteristikou. Z pohledu lineární závislosti adaptabilních parametrů potom na filtry lineární a nelinární v parametrech.
+Tato kapitola je věnována diskrétním adaptivním filtrům, které byly v průběhu práce na tématu dizertační práce použity (viz podkapitola \ref{chap:af}) a algoritmům, které byly k jejich adaptaci použity (viz podkapitola \ref{chap:aa}). Z pohledu klasifikace filtrů dle impulsní charakteristiky se jedná o filtry s konečnou impulsní charakteristikou i o filtry s nekonečnou impulsní charakteristikou. Z pohledu lineární závislosti adaptabilních parametrů potom na filtry lineární a nelineární v parametrech.
 \par 
-Obecně problém filtrace spočívá ve zpracování signálu filtrem tak, že ze signálu získáme nějakou užitečnou informaci\cite{haykin}.
+Obecně problém filtrace spočívá ve zpracování signálu filtrem tak, že ze signálu získáme nějakou užitečnou informaci \cite{haykin}.
 
 Pro úplnost uveďme, že signálem rozumíme fyzikální veličinu, která se mění v čase, prostoru nebo v jakékoliv jiné nezávislé proměnné (obecně proměnných) \cite{proakis}. V rámci dizertace jsou analyzovány pouze signály, které se mění v čase.
 \par
@@ -28,7 +28,7 @@ Q(s)=\Bigl \lfloor s-\frac{s_{min}}{q}\Bigr \rfloor q+\frac{q}{2}+s_{min}
 Signál, který je diskrétní v čase i amplitudě bývá označován jako digitální signál a právě těmito signály se předložená dizertační práce zabývá.
 
 \par
-Signály dále můžeme rozdělit na skalární a vektorové. Vektorovým (někdy též označovaným jako vícekanálový) signálem je například EEG. Některé systémy pro měření EEG využívají až 256 kanálů \cite{eeg}. Takový signál můžeme v časovém okamžiku $k$ reprezentovat 256ti dimenzionálním vektorem
+Signály dále můžeme rozdělit na skalární a vektorové. Vektorovým (někdy též označovaným jako vícekanálový) signálem je například EEG. Některé systémy pro měření EEG využívají až 256 kanálů \cite{eeg}. Takový signál můžeme v časovém okamžiku $k$ reprezentovat 256-ti dimenzionálním vektorem
 \begin{equation}
     \textbf{s}(k)=[s_1(k),\dots,s_{256}(k)]^T
 \end{equation}
@@ -98,7 +98,7 @@ Filtr můžeme použít v  následujících základních úlohách zpracování 
 
 V rámci této práce byly všechny filtry využity k predikci, jejíž chyba $e$ byla využita k adaptaci parametrů daného filtru (více viz podkapitola \ref{chap:aa}).
 \section{Adaptivní filtry}\label{chap:af}
-V této podkapitole jsou stručně popsané adaptivní filtry, které byly v rámci práce použity. Adaptivní filtry s konečnou odezvou (FIR - finite impulse response) jsou popsány v podkapitole \ref{chap:fir}, Volterrovy filtry v podkapitole \ref{chap:volterra} a adaptivní fuzzy filtry v podkapitole   \ref{chap:fuzzyf}. Dále jsou zde popsány vybrané adaptivní algoritmy, jmenovitě LMS (least mean squares) a NLMS (normalized least mean squares) v podkapitole \ref{chap:nlms}, RLS (recursive least squares) v podkapitole  \ref{chap:rls}, GNGD (generalized normalized gradient descent) v podkapitole   \ref{chap:gngd} a varianta algoritmu gradient descent pro fuzzy filtry v podkapitole  \ref{chap:gd}.
+V této podkapitole jsou stručně popsané adaptivní filtry, které byly v rámci práce použity. Adaptivní filtry s konečnou odezvou (FIR - finite impulse response) jsou popsány v podkapitole \ref{chap:fir}, Volterrovy filtry v podkapitole \ref{chap:volterra}, polynomiální neuronové jednotky v kapitole \ref{chap:honu} a adaptivní fuzzy filtry v podkapitole   \ref{chap:fuzzyf}. Dále jsou zde popsány vybrané adaptivní algoritmy, jmenovitě LMS (least mean squares) a NLMS (normalized least mean squares) v podkapitole \ref{chap:nlms}, RLS (recursive least squares) v podkapitole  \ref{chap:rls}, GNGD (generalized normalized gradient descent) v podkapitole   \ref{chap:gngd} a varianta algoritmu gradient descent pro fuzzy filtry v podkapitole  \ref{chap:gd}.
 \par 
 Schéma znázorňující základní problém adaptivní filtrace je znázorněno na obrázku \ref{img:adaptivni_filtrace}. Značení v uvedeném schématu má následující významy: $x(k)$ je vstupní signál, $n(k)$ je aditivní šum přidaný k výstupu neznámého systému, $y(k)$ je měřený výstup systému, $\hat{y}(k)$ je výstup adaptivního filtru a $e(k)$ je chyba filtru (nebo také chyba predikce). Schéma může být modifikováno např. tak, že vstupem adaptivního filtru je historie výstupů neznámého systému.
 
@@ -321,7 +321,7 @@ Pokud je vstupem $n$-dimenzionální vektor $n$ různých vstupů, potom je LNU 
 
 
 \subsection{Fuzzy filtry}\label{chap:fuzzyf}
-Jedním z rozšířených typů nelineárních adaptivních filtrů jsou filtry založené na fuzzy logice. (Fuzzy adaptive filters, with application to nonlinear channel equalization) V rámci práce byl použit fuzzy adaptivní filtr, tvořený Mamdaniho fuzzy systémem se součinovým inferenčním mechanismem a defuzzifikací využívající metody těžiště typických hodnot. Báze pravidel tohoto fuzzy filtru je tvořena $M$ pravidly, kdy $l$-té pravidlo je ve tvaru
+Jedním z rozšířených typů nelineárních adaptivních filtrů jsou filtry založené na fuzzy logice \cite{fuzzyf}. V rámci práce byl použit fuzzy adaptivní filtr, tvořený Mamdaniho fuzzy systémem se součinovým inferenčním mechanismem a defuzzifikací využívající metody těžiště typických hodnot. Báze pravidel tohoto fuzzy filtru je tvořena $M$ pravidly, kdy $l$-té pravidlo je ve tvaru
 \begin{equation}
     Ru^l: \; IF\; x_1\; is\;A_1^l \;and \;x_2 \;is\; A_2^l\; and\; \dots x_n \; is \;A_n^l \; THEN \; \hat{y} \; is \; B^l  
 \end{equation}
@@ -338,7 +338,7 @@ Studovaný fuzzy systém využívá součinové konjukce a Larsenovy implikace. 
     [\mu_{A_1^j}(x_1) \; AND \; \mu_{A_2^j}(x_2) \; AND \dots AND \; \mu_{A_n^j}(x_n)] \implies \mu_{B^j}(\hat{y}) =  \\ = \mu_{A_1^j}(x_1) \cdot \mu_{A_2^j}(x_2) \dots \mu_{A_n^j}(x_n) \cdot \mu_{B^j}(\hat{y})
 \end{multline}
 kde $\mu_{A_i^j}(x_i)$ je funkce příslušnosti k $i$-té množině $j$-tého pravidla ve vstupním prostoru a $\mu_{B^j}$ je funkce příslušnosti ke množině ve výstupním prostoru. 
-
+\par
 Defuzzifikace převádí fuzzy do její reprezentace pomocí jediného čísla z množiny ostrých hodnot. Metodou těžiště typických hodnot se výstup fuzzy systému určí podle rovnice
 \begin{equation}
     y^*=\frac{\sum_{j=1}^M\overline{b}^j z_j}{\sum_{j=1}^M z_j}
@@ -353,9 +353,7 @@ přičemž $\textbf{x}$ je vektor vstupů o délce $n$
 \begin{equation}
     \textbf{x}=[x_1,\dots,x_n]
 \end{equation}
-a $\overline{b}^j$ je střed výstupní množiny $B^j$, což je fuzzy množina  $j$-tého pravidla. 
-
-Funkce filtru lze znázornit třívrstvou dopřednou sítí (viz \autoref{img:fuzzy_network}). 
+a $\overline{b}^j$ je střed výstupní množiny $B^j$, což je fuzzy množina  $j$-tého pravidla. Funkce filtru lze znázornit třívrstvou dopřednou sítí (viz obrázek \ref{img:fuzzy_network}). 
 \begin{figure}[t]
     \centering
     \begin{tikzpicture}
@@ -466,20 +464,20 @@ Funkce filtru lze znázornit třívrstvou dopřednou sítí (viz \autoref{img:fu
     \label{img:fuzzy_network}
 \end{figure}
 
-V první vrstvě jsou určeny váhy jednotlivých pravidel, tedy jsou vypočteny hodnoty $z_j$, kde $j=1,\dots, M$. V druhé vrstvě jsou váhy jednak pronásobeny hodnotami středů a sečteny (výpočet $a$), druhak jsou váhy jednotlivých pravidel sečteny ($b$). Ve třetí vrstvě se pak vypočte výstup fuzzy systému jako $\hat{y}=\frac{a}{b}$ (více viz podkapitola \ref{chap:gd}). 
-\par Nespornou výhodou uvedeného fuzzy adaptivního filtru je, že tvoří tzv. univerzální aproximátor. Při vhodně zvolené bázi pravidel a typu funkcí příslušnosti množin ve vstupním prostoru tak dokážet aproximovat libovolnou funkci s libovolně velkou přesností (více viz. \cite{latexcompanion})
+V první vrstvě jsou určeny váhy jednotlivých pravidel, tedy jsou vypočteny hodnoty $z_j$, kde $j=1,\dots, M$. V druhé vrstvě jsou váhy vynásobeny polohami středů množin ve výstupním prostoru a sečteny (výpočet $a$), a také jsou váhy jednotlivých pravidel sečteny (výpočet $b$). Ve třetí vrstvě se pak vypočte výstup fuzzy systému jako $\hat{y}=\frac{a}{b}$ (více viz podkapitola \ref{chap:gd}). 
+\par Nespornou výhodou uvedeného fuzzy adaptivního filtru je, že tvoří tzv. univerzální aproximátor. Při vhodně zvolené bázi pravidel a typu funkcí příslušnosti množin ve vstupním prostoru tak dokáže aproximovat libovolnou funkci s libovolně velkou přesností (více viz. \cite{fuzzywang}).
 
 
 \section{Adaptivní algoritmy}\label{chap:aa}
 V této podkapitole jsou popsány adaptivní algoritmy, které byly v rámci dizertační práce vyzkoušeny. Jedná se o LMS a NLMS (viz podkap. \ref{chap:nlms}), Generalized Normalized Gradient Descent (GNGD, viz podkap. \ref{chap:gngd}) a algoritmus Gradient descent ve verzi pro adaptivní fuzzy filtry s Gausovskými funkcemi příslušnosti ve vstupním prostoru (viz podkap. \ref{chap:gd}).
 \subsection{Algoritmy LMS a NLMS} \label{chap:nlms}
- Při použití LMS algoritmu  optimální hodnoty adaptivních parametrů filtru $\textbf{w}(k+1)$ minimalizují střední kvadratickou chybu predikce $J(k)$ definovanou jako
+ Při použití LMS algoritmu (LMS - least mean squares \cite{haykin}) optimální hodnoty adaptivních parametrů filtru $\textbf{w}(k+1)$ minimalizují střední kvadratickou chybu predikce $J(k)$ definovanou jako
  \begin{equation}
      J(k)=E[\abs{e(k)}^2]
  \end{equation}
  kde $E[\cdot]$ značí střední (očekávanou) hodnotu, a $e(k)$ je chyba predikce, definovaná jako rozdíl výstupu adaptivního filtru a skutečné hodnoty
  \begin{equation}
-     e(k)=d(k)-\hat{y}(k).
+     e(k)=y(k)-\hat{y}(k).
  \end{equation}
  Hodnoty adaptivních parametrů filtru jsou nalezeny gradientním algoritmem. S každými nově získanými daty jsou potom váhy filtru upraveny podle rovnice
 \begin{equation}
@@ -505,9 +503,9 @@ kde $\lambda_{max}$ je největší vlastní číslo autokorelační matice
 \begin{equation}
     R_{xx}=E[\textbf{x}(k)\textbf{x}^T(k)].
 \end{equation}
-Pokud není podmínka splňěna, pak je algoritmus nestabilní a hodnoty $\textbf{w}(k)$ divergují. Pokud je naopak velikost rychlosti učení $\mu$ příliž malá, váhy konvergují pomalu.
+Pokud není podmínka splněna, pak je algoritmus nestabilní a hodnoty $\textbf{w}(k)$ divergují. Pokud je naopak velikost rychlosti učení $\mu$ příliš malá, váhy konvergují pomalu.
 \par 
-Algoritmus NLMS řeší problém klasického LMS algoritmu, který v případě nevhodně škálovaného vstupu $\textbf{x}(k)$ ztrácí stabilitu. Tento problém je vyřešen normalizací vstupu. Velikost přírůstku vah je tedy
+Algoritmus NLMS (normalized least mean squares - NLMS \cite{haykin})řeší problém klasického LMS algoritmu, který v případě nevhodně škálovaného vstupu $\textbf{x}(k)$ ztrácí stabilitu. Tento problém je vyřešen normalizací vstupu. Velikost přírůstku vah je tedy
 \begin{equation}\label{eq:nlms_pure}
     \Delta \textbf{w}(k)=\mu\frac{e(k)\textbf{x}(k)}{\textbf{x}^T(k)\textbf{x}(k)}.
 \end{equation}
@@ -528,13 +526,13 @@ a podmínka pro velikost rychlosti učení přejde do tvaru
     0 < \mu < 2 + \frac{\epsilon}{\textbf{x}^T(k)\textbf{x}(k)}.
 \end{equation}
 \subsection{Algoritmus RLS}\label{chap:rls}
-Při použití rekurzivní metody nejmenších čtverců (RLS - recursive least squares) je odhad parametrů filtru získán na základě minimalizace kriteriální funkce ve tvaru
+Při použití rekurentní metody nejmenších čtverců s exponenciálním zapomínáním  (RLS - recursive least squares \cite{haykin}) je odhad parametrů filtru získán na základě minimalizace kriteriální funkce ve tvaru
 \begin{equation}\label{eq:J_rls}
     J(k)=\sum_{j=j_1}^k \lambda^{k-j} e(j)^2
 \end{equation}
 která je exponenciálně váženým součtem chyb výstupu posledních $k-j_i$ vzorků, přičemž parametr $\lambda \in (0;1\rangle$ je tzv. faktor exponenciálního zapomínání. Chyba výstupu je pak definována jako
 \begin{equation}
-    e(j)=d(j)-\hat{y}(j)
+    e(j)=y(j)-\hat{y}(j)
 \end{equation}
 kde
 \begin{equation}
@@ -557,7 +555,7 @@ kde matice $\textbf{P}(k)$ je
 \textbf{P}(k)=\frac{1}{\lambda}\Bigg[\textbf{P}(k-1)- \frac{\textbf{P}(k-1)\textbf{x}(k)\textbf{x}^T(k)\textbf{P}(k-1)}{\lambda+\textbf{x}^T(k)\textbf{P}(k-1)\textbf{x}(k)}\Bigg].
 \end{equation}
 
-Člen $\textbf{x}^T(k)\textbf{w}(k-1)$ v rovnici (\ref{eq:rls_update}) reprezentuje apriorní chybu filru, která je vypočtena ještě před korekcí adaptivních vah. Kritérium, která je minimalizováno (viz rovnice (\ref{eq:J_rls})) ale obsahuje aposteriorní chyby filtru, která je vypočtena po korekci adaptivních vah (zde se nabízí určitá podobnost s Kalmanovým filtrem, více viz \cite{rls_kalman}). 
+Člen $\textbf{x}^T(k)\textbf{w}(k-1)$ v rovnici (\ref{eq:rls_update}) reprezentuje apriorní chybu filtru, která je vypočtena ještě před korekcí adaptivních vah\footnote{Pokud uvažujeme aposteriorní chybu, kterou vypočteme po korekci vah, tak se nabízí určitá podobnost s Kalmanovým filtrem. Více o souvislosti mezi LMS algoritmy a Kalmanovým filtrem viz \cite{rls_kalman}}. 
 Dále poznamenejme, že $\textbf{P}(k)$ je inverzní maticí k vážené výběrové kovarianční matici $\textbf{R}_x(k)$ definované jako
 \begin{equation}
     \textbf{R}_{x}(k)=\lambda^k\textbf{R}_x(0)+ \sum_{j=1}^k \lambda^{k-j}\textbf{x}(j)\textbf{x}^T(j)=\lambda \textbf{R}_{x}(k-1)+\textbf{x}(k)\textbf{x}^T(k)
@@ -576,7 +574,7 @@ Počáteční hodnota adaptivních parametrů se obvykle volí jako
 \end{equation}
 
 \subsection{Algoritmus Generalized Normalized Gradient Descent}\label{chap:gngd}
-Algoritmus Generalized Normalized Gradient Descent (GNGD) řeší problém případné pomalé konvergence algoritmu NLMS zavedením dalšího kompenzačního členu, který ovlivňuje velikost kroku při gradientní adaptaci. Nejprve uvažujme kvadratickou kriteriální funkce ve tvaru
+Algoritmus GNGD (Generalized Normalized Gradient Descent - více viz \cite{haykin}) řeší problém případné pomalé konvergence algoritmu NLMS zavedením dalšího kompenzačního členu, který ovlivňuje velikost kroku při gradientní adaptaci. Nejprve uvažujme kvadratickou kriteriální funkce ve tvaru
 \begin{equation}
     J(k)=\frac{1}{2}e^2(k)
 \end{equation}
@@ -603,30 +601,31 @@ kde
 přičemž parametr $\rho$ je parametr adaptace velikosti kroku při spuštění algoritmu. Algoritmus GNGD je vhodný pro zpracování nelineární a nestacionárních signálů.
 
 \subsection{Gradient descent pro fuzzy filtry}\label{chap:gd}
-Při použití metody gradient descent pro adaptivní fuzzy filtry je potřeba nejdříve specifikovat strukturu filtru, tedy počet pravidel, množiny ve vstupním a výstupním prostoru, typ inferenční metody, fuzzifikace a defuzzifikace. Uvažujme fuzzy systém specifikovaný v podkapitole \ref{chap:fuzzyf}, v jehož vstupním prostoru $U\subset R^n$ jsou Gaussovské funkce příslušnosti ve tvaru
+Při použití metody gradient descent pro adaptivní fuzzy filtry je potřeba nejdříve specifikovat strukturu filtru, tedy počet pravidel, množiny ve vstupním a výstupním prostoru, typ inferenční metody, fuzzifikace a defuzzifikace \cite{fuzzywang}.\par Uvažujme fuzzy systém specifikovaný v podkapitole \ref{chap:fuzzyf}, v jehož vstupním prostoru $U\subset R^n$ jsou Gaussovské funkce příslušnosti ve tvaru
 \begin{equation}
     \mu_{A^j_i}(x_i)= exp\Bigg[-\Bigg(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Bigg)^2\Bigg]
 \end{equation}
-kde $\overline{x}_i^j$ je středem $i$-té vstupní množiny $j$-tého pravidla a $\sigma_i^j$ je parametr, určující tvar, respektive šířku, této fuzzy množiny. Zobrazení, realizováné výše specifikovaným fuzzy systémem je dáno rovnicí
+kde $\overline{x}_i^j$ je středem $i$-té vstupní množiny $j$-tého pravidla a $\sigma_i^j$ je parametr, určující tvar, respektive šířku, této fuzzy množiny. Zobrazení, realizované výše specifikovaným fuzzy systémem je dáno rovnicí
 \begin{equation}
     \hat{y}(x)=\frac{\sum_{j=1}^M \overline{b}^j\Big[\prod_{i=1}^n exp\Big(-\Big(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Big)\Big)\Big]}{\sum_{j=1}^M \Big[\prod_{i=1}^n exp\Big(-\Big(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Big)\Big)\Big]}
 \end{equation}
 přičemž parametr $M$ určující počet množin je vzhledem k adaptaci parametrem fixním a parametry $\overline{b}^j$, $\sigma_i^j$ a $\overline{x}_i^j$ jsou parametry, které se adaptují. Dále uvažujme množinu $N$ dvojic vstup-výstup, kde $N$ odpovídá počtu vzorků experimentu. 
 \begin{equation}
-    \{\textbf{x}^d(k), d(k) \}, \; k=1,2,\dots,N
+    \{\textbf{x}(k), y(k) \}, \; k=1,2,\dots,N
 \end{equation}
-Při použití algoritmu gradient descent pro fuzzy filtr v kontextu detekce novosti se vždy s nově naměřenými daty tento filtr adaptuje. Adaptace probíhá s každými daty na základě minimalizace kritériální funkce
-\begin{equation}
-    J(k)=\frac{1}{2}[\hat{y}(\textbf{x}(k))-d(k)]^2
+Při použití algoritmu gradient descent pro fuzzy filtr v kontextu detekce novosti se vždy s nově naměřenými daty tento filtr adaptuje. Adaptace probíhá s každými daty na základě minimalizace kriteriální funkce
+\begin{equation}\label{eq:fuzzyj}
+    J(k)=\frac{1}{2}[\hat{y}(\textbf{x}(k))-y(k)]^2
 \end{equation}
-která je zvolená tak, aby měla právě jeden globální extrém, přičemž parametry jsou adaptovány dokud není dosaženo dostatečně malé chyby, nebo dokud není překročen předem stanovený maximální počet iterací $q_{max}$. Volba Gaussovských funkcí příslušnosti ve vstupním prostoru je výhodná z hlediska výpočtu derivace podle adaptabilních parametrů, neboť tato derivace existuje v každém bodě.
+která je zvolená tak, aby měla právě jeden globální extrém, přičemž parametry jsou adaptovány dokud není dosaženo dostatečně malé chyby, nebo dokud není překročen předem stanovený maximální počet iterací $q_{max}$. Volba Gaussovských funkcí příslušnosti ve vstupním prostoru je výhodná z hlediska výpočtu derivace podle adaptabilních parametrů, neboť tato derivace existuje v každém bodě. Pro minimalizaci kriteriální funkce (viz rovnice \ref{eq:fuzzyj}) použitím gradientní metody pak dostáváme vztahy pro hodnoty adaptivních parametrů v $q$-té iteraci jako
 
 \begin{equation}\label{eq:str_b}
-    \overline{b}^j(q+1)=\overline{b}^j(q)-\mu\frac{\partial e}{\partial \overline{b}^j}\Big|_q=\overline{b}^j(q)-\mu\frac{\hat{y}-d(k)}{b(q)}z^j(q)
+    \overline{b}^j(q+1)=\overline{b}^j(q)-\mu\frac{\partial e}{\partial \overline{b}^j}\Big|_q=\overline{b}^j(q)-\mu(\hat{y}-y)\frac{\partial \hat{y}}{\partial a}\frac{\partial a}{\partial b^j}=\overline{b}^j(q)-\mu\frac{\hat{y}-y}{b(q)}z^j(q)
 \end{equation}
-\begin{multline}\label{eq:str_x}
-    \overline{x}_i^j(q+1)=\overline{x}_i^j(q)-\mu\frac{\partial e}{\partial \overline{x}_i^j}\Big|_q=\\ =\overline{x}_i^j(q)-\mu\frac{\hat{y}-d(k)}{b(q)}[\overline{b}^j(q)-\hat{y}]z^j(q)\frac{2[x_i(k)-\overline{x}_i^j(q)]}{\sigma_i^{j2}(q)}
-\end{multline}
+a obdobně pro hodnoty středů vstupních množin $\overline{x}_i^j$ a jejich příslušných parametrů $\sigma_i^j$ dostaneme
+\begin{equation}\label{eq:str_x}
+    \overline{x}_i^j(q+1)=\overline{x}_i^j(q)-\mu\frac{\partial e}{\partial \overline{x}_i^j}\Big|_q=\overline{x}_i^j(q)-\mu\frac{\hat{y}-d}{b(q)}[\overline{b}^j(q)-\hat{y}]z^j(q)\frac{2[x_i(k)-\overline{x}_i^j(q)]}{\sigma_i^{j2}(q)}
+\end{equation}
 \begin{multline}\label{eq:str_sigma}
         \sigma_i^j(q+1)=\sigma_i^j(q)-\mu\frac{\partial e}{\partial \sigma_i^j}\Big|_q=\\= \sigma_i^j(q)-\mu\frac{\hat{y}-d(k)}{b(q)}[\overline{b}^j(q)-\hat{y}]z^j(q)\frac{2[x_i(k)-\overline{x}_i^j(q)]^2}{\sigma_i^{j3}(q)}
 \end{multline}
@@ -634,10 +633,10 @@ S každými nově získanými daty (v diskrétním časovém okamžiku $k$) jsou
 Algoritmus lze shrnout následujícími 5-ti kroky:
 \begin{enumerate}[\bfseries 1.]
         \item \textbf{Krok} Určení počtu pravidel a počáteční nastavení parametrů $\overline{b}^j(0)$, $\overline{x}_i^j(0)$, $\sigma_i^j(0)$ a velikosti kroku $\mu$.
-        \item \textbf{Krok} Pro $k$tou dvojici (\textbf{x}(k), d(k)) v $q$-té iteraci jsou vypočteny hodnoty výstupních vrstev fuzzy systému (viz obr \ref{img:fuzzy_network}) podle rovnic (\ref{eq:z}), (\ref{eq:b}), (\ref{eq:a}) a (\ref{eq:yhat}).
+        \item \textbf{Krok} Pro $k$-tou dvojici (\textbf{x}(k), y(k)) v $q$-té iteraci jsou vypočteny hodnoty výstupních vrstev fuzzy systému (viz obr \ref{img:fuzzy_network}) podle rovnic (\ref{eq:z}), (\ref{eq:b}), (\ref{eq:a}) a (\ref{eq:yhat}).
         \item \textbf{Krok} Výpočet nových hodnot parametrů $\overline{b}^j(q+1)$, $\overline{x}_i^j(q+1)$, $\sigma_i^j(q+1)$ dle rovnic (\ref{eq:str_b}), (\ref{eq:str_x}), (\ref{eq:str_sigma}).
         \item \textbf{Krok} $q=q+1$ a opakování kroků 2. a 3. pro , dokud není dosaženo maximálního množství iterací $q_{max}$ nebo požadované přesnosti $\epsilon$.
-        \item \textbf{Krok} Návrat do kroku 2. pro hodnotu $k=k+1$, tedy s novou dvojicí dat $(\textbf{x}, d)$.
+        \item \textbf{Krok} Návrat do kroku 2. pro hodnotu $k=k+1$, tedy s novou dvojicí dat $(\textbf{x}, y)$.
     \end{enumerate}
 Rovnice popisující výstup jednotlivých vrstev fuzzy systému (viz obr. \ref{img:fuzzy_network}) následují.
 

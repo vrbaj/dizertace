@@ -97,7 +97,7 @@ Algoritmus Learning Entropy (LE) je algoritmem, který využívá adaptivních f
 \end{equation}
 přičemž $\forall i \in \{1,2,\dots,n_{\alpha} \}:\alpha_i\in R$. Míra novosti \textquote{Approximate Individual Sample Learning Entropy} je potom definovaná jako
 \begin{equation}\label{eq:aisle}
-E_A(k)=\frac{1}{n\cdot n_{\alpha}}\sum_{i=1}^{n}\sum_j^{n_{\alpha}} f(\abs{\Delta w_i(k)}, \alpha_j)
+E_A(k)=\frac{1}{n_w\cdot n_{\alpha}}\sum_{i=1}^{n_w}\sum_j^{n_{\alpha}} f(\abs{\Delta w_i(k)}, \alpha_j)
 \end{equation}
 kde funkce $f$ je
 \begin{equation}
@@ -108,11 +108,11 @@ f(\Delta w_i, \alpha_j)=\begin{cases}
 
 \end{cases}
 \end{equation}
-a $n$ je počet adaptivních parametrů filtru, $n_{\alpha}$ je počet citlivostních prahů (respektive počet prvků množiny $\boldsymbol{\alpha}$) a $\overline{\abs{\Delta w_i^M(k)}}$ průměrná hodnota přírůstku $i$-té adaptivní výhy v plovoucím okně délky $M$. Člen $1/(n\cdot n_{\alpha})$ normalizuje hodnotu AISLE takže  $E_A \in \langle 0,1\rangle$. Toto hodnotu lze interpretovat tak že pokud se blíží 0, váhy se téměř nemění a z pohledu adaptace filtru se příliš neliší od minulých dat. Naopak vysoké hodnoty $E_A$ znamenají, že dochází k velkým změnám velkého množství adaptivních vah a data se nějakým způsobem liší od předchozích. 
+a $n_w$ je počet adaptivních parametrů filtru, $n_{\alpha}$ je počet citlivostních prahů (respektive počet prvků množiny $\boldsymbol{\alpha}$) a $\overline{\abs{\Delta w_i^M(k)}}$ průměrná hodnota přírůstku $i$-té adaptivní výhy v plovoucím okně délky $M$. Člen $1/(n_w\cdot n_{\alpha})$ normalizuje hodnotu AISLE takže  $E_A \in \langle 0,1\rangle$. Toto hodnotu lze interpretovat tak že pokud se blíží 0, váhy se téměř nemění a z pohledu adaptace filtru se příliš neliší od minulých dat. Naopak vysoké hodnoty $E_A$ znamenají, že dochází k velkým změnám velkého množství adaptivních vah a data se nějakým způsobem liší od předchozích. 
 \par
 V publikaci \cite{ivoLE2} pak autoři navrhují tzv. přímý algoritmus pro výpočet LE. Ta je vypočítána jako
 \begin{equation}\label{eq:le_direct}
-LE(k)=\sum_{i=1}^n \max \{0,z(\abs{\Delta w_i(k)})-\beta \};
+LE(k)=\sum_{i=1}^n_w \max \{0,z(\abs{\Delta w_i(k)})-\beta \};
 \end{equation}
 kde funkce $z$ je označovaná jako speciální \textquote{$z$-score} a je definovaná jako
 \begin{equation}
