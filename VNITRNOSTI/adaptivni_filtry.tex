@@ -1,5 +1,5 @@
 \chapter{Číslicové adaptivní filtry a algoritmy}\label{chap:af_reserse}
-Tato kapitola je věnována diskrétním adaptivním filtrům, které byly v průběhu práce na tématu dizertační práce použity (viz podkapitola \ref{chap:af} a algoritmům, které byli k jejich adaptaci použity (viz podkapitola \ref{chap:aa}). Z pohledu klasifikace filtrů dle impulsní charakteristiky se jedná o filtry s konečnou impulsní charakteristikou (viz podkapitola) i o filtry s nekonečnou impulsní charakteristikou (viz podkapitola). Z pohledu lineární závislosti adaptabilních parametrů potom na filtry lineární a nelinární v parametrech.
+Tato kapitola je věnována diskrétním adaptivním filtrům, které byly v průběhu práce na tématu dizertační práce použity (viz podkapitola \ref{chap:af}) a algoritmům, které byly k jejich adaptaci použity (viz podkapitola \ref{chap:aa}). Z pohledu klasifikace filtrů dle impulsní charakteristiky se jedná o filtry s konečnou impulsní charakteristikou i o filtry s nekonečnou impulsní charakteristikou. Z pohledu lineární závislosti adaptabilních parametrů potom na filtry lineární a nelinární v parametrech.
 \par 
 Obecně problém filtrace spočívá ve zpracování signálu filtrem tak, že ze signálu získáme nějakou užitečnou informaci\cite{haykin}.
 
@@ -9,7 +9,7 @@ Jedno ze základních dělení signálů je rozdělení na signály spojité a d
 \begin{equation}
 v(t)=\sum_{k=-\infty}^{\infty}\delta(t-k\Delta t)
 \end{equation}
-kde $\Delta t$ je vzorkovací perioda (uvažujeme konstantní vzorkovací periodu) a $\delta$ je, z pohledu teorie distribucí, lineární funkcionál na prostoru testovacích funkcí $\varphi$ (všech hladkých funkcí na $R$ s kompaktním supportem, které mají požadovaný počet derivací) definovaný jako
+kde $\Delta t$ je vzorkovací perioda (uvažujeme konstantní vzorkovací periodu) a $\delta$ je, z pohledu teorie distribucí, lineární funkcionál na prostoru testovacích funkcí $\varphi$ (všech hladkých funkcí na $R$ s kompaktním nosičem, které mají požadovaný počet derivací) definovaný jako
 \begin{equation}
 \langle \delta,\varphi\rangle=\varphi(0)
 \end{equation}
@@ -17,7 +17,7 @@ pro každou testovací funkci $\varphi$ \cite{dirac}. Pro navzorkovaný signál 
 \begin{equation}
 s(k)=s(t)\cdot v(t)
 \end{equation}
-a výsledkem je posloupnost vzorků $s(k)$. Signál spojitý v čase a diskrétní v amplitudě získáme aplikací kvantizační funkce $Q(s)$, která převede hodnotu signálu  na číslo z nějaké množiny přípustných hodnot, (typicky to bývá celé číslo, případně číslo s plovoucí desetinnou čárkou). Existuje celá řada kvantizačních algoritmů (více viz \cite{kvantizace}), takže pro úplnost uvedeme pouze základní uniformní kvantizátor s velikostí kvantizačního kroku definovanou jako
+a výsledkem je posloupnost vzorků $s(k)$. Signál spojitý v čase a diskrétní v amplitudě získáme aplikací kvantizační funkce $Q(s)$, která převede hodnotu signálu  na číslo z nějaké množiny přípustných hodnot (typicky to bývá celé číslo, případně číslo s plovoucí desetinnou čárkou). Existuje celá řada kvantizačních algoritmů (více viz \cite{kvantizace}), takže pro úplnost uvedeme pouze základní uniformní kvantizátor s velikostí kvantizačního kroku definovanou jako
 \begin{equation}
 q=\frac{s_{max}-s_{min}}{L}
 \end{equation}
@@ -28,15 +28,15 @@ Q(s)=\Bigl \lfloor s-\frac{s_{min}}{q}\Bigr \rfloor q+\frac{q}{2}+s_{min}
 Signál, který je diskrétní v čase i amplitudě bývá označován jako digitální signál a právě těmito signály se předložená dizertační práce zabývá.
 
 \par
-Signály dále můžeme rozdělit na skalární a vektorové. Vektorových (někdy též označovaným jako vícekanálový) signálem je například EEG. Některé systémy pro měření EEG využívají až 256 kanálů \cite{eeg}. Takový signál můžeme v časovém okamžiku $k$ reprezentovat 256ti dimenzionálním vektorem
+Signály dále můžeme rozdělit na skalární a vektorové. Vektorovým (někdy též označovaným jako vícekanálový) signálem je například EEG. Některé systémy pro měření EEG využívají až 256 kanálů \cite{eeg}. Takový signál můžeme v časovém okamžiku $k$ reprezentovat 256ti dimenzionálním vektorem
 \begin{equation}
     \textbf{s}(k)=[s_1(k),\dots,s_{256}(k)]^T
 \end{equation}
 kde $i$-tá složka $s_i(k)$ odpovídá signálu $i$-tého kanálu. Skalární signál (někdy též označovaný jako jednokanálový) je pak např. právě $i$-tá složka signálu $\textbf{s}(k)$.
 \par 
-Z pohledu počtu nezávislých proměnných, jejichž funkcí lze signál vyjádřit lze rozlišovat mezi signály jednorozměrnými a vícerozměrnými. Jednorozměrným signálem je například záznam jednoho kanálu EEG, kde hodnota signálu $s_i(k)$ je závislá pouze na čase. Vícerozměrným signálem může např. digitální obraz, jehož intenzita je funkcí souřadnic $I(x,y)$.
+Z pohledu počtu nezávislých proměnných, jejichž funkcí lze signál vyjádřit, lze rozlišovat mezi signály jednorozměrnými a vícerozměrnými. Jednorozměrným signálem je například záznam jednoho kanálu EEG, kde hodnota signálu $s_i(k)$ je závislá pouze na čase. Vícerozměrným signálem může např. digitální obraz, jehož intenzita je funkcí souřadnic $I(x,y)$.
 \par
-Další dělení signálu je na signály deterministické a náhodné. Pokud můžeme popsat signál pomocí explicitního matematického zápisu, tabulky nebo pravidlem tak, že pro každý časový okamžik získáme jednoznačnou hodnotu, jedná se o signál deterministický. V opačném případě jsou signály, jejichž hodnota lze určit pouze s nějakou pravděpodobností označovány jako náhodné (stochastické). Typickým příkladem náhodného signálu je např. bílý šum. Ze stochastických signálu jsou z pohledu této práce je zajímavé ještě dělení na ergodické a stacionární signály. Pro stacionární signály je jejich pravděpodobnostní popis nezávislý na počátku časové osy. Ergodické signály jsou pak signály jejichž statistické vlastnosti lze určit z libovolné, dostatečně velké, množiny dat a tyto vlastnosti se v čase nemění.
+Další dělení signálu je na signály deterministické a náhodné. Pokud můžeme popsat signál pomocí explicitního matematického zápisu, tabulky nebo pravidlem tak, že pro každý časový okamžik získáme jednoznačnou hodnotu, jedná se o signál deterministický. V opačném případě jsou signály, jejichž hodnota lze určit pouze s nějakou pravděpodobností, označovány jako náhodné (stochastické). Typickým příkladem náhodného signálu je např. bílý šum. Ze stochastických signálu je, z pohledu této práce,  zajímavé ještě dělení na ergodické a stacionární signály. Pro stacionární signály je jejich pravděpodobnostní popis nezávislý na počátku časové osy. Ergodické signály jsou pak signály jejichž statistické vlastnosti lze určit z libovolné, dostatečně velké, množiny dat a tyto vlastnosti se v čase nemění.
 \par
 Filtr můžeme použít v  následujících základních úlohách zpracování signálů:
 \begin{itemize}
@@ -55,9 +55,9 @@ Filtr můžeme použít v  následujících základních úlohách zpracování 
 \pgfdeclarelayer{background}
 \pgfsetlayers{background,main}
 
-\begin{figure}[!h]
+\begin{figure}[!h]    
     \centering
-    \label{img:adaptivni_filtrace}
+
 
 \begin{tikzpicture}[node distance=2.3cm,auto,>=latex]
 \shorthandoff{-}
@@ -76,16 +76,16 @@ Filtr můžeme použít v  následujících základních úlohách zpracování 
     
     \coordinate (aux) at ([xshift=20pt,yshift=30]af.center);
     \coordinate (helpy) at ([yshift=45]aa.center);
-    \draw [-] (input) -- node [pos=0.5,above] {$x[k]$} (x_node);
+    \draw [-] (input) -- node [pos=0.5,above] {$x(k)$} (x_node);
     \draw[-{Latex[scale=1.5]}] (x_node) -- (neznamy);
     \draw[-{Latex[scale=1.5]}, shorten <= -2pt] (x_node) |- (af);
     \draw[-{Latex[scale=1.5]}, shorten <= -2pt] (x_node2) |- (aa);
     \draw[-{Latex[scale=1.5]}] (neznamy) -- (sum1);
-    \draw[-{Latex[scale=1.5]}] (sum1) -- node [pos=0.5,above] {$d[k]$} (sum2);
-    \draw[-{Latex[scale=1.5]}] (sum2) -- node [pos=0.75,above] {$e[k]$}(output);
-    \draw[-{Latex[scale=1.5]}] (af) -| node[pos=0.95, left] {{\tiny $-$}} node [pos=0.8,left] {$\hat{y}[k]$}  (sum2);
+    \draw[-{Latex[scale=1.5]}] (sum1) -- node [pos=0.5,above] {$y(k)$} (sum2);
+    \draw[-{Latex[scale=1.5]}] (sum2) -- node [pos=0.75,above] {$e(k)$}(output);
+    \draw[-{Latex[scale=1.5]}] (af) -| node[pos=0.95, left] {{\tiny $-$}} node [pos=0.8,left] {$\hat{y}(k)$}  (sum2);
     \draw[-{Latex[scale=1.5]}, shorten <= -2pt] (e_node2) |- (aa);
-    \draw[-{Latex[scale=1.5]}] (noise) -- node [pos=0.5, left] {$n[k]$} node[pos=0.95, left] {{\tiny $+$}} (sum1);
+    \draw[-{Latex[scale=1.5]}] (noise) -- node [pos=0.5, left] {$n(k)$} node[pos=0.95, left] {{\tiny $+$}} (sum1);
     
     \begin{pgfonlayer}{background}
         \draw [-] (aa) -- (helpy);
@@ -93,12 +93,14 @@ Filtr můžeme použít v  následujících základních úlohách zpracování 
     \end{pgfonlayer}
 \end{tikzpicture}
     \caption{Schéma adaptivní filtrace}
+    \label{img:adaptivni_filtrace}
 \end{figure}
 
-V rámci této práce byli všechny filtry využity k predikci, jejíž chyba $e$ byla využita k adaptaci parametrů daného filtru (více viz podkapitola \ref{chap:aa}).
-
+V rámci této práce byly všechny filtry využity k predikci, jejíž chyba $e$ byla využita k adaptaci parametrů daného filtru (více viz podkapitola \ref{chap:aa}).
 \section{Adaptivní filtry}\label{chap:af}
-V této podkapitole jsou stručně popsané adaptivní filtry, které byly v rámci práce použity. FIR (finite impulse response) adaptivní filtry jsou popsány v podkapitole \ref{chap:fir}, Volterrovy filtry v podkapitole \ref{chap:volterra} a adaptivní fuzzy filtry v podkapitole \ref{chap:fuzzyf}.
+V této podkapitole jsou stručně popsané adaptivní filtry, které byly v rámci práce použity. Adaptivní filtry s konečnou odezvou (FIR - finite impulse response) jsou popsány v podkapitole \ref{chap:fir}, Volterrovy filtry v podkapitole \ref{chap:volterra} a adaptivní fuzzy filtry v podkapitole   \ref{chap:fuzzyf}. Dále jsou zde popsány vybrané adaptivní algoritmy, jmenovitě LMS (least mean squares) a NLMS (normalized least mean squares) v podkapitole \ref{chap:nlms}, RLS (recursive least squares) v podkapitole  \ref{chap:rls}, GNGD (generalized normalized gradient descent) v podkapitole   \ref{chap:gngd} a varianta algoritmu gradient descent pro fuzzy filtry v podkapitole  \ref{chap:gd}.
+\par 
+Schéma znázorňující základní problém adaptivní filtrace je znázorněno na obrázku \ref{img:adaptivni_filtrace}. Značení v uvedeném schématu má následující významy: $x(k)$ je vstupní signál, $n(k)$ je aditivní šum přidaný k výstupu neznámého systému, $y(k)$ je měřený výstup systému, $\hat{y}(k)$ je výstup adaptivního filtru a $e(k)$ je chyba filtru (nebo také chyba predikce). Schéma může být modifikováno např. tak, že vstupem adaptivního filtru je historie výstupů neznámého systému.
 
 \subsection{Lineární FIR filtry}\label{chap:fir}
 
@@ -163,7 +165,7 @@ V této podkapitole jsou stručně popsané adaptivní filtry, které byly v rá
 		\node[coordinate] (m215) {$y[n]$};    \\
 		%--------------------------------------------------------------------
 	};
-        \draw (m00) -- node [pos=-1.0,right] {$x[k]$} (m01);
+        \draw (m00) -- node [pos=-1.0,right] {$x(k)$} (m01);
         \draw[-{Latex[scale=1.5]}] (m01) -- (m02);
         \draw (m02) -- (m03);
         \draw (m03) -- (m04);
@@ -189,33 +191,34 @@ V této podkapitole jsou stručně popsané adaptivní filtry, které byly v rá
         \path (m19) -- node[auto=false]{\ldots} (m120);
         \draw [-{Latex[scale=1.5]}] (m211) -- (m214);
         \draw [-{Latex[scale=1.5]}] (m124) -- (m214);
-        \draw [-{Latex[scale=1.5]}] (m214) -- node [pos=1.0,right] {$\hat y[k]$}(m215);
+        \draw [-{Latex[scale=1.5]}] (m214) -- node [pos=1.0,right] {$\hat y(k)$}(m215);
     \end{tikzpicture}
     \caption{Blokový diagram FIR filtru}
+    \label{fig:fir}
 
 \end{figure}
 Výstup FIR (finite-impulse-response) filtru $\hat y \in \mathbb{R}$  v diskrétním čase  $k \in Z$  je popsán rovnicí
 \begin{equation}\label{eq:FIR1}
-    \hat{y}[k]=\sum_{i=0}^{N}w_i \cdot x[k-i] 
+    \hat{y}(k)=\sum_{i=0}^{N}w_i \cdot x(k-i) 
 \end{equation}
-kde $w_i \in \mathbb{R} $ hodnota $i$-tého koeficienty, $x[k-i] $ je hodnota vstupu $x \in \mathbb{R} $ posunutá o $i$ hodnot v čase, hodnota $N$ je řád filtru. Pokud jsou koeficienty FIR filtru v čase adaptovány, přejde rovnice (\ref{eq:FIR1}) do tvaru
+kde $w_i \in \mathbb{R} $ hodnota $i$-tého koeficienty, $x(k-i) $ je hodnota vstupu $x \in \mathbb{R} $ posunutá o $i$ hodnot v čase, hodnota $N$ je řád filtru. Pokud jsou koeficienty FIR filtru v čase adaptovány, přejde rovnice (\ref{eq:FIR1}) do tvaru
 \begin{equation}
-    \hat{y}[k]=\sum_{i=0}^{N}w_i[k] \cdot x[k-i] 
+    \hat{y}(k)=\sum_{i=0}^{N}w_i(k) \cdot x(k-i) 
 \end{equation}
-kde člen $w_i[k]$ reprezentuje hodnoty koeficientů filtru v diskrétním čase $k$. V následujícím textu, již uvažujeme, že veškeré adaptivní filtry mají v čase proměnné koeficienty $w$.
+kde člen $w_i(k)$ reprezentuje hodnoty koeficientů filtru v diskrétním čase $k$. V následujícím textu, již uvažujeme, že veškeré adaptivní filtry mají v čase proměnné koeficienty $w$.
 Někdy se pro popis výstupu FIR filtru využívá operátoru konvoluce, potom pro výstup FIR filtru platí
 \begin{equation}
-    \hat{y}[k]= h[k] * x[k]=x[k] * h[k]
+    \hat{y}(k)= h(k) * x(k)=x(k) * h(k)
 \end{equation}
- Hodnoty $h[k]$ v reprezentují impulzní odezvu filtru. Impulsní odezva filtru je definovaná jako
+ Hodnoty $h(k)$ v reprezentují impulzní odezvu filtru. Impulsní odezva filtru je definovaná jako
  \begin{equation}
-     h[k]=\sum_{i=0}^N w_i \cdot \delta[k-i]=
+     h(k)=\sum_{i=0}^{N} w_i \cdot \delta(k-i)=
      \begin{cases}
      w_i & 0 \leq k \leq N \\
      0 & k < 0 \lor k > N 
      \end{cases}
  \end{equation}
- Konečnost impulzní odezvy je dána konečným počtem $N+1$ koeficientů filtru. Pokud koeficienty filtru splňují podmínku $\forall i: w_i < \infty$, potom je FIR filtr stabilní. 
+ Konečnost impulzní odezvy je dána konečným počtem $n_w$ koeficientů filtru, přičemž pro počet koeficientů filtru platí vztah $n_w=N+1$. Pokud koeficienty filtru splňují podmínku $\forall i: w_i < \infty$, potom je FIR filtr stabilní. 
  \par
  Uvedný filtr (viz rovnice (\ref{eq:FIR1})) lze zapsat ve tvaru
  \begin{equation}
@@ -223,36 +226,36 @@ Někdy se pro popis výstupu FIR filtru využívá operátoru konvoluce, potom p
  \end{equation}
 kde $\textbf{w}(k)$ je vektor vah
 \begin{equation}
-    \textbf{w}(k)=[w_1,\dots, w_N]
+    \textbf{w}(k)=[w_1,\dots, w_{N}]
 \end{equation}
 a $\textbf{x}(k)$ je vstupní vektor
 \begin{equation}
-    \textbf{x}^T(k)=[x(k),x(k-1),\dots,x(k-N)]
-\end{equation}.
-
+    \textbf{x}^T(k)=[x(k),x(k-1),\dots,x(k-N)].
+\end{equation}
+Blokové schéma zobrazující funkci FIR filtru je zobrazeno na obrázku \ref{fig:fir}. Bloky označené $z^{-1}$ reprezentují časové zpoždění, respektive operátor $z^{-1}$ (využijeme-li notaci Z-transformace).
 
 \subsection{Volterrovy filtry}\label{chap:volterra}
-Jeden z filtrů, který se použivá k modelování nelineárních systémů je nelineární Voltérrův filtr (někdy uváděný pod označením Higher Order Neural Unit - HONU). Výstup $\hat{y}[k]$ těchto filtrů, využívajících zkrácených Voltérových řad, je popsán rovnicí 
+Jeden z filtrů, který se používá k modelování nelineárních systémů je nelineární Volterrův filtr (za určitých okolností je ekvivalentní s tzv. Higher Order Neural Units - HONU \cite{honu}). Výstup $\hat{y}(k)$ těchto filtrů, využívajících zkrácených Volterrových řad, je popsán rovnicí 
 \begin{multline}
-    \hat{y}[k]=w_0+\sum_{i=0}^{N-1}w_1(i)x(k-i) +  \sum_{i_1=0}^{N-1}\sum_{i_2=i_1}^{N-1}w_2(i_1,i_2)x(k-i_1)x(k-i_2)+] \cdots \\\cdots  \sum_{i_1=0}^{N-1} \cdots \sum_{i_p=i_{p-1}}^{N-1}w_p{i_1,\dots,i_p}x(k-i_1)\cdots x(k-i_p)
+    \hat{y}(k)=w_0+\sum_{i=0}^{N-1}w_1(i)x(k-i) +  \sum_{i_1=0}^{N-1}\sum_{i_2=i_1}^{N-1}w_2(i_1,i_2)x(k-i_1)x(k-i_2)+] \cdots \\\cdots  \sum_{i_1=0}^{N-1} \cdots \sum_{i_p=i_{p-1}}^{N-1}w_p{i_1,\dots,i_p}x(k-i_1)\cdots x(k-i_p)
 \end{multline}
 kde $w_0$ je konstanta, $\{w_j(i_1,\dots,i_j), 1 \leq j \leq p\}$ je množina koeficientů Volterrovo jader $j$-tého řádu a $x(k)$ je vstupní signál. Filtr pracuje s pamětí $N$ vzorků, parametr $p$ určuje řád filtru. Analogický zápis využívající vektorové násobení
 \begin{equation}
-    \hat{y}[k]= \textbf{w} \cdot \textbf{colx}
+    \hat{y}(k)= \textbf{w} \cdot \textbf{colx}
 \end{equation}
 kde $\textbf{w}$ je uspořádaný vektor koeficientů Volterrovo jader a $\textbf{colx}$ uspořádaný vektor ve tvaru
 \begin{multline}
-    \textbf{colx}=[1,x[0],\dots,x[N-1],x[1] \cdot x[2], \dots, x[1]\cdot x[N-1],x[2]^2,x[2]\cdot x[3], \dots,\\ x[2] \cdot x[N-1],\dots, \dots,x[N-2]\cdot x[N-1], x[N-1]^2,\dots, \dots, \dots, \dots, x[N-1]^p]^T 
+    \textbf{colx}=[1,x(0),\dots,x(N-1),x(1) \cdot x(2), \dots, x(1)\cdot x(N-1),x(2)^2,x(2)\cdot x(3), \dots,\\ x(2) \cdot x(N-1),\dots, \dots,x(N-2)\cdot x(N-1), x(N-1)^2,\dots, \dots, \dots, \dots, x(N-1)^p]^T 
 \end{multline}
 
-Určitým faktorem limitujícím použití Volterrovo filtrů je vysoký počet jejich parametrů, přičemž každé zvýšení počtu vzorků v paměti, nebo řádu filtru, výrazně zvýši počet jeho parametrů. Pro počet parametrů $m$ Volterrova filtru s délkou paměti $N$ a řádu $p$ je dán jako
+Určitým faktorem limitujícím použití Volterrových filtrů je vysoký počet jejich parametrů, přičemž každé zvýšení počtu vzorků v paměti, nebo řádu filtru, výrazně zvýši počet jeho parametrů. Pro počet parametrů $n_W$ Volterrova filtru s délkou paměti $N$ a řádu $p$ je dán jako
 \begin{equation}
-    m(p,N)=\frac{(N+p)!}{N!p!}
+    n_w(p,N)=\frac{(N+p)!}{N!p!}
 \end{equation}
-kde $N!$ je faktoriál $N$ a $p!$ je faktoriál $p$. Např. pro $N=3$ a $p=3$ má filtr 20 parametrů, pro $N=4$ a $p=3$ má 35 parametrů, pro  $N=4$ a $p=4$ již 70 parametrů. Pro zpracování signálů v reálném čase je tedy využití  Volterrových filtrů s velkou pamětí a vysokým řádem, vzhledem k vysokému počtu parametrů, komplikované. Volterrův filtr druhého řádu bývá někdy označován Quadratic neural unit (QNU) a třetího řádu Cubic neural unit (CNU) [viz Ivo nebo IGI]. Volterrův filtr prvního řádu je variantou standartního FIR filtru (viz kap.) v případě, že $w_0=0$. V případě, že $w_0\neq 0$, je tento filtr typu IIR, tedy má nekonečnou impulsní charakteristiku.
+kde $N!$ je faktoriál $N$ a $p!$ je faktoriál $p$. Např. pro $N=3$ a $p=3$ má filtr 20 parametrů, pro $N=4$ a $p=3$ má 35 parametrů, pro  $N=4$ a $p=4$ již 70 parametrů. Pro zpracování signálů v reálném čase je tedy využití  Volterrových filtrů s velkou pamětí a vysokým řádem, vzhledem k vysokému počtu parametrů, komplikované. Volterrův filtr druhého řádu bývá někdy označován Quadratic neural unit (QNU) a třetího řádu Cubic neural unit (CNU) (více viz \cite{honu}). Volterrův filtr prvního řádu je variantou standartního FIR filtru (viz kap. \ref{chap:fir}) v případě, že $w_0=0$. V případě, že $w_0\neq 0$, je tento filtr typu IIR, tedy má nekonečnou impulsní charakteristiku.
 
 \subsection{Polynomiální neuronové jednotky}\label{chap:honu}
-Jedním z typů nelineární filtrů, které jsou ale lineární v adaptivních parametrech jsou polynomiální neuronové jednotky, někdy též nazývané HONU (Higher Order Neural Units). Výstup HONU $p$-tého řádu je difinován jako
+Jedním z typů nelineární filtrů, které jsou ale lineární v adaptivních parametrech jsou polynomiální neuronové jednotky, někdy též nazývané HONU (Higher Order Neural Units) \cite{honu}. Výstup HONU $p$-tého řádu je difinován jako
 \begin{equation}
     \hat{y}(k)=\sum_{i_1=0}^n \sum_{i_2=i_1}^n\dots \sum_{i_p=i_{p-1}}^n w_{i_1,i_2,\dots,i_p}x_{i_1}\cdot x_{i_2} \cdots x_{i_p}
 \end{equation}
@@ -268,11 +271,11 @@ a $\textbf{colx}$ je odpovídajícím způsobem uspořádaný vektor vstupů ve 
 \begin{equation}
     \textbf{colx}= [1,x_{0,\dots,1},\dots,x_{n,\dots,n}]^T
 \end{equation}
-přičemž pokud vektor vstupů obsahuje časově spožděné vzorky vstupního signálu, jsou HONU identické s Volterrovými filtry. Pokud je vstupem $n+1$-dimenzionální vektor různých vstupů, tak je HONU kombinačním filtrem. HONU prvního řádu bývá označována jako lineární neuronová jednotka (LNU). Pokud jsou vstupem do LNU časově posunuté hodnoty vstupního signálu, je identická s klasickým FIR filtrem (viz kapitola \ref{chap:fir}), protože její výstup je definován jako
+přičemž pokud vektor vstupů obsahuje časově zpožděné vzorky vstupního signálu, jsou HONU identické s Volterrovými filtry. Pokud je vstupem $n+1$-dimenzionální vektor různých vstupů, tak je HONU kombinačním filtrem. HONU prvního řádu bývá označována jako lineární neuronová jednotka (LNU). Pokud jsou vstupem do LNU časově posunuté hodnoty vstupního signálu, je identická s klasickým FIR filtrem (viz kapitola \ref{chap:fir}), protože její výstup je definován jako
 \begin{equation}
-    \hat{y}(k)=\sum_{i=0}^n w_i \cdot x(k-i)
+    \hat{y}(k)=\sum_{i=0}^{n_w} w_i \cdot x(k-i)
 \end{equation}
-Pokud je vstupem $n+1$-dimenzionální vektor $n+1$ různých vstupů, potom je LNU klasickým lineárním kombinačním filtrem (viz obr. \ref{img:lnu}). Použijeme-li terminologii neuronových sítí, potom je lineárním neuronem, kde $\textbf{w}$ je vektor synaptických vah, $\textbf{x}$ je vstupní vektor a přenosová funkce tohoto neuronu realizuje lineární kombinaci. 
+Pokud je vstupem $n$-dimenzionální vektor $n$ různých vstupů, potom je LNU klasickým lineárním kombinačním filtrem (viz obr. \ref{img:lnu}). Použijeme-li terminologii neuronových sítí, potom je lineárním neuronem, kde $\textbf{w}$ je vektor synaptických vah, $\textbf{x}(k)$ je vstupní vektor a přenosová funkce tohoto neuronu realizuje lineární kombinaci. 
 \begin{equation}
     \hat{y}(k)=\sum_{i=0}^n w_i \cdot x_i(k)
 \end{equation}
@@ -524,7 +527,7 @@ a podmínka pro velikost rychlosti učení přejde do tvaru
 \begin{equation}
     0 < \mu < 2 + \frac{\epsilon}{\textbf{x}^T(k)\textbf{x}(k)}.
 \end{equation}
-\subsection{Algoritmus RLS}
+\subsection{Algoritmus RLS}\label{chap:rls}
 Při použití rekurzivní metody nejmenších čtverců (RLS - recursive least squares) je odhad parametrů filtru získán na základě minimalizace kriteriální funkce ve tvaru
 \begin{equation}\label{eq:J_rls}
     J(k)=\sum_{j=j_1}^k \lambda^{k-j} e(j)^2

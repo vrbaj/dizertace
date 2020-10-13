@@ -3,14 +3,14 @@
 \contentsline {section}{\numberline {1.1}Cíle dizertační práce}{1}{section.1.1}%
 \contentsline {chapter}{\numberline {2}Číslicové adaptivní filtry a algoritmy}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Adaptivní filtry}{5}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Lineární FIR filtry}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.1}Lineární FIR filtry}{6}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Volterrovy filtry}{7}{subsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.1.3}Polynomiální neuronové jednotky}{8}{subsection.2.1.3}%
 \contentsline {subsection}{\numberline {2.1.4}Fuzzy filtry}{9}{subsection.2.1.4}%
-\contentsline {section}{\numberline {2.2}Adaptivní algoritmy}{10}{section.2.2}%
+\contentsline {section}{\numberline {2.2}Adaptivní algoritmy}{11}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Algoritmy LMS a NLMS}{11}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Algoritmus RLS}{13}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Algoritmus Generalized Normalized Gradient Descent}{14}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Algoritmus Generalized Normalized Gradient Descent}{15}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Gradient descent pro fuzzy filtry}{15}{subsection.2.2.4}%
 \contentsline {chapter}{\numberline {3}Přehled metod detekce novosti}{19}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Vybrané statistické metody}{20}{section.3.1}%
@@ -37,25 +37,25 @@
 \contentsline {section}{\numberline {6.1}Případové studie detekce novosti algoritmu Extreme Seeking Entropy}{43}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Případová studie: chaotická časová řada Mackey-Glass a detekce pertubace}{43}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Případová studie: detekce změny rozptylu šumu v náhodném datovém toku}{44}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Případová studie: detekce skokové změny parametrů generátoru signálu}{45}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Případová studie: detekce náhlé absence šumu}{46}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Případová studie: detekce změny trendu}{47}{subsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.1.6}Případová studie: detekce epilepsie v myším EEG}{49}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}{50}{subsection.6.1.7}%
-\contentsline {subsection}{\numberline {6.1.8}Vyhodnocení úspěšnosti detekce skokové změny trendu}{51}{subsection.6.1.8}%
-\contentsline {section}{\numberline {6.2}Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}{53}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Popis experimentu}{53}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Konstrukce ROC křivky}{54}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Výsledky experimentu}{55}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}{58}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Motivace}{58}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Specifikace experimentu}{58}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Výsledky a diskuze}{59}{subsection.6.3.3}%
-\contentsline {section}{\numberline {6.4}Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu}{61}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Popis bioprocesu a specifikace problému}{61}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Experiment a zhodnocení}{63}{subsection.6.4.2}%
-\contentsline {chapter}{\numberline {7}Závěr}{69}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Možné směry budoucího výzkumu}{70}{section.7.1}%
-\contentsline {chapter}{Publikace autora}{71}{chapter*.45}%
-\contentsline {chapter}{Literatura}{73}{chapter*.46}%
-\contentsline {chapter}{Příloha}{85}{chapter*.47}%
+\contentsline {subsection}{\numberline {6.1.3}Případová studie: detekce skokové změny parametrů generátoru signálu}{46}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Případová studie: detekce náhlé absence šumu}{49}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Případová studie: detekce změny trendu}{49}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}Případová studie: detekce epilepsie v myším EEG}{52}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.7}Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}{54}{subsection.6.1.7}%
+\contentsline {subsection}{\numberline {6.1.8}Vyhodnocení úspěšnosti detekce skokové změny trendu}{57}{subsection.6.1.8}%
+\contentsline {section}{\numberline {6.2}Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}{59}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Popis experimentu}{59}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Konstrukce ROC křivky}{60}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Výsledky experimentu}{61}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}{65}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Motivace}{65}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Specifikace experimentu}{66}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Výsledky a diskuze}{66}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.4}Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu}{70}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Popis bioprocesu a specifikace problému}{70}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Experiment a zhodnocení}{72}{subsection.6.4.2}%
+\contentsline {chapter}{\numberline {7}Závěr}{77}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Možné směry budoucího výzkumu}{78}{section.7.1}%
+\contentsline {chapter}{Publikace autora}{79}{chapter*.45}%
+\contentsline {chapter}{Literatura}{81}{chapter*.46}%
+\contentsline {chapter}{Příloha}{93}{chapter*.47}%
