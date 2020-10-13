@@ -33,29 +33,30 @@
 \contentsline {subsection}{\numberline {4.2.2}Metoda momentů}{36}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}Kvazi-ML metoda}{37}{subsection.4.2.3}%
 \contentsline {chapter}{\numberline {5}Algoritmus Extreme Seeking Entropy}{39}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Výsledky experimentů}{43}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Případové studie detekce novosti algoritmu Extreme Seeking Entropy}{43}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Případová studie: chaotická časová řada Mackey-Glass a detekce pertubace}{43}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Případová studie: detekce změny rozptylu šumu v náhodném datovém toku}{44}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Případová studie: detekce skokové změny parametrů generátoru signálu}{46}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Případová studie: detekce náhlé absence šumu}{49}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Případová studie: detekce změny trendu}{49}{subsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.1.6}Případová studie: detekce epilepsie v myším EEG}{52}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}{54}{subsection.6.1.7}%
-\contentsline {subsection}{\numberline {6.1.8}Vyhodnocení úspěšnosti detekce skokové změny trendu}{57}{subsection.6.1.8}%
-\contentsline {section}{\numberline {6.2}Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}{59}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Popis experimentu}{59}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Konstrukce ROC křivky}{60}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Výsledky experimentu}{61}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}{65}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Motivace}{65}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Specifikace experimentu}{66}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Výsledky a diskuze}{66}{subsection.6.3.3}%
-\contentsline {section}{\numberline {6.4}Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu}{70}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Popis bioprocesu a specifikace problému}{70}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Experiment a zhodnocení}{72}{subsection.6.4.2}%
-\contentsline {chapter}{\numberline {7}Závěr}{77}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Možné směry budoucího výzkumu}{78}{section.7.1}%
-\contentsline {chapter}{Publikace autora}{79}{chapter*.45}%
-\contentsline {chapter}{Literatura}{81}{chapter*.46}%
-\contentsline {chapter}{Příloha}{93}{chapter*.47}%
+\contentsline {chapter}{\numberline {6}Výsledky detekce novosti algoritmem Extreme Seeking Entropy}{43}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Chaotická časová řada Mackey-Glass a detekce pertubace}{43}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Detekce změny rozptylu šumu v náhodném datovém toku}{44}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Detekce skokové změny parametrů generátoru signálu}{46}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Detekce náhlé absence šumu}{49}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Detekce změny trendu}{49}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Detekce epilepsie v záznamu myšího EEG}{52}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}{54}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Vyhodnocení úspěšnosti detekce skokové změny trendu}{57}{section.6.8}%
+\contentsline {section}{\numberline {6.9}Evaluace ROC křivky pro detekci změny trendu}{59}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Popis experimentu}{59}{subsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.9.2}Konstrukce ROC křivky}{60}{subsection.6.9.2}%
+\contentsline {subsection}{\numberline {6.9.3}Výsledky experimentu}{61}{subsection.6.9.3}%
+\contentsline {section}{\numberline {6.10}Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}{65}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Motivace}{65}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}Specifikace experimentu}{66}{subsection.6.10.2}%
+\contentsline {subsection}{\numberline {6.10.3}Výsledky a diskuze}{67}{subsection.6.10.3}%
+\contentsline {chapter}{\numberline {7}Závěr}{71}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Možné směry budoucího výzkumu}{72}{section.7.1}%
+\contentsline {chapter}{Publikace autora}{73}{chapter*.39}%
+\contentsline {chapter}{Literatura}{75}{chapter*.40}%
+\contentsline {chapter}{Příloha}{}{chapter*.41}%
+\contentsline {section}{\numberline {A}Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu}{}{section.1..1}%
+\contentsline {subsection}{\numberline {A.1}Popis bioprocesu a specifikace problému}{}{subsection.1..1.1}%
+\contentsline {subsection}{\numberline {A.2}Experiment a zhodnocení}{}{subsection.1..1.2}%
+\contentsline {section}{\numberline {B}Vyhodnocení přesnosti detekce změny trendu a skokové změny parametrů generátoru signálu}{}{section.1..2}%
+\contentsline {section}{\numberline {C}Vybrané publikace}{}{section.1..3}%

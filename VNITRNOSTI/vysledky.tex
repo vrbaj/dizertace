@@ -1,8 +1,8 @@
-\chapter{Výsledky experimentů}\label{chap:vysledky}
-V této kapitole jsou shrnuty výsledky, kterých bylo v rámci práce na tématu dizertace dosaženo. Jmenovitě jsou to výsledky navrženého algoritmu Extreme Seeking Entropy (viz kapitola \ref{chap: ESE_vysledky}) a potom použití algoritmu Learning Entropy pro adaptivní fuzzy filtr při detekci změn stavu bioprocesu (viz kapitola \ref{chap:LE_fuzzy}). Výsledky byly publikovány v \cite{ese_mdpi}.
-\section{Případové studie detekce novosti algoritmu Extreme Seeking Entropy}\label{chap: ESE_vysledky}
-Obsah této podkapitoly je shrnutím publikovaných výsledků v \cite{ese_mdpi}, přičemž pro případovou studii detekce změny trendu jsou uvedeny ještě výsledky při použití algoritmů RLS a LS, které publikovány nebyly.
-\subsection{Případová studie: chaotická časová řada Mackey-Glass a detekce pertubace}
+\chapter{Výsledky detekce novosti algoritmem Extreme Seeking Entropy}\label{chap:vysledky}
+V dalším textu jsou shrnuty výsledky algoritmu Extreme Seeking Entropy kterých bylo v rámci práce na dizertační práci dosaženo. Výsledky použití ESE pro detekci pertubace v chaotické časové řadě Mackey-Glass je uvedena v podkapitole \ref{chap:mdpi_mg}. Dále jsou uvedeny výsledky pro: detekci změny rozptylu šumu v náhodném datovém toku (viz podkapitola \ref{chap:mdpi_noise_change}, detekci skokové změny parametrů generátoru signálu (viz podkapitola \ref{chap:mdpi_stepchange}), detekci náhle absence šumu (viz podkapitola \ref{chap:mdpi_noise_ext}), detekci změny trendu (viz podkapitola \ref{chap:mdpi_trendchange} a detekci epilepsie v záznamu myšího EEG (viz podkapitola \ref{chap:mdpi_eeg}). Dále jsou uvedeny výsledky vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu (viz podkapitola \ref{chap:mdpi_step_stats}) a úspěšnosti detekce skokové změny trendu (viz podkapitola \ref{chap:mdpi_trendchange_evaluation}). V posledních dvou kapitolách je potom vyhodnocení ROC křivky (receiver operating characteristic) pro detekci změny trendu (viz podkapitola \ref{chap:appel_roc}) a experimentální vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení (viz podkapitola \ref{chap:appel_gpd}).
+\par Výsledky v podkapitolách \ref{chap:mdpi_mg}-\ref{chap:mdpi_trendchange_evaluation} byly publikovány v \cite{ese_mdpi}. Výsledky v podkapitolách \ref{chap:appel_roc} a \ref{chap:appel_gpd} pak v publikacích \cite{appel2,appel3}.
+
+\section{Chaotická časová řada Mackey-Glass a detekce pertubace}\label{chap:mdpi_mg}
 Tento experiment byl proveden pro porovnání s výsledky uvedenými v publikaci \cite{ivoLE1}, která je první publikací o algoritmu LE (viz kapitola \ref{chap:LE}). Experiment spočívá v detekci pertubovaného vzorku v chaotické časové řadě, která je výsledkem řešení Mackey-Glassovy rovnice \cite{mackey}.
 \begin{equation}
     \frac{dy(t)}{dt}= \beta \cdot \frac{ y(t-\tau)}{1 + y^\alpha(t-\tau)} - \gamma y(t)
@@ -31,25 +31,23 @@ Výstup adaptivního filtru a chyba predikce jsou znázorněny na obrázku \ref{
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.56]{IMG/mdpi/mackey_results_nd.eps}
+    \includegraphics[scale=0.57]{IMG/mdpi/mackey_results_nd.eps}
     \caption{Graf (a) zobrazuje hodnotu ESE. Prvních 300 vzorků je hodnota ESE nulová, protože délka okna pro vyhodnocování novosti $n_s=300$. Graf (b) zobrazuje výsledky algoritmu ELBND. Prvních 300 výsledků ELBND je pro názornost vynecháno. Graf (c) zobrazuje výsledky algoritmu LE.}
     \label{fig:mackey_results_nd}
 \end{figure}
 
-\subsection{Případová studie: detekce změny rozptylu šumu v náhodném datovém toku}
+\section{Detekce změny rozptylu šumu v náhodném datovém toku}\label{chap:mdpi_noise_change}
 Tato případová studie je navržená na základě problému, který se vyskytuje v použití hybridních navigačních systémů využívajících GPS (Global Positioning System) senzory pro navigaci výpočtem \cite{dead}. Smyslem experimentu je demonstrovat možnost využití algoritmu ESE pro detekci změn rozptylu šumu v náhodných datech.
 \par
 Uvažujme dva vstupy $x_1(k)$ a $x_2(k)$ a výstup generátoru signálu $y(k)$ takový, že
 \begin{equation}
 y(k)=x_1(k)+x_2(k)+x_1(k)\cdot x_2(k)+v(k)
 \end{equation}
-kde člen $v(k)$ reprezentuje aditivní Gaussovský šum který je přidán k výstupu generátoru $y(k)$. Přidaný šum má nulovou střední hodnotu a směrodatnou odchylku $\sigma_n=0.1$, takže $v(k)\sim N(0,1)$. Hodnoty vstupů jsou v každém diskrétním časovém okamžiku vybrány náhodně z rovnoměrného rozdělení na intervalu $\langle 0,\rangle$. V diskrétním časovém okamžiku $k=500$ dojde ke změně směrodatné odchylky šumu na hodnota $\sigma_n=0.2$, $v(k) \sim N(0,0.2)$.
-\par 
-Adaptivní filtr v tomto experimentu byl QNU ve tvaru
+kde člen $v(k)$ reprezentuje aditivní Gaussovský šum který je přidán k výstupu generátoru $y(k)$. Přidaný šum má nulovou střední hodnotu a směrodatnou odchylku $\sigma_n=0.1$, takže $v(k)\sim N(0,1)$. Hodnoty vstupů jsou v každém diskrétním časovém okamžiku vybrány náhodně z rovnoměrného rozdělení na intervalu $\langle 0,\rangle$. V diskrétním časovém okamžiku $k=500$ dojde ke změně směrodatné odchylky šumu na hodnota $\sigma_n=0.2$, $v(k) \sim N(0,0.2)$. Adaptivní filtr v tomto experimentu byl QNU ve tvaru
 \begin{equation}
 \hat{y}(k)=w_1\cdot x_1(k) + w_2\cdot x_2(k)+w_3\cdot x_1(k)\cdot x_2(k)
 \end{equation}
-tak,  že jeho struktura odpovídá struktuře generátoru signálu. Adaptivní parametry filtru byly adaptovány algoritmem GNGD. Rychlost učení byla nastavená jako $\mu=1$. Metoda POT byla zvolena podle \ref{eq:l2} a délka okna $n_s=500$. Výsledky experimentu jsou zobrazeny na obrázku \ref{fig:noise_changed}. Apriorní hodnoty parametrů GPD byly stanoveny na základě 500 vzorků, které nejsou v následujícím obrázku \ref{fig:noise_changed} zobrazeny. Globální maximum ESE odpovídá změně směrodatné odchylky šumu $\sigma_n$. Detekce pomocí algoritmů LE a ELBND je o několik vzorků opožděná. Pro výpočet LE byl použit vztah \ref{eq:le_direct_padasip} a délka okna byla nastavena na $M=300$. Výpočet ELBND byl proveden podle rovnice \ref{eq:elbnd2}.
+tak,  že jeho struktura odpovídá struktuře generátoru signálu. Adaptivní parametry filtru byly adaptovány algoritmem GNGD. Rychlost učení byla nastavená jako $\mu=1$. Metoda POT byla zvolena podle rovnice \ref{eq:l2} a délka okna $n_s=500$. Výsledky experimentu jsou zobrazeny na obrázku \ref{fig:noise_changed}. Apriorní hodnoty parametrů GPD byly stanoveny na základě 500 vzorků, které nejsou v následujícím obrázku \ref{fig:noise_changed} zobrazeny. Globální maximum ESE odpovídá změně směrodatné odchylky šumu $\sigma_n$. Detekce pomocí algoritmů LE a ELBND je o několik vzorků opožděná. Pro výpočet LE byl použit vztah \ref{eq:le_direct_padasip} a délka okna byla nastavena na $M=300$. Výpočet ELBND byl proveden podle rovnice \ref{eq:elbnd2}.
 
 \begin{figure}[ht!] 
     \centering
@@ -58,7 +56,7 @@ tak,  že jeho struktura odpovídá struktuře generátoru signálu. Adaptivní 
     \label{fig:noise_changed}
 \end{figure}
 
-\subsection{Případová studie: detekce skokové změny parametrů generátoru signálu}\label{chap:stepchange}
+\section{Detekce skokové změny parametrů generátoru signálu}\label{chap:mdpi_stepchange}
 Tato případová studie je motivována problémem, který vzniká při sledování vícero náhodných datových toků \cite{stepchange} u kterých se kontroluje, zda nedošlo ke změně vlastností jejich generátoru. Uvažujme opět dva vstupy $x_1(k)$, $x_2(k)$ a výstup generátoru signálu ve tvaru
 \begin{equation}
 y(k)=x_1(k)+x_2(k)+x_1(k)\cdot x_2(k) + v(k)
@@ -80,8 +78,8 @@ přičemž adaptivní parametry uvedeného filtru jsou adaptovány algoritmem GN
     \label{fig:step_change}
 \end{figure}
 
-\subsection{Případová studie: detekce náhlé absence šumu}
-V tomto experimentu je ukázáno, že lehce modifikovaný algoritmus ESE může být využit také k detekci neobvykle malých změn parametrů adaptivního filtru. Oproti standardní variantě ESE budeme vyhodnocovat neobvykle malé přírůstky vah adaptivního filtru. Takže jediná změna v algoritmu je, že metodou POT budeme vybírat pouze nejmenší změny adaptivních vah a budeme odhadovat parametry GPD z takto vybraných hodnot.
+\section{Detekce náhlé absence šumu}\label{chap:mdpi_noise_ext}
+V této kapitole je ukázáno, že lehce modifikovaný algoritmus ESE může být využit také k detekci neobvykle malých změn parametrů adaptivního filtru. Oproti standardní variantě ESE budeme vyhodnocovat neobvykle malé přírůstky vah adaptivního filtru. Takže jediná změna v algoritmu je, že metodou POT budeme vybírat pouze nejmenší změny adaptivních vah a budeme odhadovat parametry GPD z takto vybraných hodnot.
 \par
 Uvažujme dva vstupy $x_1(k)$ a $x_2(k)$ jejichž hodnoty jsou v každém diskrétním časovém okamžiku $k$ vybrány z rovnoměrného rozdělení, takže  $x_1(k) \sim U(0,1)$ a $x_2(k)\sim U(0,1)$. Výstup generátoru dat $y(k)$ je definován jako
 \begin{equation}
@@ -102,12 +100,12 @@ takže jeho struktura odpovídá generátoru signálu. Parametry toho filtru jso
 \begin{figure}[ht!] 
     \centering
     \includegraphics[scale=0.6]{IMG/mdpi/noise_ext.eps} 
-    \caption{Detekce vymizení šumu ze signálu. Na grafu (a) je zobrazena původní časová řada (modrá). Graf (b) zobrazuje chybu filtru $e$. Na grafu (c) jsou zobrazeny velikosti přírůstků adaptivních vah filtru. Na grafu (d) jsou pak výsledky modifikovaného algoritmu ESE, přičemž k odstranění šumu ze signálu došlo v diskrétní časový okamžik $k=500$. Je tedy vidět globální maximum v ESE odpovídající úspěšné detekci. Na grafech (e) a (f) jsou pak výsledky metod ELBND a LE.}
+    \caption{Detekce vymizení šumu ze signálu. Na grafu (a) je zobrazena původní časová řada (modrá). Graf (b) zobrazuje chybu filtru $e$. Na grafu (c) jsou zobrazeny velikosti přírůstků adaptivních vah filtru. Na grafu (d) jsou pak výsledky modifikovaného algoritmu ESE, přičemž k odstranění šumu ze signálu došlo v diskrétní časový okamžik $k=500$. Je tedy vidět globální maximum v ESE odpovídající úspěšné detekci vymizení šumu ze signálu. Na grafech (e) a (f) jsou pak výsledky získané pomocí metod ELBND a LE.}
     \label{fig:noise_ext}
 \end{figure}
 
-\subsection{Případová studie: detekce změny trendu}\label{chap:trendchange}
-Cílem tohoto experimentu je demonstrovat použití algoritmu ESE při detekci změny trendu, což je úloha, která se často vyskytuje v oblasti detekce poruch a diagnostice \cite{diagnosis}. Uvažujme opět dva vstupy $x_1(k) \sim U(0,1)$ a $x_2(k)\sim U(0,1)$ a výstup generátoru dat $y(k)$ takový, že
+\section{Detekce změny trendu}\label{chap:mdpi_trendchange}
+Cílem této kapitoly je demonstrovat použití algoritmu ESE při detekci změny trendu, což je úloha, která se často vyskytuje v oblasti detekce poruch a diagnostice \cite{diagnosis}. Uvažujme opět dva vstupy $x_1(k) \sim U(0,1)$ a $x_2(k)\sim U(0,1)$ a výstup generátoru dat $y(k)$ takový, že
 \begin{equation}
     y(k)=x_1(k)+x_2(k)+0.01\cdot k + v(k)
 \end{equation}
@@ -135,7 +133,7 @@ Struktura LNU byla vybrána tak, aby co nejlépe odpovídala struktuře generát
 \label{fig:trend_change}
 \end{figure}
 \par
-Vzhledem k tomu, že pro algoritmus ESE není důležité, jaký konkrétní adaptivní algoritmus je použit, jsou na následujících obrázcích ještě zobrazeny výsledky detekce změny trendu s použitím algoritmů RLS (viz obrázek \ref{fig:trend_change_rls}) a LMS (viz obrázek \ref{fig:trend_change_lms}). Pro algoritmus RLS bylo prvodní nastavení parametru $\delta=10$, pro algoritmus LMS byla nastavena rychlost učení $\mu=0.1$.
+Vzhledem k tomu, že pro algoritmus ESE není důležité, jaký konkrétní adaptivní algoritmus je použit, jsou na následujících obrázcích ještě zobrazeny výsledky detekce změny trendu s použitím algoritmů RLS (viz obrázek \ref{fig:trend_change_rls}) a LMS (viz obrázek \ref{fig:trend_change_lms}). Pro algoritmus RLS bylo prvotní nastavení parametru $\delta=10$, pro algoritmus LMS byla nastavena rychlost učení $\mu=0.1$. Výsledky těchto dvou algoritmů publikovány nebyly.
 
 \begin{figure}[ht!]
 \centering
@@ -150,7 +148,7 @@ Vzhledem k tomu, že pro algoritmus ESE není důležité, jaký konkrétní ada
     \caption{Detekce změny trendu při použití algoritmu LMS. Na grafu (a) jsou zobrazena data z generátoru signálu (modré). Černá šipka znázorňuje okamžik ve kterém došlo ke změně trendu. Na grafu (b) je zobrazena chyba adaptivního filtru $e$. Na grafu (c) jsou znázorněny velikosti přírůstků adaptivních vah filtru. Grafy (d), (e) a (f) znázorňují výsledky detekce novosti pomocí algoritmů ESE, ELBND a LE. Všechny tři algoritmy vykazují úspěšnou detekci změny trendu, která koresponduje s jejich maximální hodnoty během experimentu.}
 \label{fig:trend_change_lms}
 \end{figure}
-\subsection{Případová studie: detekce epilepsie v myším EEG}
+\section{Detekce epilepsie v záznamu myšího EEG}\label{chap:mdpi_eeg}
 Poslední případová studie je věnována detekci epileptického záchvatu v signálu EEG myši pomocí algoritmu EEG. Standartizovaná data ze tří vybraných kanálů EEG, ve kterých byl expertem stanoven začátek epileptického záchvatu přibližně v čase $k \approx 1700$, jsou zobrazeny na obrázku \ref{fig:eeg_seizure}. Standartizace byla provedena podle předpisu
 \begin{equation}
 y=\frac{x-\mu_{x}}{\sigma_{x}}
@@ -165,7 +163,7 @@ takže filtr má 10 adaptivních parametrů. Filtr byl adaptován algoritmem NLM
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.58]{IMG/mdpi/mouse_eeg.eps}
+    \includegraphics[scale=0.88]{IMG/mdpi/mouse_eeg.eps}
     \caption{Vybrané kanály myšího EEG na kterých je patrný epileptický záchvat. Data byly standartizovány. Začátek záchvatu je přibližně v $k\approx 1700$, což znázorňuje černá šipka.}
     \label{fig:eeg_seizure}
 \end{figure}
@@ -177,13 +175,13 @@ takže filtr má 10 adaptivních parametrů. Filtr byl adaptován algoritmem NLM
 \end{figure}
 
 
-\subsection{Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}
+\section{Vyhodnocení úspěšnosti detekce skokové změny parametrů generátoru signálu}\label{chap:mdpi_step_stats}
 Pro vyhodnocení úspěšnosti skokové změny parametrů generátoru signálu uvažujme generátor signálu s dvěma vstupy $x_1(k)$ a $x_2(k)$ a výstupem $y(k)$ ve tvaru
 \begin{equation}
 y(k)=a_1\cdot x_1(k)+a_2\cdot x_2(k)+a_3\cdot x_1(k) \cdot x_2(k)+v(k)
 \end{equation}
 kde člen $v(k)$ reprezentuje gaussovský aditivní šum s nulovou střední hodnotou a směrodatnou odchylkou $\sigma$. Počáteční hodnoty parametrů $a_1$, $a_2$ a $a_3$ jsou vygenerovány z rovnoměrného rozdělení $U(-1,1)$. V diskrétním časovém okamžiku $k=200$, dojde ke skokové změně těchto parametrů a jejich nová hodnota je opět náhodně vygenerována z rovnoměrného rozdělení $U(-1,1)$. Celkový počet vzorků experimentu je 400.
-Použitý adaptivní filtr je stejný jako v předchozí případové studii detekce skokové změny parametrů generátoru signálu, viz kapitola \ref{chap:stepchange}. Parametry tohoto adaptivního filtru byly adaptovány algoritmem GNGD. Metoda POT byla zvolena podle rovnice \ref{eq:l1} a délka okna byla zvolena $n_s=1200$. Apriorní informace o parametrech GPD byla pro každý experiment získána pomoci 1200 vzorků, s počátečními hodnotami parametrů $a_1$, $a_2$ a $a_3$. Pro každý experiment byla vyhodnocena hodnota SNR jako
+Použitý adaptivní filtr je stejný jako v předchozí případové studii detekce skokové změny parametrů generátoru signálu, viz kapitola \ref{chap:mdpi_stepchange}. Parametry tohoto adaptivního filtru byly adaptovány algoritmem GNGD. Metoda POT byla zvolena podle rovnice \ref{eq:l1} a délka okna byla zvolena $n_s=1200$. Apriorní informace o parametrech GPD byla pro každý experiment získána pomoci 1200 vzorků, s počátečními hodnotami parametrů $a_1$, $a_2$ a $a_3$. Pro každý experiment byla vyhodnocena hodnota SNR jako
 \begin{equation}\label{eq:snr}
 SNR=10\log_{10}\frac{\sigma_s^2}{\sigma^2}
 \end{equation}
@@ -195,26 +193,26 @@ kde $\sigma_s$  je hodnota směrodatné odchylky výstupu generátoru signálu b
 \item vypočte se celková úspěšnost detekce pro danou hodnotu směrodatné odchylky (poměr počtu úspěšných detekcí k celkovému počtu experimentů)
 \item pro každý experiment se vyhodnotí SNR podle \ref{eq:snr} a pak se pro zvolenou hodnotu $\sigma$ vypočítá průměrná hodnota $SNR$ pro všechny experimenty
 \end{enumerate}
-Vyhodnocení úspěšnosti detekce bylo vyhodnoceno pro dva případy. V prvním případě, byly hodnoty vstupů $x_1(k)$ a $x_2(k)$ generovány z rovnoměrného rozdělení $U(-1,1)$. Výsledky úspěšnosti detekce pro různé hodnoty směrodatných odchylek šumu $\sigma$ jsou zobrazeny na obrázku \ref{fig:step_uni_stats}. Výsledky jsou také shrnuty v tabulce XXX (viz příloha). Pro porovnání jsou zvoleny metody ELBND (výpočet podle rovnice \ref{eq:elbnd2}), LE s oknem $n_s=1200$ (výpočet podle rovnice \ref{eq:le_direct_padasip}) a velikost chyby adaptivního filtru $e$ (v grafu označeno jako ERR).
+Vyhodnocení úspěšnosti detekce bylo vyhodnoceno pro dva případy. V prvním případě, byly hodnoty vstupů $x_1(k)$ a $x_2(k)$ generovány z rovnoměrného rozdělení $U(-1,1)$. Výsledky úspěšnosti detekce pro různé hodnoty směrodatných odchylek šumu $\sigma$ jsou zobrazeny na obrázku \ref{fig:step_uni_stats}. Výsledky jsou také shrnuty v tabulce \ref{tab:uniform} (viz příloha \ref{priloha:tab}). Pro porovnání jsou zvoleny metody ELBND (výpočet podle rovnice \ref{eq:elbnd2}), LE s oknem $n_s=1200$ (výpočet podle rovnice \ref{eq:le_direct_padasip}) a velikost chyby adaptivního filtru $e$ (v grafu označeno jako ERR).
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.62]{IMG/mdpi/stepuni_stats.eps}
+    \includegraphics[scale=0.66]{IMG/mdpi/stepuni_stats.eps}
     \caption{Úspěšnost detekce skokové změny parametrů generátoru signálu. Hodnoty vstupů generátoru signálu jsou generovány z rovnoměrného rozdělení $U(-1,1)$. 
 Pro hodnoty $SNR > 15$ $dB$ dosáhl algoritmus ESE vyšší úspěšnost než algoritmy  LE, ELBND a vyhodnocení pomocí chyby filtru (ERR). Pro $SNR > 33$ $dB$ dosáhl algoritmus ESE 100\% úspěšnost detekce.}
     \label{fig:step_uni_stats}
 \end{figure}
-Ve druhém případě byly hodnoty vstupů $x_1(k)$ a $x_2(k)$ generovány z normálního rozdělení. Vyhodnocení úspěšnosti detekce bylo provedeno stejně jako v případě popsaném výše. Výsledky ůspěšnosti detekce pro různé hodnoty směrodatných odchylek šumu $\sigma$ jsou zobrazeny na obrázku \ref{fig:step_norm_stats}. Uvedené výsledky v číselné podobě jsou uvedeny v tabulce XXX (viz příloha). Výpočet hodnot ELBND, LE a ERR bylo provedeno stejně jako ve výše uvedeném případě.
+Ve druhém případě byly hodnoty vstupů $x_1(k)$ a $x_2(k)$ generovány z normálního rozdělení. Vyhodnocení úspěšnosti detekce bylo provedeno stejně jako v případě popsaném výše. Výsledky ůspěšnosti detekce pro různé hodnoty směrodatných odchylek šumu $\sigma$ jsou zobrazeny na obrázku \ref{fig:step_norm_stats}. Uvedené výsledky v číselné podobě jsou uvedeny v tabulce \ref{tab:normal} (viz příloha \ref{priloha:tab}). Výpočet hodnot ELBND, LE a ERR bylo provedeno stejně jako ve výše uvedeném případě.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.62]{IMG/mdpi/stepnorm_stats.eps}
+    \includegraphics[scale=0.66]{IMG/mdpi/stepnorm_stats.eps}
     \caption{Úspěšnost detekce skokové změny parametrů signálu. Hodnoty vstupů generátoru signálu jsou generovány z normálního rozdělení $N(0,1)$. Pro hodnoty $SNR > 8$ $dB$ dosáhl algoritmus ESE  lepší úspěšnosti detekce než algoritmy LE, ELBND a vyhodnocení pomocí velikosti chyby predikce (ERR). Pro $SNR > 34$ $dB$ dosáhl algoritmus ESE 100\% úspěšnosti detekce.}
     \label{fig:step_norm_stats}
 \end{figure}
 
 
-\subsection{Vyhodnocení úspěšnosti detekce skokové změny trendu}\label{chap:trendchange_evaluation}
+\section{Vyhodnocení úspěšnosti detekce skokové změny trendu}\label{chap:mdpi_trendchange_evaluation}
 Pro vyhodnocení úspěšnosti změny trendu uvažujme výstup generátoru signálu $y(k)$ se dvěma vstupy $x_1(k)$ a $x_2(k)$ jehož výstup je definován jako
 \begin{equation}\label{eq:trnd_stats}
     y(k) = x_1(k) + x_2(k) + 0.01 \cdot k + v(k)
@@ -225,7 +223,7 @@ kde člen $v(k)$ reprezentuje aditivní gaussovký šum s nulovou střední hodn
 \end{equation}
 přičemž parametr $a$ je vygenerován v každém experimentu z rovnoměrného rozdělení $U(-0.02,0.02)$. Počet vzorků experimentu je 400.
 \par 
-Struktura adaptivního filtru byla zvolena stejně jako v předcházející případové studii detekce změny trendu (viz kapitola \ref{chap:stepchange}). Adaptivní parametry filtru byly adaptovány algoritmem GNGD. Metoda POT pro algoritmus ESE byla zvolena jako \ref{eq:l1} a délka okna byla nastaven na $n_s=1200$. Apriorní informace o parametrech GPD byla získána na základě 1200 vzorků, ve kterých nedošlo ke změně trendu. 
+Struktura adaptivního filtru byla zvolena stejně jako v předcházející případové studii detekce změny trendu (viz kapitola \ref{chap:mdpi_stepchange}). Adaptivní parametry filtru byly adaptovány algoritmem GNGD. Metoda POT pro algoritmus ESE byla zvolena jako \ref{eq:l1} a délka okna byla nastaven na $n_s=1200$. Apriorní informace o parametrech GPD byla získána na základě 1200 vzorků, ve kterých nedošlo ke změně trendu. 
 \par 
 Vyhodnocení přesnosti detekce změny trendu bylo provedeno následujícím způsobem:
 \begin{enumerate}
@@ -236,20 +234,20 @@ Vyhodnocení přesnosti detekce změny trendu bylo provedeno následujícím zp�
 \item pro každý experiment se vyhodnotí SNR podle \ref{eq:snr} a pak se pro zvolenou hodnotu $\sigma$ vypočítá průměrná hodnota $SNR$ pro všechny experimenty
 \end{enumerate}
 
-Vyhodnocení úspěšnosti detekce změny trendu bylo vyhodnoceno pro hodnoty vstupů $x_1(k)$ a $x_2(k)$ vygenerovány z rovnoměrného rozdělení $U(-1,1)$. Výsledky úspěšnosti detekce pro různé hodnoty směrodatných odchylek šumu $\sigma$ jsou zobrazeny na obrázku \ref{fig:trend_stats}. Výsledky jsou také shrnuty v tabulce XXX (viz příloha). Pro porovnání jsou zvoleny metody ELBND (výpočet podle rovnice \ref{eq:elbnd2}), LE s oknem $n_s=1200$ (výpočet podle rovnice \ref{eq:le_direct_padasip}) a velikost chyby adaptivního filtru $e$ (v grafu označeno jako ERR).
+Vyhodnocení úspěšnosti detekce změny trendu bylo vyhodnoceno pro hodnoty vstupů $x_1(k)$ a $x_2(k)$ vygenerovány z rovnoměrného rozdělení $U(-1,1)$. Výsledky úspěšnosti detekce pro různé hodnoty směrodatných odchylek šumu $\sigma$ jsou zobrazeny na obrázku \ref{fig:trend_stats}. Výsledky jsou také shrnuty v tabulce \ref{tab:trend} (viz příloha \ref{priloha:tab}). Pro porovnání jsou zvoleny metody ELBND (výpočet podle rovnice \ref{eq:elbnd2}), LE s oknem $n_s=1200$ (výpočet podle rovnice \ref{eq:le_direct_padasip}) a velikost chyby adaptivního filtru $e$ (v grafu označeno jako ERR).
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.63]{IMG/mdpi/trendchange_stats.eps}
+    \includegraphics[scale=0.66]{IMG/mdpi/trendchange_stats.eps}
     \caption{Úspěšnost detekce změny trendu. Hodnoty vstupů generátoru signálu byly generovány z rovnoměrného rozdělení $U(-1,1)$. Pro hodnoty $SNR > 8$ $dB$ dosáhl algoritmus ESE větší úspěšnosti detekce než LE, ELBND a vyhodnocení pomocí velikosti chyby filtru.}
     \label{fig:trend_stats}
 \end{figure}
 
 
-\section{Vyhodnocení úspěšnosti detekce změny trendu a evaluace ROC křivky}
-Protože úspěšná detekce novosti pomocí algoritmu ESE je závislá na volbě hodnoty, od které budeme považovat hodnotu ESE za "novost", byl proveden experiment detekce změny trendu a vyhodnocena ROC (Receiver Operating Characteristics) křivka \cite{roc_orig}. ROC křivka poskytuje vhodný způsob jak vizualizovat schopnost binárního klasifikátoru klasifikovat správně data na základě proměnlivé velikosti prahu, který klasifikaci určuje (v případě algoritmu ESE je to hodnota ESE) a zároveň umožňuje objektivně jednotlivé klasifikátory porovnávat \cite{roc_bible} (více viz následující podkapitola \ref{chap:roc_specs}). Pro porovnání algoritmu ESE byly opět zvoleny algoritmy LE, ELBND a klasifikátor, který klasifikuje vzorky náhodně.
+\section{Evaluace ROC křivky pro detekci změny trendu}\label{chap:appel_roc}
+Protože úspěšná detekce novosti pomocí algoritmu ESE je závislá na volbě hodnoty, od které budeme považovat hodnotu ESE za \textquote{novost}, byl proveden experiment detekce změny trendu a vyhodnocena ROC (Receiver Operating Characteristics) křivka \cite{roc_orig}. ROC křivka poskytuje vhodný způsob jak vizualizovat schopnost binárního klasifikátoru klasifikovat správně data na základě proměnlivé velikosti prahu, který klasifikaci určuje (v případě algoritmu ESE je to hodnota ESE) a zároveň umožňuje objektivně jednotlivé klasifikátory porovnávat \cite{roc_bible} (více viz následující podkapitola \ref{chap:roc_specs}). Pro porovnání algoritmu ESE byly opět zvoleny algoritmy LE, ELBND a klasifikátor, který klasifikuje vzorky náhodně.
 \subsection{Popis experimentu}
-Stejně jako v případě vyhodnocení přesnosti detekce změny trendu (viz podkapitola \ref{chap:trendchange_evaluation}) i v tomto experimentu uvažujeme dva vstupy $x_1(k)$ a $x_2(k)$ výstup generátoru signálu $y(k)$ ve tvaru 
+Stejně jako v případě vyhodnocení přesnosti detekce změny trendu (viz podkapitola \ref{chap:mdpi_trendchange_evaluation}) i v tomto experimentu uvažujeme dva vstupy $x_1(k)$ a $x_2(k)$ výstup generátoru signálu $y(k)$ ve tvaru 
 \begin{equation}
     \label{eq:trend}
     d(k)=x_1(k)+x_2(x)+0.01\cdot k + v(k)
@@ -270,9 +268,9 @@ Jako adaptivní filtr byl zvolen QNU, jehož struktura odpovídá struktuře gen
 \begin{equation}
 \hat{y}(k)=w_1\cdot x_1(k)+w_2\cdot x_2(k) + w_3 \cdot x_1(k) \cdot x_2(k)
 \end{equation}
-a parametry toho adaptivního filtru byly adaptovány algoritmem GNGD. Rychlost učení během experimentů byla nastavený na $\mu=0.5$.
+a parametry toho adaptivního filtru byly adaptovány algoritmem GNGD. Rychlost učení během experimentů byla nastavena na $\mu=0.5$.
 \par 
-Apriorní hodnota parametrů GPD pro algoritmus ESE je získána pomocí 1200 vzorků, získaných z výstupu generátoru signálu, který je dán rovnicí \ref{eq:trend}. Během experimentů byla délka okna $n_s=1200$. Metoda POT byla zvolena podle \ref{eq:l1}. Pro výpočet ELBND byl použit vztah \ref{eq:elbnd2}. Výsledky algoritmu LE byly získány pro okno délky $n_s=1200$ pomocí vztahu \ref{eq:le_direct_padasip}. Pro každou hodnotu $\sigma$ bylo provedeno 10000 experimentů na jejichž základě byla zkonstruována ROC křivka. Hodnoty směrodatných odchylek $\sigma$ byly vybrány takto:
+Apriorní hodnota parametrů GPD pro algoritmus ESE je získána pomocí 1200 vzorků, získaných z výstupu generátoru signálu, který je dán rovnicí \ref{eq:trend}. Během experimentů byla délka okna $n_s=1200$. Metoda POT byla zvolena podle \ref{eq:l1}. Pro výpočet ELBND byl použit vztah \ref{eq:elbnd2}. Výsledky algoritmu LE byly získány pro okno délky $M=1200$ pomocí vztahu \ref{eq:le_direct_padasip}. Pro každou hodnotu $\sigma$ bylo provedeno 10000 experimentů na jejichž základě byla zkonstruována ROC křivka. Hodnoty směrodatných odchylek $\sigma$ byly vybrány takto:
 \begin{equation}
 \sigma=\{0.1,0.2,0.5,1.0,2.0,2.5 \}
 \end{equation}
@@ -286,7 +284,7 @@ Pro konstrukci ROC křivky je důležité, aby množina výsledků byla vyváže
 \begin{equation*}
 i = 0,1,\dots,39
 \end{equation*}
-kde $ND$ reprezentuje hodnotu detektoru novosti (resp. hodnoty algoritmu ESE, ELBND, LE). Z každé převzorkované datové řady jsou vybrány dva vzorky jsou vygenerovány dvě jednoprvkové množiny. Množina $P$ obsahuje pozitivní vzorek, takový, že $P=\{ND_r(20)\}$ (protože v diskrétním časovém okamžiku $k=200$ došlo ke změně trendu).  Množina $N$ obsahuje obsahuje zbylých 39 negativních vzorků, takže $N=\{ND(0), \dots ND(19), ND(21), \dots ND(39) \}$. Při konstrukci ROC křivky jsou pro každý experiment vybrány dva vzorky. Jeden vzorek z množiny $P$ a jeden náhodně vybraný vzorek z množiny $N$. Pro vyhodnocení ROC je klíčové zjistit, jestli jsou pozitivní vzorky (prvky množiny $P$) pro daný práh správně klasifikovány jako pozitivní (True Positive) a zda-li jsou negativní vzorky klasifikovány jako falešně pozitivní (False Positive). Pro danou velikost prahu se určí úspěšnost detekce skutečně pozitivních (True Positive Rate) jako 
+kde $ND$ reprezentuje hodnotu detektoru novosti (resp. hodnoty algoritmu ESE, ELBND, LE). Z každé převzorkované datové řady jsou vygenerovány dvě množiny. Množina $P$ obsahuje pozitivní vzorek, takový, že $P=\{ND_r(20)\}$ (protože v diskrétním časovém okamžiku $k=200$ došlo ke změně trendu).  Množina $N$ obsahuje obsahuje zbylých 39 negativních vzorků, takže $N=\{ND(0), \dots ND(19), ND(21), \dots ND(39) \}$. Při konstrukci ROC křivky jsou pro každý experiment vybrány dva vzorky. Jeden vzorek z množiny $P$ a jeden náhodně vybraný vzorek z množiny $N$. Pro vyhodnocení ROC je klíčové zjistit, jestli jsou pozitivní vzorky (prvky množiny $P$) pro daný práh správně klasifikovány jako pozitivní (True Positive) a zda-li jsou negativní vzorky klasifikovány jako falešně pozitivní (False Positive). Pro danou velikost prahu se určí úspěšnost detekce skutečně pozitivních (True Positive Rate) jako 
 \begin{equation}
 TPR=\frac{TP}{P}=\frac{TP}{10000}
 \end{equation}
@@ -305,15 +303,15 @@ Komplementární k sensitivitě je hodnota míry falešně negativních ($FNR$),
 FNR=\frac{FN}{P}=1-TPR.
 \end{equation}
 \par 
-Pro každou ROC křivku je možné určit plochu pod touto křivkou (Area Under ROC), která vypovídá o schopnosti klasifikátoru rozlišovat mezi jednotlivými třídami. Čím větší plocha pod křivkou, tím víc klasifikátor správně klasifikuje pozitivní případy jako pozitivní a negativní případy jako negativní. Plocha AUROC ideálního klasifikátoru bude 1, zatímco plocha nejhoršího možného klasifikátoru bude rovna 0 (tento klasifikátor, ale bude dokonalým klasifikátorem, pokud zaměníme označení negativní třídy za pozitivní). Plocha AUROC náhodného klasifikátoru bude 0.5, neboť tento klasifikátor nedokáže vůbec rozlišovat mezi pozitivními a negativními případy.
+Pro každou ROC křivku je možné určit plochu pod touto křivkou AUROC (Area Under ROC), která vypovídá o schopnosti klasifikátoru rozlišovat mezi jednotlivými třídami. Čím větší plocha pod křivkou, tím víc klasifikátor správně klasifikuje pozitivní případy jako pozitivní a negativní případy jako negativní. Plocha AUROC ideálního klasifikátoru bude 1, zatímco plocha nejhoršího možného klasifikátoru bude rovna 0 (tento klasifikátor, ale bude dokonalým klasifikátorem, pokud zaměníme označení negativní třídy za pozitivní). Plocha AUROC náhodného klasifikátoru bude 0.5, neboť tento klasifikátor nedokáže vůbec rozlišovat mezi pozitivními a negativními případy.
 \subsection{Výsledky experimentu}
 Výsledné ROC křivky pro různé hodnoty $SNR$ jsou zobrazeny v obrázcích \ref{fig:roc_01}-\ref{fig:roc_25}. Modrá čára zobrazuje výsledky algoritmu ESE, zelená tečkovaná čára zobrazuje výsledky algoritmu LE, červená přerušovaná čára výsledky algoritmu ELBND a černá čerchovaná čára zobrazuje výsledky náhodného klasifikátoru. 
 \par 
-Pro každou ROC křivku byla vypočtena AUROC pomocí lichoběžníkové metody, jako
+Pro každou ROC křivku byla vypočtena hodnota plochy pod touto křivkou, AUROC, pomocí lichoběžníkové metody, jako
 \begin{equation}
 AUROC \approx \sum_{j=1}^{n_t} \frac{TPR(FPR(j))+TPR(FPR(j+1))}{2} \cdot(FPR(j+1)-FPR(j))
 \end{equation}
-kde $n_t$ reprezentuje počet vyhodnocovaných prahů zmenšený o 1. Výsledné plochy pod křivkami ROC jsou pro jednotlivé metody a směrodatné odchylky šumu uvedené v následující tabulce \ref{tab:auroc}. Tučně je zvýrazněna nejvetší hodnota AUROC. Podle uvedených hodnot při průměrném $SNR=35.8$ nejlepe rozlišuje mezi pozitivními a negativními případy algoritmus LE. Pro nižší hodnoty $SNR$ je nejlépe separujícím algoritmem ESE.
+kde $n_t$ reprezentuje počet vyhodnocovaných prahů zmenšený o 1. Výsledné plochy pod křivkami ROC jsou pro jednotlivé metody a směrodatné odchylky šumu uvedené v následující tabulce \ref{tab:auroc}. Tučně je zvýrazněna nejvetší hodnota AUROC. Podle uvedených hodnot při průměrném $SNR=35.8$ nejlépe rozlišuje mezi pozitivními a negativními případy algoritmus LE. Pro nižší hodnoty $SNR$ je nejlépe separujícím algoritmem ESE.
 \begin{table}[h!]
 
 \caption{$AUROC$ pro detekci změny trendu}
@@ -337,7 +335,7 @@ V další tabulce \ref{tab:dr} je uvedená úspěšnost klasifikace, kde za úsp
 \centering
 \begin{tabular}{|l|c|c|c|c|}
 \hline
-\multicolumn{2}{|l|}{} & \multicolumn{3}{c|}{\textbf{Detection rate}} \\ \hline
+\multicolumn{2}{|l|}{} & \multicolumn{3}{c|}{\textbf{Úspěšnost detekce}} \\ \hline
 $\sigma_n$ & \textit{SNR [dB]} & \textit{ESE} & \textit{LE} & \textit{ELBND} \\ \hline
 0.1 & 35.8 & 98.88 & \textbf{98.92} & 60.00 \\ \hline
 0.2 & 30.0 & \textbf{98.14} & 98.03 & 59.61 \\ \hline
@@ -386,7 +384,7 @@ Tučně jsou zvýrazněny hodnoty nejvyšší úspěšnosti detekce. Z výsledk�
     \label{fig:roc_25}
 \end{figure}
 
-\section{Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}
+\section{Vyhodnocení výpočetní náročnosti metod odhadu parametrů zobecněného Paretova rozdělení}\label{chap:appel_gpd}
 Výsledky v této podkapitole byli publikovány v (můj shit). Cílem bylo určit výpočetní čas výpočtu parametrů GPD v typické aplikaci pro použití algoritmu ESE, který byl, v tomto případě, testován ne experimentu detekce skokové změny parametrů generátoru signálu.
 \subsection{Motivace}
 Detekce novosti v reálném čase je úloha, která nalézá své uplatnění nejen v oblasti detekci a diagnostiky v průmyslových aplikacích \cite{fault}, ale také např. v detekci narušení počítačových sítí \cite{data_streams} nebo v zabezpečovacích systémech \cite{surveilance}. Další oblastí uplatnění je např. mobilní robotika, která je specifická tím, že robot má k dispozici pouze limitovaný výpočetní výkon \cite{robotics_marslan,robotics}. Pro metody detekce novosti v reálném čase je tedy důležité, aby vynikali dostatečně nízkou výpočetní náročností. Z tohoto důvodu byli otestovány tři různé metody výpočtu parametrů GPD (viz kapitola \ref{chap:gpd}, protože tento výpočet je z hlediska použití algoritmu ESE potenciálně limitující z hlediska využitelnosti v aplikacích detekce v reálném čase. Jmenovitě byli otestovány tyto metody: metoda maximální věrohodnosti (ML), metoda momentů (MOM) a metoda kvazi-maximální věrohodnosti (QML) (více viz kapitola \ref{chap:gpd}). Výpočetní čas potřebný k určení parametrů GPD pomocí těchto metod byl vyhodnocen při experimentu, ve kterém dojde ke skokové změně parametrů generátoru signálu.
@@ -407,47 +405,54 @@ y(k)=0.7\cdot x_1(k)+1.2\cdot x_1(k)+1.1 \cdot x_1(k) + v(k)
 \end{equation}
 pro $201 \leq k \leq 400$. Hodnota všech vstupů generátoru signálu je v každém časovém okamžiku $k$ vybrána ze standartního rozdělení normálního rozdělení, takže $i$-tý vstup $x_i\sim \mathcal{N}(0,1)$. Změna parametrů signálu byla vybrána tak, aby nedošlo ke změně střední hodnoty signálu $y(k)$.
 \par
-Délka okna pro odhad parametrů GPD bylě během experimentu nastavena na $n_s=1200$. Metoda POT byla zvolena podle REF na 10\%. Před experimentem bylo pořízení 1200 vzorků vygenerovaných generátorem signálu definovaným vztahem \ref{eq:gene_ese_1}, na něž byla použita metoda POT, tak aby při experimentu v diskrétní časový okamžik $k=1$ byla hodnota ESE relevantní.
+Délka okna pro odhad parametrů GPD byla během experimentu nastavena na $n_s=1200$. Metoda POT byla zvolena podle rovnice \ref{eq:l1}. Před experimentem bylo pořízení 1200 vzorků vygenerovaných generátorem signálu definovaným vztahem \ref{eq:gene_ese_1}, na něž byla použita metoda POT, tak aby při experimentu v diskrétní časový okamžik $k=1$ byla hodnota ESE relevantní.
+\par
+Průběh výstupní hodnoty filtru je zobrazen na obrázku \ref{fig:par_output}, hodnota ESE potom na obrázku \ref{fig:par_ese}. Hodnoty parametrů $\xi$, $\sigma$, $\mu$ GPD, pro všechny tři adaptivní váhy, během experimentu jsou zobrazeny na obrázcích \ref{fig:par_gamma}, \ref{fig:par_sigma} a \ref{fig:par_mu}.
 \par
 Experiment byl proveden na PC s procesorem Intel(R) Core(TM) i5-7400 se 4mi jádry s taktovací frekvencí 3001 MHz a operační pamětí o velikosti 32 GB. Operační systém byl Windows 10 Pro, 64-bitová verze 10.0.18362. Kód byl napsán v Python 3.6.1 a byly použity knihovny Numpy 1.17.0 a Scipy 1.4.1.
 
 
 \begin{figure}[h!]
-	\label{fig:par_output}
+
 	\centering
-	\includegraphics[scale=0.71]{IMG/appel_par/par_output.eps}
+	\includegraphics[scale=0.74]{IMG/appel_par/par_output.eps}
 	\caption{Výstup adaptivního filtru během experimentu. Skoková změna parametrů generátoru signálu je zvýrazněná svislou vodorovnou čarou v diskrétním časovém okamžiku $k=200$.}
+		\label{fig:par_output}
 \end{figure}
 
 \subsection{Výsledky a diskuze}
 
 
 \begin{figure}[h!]
-	\label{fig:par_ese}
+
 	\centering
-	\includegraphics[scale=0.71]{IMG/appel_par/par_ese.eps}
+	\includegraphics[scale=0.74]{IMG/appel_par/par_ese.eps}
 	\caption{Hodnota ESE během experimentu. Globální maximum odpovídá změně parametrů generátoru signálu, resp. úspěšné detekci novosti.}
+		\label{fig:par_ese}
 \end{figure}
 
 \begin{figure}[h!]
-	\label{fig:par_mu}
+
 	\centering
 	\includegraphics[scale=0.71]{IMG/appel_par/par_mu.eps}
 	\caption{Hodnota parametru $\mu$ GPD pro všechny tři adaptivní váhy $w_1$, $w_2$, $w_3$ během experimentu detekce změn parametrů generátoru signálu. Svislá čára v diskrétním časovém okamžiku $k=200$ znázorňuje skokovou změnu parametrů generátoru signálu.}
+		\label{fig:par_mu}
 \end{figure}
 
 \begin{figure}[h!]
-	\label{fig:par_gamma}
+
 	\centering
 	\includegraphics[scale=0.71]{IMG/appel_par/par_gamma.eps}
 	\caption{Hodnota parametru $\gamma$ GPD pro všechny tři adaptivní váhy $w_1$, $w_2$, $w_3$ během experimentu detekce změn parametrů generátoru signálu. Svislá čára v diskrétním časovém okamžiku $k=200$ znázorňuje skokovou změnu parametrů generátoru signálu.}
+		\label{fig:par_gamma}
 \end{figure}
 
 \begin{figure}[h!]
-	\label{fig:par_sigma}
+
 	\centering
 	\includegraphics[scale=0.71]{IMG/appel_par/par_sigma.eps}
 	\caption{Hodnota parametru $\sigma$ GPD pro všechny tři adaptivní váhy $w_1$, $w_2$, $w_3$ během experimentu detekce změn parametrů generátoru signálu. Svislá čára v diskrétním časovém okamžiku $k=200$ znázorňuje skokovou změnu parametrů generátoru signálu.}
+		\label{fig:par_sigma}
 \end{figure}
 Průměrný čas výpočtu $\overline{t}$ parametrů všech tří GPD (počet GPD odpovídá počtu adaptivních parametrů filtru) a odpovídající směrodatné odchylky $\sigma_t$ jsou uvedeny v následující tabulce \ref{tab:par_results}. Čas výpočtu je určený pro jeden experiment (400 vzorků).
 \begin{table}[h!]
@@ -481,89 +486,6 @@ Z provedeného experimentu je patrné, že použití algoritmu ESE pro aplikace 
 
 
 
-
-
-\section{Případová studie použití algoritmu Learning Entropy a adaptivního fuzzy filtru pro detekci změn stavů bioprocesu} \label{chap:LE_fuzzy}
-Cílem této studie je ověřit, že algoritmus LE, který byl doposud publikován s adaptivními filtry typu LNU a HONU, je možné použít i pro jiné typy adaptivních filtrů. Pro provedenou studii tak byl vybrán adaptivní fuzzy filtr (viz kapitola \ref{chap:fuzzyf}).
-\subsection{Popis bioprocesu a specifikace problému}
-Podle \cite{fermentace} je pro fermentační procesy, které probíhají v dávkovém režimu je podstatné, aby probíhalo správně dávkované živení substrátem. Pro tyto procesy je specifické, že se při nadměrných koncentracích stává substrát pro mikroorganismy toxickým a může dojít k tzv. přeživení a tím i zahubení těchto mikroorganismů. Naopak, v důsledku nedostatečného zábovení živinami může dojít k odumření kultivovaného organismu. Z tohoto pohledu se je tedy důležité v závislosti na koncentraci substrátu a stavu populace mikroorganismů měnit i strategii pro řízení procesu kultivace. Historicky byl stav bioprocesu klasifikován expertem, přičemž vyhodnocení bylo poměrně časově náročné a nebylo neobvyklé, že různí experti docházeli k rozdílným závěrům. Protože výnos fermentačního procesu je zásadním způsobem ovlivněn správnou klasifikací stavu ve kterém se právě nacházi, bylo by vhodné klasifikaci automatizovat a pokud možno zvýšit její přesnost. Tomuto problému je právě věnována publikace \cite{fermentace}, která řeší problém automatické klasifikace stavů bioprocesu kultivace bakterie \textit{Pseudomonas putida KT2442}. V této publikaci je navržen komplexní algoritmus pro online klasifikaci stavů bioprocesu. Autoři zde rozlišují celkem tři stavy bioprocesu kultivace \textit{Pseudomonas putida KT2442}, konkrétně:
-\begin{enumerate}
-    \item normální živení
-    \item přeživení
-    \item nedoživení
-\end{enumerate}
-Navržený algoritmus vyhodnocuje přísun vstupujících živin (Fm), respektive substrátu, a změny a trendu rozpuštěného kyslíku (DO), který je produkován bakteriemi \textit{Pseudomonas putida} a pomocí hřebenové regrese (v literatuře se vyskytuje také pod názvem Tichonova regularizace) je určován vývoj populace bakterií respektive stav bioprocesu. Vzhledem k tomu, že modely vývoje populace pro jednotlivé stavy jsou různé, mohlo by v průběhu experimentu dojít i k podstatným změnám v adaptivním modelu v okamžicích změn stavů kultivace. Tyto změny se mohli projevit neobvykle velkými přírůstky adaptivních parametrů. 
-\par
-Protože algoritmus Learning Entropy využívá přírůstku adaptivních parametrů, mohl by být vhodným nástrojem pro detekci změn stavů bioprocesu. Předpokládáme, že tedy existuje souvislost mezi změnami stavu bioprocesu a nárůstem Learning Entropy. Přestože může být proces kultivace bakterií \textit{Pseudonomas Putidas} modelován různými a různě složitými modely, pro využití algoritmu Learning Entropy se jeví výhodné použít jednoduché prediktory nebo sledovače. Dosud publikované články využívali pro algoritmus LE pouze FIR filtry, případně Volterrovy filtry, které mají adaptivní parametry v lineární závislosti. V tomto experimentu je použit adaptivní fuzzy filtr, jehož struktura je specifikována v kapitole \ref{chap:fuzzyf} a k jehož adaptaci byl použit algoritmus, který je uveden v kapitole \ref{chap:gd}.
-\par
-Použitý adaptivní fuzzy filtr má 9 pravidel ($M=9$), jehož $l$-té pravidlo je ve tvaru
-\begin{equation}
-    IF\;do(k-1)\; is\; A_1^l\;AND\;do(k-6)\;is\;A_2^l\;AND\;do(k-19)\;is\;A_3^l\;THEN\;do(k)\;is\;B^l
-\end{equation}
-kde $A_i^l$ je množina ve vstupním prostoru $U \subset R^3$ a $B^l$ je fuzzy množina ve výstupním prostoru $V \subset R$. V uvedeném pravidle jsou $do(k-1)$, $do(k-6)$, $do(k-19)$ a $do(k)$ lingvistické proměnné, které vyjadřují koncentraci rozpuštěného kyslíku $do$ v v diskrétních časových okamžicích $k$, $k-1$, $k-6$ respektive $k-19$, kde $k$ je diskrétní časový index. Vzhledem k tomu, že uvedený adaptivní fuzzy filtr používá Gaussovské funkce příslušnosti (viz kapitola \ref{chap:fuzzyf} je zobrazení popisující jeho výstup ve tvaru
-\begin{equation}
-    \hat{y}(\textbf{x}(k))=\frac{\sum_{j=1}^9 \overline{b}^j\Big[\prod_{i=1}^3 exp\Big(-\Big(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Big)\Big)\Big]}{\sum_{j=1}^9 \Big[\prod_{i=1}^3 exp\Big(-\Big(\frac{x_i-\overline{x}_i^j}{\sigma_i^j}\Big)\Big)\Big]}
-\end{equation}
-kde vektor $\textbf{x}(k)$ je
-\begin{equation}
-    \textbf{x}(k)=[do(k-1),do(k-6),do(k-19)].
-\end{equation}\
-Protože hodnota koncetnrace rozpuštěného kyslíku je uváděna v procentech, platí pro všechna $x_i\in \langle 0;100\rangle$. K adaptování výše uvedeného filtru byl použit algoritmus gradient descent (viz kapitola \ref{chap:gd}. Maximální počet epoch byl stanoven na $q_{max}=100$ a požadovaná chyba predikce mezi výstupem adaptivního filtru a naměřenými daty na $\epsilon=0,001$. Rychlost učení byla během experimentů nastavena na $\mu=1$.
-\par
-Pro vyhodnocení novosti byla použita přímá verze algoritmu LE, takže
-\begin{equation}\label{eq:le_putida}
-    E(k)=max\{0, \sum_{j=1}^9 z(\abs{\Delta \overline{b^j})}-\beta\}
-\end{equation}
-kde funkce $z$ je dána rovnicí (XY) a $\beta$ je citlivostní parametr. Pro vyhodnocení novosti jsou tedy použity změny polohy středů množin ve výstupním prostoru, nikoliv změny parametrů fuzzy množin ve vstupním prostoru.
-
-\subsection{Experiment a zhodnocení}
-Experiment s použitím algoritmu LE a adaptivního fuzzy filtru byl uskutečněn na datech z kultivace bakterie \textit{Pseudonomas Putida}, který byl uskutečněn na Ústavu počítačové a řídicí techniky VŠCHT Praha. Celkem byly zpracovávány hodnoty ze dvou kultivací. Přestože bylo během experimentu měřena sada různých veličin (např. teplota, pH, atd.), osvědčil se pro použití LE signál rozpustěného kyslíku $do$ $[\%]$. Během experimentu bylo použito vzorkování $T=1$ $min$, což je vzhledem k rychlosti celého procesu dostatečně rychlé vzorkování. Počáteční nastavení parametrů adaptivního fuzzy filtru bylo provedeno tak, jak je popsáné v kapitole \ref{chap:gd}. Podstatný vliv na výsledek detekce změn stavu bioprocesu měla volba volba délky okna pro vyhodnocení změn adaptabilních parametrů filtru $M_{ND}$. Na základě experimentů s různými délkami byla nakonec zvolena délka okna $M_{ND}=20$.
-\par
-Na následujících obrázcích je znázorněn průběh signálu $do$ během první kultivace (viz obrázek \ref{fig:artep_1}), chyba predikce (viz obrázek \ref{fig:artep_3}) a odpovídající hodnoty $LE$ společně se stavy bioprocesu (viz obrázek \ref{fig:artep_4}). Význam stavů bioprocesu znázorněných na obrázku \ref{fig:artep_3} respektive obrázku \ref{fig:artep_6} jsou: 1 - nedoživení, 2 - živení, 3 - přeživení. Aby byli detekovány všechny změny stavu bioprocesů, byla stanovena hodnota parametru $\beta=2,58$ (viz rovnice \ref{eq:le_putida}).
-\par
-Data z druhé kultivace byla použita k ověření správného nastavení parametru $\beta$.  Obrázek \ref{fig:artep_2} zobrazuje průběh signálu $do$ během druhého experimentu. Chyba predikce adaptivního fuzzy filtru je zobrazena na obrázku \ref{fig:artep_5}.  Obrázek \ref{fig:artep_6} zobrazuje stavy bioprocesu během kultivace a odpovídající hodnoty $LE$. S tímto nastavením parametru $\beta$ se podařilo detekovat pouze tři změny bioprocesu. Nicméně pro jiné hodnoty délky okna $M_{ND}$ a hodnoty parametru $\beta$ se tyto změny detekovat podařilo. Je tedy zřejmé, že pro praktické použití je správná volba obou parametrů zásadní. Vzhledem k malému množství dat a časové náročnosti kultivace nebylo možné použít nějakou validační metodu. 
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.8]{IMG/artep/artep17_1.png}
-    \caption{Průběh signálu $do$ během první kultivace}
-    \label{fig:artep_1}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.8]{IMG/artep/artep17_3.png}
-    \caption{Chyba predikce $e$ během první kultivace}
-    \label{fig:artep_3}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.8]{IMG/artep/artep17_4.png}
-    \caption{Stav bioprocesu a hodnota $LE$ první kultivace}
-    \label{fig:artep_5}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.8]{IMG/artep/artep17_2.png}
-    \caption{Průběh signálu $do$ během druhé kultivace}
-    \label{fig:artep_2}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.8]{IMG/artep/artep17_5.png}
-    \caption{Chyba predikce $e$ během druhé kultivace}
-    \label{fig:artep_4}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.8]{IMG/artep/artep17_6.png}
-    \caption{Stav bioprocesu a hodnota $LE$ během druhé kultivace}
-    \label{fig:artep_6}
-\end{figure}
 
 
 

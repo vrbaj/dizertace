@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.8.30)  13 OCT 2020 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.8.30)  14 OCT 2020 01:06
 entering extended mode
 **./PHD.tex
 (PHD.tex
@@ -57,19 +57,37 @@ Package: inputenc 2018/08/11 v1.3c Input encoding file
 ("C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty"
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
+("C:\Program Files\MiKTeX\tex/latex/tools\longtable.sty"
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip49
+\LTright=\skip50
+\LTpre=\skip51
+\LTpost=\skip52
+\LTchunksize=\count179
+\LTcapwidth=\dimen143
+\LT@head=\box45
+\LT@firsthead=\box46
+\LT@foot=\box47
+\LT@lastfoot=\box48
+\LT@cols=\count180
+\LT@rows=\count181
+\c@LT@tables=\count182
+\c@LT@chunks=\count183
+\LT@p@ftn=\toks19
+)
 ("C:\Program Files\MiKTeX\tex/generic/babel\babel.sty"
 Package: babel 2020/06/10 3.45 The Babel package
 
 ("C:\Program Files\MiKTeX\tex/generic/babel\babel.def"
 File: babel.def 2020/06/10 3.45 Babel common definitions
-\babel@savecnt=\count179
-\U@D=\dimen143
+\babel@savecnt=\count184
+\U@D=\dimen144
 \l@babelnohyphens=\language79
 
 ("C:\Program Files\MiKTeX\tex/generic/babel\txtbabel.def")
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count180
+\bbl@dirlevel=\count185
 
 *************************************
 * Local config file bblopts.cfg used
@@ -81,7 +99,7 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
 ("C:\Program Files\MiKTeX\tex/latex/babel-czech\czech.ldf"
 Language: czech 2008/07/06 v3.1a Czech support from the babel system
 Package babel Info: Making " an active character on input line 172.
-\cs@wordlen=\count181
+\cs@wordlen=\count186
 Package babel Info: Making - an active character on input line 226.
 ))
 ("C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty"
@@ -101,8 +119,8 @@ Package graphics Info: Driver file: pdftex.def on input line 105.
 ("C:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen144
-\Gin@req@width=\dimen145
+\Gin@req@height=\dimen145
+\Gin@req@width=\dimen146
 )
 ("C:\Program Files\MiKTeX\tex/latex/emptypage\emptypage.sty"
 Package: emptypage 2010/05/30 v1.2 Suppress page numbers and headings on empty 
@@ -110,14 +128,14 @@ pages
 )
 ("C:\Program Files\MiKTeX\tex/latex/natbib\natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip49
-\bibsep=\skip50
+\bibhang=\skip53
+\bibsep=\skip54
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count182
+\c@NAT@ctr=\count187
 ) (formatting.sty)
 ("C:\Program Files\MiKTeX\tex/latex/amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks19
+\@emptytoks=\toks20
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -126,7 +144,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )
 ("C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty"
 Package: amsmath 2020/01/20 v2.17e AMS math features
-\@mathmargin=\skip51
+\@mathmargin=\skip55
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty"
@@ -134,51 +152,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 ("C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
-\ex@=\dimen146
+\@emptytoks=\toks21
+\ex@=\dimen147
 ))
 ("C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen147
+\pmbraise@=\dimen148
 )
 ("C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count183
+\inf@bad=\count188
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count184
-\leftroot@=\count185
+\uproot@=\count189
+\leftroot@=\count190
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count186
-\DOTSCASE@=\count187
+\classnum@=\count191
+\DOTSCASE@=\count192
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box45
-\strutbox@=\box46
-\big@size=\dimen148
+\Mathstrutbox@=\box49
+\strutbox@=\box50
+\big@size=\dimen149
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count188
-\c@MaxMatrixCols=\count189
+\macc@depth=\count193
+\c@MaxMatrixCols=\count194
 \dotsspace@=\muskip16
-\c@parentequation=\count190
-\dspbrk@lvl=\count191
-\tag@help=\toks21
-\row@=\count192
-\column@=\count193
-\maxfields@=\count194
-\andhelp@=\toks22
-\eqnshift@=\dimen149
-\alignsep@=\dimen150
-\tagshift@=\dimen151
-\tagwidth@=\dimen152
-\totwidth@=\dimen153
-\lineht@=\dimen154
-\@envbody=\toks23
-\multlinegap=\skip52
-\multlinetaggap=\skip53
-\mathdisplay@stack=\toks24
+\c@parentequation=\count195
+\dspbrk@lvl=\count196
+\tag@help=\toks22
+\row@=\count197
+\column@=\count198
+\maxfields@=\count199
+\andhelp@=\toks23
+\eqnshift@=\dimen150
+\alignsep@=\dimen151
+\tagshift@=\dimen152
+\tagwidth@=\dimen153
+\totwidth@=\dimen154
+\lineht@=\dimen155
+\@envbody=\toks24
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
@@ -187,39 +205,39 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
 ("C:\Program Files\MiKTeX\tex/latex/booktabs\booktabs.sty"
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen155
-\lightrulewidth=\dimen156
-\cmidrulewidth=\dimen157
-\belowrulesep=\dimen158
-\belowbottomsep=\dimen159
-\aboverulesep=\dimen160
-\abovetopsep=\dimen161
-\cmidrulesep=\dimen162
-\cmidrulekern=\dimen163
-\defaultaddspace=\dimen164
-\@cmidla=\count195
-\@cmidlb=\count196
-\@aboverulesep=\dimen165
-\@belowrulesep=\dimen166
-\@thisruleclass=\count197
-\@lastruleclass=\count198
-\@thisrulewidth=\dimen167
+\heavyrulewidth=\dimen156
+\lightrulewidth=\dimen157
+\cmidrulewidth=\dimen158
+\belowrulesep=\dimen159
+\belowbottomsep=\dimen160
+\aboverulesep=\dimen161
+\abovetopsep=\dimen162
+\cmidrulesep=\dimen163
+\cmidrulekern=\dimen164
+\defaultaddspace=\dimen165
+\@cmidla=\count266
+\@cmidlb=\count267
+\@aboverulesep=\dimen166
+\@belowrulesep=\dimen167
+\@thisruleclass=\count268
+\@lastruleclass=\count269
+\@thisrulewidth=\dimen168
 )
 ("C:\Program Files\MiKTeX\tex/latex/mathtools\mathtools.sty"
 Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
 
 ("C:\Program Files\MiKTeX\tex/latex/tools\calc.sty"
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count199
-\calc@Bcount=\count266
-\calc@Adimen=\dimen168
-\calc@Bdimen=\dimen169
-\calc@Askip=\skip54
-\calc@Bskip=\skip55
+\calc@Acount=\count270
+\calc@Bcount=\count271
+\calc@Adimen=\dimen169
+\calc@Bdimen=\dimen170
+\calc@Askip=\skip58
+\calc@Bskip=\skip59
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count267
-\calc@Cskip=\skip56
+\calc@Ccount=\count272
+\calc@Cskip=\skip60
 )
 ("C:\Program Files\MiKTeX\tex/latex/mathtools\mhsetup.sty"
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
@@ -228,17 +246,17 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count268
-\l_MT_multwidth_dim=\dimen170
-\origjot=\skip57
-\l_MT_shortvdotswithinadjustabove_dim=\dimen171
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen172
-\l_MT_above_intertext_sep=\dimen173
-\l_MT_below_intertext_sep=\dimen174
-\l_MT_above_shortintertext_sep=\dimen175
-\l_MT_below_shortintertext_sep=\dimen176
-\xmathstrut@box=\box47
-\xmathstrut@dim=\dimen177
+\g_MT_multlinerow_int=\count273
+\l_MT_multwidth_dim=\dimen171
+\origjot=\skip61
+\l_MT_shortvdotswithinadjustabove_dim=\dimen172
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen173
+\l_MT_above_intertext_sep=\dimen174
+\l_MT_below_intertext_sep=\dimen175
+\l_MT_above_shortintertext_sep=\dimen176
+\l_MT_below_shortintertext_sep=\dimen177
+\xmathstrut@box=\box51
+\xmathstrut@dim=\dimen178
 )
 ("C:\Program Files\MiKTeX\tex/latex/lipsum\lipsum.sty"
 ("C:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty"
@@ -246,17 +264,17 @@ Package: expl3 2020-06-18 L3 programming layer (loader)
 
 ("C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count269
-\l__pdf_internal_box=\box48
+\l__kernel_color_stack_int=\count274
+\l__pdf_internal_box=\box52
 ))
 ("C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty"
 Package: xparse 2020-05-15 L3 Experimental document command parser
 
 ("C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse-generic.tex"
-\l__xparse_current_arg_int=\count270
-\g__xparse_grabber_int=\count271
-\l__xparse_m_args_int=\count272
-\l__xparse_v_nesting_int=\count273
+\l__xparse_current_arg_int=\count275
+\g__xparse_grabber_int=\count276
+\l__xparse_m_args_int=\count277
+\l__xparse_v_nesting_int=\count278
 ))
 Package: lipsum 2019/01/02 v2.2 150 paragraphs of Lorem Ipsum dummy text
 
@@ -305,9 +323,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ("C:\Program Files\MiKTeX\tex/latex/kvoptions\kvoptions.sty"
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen178
-\Hy@linkcounter=\count274
-\Hy@pagecounter=\count275
+\@linkdim=\dimen179
+\Hy@linkcounter=\count279
+\Hy@pagecounter=\count280
 
 ("C:\Program Files\MiKTeX\tex/latex/hyperref\pd1enc.def"
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
@@ -320,7 +338,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ("C:\Program Files\MiKTeX\tex/generic/etexcmds\etexcmds.sty"
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count276
+\Hy@SavedSpaceFactor=\count281
 Package hyperref Info: Option `unicode' set `true' on input line 4338.
 
 ("C:\Program Files\MiKTeX\tex/latex/hyperref\puenc.def"
@@ -335,9 +353,9 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count277
+\c@Hy@tempcnt=\count282
 LaTeX Info: Redefining \url on input line 5076.
-\XeTeXLinkMargin=\dimen179
+\XeTeXLinkMargin=\dimen180
 
 ("C:\Program Files\MiKTeX\tex/generic/bitset\bitset.sty"
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -346,9 +364,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count278
-\Field@Width=\dimen180
-\Fld@charsize=\dimen181
+\Fld@menulength=\count283
+\Field@Width=\dimen181
+\Fld@charsize=\dimen182
 Package hyperref Info: Hyper figures OFF on input line 6347.
 Package hyperref Info: Link nesting OFF on input line 6352.
 Package hyperref Info: Hyper index ON on input line 6355.
@@ -362,9 +380,9 @@ LaTeX Info: Redefining \pageref on input line 6421.
 ("C:\Program Files\MiKTeX\tex/generic/atbegshi\atbegshi.sty"
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count279
-\c@Item=\count280
-\c@Hfootnote=\count281
+\Hy@abspage=\count284
+\c@Item=\count285
+\c@Hfootnote=\count286
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -375,8 +393,8 @@ File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
-\Fld@listcount=\count282
-\c@bookmark@seq@number=\count283
+\Fld@listcount=\count287
+\c@bookmark@seq@number=\count288
 
 ("C:\Program Files\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty"
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
@@ -387,38 +405,38 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
-\Hy@SectionHShift=\skip58
+\Hy@SectionHShift=\skip62
 )
 ("C:\Program Files\MiKTeX\tex/latex/base\textcomp.sty"
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 ("C:\Program Files\MiKTeX\tex/latex/multirow\multirow.sty"
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
-\multirow@colwidth=\skip59
-\multirow@cntb=\count284
-\multirow@dima=\skip60
-\bigstrutjot=\dimen182
+\multirow@colwidth=\skip63
+\multirow@cntb=\count289
+\multirow@dima=\skip64
+\bigstrutjot=\dimen183
 )
 ("C:\Program Files\MiKTeX\tex/latex/setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
 ("C:\Program Files\MiKTeX\tex/latex/tools\array.sty"
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen183
-\ar@mcellbox=\box49
-\extrarowheight=\dimen184
-\NC@list=\toks25
-\extratabsurround=\skip61
-\backup@length=\skip62
-\ar@cellbox=\box50
+\col@sep=\dimen184
+\ar@mcellbox=\box53
+\extrarowheight=\dimen185
+\NC@list=\toks26
+\extratabsurround=\skip65
+\backup@length=\skip66
+\ar@cellbox=\box54
 )
 ("C:\Program Files\MiKTeX\tex/latex/float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count285
-\float@exts=\toks26
-\float@box=\box51
-\@float@everytoks=\toks27
-\@floatcapt=\box52
+\c@float@type=\count290
+\float@exts=\toks27
+\float@box=\box55
+\@float@everytoks=\toks28
+\@floatcapt=\box56
 )
 ("C:\Program Files\MiKTeX\tex/latex/mwe\mwe.sty"
 Package: mwe 2018/03/30 v0.5 Package to support minimal working examples (MWE)
@@ -429,30 +447,30 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 ("C:\Program Files\MiKTeX\tex/latex/tools\xspace.sty"
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count286
-\c@Blindtext=\count287
-\c@blind@countparstart=\count288
-\blind@countxx=\count289
-\blindtext@numBlindtext=\count290
-\blind@countyy=\count291
-\c@blindlist=\count292
-\c@blindlistlevel=\count293
-\c@blindlist@level=\count294
-\blind@listitem=\count295
-\c@blind@listcount=\count296
-\c@blind@levelcount=\count297
-\blind@mathformula=\count298
-\blind@Mathformula=\count299
-\c@blind@randomcount=\count300
-\c@blind@randommax=\count301
-\c@blind@pangramcount=\count302
-\c@blind@pangrammax=\count303
+\c@blindtext=\count291
+\c@Blindtext=\count292
+\c@blind@countparstart=\count293
+\blind@countxx=\count294
+\blindtext@numBlindtext=\count295
+\blind@countyy=\count296
+\c@blindlist=\count297
+\c@blindlistlevel=\count298
+\c@blindlist@level=\count299
+\blind@listitem=\count300
+\c@blind@listcount=\count301
+\c@blind@levelcount=\count302
+\blind@mathformula=\count303
+\blind@Mathformula=\count304
+\c@blind@randomcount=\count305
+\c@blind@randommax=\count306
+\c@blind@pangramcount=\count307
+\c@blind@pangrammax=\count308
 ))
 ("C:\Program Files\MiKTeX\tex/latex/appendix\appendix.sty"
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count304
-\c@@ppsavesec=\count305
-\c@@ppsaveapp=\count306
+\c@@pps=\count309
+\c@@ppsavesec=\count310
+\c@@ppsaveapp=\count311
 )
 ("C:\Program Files\MiKTeX\tex/latex/pdfpages\pdfpages.sty"
 Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
@@ -480,22 +498,22 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ))
-\AM@pagewidth=\dimen185
-\AM@pageheight=\dimen186
+\AM@pagewidth=\dimen186
+\AM@pageheight=\dimen187
 
 ("C:\Program Files\MiKTeX\tex/latex/pdfpages\pppdftex.def"
 File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
 )
-\AM@pagebox=\box53
-\AM@global@opts=\toks28
-\AM@pagecnt=\count307
-\AM@toc@title=\toks29
-\c@AM@survey=\count308
-\AM@templatesizebox=\box54
+\AM@pagebox=\box57
+\AM@global@opts=\toks29
+\AM@pagecnt=\count312
+\AM@toc@title=\toks30
+\c@AM@survey=\count313
+\AM@templatesizebox=\box58
 )
 ("C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty"
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count309
+\etb@tempcnta=\count314
 )
 ("C:\Program Files\MiKTeX\tex/latex/tocbibind\tocbibind.sty"
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
@@ -508,13 +526,13 @@ Package tocbibind Note: Using chapter style headings, unless overridden.
 ("C:\Program Files\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty"
 ("C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty"
 ("C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex"
-\pgfutil@everybye=\toks30
-\pgfutil@tempdima=\dimen187
-\pgfutil@tempdimb=\dimen188
+\pgfutil@everybye=\toks31
+\pgfutil@tempdima=\dimen188
+\pgfutil@tempdimb=\dimen189
 
 ("C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfutil-common-lists.tex"))
 ("C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def"
-\pgfutil@abb=\box55
+\pgfutil@abb=\box59
 
 ("C:\Program Files\MiKTeX\tex/latex/ms\everyshi.sty"
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
@@ -531,32 +549,32 @@ Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 
 ("C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex"
-\pgfkeys@pathtoks=\toks31
-\pgfkeys@temptoks=\toks32
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
 
 ("C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeysfiltered.code.tex"
-\pgfkeys@tmptoks=\toks33
+\pgfkeys@tmptoks=\toks34
 ))
-\pgf@x=\dimen189
-\pgf@y=\dimen190
-\pgf@xa=\dimen191
-\pgf@ya=\dimen192
-\pgf@xb=\dimen193
-\pgf@yb=\dimen194
-\pgf@xc=\dimen195
-\pgf@yc=\dimen196
-\pgf@xd=\dimen197
-\pgf@yd=\dimen198
+\pgf@x=\dimen190
+\pgf@y=\dimen191
+\pgf@xa=\dimen192
+\pgf@ya=\dimen193
+\pgf@xb=\dimen194
+\pgf@yb=\dimen195
+\pgf@xc=\dimen196
+\pgf@yc=\dimen197
+\pgf@xd=\dimen198
+\pgf@yd=\dimen199
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count310
-\c@pgf@countb=\count311
-\c@pgf@countc=\count312
-\c@pgf@countd=\count313
-\t@pgf@toka=\toks34
-\t@pgf@tokb=\toks35
-\t@pgf@tokc=\toks36
-\pgf@sys@id@count=\count314
+\c@pgf@counta=\count315
+\c@pgf@countb=\count316
+\c@pgf@countc=\count317
+\c@pgf@countd=\count318
+\t@pgf@toka=\toks35
+\t@pgf@tokb=\toks36
+\t@pgf@tokc=\toks37
+\pgf@sys@id@count=\count319
 ("C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg"
 File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
 )
@@ -570,8 +588,8 @@ File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 ))) ("C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.t
 ex"
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count315
-\pgfsyssoftpath@bigbuffer@items=\count316
+\pgfsyssoftpath@smallbuffer@items=\count320
+\pgfsyssoftpath@bigbuffer@items=\count321
 ) ("C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
 "
 File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -582,12 +600,12 @@ Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex"
 ("C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex")
 ("C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex"
-\pgfmath@dimen=\dimen199
-\pgfmath@count=\count317
-\pgfmath@box=\box56
-\pgfmath@toks=\toks37
-\pgfmath@stack@operand=\toks38
-\pgfmath@stack@operation=\toks39
+\pgfmath@dimen=\dimen256
+\pgfmath@count=\count322
+\pgfmath@box=\box60
+\pgfmath@toks=\toks38
+\pgfmath@stack@operand=\toks39
+\pgfmath@stack@operation=\toks40
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex"
 ("C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex"
@@ -605,54 +623,54 @@ ode.tex")
 ("C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmet
 ics.code.tex")))
 ("C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count318
+\c@pgfmathroundto@lastzeros=\count323
 ))
 ("C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfint.code.tex")
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex"
 File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@picminx=\dimen256
-\pgf@picmaxx=\dimen257
-\pgf@picminy=\dimen258
-\pgf@picmaxy=\dimen259
-\pgf@pathminx=\dimen260
-\pgf@pathmaxx=\dimen261
-\pgf@pathminy=\dimen262
-\pgf@pathmaxy=\dimen263
-\pgf@xx=\dimen264
-\pgf@xy=\dimen265
-\pgf@yx=\dimen266
-\pgf@yy=\dimen267
-\pgf@zx=\dimen268
-\pgf@zy=\dimen269
+\pgf@picminx=\dimen257
+\pgf@picmaxx=\dimen258
+\pgf@picminy=\dimen259
+\pgf@picmaxy=\dimen260
+\pgf@pathminx=\dimen261
+\pgf@pathmaxx=\dimen262
+\pgf@pathminy=\dimen263
+\pgf@pathmaxy=\dimen264
+\pgf@xx=\dimen265
+\pgf@xy=\dimen266
+\pgf@yx=\dimen267
+\pgf@yy=\dimen268
+\pgf@zx=\dimen269
+\pgf@zy=\dimen270
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.
 tex"
 File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@path@lastx=\dimen270
-\pgf@path@lasty=\dimen271
+\pgf@path@lastx=\dimen271
+\pgf@path@lasty=\dimen272
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex"
 File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@shorten@end@additional=\dimen272
-\pgf@shorten@start@additional=\dimen273
+\pgf@shorten@end@additional=\dimen273
+\pgf@shorten@start@additional=\dimen274
 ) ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex"
 File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfpic=\box57
-\pgf@hbox=\box58
-\pgf@layerbox@main=\box59
-\pgf@picture@serial@count=\count319
+\pgfpic=\box61
+\pgf@hbox=\box62
+\pgf@layerbox@main=\box63
+\pgf@picture@serial@count=\count324
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.t
 ex"
 File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgflinewidth=\dimen274
+\pgflinewidth=\dimen275
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.cod
 e.tex"
 File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@pt@x=\dimen275
-\pgf@pt@y=\dimen276
-\pgf@pt@temp=\dimen277
+\pgf@pt@x=\dimen276
+\pgf@pt@y=\dimen277
+\pgf@pt@temp=\dimen278
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex"
 File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -666,20 +684,20 @@ File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex"
 File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfarrowsep=\dimen278
+\pgfarrowsep=\dimen279
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@max=\dimen279
-\pgf@sys@shading@range@num=\count320
-\pgf@shadingcount=\count321
+\pgf@max=\dimen280
+\pgf@sys@shading@range@num=\count325
+\pgf@shadingcount=\count326
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex"
 File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 
 ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex"
 File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfexternal@startupbox=\box60
+\pgfexternal@startupbox=\box64
 )) ("C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex"
 File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
@@ -694,15 +712,15 @@ File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )))
 ("C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex"
 File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodeparttextbox=\box61
+\pgfnodeparttextbox=\box65
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex"
 File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
 ("C:\Program Files\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty"
 Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@nodesepstart=\dimen280
-\pgf@nodesepend=\dimen281
+\pgf@nodesepstart=\dimen281
+\pgf@nodesepend=\dimen282
 ) ("C:\Program Files\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.st
 y"
 Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
@@ -715,10 +733,10 @@ Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 
 ("C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex")
-\pgffor@iter=\dimen282
-\pgffor@skip=\dimen283
-\pgffor@stack=\toks40
-\pgffor@toks=\toks41
+\pgffor@iter=\dimen283
+\pgffor@skip=\dimen284
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
 ))
 ("C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex"
 Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
@@ -726,64 +744,64 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code
 .tex"
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count322
-\pgfplotmarksize=\dimen284
+\pgf@plot@mark@count=\count327
+\pgfplotmarksize=\dimen285
 )
-\tikz@lastx=\dimen285
-\tikz@lasty=\dimen286
-\tikz@lastxsaved=\dimen287
-\tikz@lastysaved=\dimen288
-\tikz@lastmovetox=\dimen289
-\tikz@lastmovetoy=\dimen290
-\tikzleveldistance=\dimen291
-\tikzsiblingdistance=\dimen292
-\tikz@figbox=\box62
-\tikz@figbox@bg=\box63
-\tikz@tempbox=\box64
-\tikz@tempbox@bg=\box65
-\tikztreelevel=\count323
-\tikznumberofchildren=\count324
-\tikznumberofcurrentchild=\count325
-\tikz@fig@count=\count326
+\tikz@lastx=\dimen286
+\tikz@lasty=\dimen287
+\tikz@lastxsaved=\dimen288
+\tikz@lastysaved=\dimen289
+\tikz@lastmovetox=\dimen290
+\tikz@lastmovetoy=\dimen291
+\tikzleveldistance=\dimen292
+\tikzsiblingdistance=\dimen293
+\tikz@figbox=\box66
+\tikz@figbox@bg=\box67
+\tikz@tempbox=\box68
+\tikz@tempbox@bg=\box69
+\tikztreelevel=\count328
+\tikznumberofchildren=\count329
+\tikznumberofcurrentchild=\count330
+\tikz@fig@count=\count331
 
 ("C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count327
-\pgfmatrixcurrentcolumn=\count328
-\pgf@matrix@numberofcolumns=\count329
+\pgfmatrixcurrentrow=\count332
+\pgfmatrixcurrentcolumn=\count333
+\pgf@matrix@numberofcolumns=\count334
 )
-\tikz@expandcount=\count330
+\tikz@expandcount=\count335
 
 ("C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
 arytopaths.code.tex"
 File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ))) ("C:\Program Files\MiKTeX\tex/latex/tools\enumerate.sty"
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks42
+\@enLab=\toks43
 ) ("C:\Program Files\MiKTeX\tex/latex/algorithms\algorithmic.sty"
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count331
-\c@ALC@line=\count332
-\c@ALC@rem=\count333
-\c@ALC@depth=\count334
-\ALC@tlm=\skip63
-\algorithmicindent=\skip64
+\c@ALC@unique=\count336
+\c@ALC@line=\count337
+\c@ALC@rem=\count338
+\c@ALC@depth=\count339
+\ALC@tlm=\skip67
+\algorithmicindent=\skip68
 )
 ("C:\Program Files\MiKTeX\tex/latex/algorithms\algorithm.sty"
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
-\@float@every@algorithm=\toks43
-\c@algorithm=\count335
+\@float@every@algorithm=\toks44
+\c@algorithm=\count340
 )
 ("C:\Program Files\MiKTeX\tex/latex/csquotes\csquotes.sty"
 Package: csquotes 2019-12-06 v5.2j context-sensitive quotations (JAW)
-\csq@reset=\count336
-\csq@gtype=\count337
-\csq@glevel=\count338
-\csq@qlevel=\count339
-\csq@maxlvl=\count340
-\csq@tshold=\count341
-\csq@ltx@everypar=\toks44
+\csq@reset=\count341
+\csq@gtype=\count342
+\csq@glevel=\count343
+\csq@qlevel=\count344
+\csq@maxlvl=\count345
+\csq@tshold=\count346
+\csq@ltx@everypar=\toks45
 
 ("C:\Program Files\MiKTeX\tex/latex/csquotes\csquotes.def"
 File: csquotes.def 2019-12-06 v5.2j csquotes generic definitions (JAW)
@@ -841,40 +859,40 @@ File: tikzlibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.mul
 tipart.code.tex"
 File: pgflibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodepartlowerbox=\box66
-\pgfnodeparttwobox=\box67
-\pgfnodepartthreebox=\box68
-\pgfnodepartfourbox=\box69
-\pgfnodeparttwentybox=\box70
-\pgfnodepartnineteenbox=\box71
-\pgfnodeparteighteenbox=\box72
-\pgfnodepartseventeenbox=\box73
-\pgfnodepartsixteenbox=\box74
-\pgfnodepartfifteenbox=\box75
-\pgfnodepartfourteenbox=\box76
-\pgfnodepartthirteenbox=\box77
-\pgfnodeparttwelvebox=\box78
-\pgfnodepartelevenbox=\box79
-\pgfnodeparttenbox=\box80
-\pgfnodepartninebox=\box81
-\pgfnodeparteightbox=\box82
-\pgfnodepartsevenbox=\box83
-\pgfnodepartsixbox=\box84
-\pgfnodepartfivebox=\box85
+\pgfnodepartlowerbox=\box70
+\pgfnodeparttwobox=\box71
+\pgfnodepartthreebox=\box72
+\pgfnodepartfourbox=\box73
+\pgfnodeparttwentybox=\box74
+\pgfnodepartnineteenbox=\box75
+\pgfnodeparteighteenbox=\box76
+\pgfnodepartseventeenbox=\box77
+\pgfnodepartsixteenbox=\box78
+\pgfnodepartfifteenbox=\box79
+\pgfnodepartfourteenbox=\box80
+\pgfnodepartthirteenbox=\box81
+\pgfnodeparttwelvebox=\box82
+\pgfnodepartelevenbox=\box83
+\pgfnodeparttenbox=\box84
+\pgfnodepartninebox=\box85
+\pgfnodeparteightbox=\box86
+\pgfnodepartsevenbox=\box87
+\pgfnodepartsixbox=\box88
+\pgfnodepartfivebox=\box89
 )))
 ("C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.
 tex"
 File: pgflibraryarrows.meta.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfarrowinset=\dimen293
-\pgfarrowlength=\dimen294
-\pgfarrowwidth=\dimen295
-\pgfarrowlinewidth=\dimen296
+\pgfarrowinset=\dimen294
+\pgfarrowlength=\dimen295
+\pgfarrowwidth=\dimen296
+\pgfarrowlinewidth=\dimen297
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
 arybackgrounds.code.tex"
 File: tikzlibrarybackgrounds.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@layerbox@background=\box86
-\pgf@layerboxsaved@background=\box87
+\pgf@layerbox@background=\box90
+\pgf@layerboxsaved@background=\box91
 )
 ("C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
 arycalc.code.tex"
@@ -884,15 +902,15 @@ Package: regexpatch 2018/05/02 v0.2d Extending etoolbox patching commands
 ) ("C:\Program Files\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty"
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip65
-\f@nch@O@elh=\skip66
-\f@nch@O@erh=\skip67
-\f@nch@O@olh=\skip68
-\f@nch@O@orh=\skip69
-\f@nch@O@elf=\skip70
-\f@nch@O@erf=\skip71
-\f@nch@O@olf=\skip72
-\f@nch@O@orf=\skip73
+\f@nch@headwidth=\skip69
+\f@nch@O@elh=\skip70
+\f@nch@O@erh=\skip71
+\f@nch@O@olh=\skip72
+\f@nch@O@orh=\skip73
+\f@nch@O@elf=\skip74
+\f@nch@O@erf=\skip75
+\f@nch@O@olf=\skip76
+\f@nch@O@orf=\skip77
 )
 ("C:\Program Files\MiKTeX\tex/latex/subfig\subfig.sty"
 Package: subfig 2005/06/28 ver: 1.3 subfig package
@@ -903,45 +921,49 @@ Package: caption 2020/05/30 v3.4k Customizing captions (AR)
 ("C:\Program Files\MiKTeX\tex/latex/caption\caption3.sty"
 Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
-\captionmargin=\dimen297
-\captionmargin@=\dimen298
-\captionwidth=\dimen299
-\caption@tempdima=\dimen300
-\caption@indent=\dimen301
-\caption@parindent=\dimen302
-\caption@hangindent=\dimen303
+\captionmargin=\dimen298
+\captionmargin@=\dimen299
+\captionwidth=\dimen300
+\caption@tempdima=\dimen301
+\caption@indent=\dimen302
+\caption@parindent=\dimen303
+\caption@hangindent=\dimen304
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count342
-\c@continuedfloat=\count343
+\c@caption@flags=\count347
+\c@continuedfloat=\count348
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
-)
-\c@KVtest=\count344
-\sf@farskip=\skip74
-\sf@captopadj=\dimen304
-\sf@capskip=\skip75
-\sf@nearskip=\skip76
-\c@subfigure=\count345
-\c@subfigure@save=\count346
-\c@lofdepth=\count347
-\c@subtable=\count348
-\c@subtable@save=\count349
-\c@lotdepth=\count350
-\sf@top=\skip77
-\sf@bottom=\skip78
+Package caption Info: longtable package is loaded.
+
+("C:\Program Files\MiKTeX\tex/latex/caption\ltcaption.sty"
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+))
+\c@KVtest=\count349
+\sf@farskip=\skip78
+\sf@captopadj=\dimen305
+\sf@capskip=\skip79
+\sf@nearskip=\skip80
+\c@subfigure=\count350
+\c@subfigure@save=\count351
+\c@lofdepth=\count352
+\c@subtable=\count353
+\c@subtable@save=\count354
+\c@lotdepth=\count355
+\sf@top=\skip81
+\sf@bottom=\skip82
 )
 ("C:\Program Files\MiKTeX\tex/latex/fancybox\fancybox.sty"
 Package: fancybox 2010/05/15 1.4
 
 Style option: `fancybox' v1.4 <2010/05/15> (tvz)
-\@fancybox=\box88
-\shadowsize=\dimen305
-\@Sbox=\box89
-\do@VerbBox=\toks45
-\the@fancyput=\toks46
-\this@fancyput=\toks47
-\EndVerbatimTokens=\toks48
+\@fancybox=\box92
+\shadowsize=\dimen306
+\@Sbox=\box93
+\do@VerbBox=\toks46
+\the@fancyput=\toks47
+\this@fancyput=\toks48
+\EndVerbatimTokens=\toks49
 \Verbatim@Outfile=\write4
 \Verbatim@Infile=\read4
 )
@@ -952,24 +974,24 @@ Package csquotes Info: Redefining alias 'default' -> 'czech'.
  (PHD.aux)
 \openout1 = `PHD.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1007,24 +1029,24 @@ LaTeX Font Info:    ... okay on input line 80.
 
 ("C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count351
-\scratchdimen=\dimen306
-\scratchbox=\box90
-\nofMPsegments=\count352
-\nofMParguments=\count353
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count354
-\MPscratchDim=\dimen307
-\MPnumerator=\count355
-\makeMPintoPDFobject=\count356
-\everyMPtoPDFconversion=\toks50
+\scratchcounter=\count356
+\scratchdimen=\dimen307
+\scratchbox=\box94
+\nofMPsegments=\count357
+\nofMParguments=\count358
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count359
+\MPscratchDim=\dimen308
+\MPnumerator=\count360
+\makeMPintoPDFobject=\count361
+\everyMPtoPDFconversion=\toks51
 ) ("C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
-\AtBeginShipoutBox=\box91
-Package hyperref Info: Link coloring OFF on input line 80.
+\AtBeginShipoutBox=\box95
+Package hyperref Info: Link coloring OFF on input line 81.
 
 ("C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1035,11 +1057,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ("C:\Program Files\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count357
+\c@section@level=\count362
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
 
 (PHD.out) (PHD.out)
 \@outlinefile=\write5
@@ -1057,7 +1079,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
  (VNITRNOSTI/main_info.tex
-<IMG/TOP/logoVSCHT_zakl_CB.png, id=246, 218.9781pt x 42.6393pt>
+<IMG/TOP/logoVSCHT_zakl_CB.png, id=250, 218.9781pt x 42.6393pt>
 File: IMG/TOP/logoVSCHT_zakl_CB.png Graphic file (type png)
 <use IMG/TOP/logoVSCHT_zakl_CB.png>
 Package pdftex.def Info: IMG/TOP/logoVSCHT_zakl_CB.png  used on input line 6.
@@ -1091,7 +1113,7 @@ name{page.}) has been already used, duplicate ignored
                    \relax 
 l.41 \cleardoublepage
                       [2]
-<IMG/TOP/logoUCT_basic_CB.png, id=265, 225.9642pt x 42.6393pt>
+<IMG/TOP/logoUCT_basic_CB.png, id=269, 225.9642pt x 42.6393pt>
 File: IMG/TOP/logoUCT_basic_CB.png Graphic file (type png)
 <use IMG/TOP/logoUCT_basic_CB.png>
 Package pdftex.def Info: IMG/TOP/logoUCT_basic_CB.png  used on input line 47.
@@ -1108,7 +1130,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 pdfTeX warning: pdflatex (file ./IMG/TOP/QR.pdf): PDF inclusion: found PDF vers
 ion <1.7>, but at most version <1.5> allowed
-<IMG/TOP/QR.pdf, id=266, 597.51233pt x 845.0471pt>
+<IMG/TOP/QR.pdf, id=270, 597.51233pt x 845.0471pt>
 File: IMG/TOP/QR.pdf Graphic file (type pdf)
 <use IMG/TOP/QR.pdf>
 Package pdftex.def Info: IMG/TOP/QR.pdf  used on input line 88.
@@ -1129,7 +1151,7 @@ ion <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex (file ./IMG/TOP/QR.pdf): PDF inclusion: found PDF vers
 ion <1.7>, but at most version <1.5> allowed
-<IMG/TOP/QR.pdf, id=269, page=1, 597.51233pt x 845.0471pt>
+<IMG/TOP/QR.pdf, id=273, page=1, 597.51233pt x 845.0471pt>
 File: IMG/TOP/QR.pdf Graphic file (type pdf)
 <use IMG/TOP/QR.pdf, page 1>
 Package pdftex.def Info: IMG/TOP/QR.pdf , page1 used on input line 88.
@@ -1241,7 +1263,7 @@ l.29 ...Ä›nÃ© Paretovo rozdÄ›lenÃ­}{33}{chapter.4}
                                                   % [13
 
 ]
-Overfull \hbox (2.16058pt too wide) in paragraph at lines 50--50
+Overfull \hbox (2.16058pt too wide) in paragraph at lines 49--49
  [][] [][]\T1/cmr/m/n/10.95 Vyhodnocení vý-po-£etní ná-ro£-nosti me-tod od-hadu
  pa-ra-me-tr· zo-bec-n¥-ného Pare- 
  []
@@ -1250,7 +1272,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.60 ...ine {chapter}{Literatura}{81}{chapter*.46}
+l.62 ...ine {C}VybranÃ© publikace}{}{section.1..3}
                                                   % [14])
 \tf@toc=\write6
 \openout6 = `PHD.toc'.
@@ -1271,14 +1293,14 @@ l.177 \cleardoublepage
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.210 \cleardoublepage
+l.211 \cleardoublepage
                        [17
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.210 \cleardoublepage
+l.211 \cleardoublepage
                        [18
 
 ]) (VNITRNOSTI/uvod.texpdfTeX warning (ext4): destination with the same identif
@@ -1372,13 +1394,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
-[27] [28] [29]
-! Double subscript.
-l.115 LE(k)=\sum_{i=1}^n_
-                         w \max \{0,z(\abs{\Delta w_i(k)})-\beta \};
-I treat `x_1_2' essentially like `x_1{}_2'.
-
-[30]) (VNITRNOSTI/gpd.tex [31] [32
+[27] [28] [29] [30]) (VNITRNOSTI/gpd.tex [31] [32
 
 ]
 Kapitola 4.
@@ -1397,7 +1413,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/MDPI/pdfs-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/MDPI/pdfs-eps-converted-to.pdf, id=980, 650.43pt x 361.35pt>
+<IMG/MDPI/pdfs-eps-converted-to.pdf, id=984, 650.43pt x 361.35pt>
 File: IMG/MDPI/pdfs-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/MDPI/pdfs-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/MDPI/pdfs-eps-converted-to.pdf  used on input line
@@ -1409,11 +1425,6 @@ Overfull \hbox (1.26883pt too wide) in paragraph at lines 34--35
  []
 
 [34 <./IMG/MDPI/pdfs-eps-converted-to.pdf>]
-
-Package natbib Warning: Citation `zhao1' on page 35 undefined on input line 58.
-
-
-
 Underfull \vbox (badness 1902) has occurred while \output is active []
 
  [35]
@@ -1454,7 +1465,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mackeydetails_diz-eps-converted-to.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf, id=1151, 722.7pt x 542.025pt>
+<IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf, id=1171, 722.7pt x 542.025pt>
 
 File: IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf>
@@ -1476,7 +1487,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mackey_results-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mackey_results-eps-converted-to.pdf, id=1152, 722.7pt x 542.025pt>
+<IMG/mdpi/mackey_results-eps-converted-to.pdf, id=1172, 722.7pt x 542.025pt>
 File: IMG/mdpi/mackey_results-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mackey_results-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/mackey_results-eps-converted-to.pdf  used on 
@@ -1497,18 +1508,15 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mackey_results_nd-eps-converted-to.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mackey_results_nd-eps-converted-to.pdf, id=1153, 722.7pt x 542.025pt>
+<IMG/mdpi/mackey_results_nd-eps-converted-to.pdf, id=1173, 722.7pt x 542.025pt>
 
 File: IMG/mdpi/mackey_results_nd-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mackey_results_nd-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/mackey_results_nd-eps-converted-to.pdf  used 
 on input line 34.
-(pdftex.def)             Requested size: 404.70923pt x 303.53192pt.
-
-Underfull \vbox (badness 1077) has occurred while \output is active []
-
- [44 <./IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf>] [45 <./IMG/mdpi/macke
-y_results-eps-converted-to.pdf>]
+(pdftex.def)             Requested size: 411.94327pt x 308.95746pt.
+[44 <./IMG/mdpi/mackeydetails_diz-eps-converted-to.pdf>] [45 <./IMG/mdpi/mackey
+_results-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/noise_change.eps>
 (epstopdf)                    date: 2020-09-21 22:07:23
 (epstopdf)                    size: 454493 bytes
@@ -1518,20 +1526,20 @@ Package epstopdf Info: Source file: <IMG/mdpi/noise_change.eps>
 (epstopdf)                    size: 129261 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/noise_change-eps-c
 onverted-to.pdf IMG/mdpi/noise_change.eps>
-(epstopdf)             \includegraphics on input line 56.
+(epstopdf)             \includegraphics on input line 54.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/noise_change-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/noise_change-eps-converted-to.pdf, id=1243, 722.7pt x 542.025pt>
+<IMG/mdpi/noise_change-eps-converted-to.pdf, id=1264, 722.7pt x 542.025pt>
 File: IMG/mdpi/noise_change-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/noise_change-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/noise_change-eps-converted-to.pdf  used on in
-put line 56.
+put line 54.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
 
-Underfull \vbox (badness 6995) has occurred while \output is active []
+Underfull \vbox (badness 1715) has occurred while \output is active []
 
  [46 <./IMG/mdpi/mackey_results_nd-eps-converted-to.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1545,17 +1553,17 @@ Package epstopdf Info: Source file: <IMG/mdpi/stepchange.eps>
 (epstopdf)                    size: 62152 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/stepchange-eps-con
 verted-to.pdf IMG/mdpi/stepchange.eps>
-(epstopdf)             \includegraphics on input line 78.
+(epstopdf)             \includegraphics on input line 76.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/stepchange-eps-converted-to.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/stepchange-eps-converted-to.pdf, id=1327, 722.7pt x 542.025pt>
+<IMG/mdpi/stepchange-eps-converted-to.pdf, id=1348, 722.7pt x 542.025pt>
 File: IMG/mdpi/stepchange-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/stepchange-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/stepchange-eps-converted-to.pdf  used on inpu
-t line 78.
+t line 76.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1569,19 +1577,22 @@ Package epstopdf Info: Source file: <IMG/mdpi/noise_ext.eps>
 (epstopdf)                    size: 57065 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/noise_ext-eps-conv
 erted-to.pdf IMG/mdpi/noise_ext.eps>
-(epstopdf)             \includegraphics on input line 104.
+(epstopdf)             \includegraphics on input line 102.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/noise_ext-eps-converted-to.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/noise_ext-eps-converted-to.pdf, id=1376, 722.7pt x 542.025pt>
+<IMG/mdpi/noise_ext-eps-converted-to.pdf, id=1397, 722.7pt x 542.025pt>
 File: IMG/mdpi/noise_ext-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/noise_ext-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/noise_ext-eps-converted-to.pdf  used on input
- line 104.
+ line 102.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
-[49]
+
+Underfull \vbox (badness 2970) has occurred while \output is active []
+
+ [49]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [50 <./IMG/mdpi/noise_ext-eps-converted-to.pdf>]
@@ -1594,18 +1605,19 @@ Package epstopdf Info: Source file: <IMG/mdpi/trendchange.eps>
 (epstopdf)                    size: 62116 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/trendchange-eps-co
 nverted-to.pdf IMG/mdpi/trendchange.eps>
-(epstopdf)             \includegraphics on input line 133.
+(epstopdf)             \includegraphics on input line 131.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/trendchange-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/trendchange-eps-converted-to.pdf, id=1439, 722.7pt x 542.025pt>
+<IMG/mdpi/trendchange-eps-converted-to.pdf, id=1459, 722.7pt x 542.025pt>
 File: IMG/mdpi/trendchange-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/trendchange-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/trendchange-eps-converted-to.pdf  used on inp
-ut line 133.
+ut line 131.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
+[51 <./IMG/mdpi/trendchange-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/trendchange_rls.eps>
 (epstopdf)                    date: 2020-09-23 23:41:25
 (epstopdf)                    size: 233179 bytes
@@ -1615,17 +1627,17 @@ pdf>
 (epstopdf)                    size: 62006 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/trendchange_rls-ep
 s-converted-to.pdf IMG/mdpi/trendchange_rls.eps>
-(epstopdf)             \includegraphics on input line 142.
+(epstopdf)             \includegraphics on input line 140.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/trendchange_rls-eps-converted-to.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/trendchange_rls-eps-converted-to.pdf, id=1442, 722.7pt x 542.025pt>
+<IMG/mdpi/trendchange_rls-eps-converted-to.pdf, id=1508, 722.7pt x 542.025pt>
 File: IMG/mdpi/trendchange_rls-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/trendchange_rls-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/trendchange_rls-eps-converted-to.pdf  used on
- input line 142.
+ input line 140.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
 Package epstopdf Info: Source file: <IMG/mdpi/trendchange_lms.eps>
 (epstopdf)                    date: 2020-09-25 06:43:18
@@ -1636,42 +1648,39 @@ pdf>
 (epstopdf)                    size: 63945 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/trendchange_lms-ep
 s-converted-to.pdf IMG/mdpi/trendchange_lms.eps>
-(epstopdf)             \includegraphics on input line 149.
+(epstopdf)             \includegraphics on input line 147.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/trendchange_lms-eps-converted-to.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/trendchange_lms-eps-converted-to.pdf, id=1443, 722.7pt x 542.025pt>
+<IMG/mdpi/trendchange_lms-eps-converted-to.pdf, id=1509, 722.7pt x 542.025pt>
 File: IMG/mdpi/trendchange_lms-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/trendchange_lms-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/trendchange_lms-eps-converted-to.pdf  used on
- input line 149.
+ input line 147.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
-[51 <./IMG/mdpi/trendchange-eps-converted-to.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [52 <./IMG/mdpi/trendchange_rls-eps-converted-to.pdf>]
+[52 <./IMG/mdpi/trendchange_rls-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/mouse_eeg.eps>
-(epstopdf)                    date: 2020-09-22 19:38:13
-(epstopdf)                    size: 595169 bytes
+(epstopdf)                    date: 2020-10-13 22:35:03
+(epstopdf)                    size: 135881 bytes
 (epstopdf)             Output file: <IMG/mdpi/mouse_eeg-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-09-22 19:38:32
-(epstopdf)                    size: 71746 bytes
+(epstopdf)                    date: 2020-10-13 22:38:58
+(epstopdf)                    size: 43278 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/mouse_eeg-eps-conv
 erted-to.pdf IMG/mdpi/mouse_eeg.eps>
-(epstopdf)             \includegraphics on input line 168.
+(epstopdf)             \includegraphics on input line 166.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mouse_eeg-eps-converted-to.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mouse_eeg-eps-converted-to.pdf, id=1540, 760.8425pt x 570.13pt>
+<IMG/mdpi/mouse_eeg-eps-converted-to.pdf, id=1561, 462.72874pt x 347.2975pt>
 File: IMG/mdpi/mouse_eeg-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mouse_eeg-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/mouse_eeg-eps-converted-to.pdf  used on input
- line 168.
-(pdftex.def)             Requested size: 441.28896pt x 330.67563pt.
+ line 166.
+(pdftex.def)             Requested size: 407.20256pt x 305.62274pt.
 Package epstopdf Info: Source file: <IMG/mdpi/mouse_novelty.eps>
 (epstopdf)                    date: 2020-09-22 19:35:16
 (epstopdf)                    size: 537434 bytes
@@ -1681,17 +1690,17 @@ f>
 (epstopdf)                    size: 60698 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/mouse_novelty-eps-
 converted-to.pdf IMG/mdpi/mouse_novelty.eps>
-(epstopdf)             \includegraphics on input line 174.
+(epstopdf)             \includegraphics on input line 172.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/mouse_novelty-eps-converted-to.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/mouse_novelty-eps-converted-to.pdf, id=1541, 760.8425pt x 570.13pt>
+<IMG/mdpi/mouse_novelty-eps-converted-to.pdf, id=1562, 760.8425pt x 570.13pt>
 File: IMG/mdpi/mouse_novelty-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/mouse_novelty-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/mouse_novelty-eps-converted-to.pdf  used on i
-nput line 174.
+nput line 172.
 (pdftex.def)             Requested size: 441.28896pt x 330.67563pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1699,54 +1708,54 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [53 <./IMG/mdpi/trendchange_lms-eps-converted-to.pdf>] [54 <./IMG/mdpi/mouse_e
 eg-eps-converted-to.pdf>] [55 <./IMG/mdpi/mouse_novelty-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/stepuni_stats.eps>
-(epstopdf)                    date: 2020-09-24 20:05:39
-(epstopdf)                    size: 26968 bytes
+(epstopdf)                    date: 2020-10-13 22:26:20
+(epstopdf)                    size: 33736 bytes
 (epstopdf)             Output file: <IMG/mdpi/stepuni_stats-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2020-09-24 20:17:38
-(epstopdf)                    size: 14021 bytes
+(epstopdf)                    date: 2020-10-13 22:28:16
+(epstopdf)                    size: 17280 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/stepuni_stats-eps-
 converted-to.pdf IMG/mdpi/stepuni_stats.eps>
-(epstopdf)             \includegraphics on input line 202.
+(epstopdf)             \includegraphics on input line 200.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/stepuni_stats-eps-converted-to.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/stepuni_stats-eps-converted-to.pdf, id=1614, 469.755pt x 352.31625pt>
+<IMG/mdpi/stepuni_stats-eps-converted-to.pdf, id=1658, 469.755pt x 352.31625pt>
 
 File: IMG/mdpi/stepuni_stats-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/stepuni_stats-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/stepuni_stats-eps-converted-to.pdf  used on i
-nput line 202.
-(pdftex.def)             Requested size: 291.24509pt x 218.4338pt.
+nput line 200.
+(pdftex.def)             Requested size: 310.03926pt x 232.52943pt.
 Package epstopdf Info: Source file: <IMG/mdpi/stepnorm_stats.eps>
-(epstopdf)                    date: 2020-09-24 20:05:35
-(epstopdf)                    size: 29263 bytes
+(epstopdf)                    date: 2020-10-13 22:26:20
+(epstopdf)                    size: 36180 bytes
 (epstopdf)             Output file: <IMG/mdpi/stepnorm_stats-eps-converted-to.p
 df>
-(epstopdf)                    date: 2020-09-24 22:27:55
-(epstopdf)                    size: 14568 bytes
+(epstopdf)                    date: 2020-10-13 22:28:17
+(epstopdf)                    size: 17887 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/stepnorm_stats-eps
 -converted-to.pdf IMG/mdpi/stepnorm_stats.eps>
-(epstopdf)             \includegraphics on input line 211.
+(epstopdf)             \includegraphics on input line 209.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/stepnorm_stats-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/stepnorm_stats-eps-converted-to.pdf, id=1616, 469.755pt x 352.31625pt
+<IMG/mdpi/stepnorm_stats-eps-converted-to.pdf, id=1662, 469.755pt x 352.31625pt
 >
 File: IMG/mdpi/stepnorm_stats-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/stepnorm_stats-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/stepnorm_stats-eps-converted-to.pdf  used on 
-input line 211.
-(pdftex.def)             Requested size: 291.24509pt x 218.4338pt.
+input line 209.
+(pdftex.def)             Requested size: 310.03926pt x 232.52943pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [56 <./IMG/mdpi/stepuni_stats-eps-converted-to.pdf>]
-Overfull \hbox (25.66302pt too wide) in paragraph at lines 225--227
+Overfull \hbox (25.66302pt too wide) in paragraph at lines 223--225
 \T1/cmr/m/n/10.95 p°i£emº pa-ra-metr $\OML/cmm/m/it/10.95 a$ \T1/cmr/m/n/10.95 
 je vy-ge-ne-ro-ván v kaº-dém ex-pe-ri-mentu z rov-no-m¥r-ného roz-d¥-lení $\OML
 /cmm/m/it/10.95 U\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95  \OT1/cmr/m/n/10.95 0\
@@ -1754,161 +1763,154 @@ OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 02\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.
 95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 02)$\T1/cmr/m/n/10.95 .
  []
 
-
-Underfull \vbox (badness 2951) has occurred while \output is active []
-
- [57 <./IMG/mdpi/stepnorm_stats-eps-converted-to.pdf>]
+[57 <./IMG/mdpi/stepnorm_stats-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <IMG/mdpi/trendchange_stats.eps>
-(epstopdf)                    date: 2020-09-24 22:52:11
-(epstopdf)                    size: 33227 bytes
+(epstopdf)                    date: 2020-10-13 22:25:30
+(epstopdf)                    size: 36546 bytes
 (epstopdf)             Output file: <IMG/mdpi/trendchange_stats-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2020-09-24 22:54:39
-(epstopdf)                    size: 17681 bytes
+(epstopdf)                    date: 2020-10-13 22:28:18
+(epstopdf)                    size: 19482 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/mdpi/trendchange_stats-
 eps-converted-to.pdf IMG/mdpi/trendchange_stats.eps>
-(epstopdf)             \includegraphics on input line 243.
+(epstopdf)             \includegraphics on input line 241.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/mdpi/trendchange_stats-eps-converted-to.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/mdpi/trendchange_stats-eps-converted-to.pdf, id=1703, 469.755pt x 352.3162
+<IMG/mdpi/trendchange_stats-eps-converted-to.pdf, id=1767, 469.755pt x 352.3162
 5pt>
 File: IMG/mdpi/trendchange_stats-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/mdpi/trendchange_stats-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/mdpi/trendchange_stats-eps-converted-to.pdf  used 
-on input line 243.
-(pdftex.def)             Requested size: 295.94722pt x 221.9604pt.
+on input line 241.
+(pdftex.def)             Requested size: 310.03926pt x 232.52943pt.
 [58 <./IMG/mdpi/trendchange_stats-eps-converted-to.pdf>] [59] [60]
 Package epstopdf Info: Source file: <IMG/appel_roc/roc_01.eps>
-(epstopdf)                    date: 2020-09-25 23:13:41
-(epstopdf)                    size: 59724 bytes
+(epstopdf)                    date: 2020-10-13 22:37:16
+(epstopdf)                    size: 60116 bytes
 (epstopdf)             Output file: <IMG/appel_roc/roc_01-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2020-09-25 23:18:08
-(epstopdf)                    size: 19640 bytes
+(epstopdf)                    date: 2020-10-13 22:38:59
+(epstopdf)                    size: 18821 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_roc/roc_01-eps-co
 nverted-to.pdf IMG/appel_roc/roc_01.eps>
-(epstopdf)             \includegraphics on input line 354.
+(epstopdf)             \includegraphics on input line 352.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_01-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_01-eps-converted-to.pdf, id=1788, 462.72874pt x 346.29375pt>
-
+<IMG/appel_roc/roc_01-eps-converted-to.pdf, id=1856, 462.72874pt x 347.2975pt>
 File: IMG/appel_roc/roc_01-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_01-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_roc/roc_01-eps-converted-to.pdf  used on inp
-ut line 354.
-(pdftex.def)             Requested size: 323.90791pt x 242.40396pt.
+ut line 352.
+(pdftex.def)             Requested size: 323.90791pt x 243.10658pt.
 Package epstopdf Info: Source file: <IMG/appel_roc/roc_02.eps>
-(epstopdf)                    date: 2020-09-25 23:13:43
-(epstopdf)                    size: 65397 bytes
+(epstopdf)                    date: 2020-10-13 22:37:27
+(epstopdf)                    size: 64850 bytes
 (epstopdf)             Output file: <IMG/appel_roc/roc_02-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2020-09-25 23:18:09
-(epstopdf)                    size: 20920 bytes
+(epstopdf)                    date: 2020-10-13 22:39:00
+(epstopdf)                    size: 19963 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_roc/roc_02-eps-co
 nverted-to.pdf IMG/appel_roc/roc_02.eps>
-(epstopdf)             \includegraphics on input line 360.
+(epstopdf)             \includegraphics on input line 358.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_02-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_02-eps-converted-to.pdf, id=1789, 462.72874pt x 346.29375pt>
-
+<IMG/appel_roc/roc_02-eps-converted-to.pdf, id=1857, 462.72874pt x 347.2975pt>
 File: IMG/appel_roc/roc_02-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_02-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_roc/roc_02-eps-converted-to.pdf  used on inp
-ut line 360.
-(pdftex.def)             Requested size: 323.90791pt x 242.40396pt.
+ut line 358.
+(pdftex.def)             Requested size: 323.90791pt x 243.10658pt.
 Package epstopdf Info: Source file: <IMG/appel_roc/roc_05.eps>
-(epstopdf)                    date: 2020-09-25 23:13:44
-(epstopdf)                    size: 76654 bytes
+(epstopdf)                    date: 2020-10-13 22:37:37
+(epstopdf)                    size: 78884 bytes
 (epstopdf)             Output file: <IMG/appel_roc/roc_05-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2020-09-25 23:18:10
-(epstopdf)                    size: 23332 bytes
+(epstopdf)                    date: 2020-10-13 22:39:01
+(epstopdf)                    size: 22985 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_roc/roc_05-eps-co
 nverted-to.pdf IMG/appel_roc/roc_05.eps>
-(epstopdf)             \includegraphics on input line 366.
+(epstopdf)             \includegraphics on input line 364.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_05-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_05-eps-converted-to.pdf, id=1790, 462.72874pt x 346.29375pt>
-
+<IMG/appel_roc/roc_05-eps-converted-to.pdf, id=1858, 462.72874pt x 347.2975pt>
 File: IMG/appel_roc/roc_05-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_05-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_roc/roc_05-eps-converted-to.pdf  used on inp
-ut line 366.
-(pdftex.def)             Requested size: 337.78917pt x 252.79233pt.
+ut line 364.
+(pdftex.def)             Requested size: 337.78917pt x 253.52505pt.
 Package epstopdf Info: Source file: <IMG/appel_roc/roc_1.eps>
-(epstopdf)                    date: 2020-10-06 20:28:52
-(epstopdf)                    size: 93423 bytes
+(epstopdf)                    date: 2020-10-13 22:37:49
+(epstopdf)                    size: 95196 bytes
 (epstopdf)             Output file: <IMG/appel_roc/roc_1-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-10-06 20:30:37
-(epstopdf)                    size: 26379 bytes
+(epstopdf)                    date: 2020-10-13 22:39:02
+(epstopdf)                    size: 26501 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_roc/roc_1-eps-con
 verted-to.pdf IMG/appel_roc/roc_1.eps>
-(epstopdf)             \includegraphics on input line 372.
+(epstopdf)             \includegraphics on input line 370.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_1-eps-converted-to.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_1-eps-converted-to.pdf, id=1791, 462.72874pt x 347.2975pt>
+<IMG/appel_roc/roc_1-eps-converted-to.pdf, id=1859, 462.72874pt x 347.2975pt>
 File: IMG/appel_roc/roc_1-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_1-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_roc/roc_1-eps-converted-to.pdf  used on inpu
-t line 372.
+t line 370.
 (pdftex.def)             Requested size: 337.78917pt x 253.52505pt.
 Package epstopdf Info: Source file: <IMG/appel_roc/roc_2.eps>
-(epstopdf)                    date: 2020-09-25 23:13:47
-(epstopdf)                    size: 114791 bytes
+(epstopdf)                    date: 2020-10-13 22:38:00
+(epstopdf)                    size: 51018 bytes
 (epstopdf)             Output file: <IMG/appel_roc/roc_2-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-09-25 23:18:12
-(epstopdf)                    size: 31521 bytes
+(epstopdf)                    date: 2020-10-13 22:39:03
+(epstopdf)                    size: 14958 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_roc/roc_2-eps-con
 verted-to.pdf IMG/appel_roc/roc_2.eps>
-(epstopdf)             \includegraphics on input line 378.
+(epstopdf)             \includegraphics on input line 376.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_2-eps-converted-to.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_2-eps-converted-to.pdf, id=1792, 462.72874pt x 346.29375pt>
+<IMG/appel_roc/roc_2-eps-converted-to.pdf, id=1860, 462.72874pt x 347.2975pt>
 File: IMG/appel_roc/roc_2-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_2-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_roc/roc_2-eps-converted-to.pdf  used on inpu
-t line 378.
-(pdftex.def)             Requested size: 337.78917pt x 252.79233pt.
+t line 376.
+(pdftex.def)             Requested size: 337.78917pt x 253.52505pt.
 Package epstopdf Info: Source file: <IMG/appel_roc/roc_25.eps>
-(epstopdf)                    date: 2020-09-25 23:13:49
-(epstopdf)                    size: 124846 bytes
+(epstopdf)                    date: 2020-10-13 22:38:14
+(epstopdf)                    size: 126956 bytes
 (epstopdf)             Output file: <IMG/appel_roc/roc_25-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2020-09-25 23:18:59
-(epstopdf)                    size: 33548 bytes
+(epstopdf)                    date: 2020-10-13 22:39:04
+(epstopdf)                    size: 32989 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_roc/roc_25-eps-co
 nverted-to.pdf IMG/appel_roc/roc_25.eps>
-(epstopdf)             \includegraphics on input line 384.
+(epstopdf)             \includegraphics on input line 382.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_roc/roc_25-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_roc/roc_25-eps-converted-to.pdf, id=1793, 462.72874pt x 346.29375pt>
-
+<IMG/appel_roc/roc_25-eps-converted-to.pdf, id=1861, 462.72874pt x 347.2975pt>
 File: IMG/appel_roc/roc_25-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_roc/roc_25-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_roc/roc_25-eps-converted-to.pdf  used on inp
-ut line 384.
-(pdftex.def)             Requested size: 337.78917pt x 252.79233pt.
+ut line 382.
+(pdftex.def)             Requested size: 337.78917pt x 253.52505pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1944,13 +1946,13 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_output-eps-converted-to.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_output-eps-converted-to.pdf, id=1999, 462.72874pt x 346.2937
+<IMG/appel_par/par_output-eps-converted-to.pdf, id=2058, 462.72874pt x 346.2937
 5pt>
 File: IMG/appel_par/par_output-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_output-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_par/par_output-eps-converted-to.pdf  used on
  input line 418.
-(pdftex.def)             Requested size: 328.5397pt x 245.87027pt.
+(pdftex.def)             Requested size: 342.42097pt x 256.25864pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1963,19 +1965,23 @@ Package epstopdf Info: Source file: <IMG/appel_par/par_ese.eps>
 (epstopdf)                    size: 11590 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_par/par_ese-eps-c
 onverted-to.pdf IMG/appel_par/par_ese.eps>
-(epstopdf)             \includegraphics on input line 428.
+(epstopdf)             \includegraphics on input line 429.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_ese-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_ese-eps-converted-to.pdf, id=2000, 462.72874pt x 346.29375pt
+<IMG/appel_par/par_ese-eps-converted-to.pdf, id=2059, 462.72874pt x 346.29375pt
 >
 File: IMG/appel_par/par_ese-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_ese-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_par/par_ese-eps-converted-to.pdf  used on in
-put line 428.
-(pdftex.def)             Requested size: 328.5397pt x 245.87027pt.
+put line 429.
+(pdftex.def)             Requested size: 342.42097pt x 256.25864pt.
+
+Underfull \vbox (badness 3058) has occurred while \output is active []
+
+ [66]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1988,18 +1994,18 @@ Package epstopdf Info: Source file: <IMG/appel_par/par_mu.eps>
 (epstopdf)                    size: 13197 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_par/par_mu-eps-co
 nverted-to.pdf IMG/appel_par/par_mu.eps>
-(epstopdf)             \includegraphics on input line 435.
+(epstopdf)             \includegraphics on input line 437.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_mu-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_mu-eps-converted-to.pdf, id=2001, 462.72874pt x 346.29375pt>
+<IMG/appel_par/par_mu-eps-converted-to.pdf, id=2072, 462.72874pt x 346.29375pt>
 
 File: IMG/appel_par/par_mu-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_mu-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_par/par_mu-eps-converted-to.pdf  used on inp
-ut line 435.
+ut line 437.
 (pdftex.def)             Requested size: 328.5397pt x 245.87027pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -2013,18 +2019,18 @@ df>
 (epstopdf)                    size: 13302 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_par/par_gamma-eps
 -converted-to.pdf IMG/appel_par/par_gamma.eps>
-(epstopdf)             \includegraphics on input line 442.
+(epstopdf)             \includegraphics on input line 445.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_gamma-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_gamma-eps-converted-to.pdf, id=2002, 462.72874pt x 346.29375
+<IMG/appel_par/par_gamma-eps-converted-to.pdf, id=2073, 462.72874pt x 346.29375
 pt>
 File: IMG/appel_par/par_gamma-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_gamma-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_par/par_gamma-eps-converted-to.pdf  used on 
-input line 442.
+input line 445.
 (pdftex.def)             Requested size: 328.5397pt x 245.87027pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -2038,118 +2044,875 @@ df>
 (epstopdf)                    size: 14956 bytes
 (epstopdf)             Command: <epstopdf --outfile=IMG/appel_par/par_sigma-eps
 -converted-to.pdf IMG/appel_par/par_sigma.eps>
-(epstopdf)             \includegraphics on input line 449.
+(epstopdf)             \includegraphics on input line 453.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./IMG/appel_par/par_sigma-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<IMG/appel_par/par_sigma-eps-converted-to.pdf, id=2003, 462.72874pt x 346.29375
+<IMG/appel_par/par_sigma-eps-converted-to.pdf, id=2074, 462.72874pt x 346.29375
 pt>
 File: IMG/appel_par/par_sigma-eps-converted-to.pdf Graphic file (type pdf)
 <use IMG/appel_par/par_sigma-eps-converted-to.pdf>
 Package pdftex.def Info: IMG/appel_par/par_sigma-eps-converted-to.pdf  used on 
-input line 449.
+input line 453.
 (pdftex.def)             Requested size: 328.5397pt x 245.87027pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[66]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[67 <./IMG/appel_par/par_output-eps-converted-to.pdf> <./IMG/appel_par/par_ese-
-eps-converted-to.pdf>]
+[67 <./IMG/appel_par/par_output-eps-converted-to.pdf>]
 
 LaTeX Warning: Text page 68 contains only floats.
 
 
+Underfull \vbox (badness 3229) has occurred while \output is active []
+
+ [68 <./IMG/appel_par/par_ese-eps-converted-to.pdf> <./IMG/appel_par/par_mu-eps
+-converted-to.pdf>]
+
+LaTeX Warning: Text page 69 contains only floats.
+
+
 Underfull \vbox (badness 1354) has occurred while \output is active []
 
- [68 <./IMG/appel_par/par_mu-eps-converted-to.pdf> <./IMG/appel_par/par_gamma-e
-ps-converted-to.pdf>] [69 <./IMG/appel_par/par_sigma-eps-converted-to.pdf>]
-Overfull \hbox (9.5284pt too wide) in paragraph at lines 486--486
-[]\T1/cmr/bx/n/14.4 P°ípadová stu-die po-u-ºití al-go-ritmu Lear-ning En-t-ropy
- a adap-
- []
-
-[70]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [71]
-<IMG/artep/artep17_1.png, id=2187, 422.32782pt x 316.18124pt>
-File: IMG/artep/artep17_1.png Graphic file (type png)
-<use IMG/artep/artep17_1.png>
-Package pdftex.def Info: IMG/artep/artep17_1.png  used on input line 528.
-(pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
-<IMG/artep/artep17_3.png, id=2188, 422.32782pt x 316.18124pt>
-File: IMG/artep/artep17_3.png Graphic file (type png)
-<use IMG/artep/artep17_3.png>
-Package pdftex.def Info: IMG/artep/artep17_3.png  used on input line 535.
-(pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
-<IMG/artep/artep17_4.png, id=2189, 422.32782pt x 316.18124pt>
-File: IMG/artep/artep17_4.png Graphic file (type png)
-<use IMG/artep/artep17_4.png>
-Package pdftex.def Info: IMG/artep/artep17_4.png  used on input line 542.
-(pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
-<IMG/artep/artep17_2.png, id=2190, 416.30531pt x 308.65312pt>
-File: IMG/artep/artep17_2.png Graphic file (type png)
-<use IMG/artep/artep17_2.png>
-Package pdftex.def Info: IMG/artep/artep17_2.png  used on input line 549.
-(pdftex.def)             Requested size: 333.0447pt x 246.92282pt.
-<IMG/artep/artep17_5.png, id=2191, 422.32782pt x 316.18124pt>
-File: IMG/artep/artep17_5.png Graphic file (type png)
-<use IMG/artep/artep17_5.png>
-Package pdftex.def Info: IMG/artep/artep17_5.png  used on input line 556.
-(pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
-<IMG/artep/artep17_6.png, id=2192, 422.32782pt x 311.66437pt>
-File: IMG/artep/artep17_6.png Graphic file (type png)
-<use IMG/artep/artep17_6.png>
-Package pdftex.def Info: IMG/artep/artep17_6.png  used on input line 563.
-(pdftex.def)             Requested size: 337.8627pt x 249.33183pt.
-)
-(VNITRNOSTI/zaver.tex [72] [73 <./IMG/artep/artep17_1.png> <./IMG/artep/artep17
-_3.png>] [74 <./IMG/artep/artep17_4.png> <./IMG/artep/artep17_2.png>] [75 <./IM
-G/artep/artep17_5.png> <./IMG/artep/artep17_6.png>] [76
-
-]
+ [69 <./IMG/appel_par/par_gamma-eps-converted-to.pdf> <./IMG/appel_par/par_sigm
+a-eps-converted-to.pdf>]) (VNITRNOSTI/zaver.tex [70]
 Kapitola 7.
 
 Underfull \vbox (badness 2376) has occurred while \output is active []
 
- [77])
-[78] [79
+ [71
 
-] [80] [81
+])
+[72] [73
 
-] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91]
-Underfull \hbox (badness 1675) in paragraph at lines 284--285
+] [74] [75
+
+] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85]
+Underfull \hbox (badness 1675) in paragraph at lines 285--286
 \T1/cmr/m/n/10.95 and-Application-Modernization. \T1/cmr/m/it/10.95 IBM \T1/cmr
 /m/n/10.95 [on-line]. 11 No-vem-ber 1999. [cit. 11.8.2020].
  []
 
-[92]
+[86]
+Overfull \hbox (1.2482pt too wide) in paragraph at lines 299--299
+[]\T1/cmr/bx/n/14.4 P°ípadová stu-die po-u-ºití al-go-ritmu Lear-ning En-t-ropy
+ a adap-
+ []
 
-Package natbib Warning: There were undefined citations.
-
-[93
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.309 \par
+           [1
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.329 \end{equation}
+                     [2]
+<IMG/artep/artep17_1.png, id=2339, 422.32782pt x 316.18124pt>
+File: IMG/artep/artep17_1.png Graphic file (type png)
+<use IMG/artep/artep17_1.png>
+Package pdftex.def Info: IMG/artep/artep17_1.png  used on input line 341.
+(pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
+<IMG/artep/artep17_3.png, id=2340, 422.32782pt x 316.18124pt>
+File: IMG/artep/artep17_3.png Graphic file (type png)
+<use IMG/artep/artep17_3.png>
+Package pdftex.def Info: IMG/artep/artep17_3.png  used on input line 348.
+(pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
+<IMG/artep/artep17_4.png, id=2341, 422.32782pt x 316.18124pt>
+File: IMG/artep/artep17_4.png Graphic file (type png)
+<use IMG/artep/artep17_4.png>
+Package pdftex.def Info: IMG/artep/artep17_4.png  used on input line 355.
+(pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
+<IMG/artep/artep17_2.png, id=2342, 416.30531pt x 308.65312pt>
+File: IMG/artep/artep17_2.png Graphic file (type png)
+<use IMG/artep/artep17_2.png>
+Package pdftex.def Info: IMG/artep/artep17_2.png  used on input line 362.
+(pdftex.def)             Requested size: 333.0447pt x 246.92282pt.
+<IMG/artep/artep17_5.png, id=2343, 422.32782pt x 316.18124pt>
+File: IMG/artep/artep17_5.png Graphic file (type png)
+<use IMG/artep/artep17_5.png>
+Package pdftex.def Info: IMG/artep/artep17_5.png  used on input line 369.
+(pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
+<IMG/artep/artep17_6.png, id=2344, 422.32782pt x 311.66437pt>
+File: IMG/artep/artep17_6.png Graphic file (type png)
+<use IMG/artep/artep17_6.png>
+Package pdftex.def Info: IMG/artep/artep17_6.png  used on input line 376.
+(pdftex.def)             Requested size: 337.8627pt x 249.33183pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.380 \newpage
+               [3]pdfTeX warning (ext4): destination with the same identifier (
+name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.380 \newpage
+               [4 <./IMG/artep/artep17_1.png> <./IMG/artep/artep17_3.png>]pdfTe
+X warning (ext4): destination with the same identifier (name{page.}) has been a
+lready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.380 \newpage
+               [5 <./IMG/artep/artep17_4.png> <./IMG/artep/artep17_2.png>]pdfTe
+X warning (ext4): destination with the same identifier (name{page.}) has been a
+lready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.380 \newpage
+               [6 <./IMG/artep/artep17_5.png> <./IMG/artep/artep17_6.png>]pdfTe
+X warning (ext4): destination with the same identifier (name{page.}) has been a
+lready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.383 \newpage
+               [7]
+Overfull \hbox (8.95363pt too wide) in paragraph at lines 384--384
+[]\T1/cmr/bx/n/14.4 Vyhodnocení p°es-nosti de-tekce zm¥ny trendu a sko-kové zm¥
+ny
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Float too large for page by 43.72198pt on input line 543.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.544 \clearpage
+                 [8]pdfTeX warning (ext4): destination with the same identifier
+ (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.544 \clearpage
+                 [9]pdfTeX warning (ext4): destination with the same identifier
+ (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.544 \clearpage
+                 [10]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2378, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf>
+Package pdftex.def Info: entropy-22-00093-v2.pdf  used on input line 546.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf>
+Package pdftex.def Info: entropy-22-00093-v2.pdf  used on input line 546.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2381, page=1, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 1>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page1 used on input line 546
+.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 1>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page1 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                   [11
+
+]
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 1>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page1 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 1>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page1 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 1>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page1 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [12 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2437, page=2, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 2>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page2 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 2>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page2 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 2>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page2 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [13 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2455, page=3, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 3>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page3 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 3>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page3 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 3>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page3 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [14 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2463, page=4, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 4>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page4 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 4>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page4 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 4>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page4 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [15 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2468, page=5, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 5>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page5 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 5>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page5 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 5>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page5 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [16 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2477, page=6, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 6>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page6 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 6>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page6 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 6>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page6 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [17 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2515, page=7, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 7>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page7 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 7>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page7 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 7>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page7 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [18 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2519, page=8, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 8>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page8 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 8>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page8 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 8>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page8 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [19 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2523, page=9, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 9>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page9 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 9>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page9 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 9>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page9 used on input line 546
+.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [20 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2568, page=10, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 10>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page10 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 10>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page10 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 10>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page10 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [21 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2634, page=11, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 11>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page11 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 11>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page11 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 11>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page11 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [22 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2674, page=12, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 12>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page12 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 12>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page12 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 12>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page12 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [23 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2718, page=13, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 13>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page13 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 13>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page13 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 13>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page13 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [24 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2763, page=14, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 14>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page14 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 14>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page14 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 14>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page14 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [25 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2808, page=15, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 15>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page15 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 15>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page15 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 15>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page15 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [26 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2862, page=16, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 16>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page16 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 16>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page16 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 16>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page16 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [27 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2901, page=17, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 17>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page17 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 17>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page17 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 17>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page17 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [28 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2939, page=18, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 18>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page18 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 18>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page18 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 18>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page18 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [29 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2987, page=19, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 19>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page19 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 19>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page19 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 19>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page19 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [30 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2991, page=20, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 20>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page20 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 20>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page20 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 20>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page20 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [31 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2995, page=21, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 21>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page21 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 21>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page21 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 21>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page21 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [32 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=2999, page=22, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 22>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page22 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 22>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page22 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 22>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page22 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [33 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=3004, page=23, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 23>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page23 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 23>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page23 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 23>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page23 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [34 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=3008, page=24, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 24>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page24 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 24>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page24 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 24>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page24 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [35 <./entropy-22-00093-v2.pdf>]
+
+pdfTeX warning: pdflatex (file ./entropy-22-00093-v2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<entropy-22-00093-v2.pdf, id=3012, page=25, 597.50829pt x 845.0471pt>
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 25>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page25 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 25>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page25 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.546 ...ludepdf[pages=-]{entropy-22-00093-v2.pdf}
+                                                  
+File: entropy-22-00093-v2.pdf Graphic file (type pdf)
+<use entropy-22-00093-v2.pdf, page 25>
+Package pdftex.def Info: entropy-22-00093-v2.pdf , page25 used on input line 54
+6.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [36 <./entropy-22-00093-v2.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 555.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 555.
  (PHD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 302.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 555.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 555.
 Package rerunfilecheck Info: File `PHD.out' has not changed.
-(rerunfilecheck)             Checksum: 6F9D5ECD02975E606624CCB8996679F1;14496.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 302.
+(rerunfilecheck)             Checksum: 7B1E5A2D4C864E856DD17CB0EFD6A73B;14240.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 555.
  ) 
 Here is how much of TeX's memory you used:
- 31657 strings out of 480790
- 577197 string characters out of 2907055
- 971796 words of memory out of 3000000
- 46467 multiletter control sequences out of 15000+200000
+ 31858 strings out of 480790
+ 582136 string characters out of 2907055
+ 991277 words of memory out of 3000000
+ 46663 multiletter control sequences out of 15000+200000
  553009 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,18n,67p,3600b,1073s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2183,11 +2946,14 @@ cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/
 Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/sym
-bols/msbm10.pfb>
-Output written on PHD.pdf (113 pages, 1788356 bytes).
+/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmsy9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.p
+fb><C:/Program Files/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Fil
+es/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX/fonts/ty
+pe1/urw/palatino/uplri8a.pfb>
+Output written on PHD.pdf (142 pages, 2566232 bytes).
 PDF statistics:
- 3095 PDF objects out of 3580 (max. 8388607)
- 555 named destinations out of 1000 (max. 500000)
- 683 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3807 PDF objects out of 4296 (max. 8388607)
+ 552 named destinations out of 1000 (max. 500000)
+ 831 words of extra memory for PDF output out of 10000 (max. 10000000)
 

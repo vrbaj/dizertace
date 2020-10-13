@@ -76,7 +76,7 @@ Ve článku \cite{auto5} je navržen nový typ autoenkodéru DGP-AE (Deep Gaussi
 
 
 \section{Další vybrané metody využívající adaptivní filtry}
-Vzhledem k tomu, že tématem předkladané dizertační práce jsou adaptivní systémy, byla tato kapitola vyčleněna metodám detekce novosti, které využívají právě adaptivní filtry. Zvláštní pozornost a podrobný popis se pak týká algoritmům Learning Entropy a Error and Learning Based Novelty Detection, které jsou v kapitole \ref{chap: ESE_vysledky} použity v porovnání výsledků.
+Vzhledem k tomu, že tématem předkládané dizertační práce jsou adaptivní systémy, byla tato kapitola vyčleněna metodám detekce novosti, které využívají právě adaptivní filtry. Zvláštní pozornost a podrobný popis se pak týká algoritmům Learning Entropy a Error and Learning Based Novelty Detection, které jsou v kapitole \ref{chap:vysledky} použity k porovnání výsledků.
 \subsection{Metoda set-membership}
 Metoda set-membership \cite{diniz0,set_member} je metoda použitá nejen ke zrychlení adaptace filtru ale i pro detekci novosti. Tato metoda pracuje s chybou predikce a adaptivním filtrem. Základní myšlenka je, že pokud je chyba predikce filtru $e$ větší než nějaká prahová hodnota $\gamma$, dojde k adaptaci tohoto filtru. Podmínka pro adaptaci filtru je tedy ve tvaru 
 \begin{equation}
@@ -95,7 +95,7 @@ Algoritmus Learning Entropy (LE) je algoritmem, který využívá adaptivních f
 \begin{equation}
 \boldsymbol{\alpha}=\{ \alpha_1,\alpha_1,\dots,\alpha_{n_{\alpha}} \}, \alpha_1>\alpha_2>\dots>\alpha_{n_{\alpha}}
 \end{equation}
-přičemž $\forall i \in \{1,2,\dots,n_{\alpha} \}:\alpha_i\in R$. Míra novosti \textquote{Approximate Individual Sample Learning Entropy} je potom definovaná jako
+přičemž $\forall i \in \{1,2,\dots,n_{\alpha} \}:\alpha_i\in R$. Míra novosti \textquote{Approximate Individual Sample Learning Entropy} (AISLE) je potom definovaná jako
 \begin{equation}\label{eq:aisle}
 E_A(k)=\frac{1}{n_w\cdot n_{\alpha}}\sum_{i=1}^{n_w}\sum_j^{n_{\alpha}} f(\abs{\Delta w_i(k)}, \alpha_j)
 \end{equation}
@@ -112,7 +112,7 @@ a $n_w$ je počet adaptivních parametrů filtru, $n_{\alpha}$ je počet citlivo
 \par
 V publikaci \cite{ivoLE2} pak autoři navrhují tzv. přímý algoritmus pro výpočet LE. Ta je vypočítána jako
 \begin{equation}\label{eq:le_direct}
-LE(k)=\sum_{i=1}^n_w \max \{0,z(\abs{\Delta w_i(k)})-\beta \};
+LE(k)=\sum_{i=1}^{n_w} \max \{0,z(\abs{\Delta w_i(k)})-\beta \};
 \end{equation}
 kde funkce $z$ je označovaná jako speciální \textquote{$z$-score} a je definovaná jako
 \begin{equation}
